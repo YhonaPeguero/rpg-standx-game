@@ -54,7 +54,36 @@
     "ep": "Engage Points",
     "streak": "Streak",
     "audioOn": "Audio On",
-    "audioOff": "Audio Off"
+    "audioOff": "Audio Off",
+    "motionOn": "Motion On",
+    "motionOff": "Motion Off",
+    "claim": "Claim +{ep}",
+    "claimed": "Claimed"
+  },
+  "codex": {
+    "badge": "Codex",
+    "title": "Unlocked Knowledge",
+    "empty": "No entries unlocked yet. Complete chapters to build your codex."
+  },
+  "profile": {
+    "badge": "Profile",
+    "rank": "Rank",
+    "squad": "Squad",
+    "none": "None",
+    "achievements": "Achievements",
+    "empty": "No achievements unlocked yet."
+  },
+  "share": {
+    "badge": "Share Card",
+    "title": "Generate 1200x630 PNG",
+    "body": "Create a clean card for your local run. Download it or share your progress on X.",
+    "generate": "Generate PNG",
+    "copy": "Copy data URL",
+    "download": "Download",
+    "shareX": "Share to X",
+    "tweet": "I am building my StandX Growth Path in StandX RPG.",
+    "squad": "Squad",
+    "previewAlt": "Generated StandX share card"
   },
   "nav": {
     "hq": "HQ",
@@ -108,7 +137,8 @@
       "ep": "Engage Points",
       "stars": "Stars",
       "codex": "Codex",
-      "back": "Back to HQ"
+      "back": "Back to HQ",
+      "noSquad": "No squad"
     }
   }
 }

@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { nextRankThreshold, RANK_THRESHOLDS } from "@/lib/game/ep";
 import { useGameStore } from "@/store";
 import { EPRing } from "./EPRing";
+import { DailyClaim } from "./DailyClaim";
 import { RankLabel } from "./RankLabel";
 import { StreakBadge } from "./StreakBadge";
 
@@ -15,6 +16,8 @@ export function TopBar() {
   const audioEnabled = useGameStore((state) => state.audioEnabled);
   const setLocale = useGameStore((state) => state.setLocale);
   const toggleAudio = useGameStore((state) => state.toggleAudio);
+  const toggleReduceMotion = useGameStore((state) => state.toggleReduceMotion);
+  const reduceMotion = useGameStore((state) => state.reduceMotion);
   const bumpStreak = useGameStore((state) => state.bumpStreak);
   const next = nextRankThreshold(player.ep);
   const current = RANK_THRESHOLDS.find((threshold) => threshold.rank === player.rank)?.min ?? 0;
@@ -36,6 +39,7 @@ export function TopBar() {
         </div>
         <div className="flex items-center gap-2">
           <StreakBadge days={player.streakDays} label={t("streak")} />
+          <DailyClaim />
           <button
             className="rounded-sx border border-[var(--stroke-soft)] px-3 py-2 font-mono text-xs uppercase tracking-[0.18em] text-sx-text transition hover:border-sx-green"
             type="button"
@@ -49,6 +53,13 @@ export function TopBar() {
             onClick={toggleAudio}
           >
             {audioEnabled ? t("audioOn") : t("audioOff")}
+          </button>
+          <button
+            className="rounded-sx border border-[var(--stroke-soft)] px-3 py-2 font-mono text-xs uppercase tracking-[0.18em] text-sx-text transition hover:border-sx-green"
+            type="button"
+            onClick={toggleReduceMotion}
+          >
+            {reduceMotion ? t("motionOff") : t("motionOn")}
           </button>
         </div>
       </div>

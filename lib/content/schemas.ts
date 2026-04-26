@@ -129,5 +129,26 @@ export const characterSchema = z.object({
 
 export const charactersSchema = z.array(characterSchema).min(1);
 
+export const localizedTextSchema = z.object({
+  en: z.string().min(1),
+  "pt-BR": z.string().min(1),
+});
+
+export const codexEntrySchema = z.object({
+  id: z.string(),
+  title: localizedTextSchema,
+  body: localizedTextSchema,
+  category: z.enum(["growth", "community", "trading", "content", "squads"]),
+});
+
+export const achievementSchema = z.object({
+  id: z.string(),
+  title: localizedTextSchema,
+  description: localizedTextSchema,
+});
+
+export const codexSchema = z.array(codexEntrySchema).min(1);
+export const achievementsSchema = z.array(achievementSchema).min(1);
+
 export type ChapterContent = z.infer<typeof chapterSchema>;
 export type CharacterContent = z.infer<typeof characterSchema>;

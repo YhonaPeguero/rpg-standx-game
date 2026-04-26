@@ -54,7 +54,36 @@
     "ep": "Engage Points",
     "streak": "Sequencia",
     "audioOn": "Audio On",
-    "audioOff": "Audio Off"
+    "audioOff": "Audio Off",
+    "motionOn": "Movimento On",
+    "motionOff": "Movimento Off",
+    "claim": "Coletar +{ep}",
+    "claimed": "Coletado"
+  },
+  "codex": {
+    "badge": "Codex",
+    "title": "Conhecimento Desbloqueado",
+    "empty": "Nenhuma entrada desbloqueada ainda. Complete capitulos para construir seu codex."
+  },
+  "profile": {
+    "badge": "Perfil",
+    "rank": "Rank",
+    "squad": "Squad",
+    "none": "Nenhum",
+    "achievements": "Conquistas",
+    "empty": "Nenhuma conquista desbloqueada ainda."
+  },
+  "share": {
+    "badge": "Share Card",
+    "title": "Gerar PNG 1200x630",
+    "body": "Crie um card limpo do seu progresso local. Baixe ou compartilhe no X.",
+    "generate": "Gerar PNG",
+    "copy": "Copiar data URL",
+    "download": "Baixar",
+    "shareX": "Compartilhar no X",
+    "tweet": "Estou construindo meu Growth Path da StandX no StandX RPG.",
+    "squad": "Squad",
+    "previewAlt": "Share card gerado da StandX"
   },
   "nav": {
     "hq": "HQ",
@@ -86,6 +115,159 @@
       }
     ]
   },
+  "content": {
+    "chapters": {
+      "act1-c1-awakening": {
+        "title": "O Despertar",
+        "subtitle": "onde tudo comeca",
+        "scenes": {
+          "s1-1-activation": {
+            "lines": [
+              "[ LOG DE ATIVACAO ] Entidade: STANDER. Status: New Stander. Engage Points: 0/3000. Missao: Crescer ate FLOWER.",
+              "Onde estou? Escuridao total. So eu e um olho tentando entender esse universo.",
+              "Tem um sinal. Fraco, mas constante. Vem de um lugar chamado... StandX.",
+              "Bem-vindo. Eu sou a Mira - Voz Oficial da StandX. Sou quem da as regras, as metas e as missoes.",
+              "O Growth Path tem tres cargos: SEED, SPROUT e FLOWER. Cada um exige mais: consistencia, qualidade e impacto real na comunidade.",
+              "Por onde comeco?",
+              "Pelo comeco. 3.000 Engage Points para aplicar ao SEED. Cada acao conta. Vamos."
+            ]
+          },
+          "s1-2-first-choice": {
+            "lines": ["Como voce quer entrar no servidor?"],
+            "choices": [
+              { "label": "Entrar com energia - primeiro evento, primeiro post", "feedback": "+80 EP - Presenca notada desde o primeiro dia." },
+              { "label": "Observar antes de agir - ler tudo primeiro", "feedback": "+30 EP - Consistencia comeca com observacao." }
+            ]
+          },
+          "s1-3-quiz-engage": {
+            "questions": [
+              { "prompt": "O que gera Engage Points no Discord da StandX?", "options": ["Reagir a anuncios", "Participar de evento semanal", "Spammar o mesmo emoji"], "explanation": "Reacoes e participacao em eventos contam. Spam e filtrado e pode gerar alerta." },
+              { "prompt": "Quantos Engage Points sao necessarios para aplicar ao SEED?", "options": ["1.000", "3.000", "10.000"], "explanation": "3.000 e o gate de SEED. SPROUT exige pelo menos 4.000 mais tarefas de squad." },
+              { "prompt": "O que o bonus Weekly Active User concede?", "options": ["+50 EP", "+100 EP por semana", "Nada"], "explanation": "Weekly Active = +100 EP. Com atividades semanais e conteudo util, 3.000 vem pela consistencia." }
+            ]
+          },
+          "s1-4-reflection": {
+            "prompt": "Por que voce esta aqui? O que trouxe voce para a StandX?",
+            "options": ["Curiosidade sobre perp DEX", "Procuro uma comunidade real", "Quero construir, nao so operar", "Sinceramente? FOMO."]
+          }
+        }
+      },
+      "act1-c2-discord-plaza": {
+        "title": "Discord Plaza",
+        "subtitle": "a comunidade esta viva",
+        "scenes": {
+          "s2-1-plaza-enter": {
+            "lines": [
+              "Discord Plaza. Canais para tudo: eventos, conteudo, anuncios e suporte. Cada um tem um proposito.",
+              "Ei! Sou o Dias. Ja sou Sprout. Sabe o que me trouxe ate aqui? Presenca. Todo. Dia.",
+              "Todo dia mesmo?",
+              "Todo dia. Reagia nos anuncios, entrava nos eventos e ajudava quem chegava. Eu nao era o mais tecnico, mas era presente. Isso conta aqui.",
+              "Dias esta certo. Reacoes em announcements, weekly events e shoutouts geram Engage Points. Consistencia e seu maior ativo."
+            ]
+          },
+          "s2-2-announcement": {
+            "lines": ["[ ANNOUNCEMENT ATIVO ] Uma atualizacao foi postada. Reagir a posts oficiais gera pontos. Pequena acao, habito poderoso.", "Simples assim?", "Simples assim. Quem faz isso todo dia avanca mais rapido do que quem faz algo enorme uma vez por mes."],
+            "choices": [
+              { "label": "Reagir e comentar algo relevante", "feedback": "+120 EP - Engajamento real notado." },
+              { "label": "So reagir, sem comentar", "feedback": "+50 EP - Reacao registrada." },
+              { "label": "Ignorar por agora", "feedback": "Oportunidade perdida. Cada acao conta." }
+            ]
+          },
+          "s2-3-quiz-consistency": {
+            "questions": [
+              { "prompt": "Qual comportamento combina mais com o Growth Path?", "options": ["Participacao util diaria", "Um surto de spam por semana", "Aparecer so por recompensa"], "explanation": "O sistema recompensa presenca util e consistente. Spam e postura so por recompensa sao sinais fracos." },
+              { "prompt": "O que ajuda alguem a ganhar shoutout semanal?", "options": ["Ajudar newcomers durante eventos", "Postar hype sem substancia", "Copiar comentarios antigos"], "explanation": "Shoutouts sao para contribuicao util: energia, ajuda, sinal e valor claro para a comunidade." }
+            ]
+          }
+        }
+      },
+      "act1-c3-event-arena": {
+        "title": "Event Arena",
+        "subtitle": "onde Gaboo comanda",
+        "scenes": {
+          "s3-1-arena-enter": {
+            "lines": [
+              "Sou o Gaboo, mod BR. Aqui e a Event Arena. Weekly Events podem render 200 a 300 Engage Points de uma vez.",
+              "Duzentos pontos? Isso acelera tudo.",
+              "Exato. Mas os mods veem quem contribui de verdade. Shoutout semanal soma mais para quem traz energia e ajuda newcomers.",
+              "Gaboo coordena os eventos BR. Para se destacar, traga presenca, seja util e respeite a sala.",
+              "Pronto? O mercado nao espera."
+            ]
+          }
+        }
+      },
+      "act1-c4-content-district": {
+        "title": "Content District",
+        "subtitle": "profundidade vence hype",
+        "scenes": {
+          "s4-1-studio-enter": {
+            "lines": [
+              "Fala. Sou o Jovan - Content Squad, rota de Sprout para Flower. Conteudo de qualidade pode render 15 a 40 pontos por peca. Destaque semanal soma mais.",
+              "Como voce define qualidade?",
+              "Profundidade. Conteudo que ensina, analisa e da contexto. Hype nao destaca voce. Uma analise honesta de como o DUSD funciona pode destacar.",
+              "E visual importa. Sou o Aifilho, Creative Squad. Consistencia visual e diferencial: identidade, legibilidade e clareza.",
+              "Sou Victor de Souza - Content/Research Squad, tambem Sprout. Vim do CEX. Achei que saber trade bastava para criar conteudo tecnico. Nao bastava.",
+              "A comunidade sente quando algo e raso. Profundidade tecnica com voz humana - esse e o caminho."
+            ],
+            "choices": [
+              { "label": "Analise tecnica: como o DUSD mantem estrutura delta-neutral", "feedback": "+40 EP - Victor aprovaria esse angulo." },
+              { "label": "Tutorial basico: como comecar na StandX", "feedback": "+25 EP - Util para newcomers. Continue desenvolvendo." },
+              { "label": "Post generico de hype sobre a plataforma", "feedback": "+5 EP - Pouca profundidade. Hype ensina pouco." }
+            ]
+          }
+        }
+      },
+      "act1-c5-moderator-gate": {
+        "title": "Moderator Gate",
+        "subtitle": "Arttifex avalia tudo",
+        "scenes": {
+          "s5-1-gate-enter": {
+            "lines": [
+              "Sou o Arttifex. Mod BR. Moderator Gate - aqui avaliamos se voce esta pronto para SEED.",
+              "Nao e automatico. Olhamos atividade geral, qualidade do que postou e como tratou outros membros.",
+              "O que voces buscam exatamente?",
+              "Genuino. Alguem que veio contribuir, nao so farmar pontos.",
+              "Eu acompanho os logs. Cada interacao. A aplicacao para SEED e um filtro - passa quem construiu presenca real.",
+              "Voce tem Engage Points. Agora vem a parte que pontos nao cobrem. Uma pergunta."
+            ],
+            "choices": [
+              { "label": "Quero contribuir de verdade. Aprendi muito e quero passar isso adiante.", "feedback": "+150 EP - Aprovado com destaque." },
+              { "label": "Quero os beneficios e o caminho para Sprout.", "feedback": "+80 EP - Honesto. Arttifex anotou." },
+              { "label": "Preciso do cargo para ganhar visibilidade.", "feedback": "+20 EP - Arttifex levantou a sobrancelha." }
+            ]
+          }
+        }
+      },
+      "act1-c6-seed-hall": {
+        "title": "Seed Hall",
+        "subtitle": "o primeiro gate se abre",
+        "scenes": {
+          "s6-1-hall-enter": {
+            "lines": [
+              "EI! Voce chegou. Vi sua jornada - consistente, util, real. Voce mereceu.",
+              "Aplicacao revisada. Engage Points verificados. Stander - voce esta aprovado para o cargo @SEED.",
+              "@SEED... e real?",
+              "E real. Mas SEED nao e destino - e porta de entrada. Agora voce escolhe um Squad.",
+              "...",
+              "Quem e aquele?",
+              "Dan. Creative Squad. Fala pouco, mas quando entrega, muda o padrao. Esse e o nivel que voce vai perseguir.",
+              "Escolha um Squad. Cada caminho tem responsabilidades. Qual rota e sua?"
+            ]
+          },
+          "s6-2-squad-selection": {
+            "lines": ["Selecione seu Squad. Esta decisao fica salva no seu perfil local."],
+            "choices": [
+              { "label": "Content/Research - analises, tutoriais, insights", "feedback": "Content/Research selecionado. Victor e Jovan serao suas referencias." },
+              { "label": "Creative - visuais, videos, identidade", "feedback": "Creative selecionado. Aifilho e Dan definem o padrao." },
+              { "label": "Tech Support - tutoriais tecnicos e suporte", "feedback": "Tech Support selecionado. Mentor TBD no MVP." },
+              { "label": "Outreach - KOLs, parcerias, comunidade", "feedback": "Outreach selecionado. Gaboo sabe energizar uma sala." },
+              { "label": "Offline - presenca local e eventos", "feedback": "Offline selecionado. Mentor TBD no MVP." }
+            ]
+          }
+        }
+      }
+    }
+  },
   "scene": {
     "tap": "Toque para continuar",
     "continue": "Continuar",
@@ -108,7 +290,8 @@
       "ep": "Engage Points",
       "stars": "Estrelas",
       "codex": "Codex",
-      "back": "Voltar ao HQ"
+      "back": "Voltar ao HQ",
+      "noSquad": "Sem squad"
     }
   }
 }

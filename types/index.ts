@@ -106,3 +106,21 @@ export type Character = {
   bio: string;
   mentorOf?: SquadId;
 };
+
+export type LocalizedText = {
+  en: string;
+  "pt-BR": string;
+};
+
+export type CodexEntry = {
+  id: string;
+  title: LocalizedText;
+  body: LocalizedText;
+  category: "growth" | "community" | "trading" | "content" | "squads";
+};
+
+export type Achievement = {
+  id: string;
+  title: LocalizedText;
+  description: LocalizedText;
+};

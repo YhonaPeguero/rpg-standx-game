@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
-import { useTranslations } from "next-intl";
+import { useMessages, useTranslations } from "next-intl";
 import type { Chapter } from "@/types";
 import { getChapters } from "@/lib/content/loader";
+import { localizeChapter } from "@/lib/content/localize";
 import { chapterUnlocked } from "@/lib/game/gates";
 import { useGameStore } from "@/store";
 import { ChapterCard, type DashboardChapter } from "@/components/dashboard/ChapterCard";
@@ -47,10 +48,11 @@ function toDashboardChapter(chapter: Chapter): DashboardChapter & Pick<Chapter, 
 
 export default function PlayPage() {
   const t = useTranslations("dashboard");
+  const messages = useMessages();
   const player = useGameStore((state) => state.player);
   const completedChapters = useGameStore((state) => state.completedChapters);
   const setDisplayName = useGameStore((state) => state.setDisplayName);
-  const dashboardChapters = getChapters().map(toDashboardChapter);
+  const dashboardChapters = getChapters().map((chapter) => toDashboardChapter(localizeChapter(chapter, messages)));
 
   useEffect(() => {
     setDisplayName(player.displayName);

@@ -4,8 +4,11 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import type { Reward } from "@/types";
+import { useGameStore } from "@/store";
 import { buttonClassName } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { ShareCard } from "@/components/ui/ShareCard";
+import { formatRank } from "@/components/hud/RankLabel";
 
 type RewardScreenProps = {
   reward: Reward;
@@ -13,6 +16,7 @@ type RewardScreenProps = {
 
 export function RewardScreen({ reward }: RewardScreenProps) {
   const t = useTranslations("scene.reward");
+  const player = useGameStore((state) => state.player);
 
   return (
     <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6 }}>
@@ -37,6 +41,9 @@ export function RewardScreen({ reward }: RewardScreenProps) {
           {t("back")}
         </Link>
       </Card>
+      <div className="mt-5">
+        <ShareCard run={{ displayName: player.displayName, ep: player.ep, rank: formatRank(player.rank), squad: player.squad ?? t("noSquad") }} />
+      </div>
     </motion.div>
   );
 }

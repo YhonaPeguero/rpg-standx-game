@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Orbitron, Rajdhani, Share_Tech_Mono } from "next/font/google";
-import { NextIntlClientProvider } from "next-intl";
-import messages from "@/messages/en.json";
+import { LocaleProvider } from "@/components/i18n/LocaleProvider";
 import "@/styles/globals.css";
 
 const orbitron = Orbitron({
@@ -46,9 +45,7 @@ export default function RootLayout({
       className={`${orbitron.variable} ${shareTechMono.variable} ${rajdhani.variable} ${inter.variable} h-full antialiased`}
     >
       <body className="sx-scanlines min-h-full">
-        <NextIntlClientProvider locale="en" messages={messages}>
-          {children}
-        </NextIntlClientProvider>
+        <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>
   );

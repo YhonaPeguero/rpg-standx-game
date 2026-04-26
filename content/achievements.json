@@ -1,0 +1,14 @@
+[
+  { "id": "act1-c1-awakening_complete", "title": { "en": "Awake", "pt-BR": "Desperto" }, "description": { "en": "Completed Chapter 1.", "pt-BR": "Completou o Capitulo 1." } },
+  { "id": "act1-c2-discord-plaza_complete", "title": { "en": "Plaza Regular", "pt-BR": "Presenca na Plaza" }, "description": { "en": "Completed Chapter 2.", "pt-BR": "Completou o Capitulo 2." } },
+  { "id": "act1-c3-event-arena_complete", "title": { "en": "Arena Signal", "pt-BR": "Sinal da Arena" }, "description": { "en": "Completed Chapter 3.", "pt-BR": "Completou o Capitulo 3." } },
+  { "id": "act1-c4-content-district_complete", "title": { "en": "Depth Wins", "pt-BR": "Profundidade Vence" }, "description": { "en": "Completed Chapter 4.", "pt-BR": "Completou o Capitulo 4." } },
+  { "id": "act1-c5-moderator-gate_complete", "title": { "en": "Gate Reviewed", "pt-BR": "Gate Revisado" }, "description": { "en": "Completed Chapter 5.", "pt-BR": "Completou o Capitulo 5." } },
+  { "id": "act1-c6-seed-hall_complete", "title": { "en": "Seed Hall", "pt-BR": "Seed Hall" }, "description": { "en": "Completed Chapter 6.", "pt-BR": "Completou o Capitulo 6." } },
+  { "id": "first_reflection", "title": { "en": "Self Signal", "pt-BR": "Sinal Interno" }, "description": { "en": "Completed a reflection.", "pt-BR": "Completou uma reflexao." } },
+  { "id": "trade_setup_master", "title": { "en": "Setup Master", "pt-BR": "Mestre do Setup" }, "description": { "en": "Earned 3 stars in Trade Timing.", "pt-BR": "Conquistou 3 estrelas no Trade Timing." } },
+  { "id": "content_depth_pick", "title": { "en": "Depth Picker", "pt-BR": "Escolha Profunda" }, "description": { "en": "Picked a deep DUSD content angle.", "pt-BR": "Escolheu um angulo profundo sobre DUSD." } },
+  { "id": "squad_selected", "title": { "en": "Squad Path", "pt-BR": "Caminho de Squad" }, "description": { "en": "Selected an Act I squad.", "pt-BR": "Selecionou um squad no Ato I." } },
+  { "id": "seed_unlocked", "title": { "en": "SEED Unlocked", "pt-BR": "SEED Desbloqueado" }, "description": { "en": "Unlocked the SEED role.", "pt-BR": "Desbloqueou o cargo SEED." } },
+  { "id": "act1_complete", "title": { "en": "Act I Complete", "pt-BR": "Ato I Completo" }, "description": { "en": "Finished the MVP Act I path.", "pt-BR": "Finalizou o caminho MVP do Ato I." } }
+]

@@ -11,6 +11,7 @@ import { MascotCanvas } from "./MascotCanvas";
 export function EvolutionCelebration() {
   const rank = useGameStore((state) => state.player.rank);
   const audioEnabled = useGameStore((state) => state.audioEnabled);
+  const reduceMotion = useGameStore((state) => state.reduceMotion);
   const previousRank = useRef<Rank>(rank);
   const [celebrating, setCelebrating] = useState<Rank | null>(null);
 
@@ -18,6 +19,11 @@ export function EvolutionCelebration() {
     const previous = previousRank.current;
 
     if (rankOrder(rank) > rankOrder(previous)) {
+      if (reduceMotion) {
+        previousRank.current = rank;
+        return;
+      }
+
       setCelebrating(rank);
 
       if (audioEnabled) {
@@ -42,7 +48,7 @@ export function EvolutionCelebration() {
     }
 
     previousRank.current = rank;
-  }, [audioEnabled, rank]);
+  }, [audioEnabled, rank, reduceMotion]);
 
   if (!celebrating) {
     return null;
