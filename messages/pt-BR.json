@@ -85,6 +85,36 @@
     "squad": "Squad",
     "previewAlt": "Share card gerado da StandX"
   },
+  "minigames": {
+    "trade": {
+      "badge": "QTE - Execucao de Trade",
+      "title": "Pressione na zona de setup",
+      "mentor": "Jovan: Suporte testado 3x. Funding rate negativo. Volume crescendo. Zona verde e o ideal.",
+      "action": "Trade",
+      "continue": "Continuar",
+      "perfectTitle": "TIMING PERFEITO",
+      "perfectLesson": "Entrou no setup exato. Consolidacao mais funding negativo significa mercado posicionado errado. Esse e o edge.",
+      "okTitle": "EXECUCAO OK",
+      "okLesson": "Perto do ideal. Um pouco cedo ou tarde. Na pratica, mais slippage e stop mais apertado.",
+      "missTitle": "ENTRADA FORCADA",
+      "missLesson": "Fora da zona de setup. FOMO, nao analise. Jovan: espere confirmacao, sempre."
+    },
+    "content": {
+      "badge": "QTE - Qualidade de Conteudo",
+      "title": "Escolha o post que faria Victor parar",
+      "mentor": "Victor: O pedido e conteudo sobre yield do DUSD. Profundidade chama atencao. Hype nao.",
+      "continue": "Continuar",
+      "deepTitle": "SELECIONADO",
+      "deepLesson": "Victor aprova - este e o padrao do Content Squad. Agrega valor real sem fingir que estrutura e magia.",
+      "hypeTitle": "NAO SELECIONADO",
+      "hypeLesson": "Hype nao ensina nada. O time escolhe o que agrega valor real.",
+      "cards": {
+        "a": { "label": "A - DEEP", "text": "A arquitetura delta-neutral do DUSD significa que seu capital trabalha sem exposicao direcional. Nao e yield magico - e estrutura. Thread com os mecanismos >" },
+        "b": { "label": "B - HYPE", "text": "DUSD na StandX e incrivel! Yield passivo enquanto voce dorme! Melhor plataforma DeFi!" },
+        "c": { "label": "C - DEEP", "text": "DUSD vs USDC em perps: delta-neutral vs exposicao direta. Dados reais, analise honesta. >" }
+      }
+    }
+  },
   "nav": {
     "hq": "HQ",
     "growth": "Growth",
