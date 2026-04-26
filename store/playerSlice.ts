@@ -1,6 +1,7 @@
 import type { StateCreator } from "zustand";
 import type { Player, Rank, SquadId } from "@/types";
 import type { GameStore } from "@/store";
+import { rankFromEP } from "@/lib/game/ep";
 
 export type PlayerSlice = {
   player: Player;
@@ -31,7 +32,7 @@ export function createDefaultPlayer(): Player {
     ep: 0,
     rank: "new_stander",
     squad: null,
-    squadXP: initialSquadXP,
+    squadXP: { ...initialSquadXP },
     streakDays: 0,
     lastActiveAt: now,
     mastery: {},
@@ -49,9 +50,13 @@ export const createPlayerSlice: StateCreator<GameStore, [], [], PlayerSlice> = (
       player: { ...state.player, displayName: name.trim() || "STANDER" },
     })),
   addEP: (delta) =>
-    set((state) => ({
-      player: { ...state.player, ep: Math.max(0, state.player.ep + delta) },
-    })),
+    set((state) => {
+      const ep = Math.max(0, state.player.ep + delta);
+
+      return {
+        player: { ...state.player, ep, rank: rankFromEP(ep) },
+      };
+    }),
   setRank: (rank) =>
     set((state) => ({
       player: { ...state.player, rank },

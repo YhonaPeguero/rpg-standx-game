@@ -14,13 +14,38 @@
   "dashboard": {
     "badge": "HQ Dashboard",
     "title": "Console do Growth Path",
-    "intro": "Fundacao online. Os sistemas de capitulo estao inicializando; Stander despertou e esta pronto para o Ato I.",
-    "lockedCta": "Capitulo 1 inicializando",
+    "intro": "Stander despertou. Comece o Ato I e aprenda como Engage Points transformam pequenas acoes consistentes no caminho para Seed.",
+    "lockedCta": "Iniciar Capitulo 1",
     "mascotStatus": "Estagio New Stander online",
     "stats": {
       "ep": "Engage Points",
       "streak": "Sequencia",
       "rank": "Rank"
+    }
+  },
+  "scene": {
+    "tap": "Toque para continuar",
+    "continue": "Continuar",
+    "choiceRecorded": "Escolha registrada.",
+    "unknownRole": "Cargo desconhecido",
+    "nfa": "Conteudo feito pela comunidade, nao e aconselhamento financeiro.",
+    "quiz": {
+      "correct": "Correto. EP concedido se foi sua primeira tentativa.",
+      "miraPrefix": "Mira:",
+      "next": "Proxima pergunta",
+      "finish": "Finalizar quiz"
+    },
+    "reflection": {
+      "badge": "Reflexao",
+      "complete": "Completar reflexao"
+    },
+    "reward": {
+      "badge": "Capitulo Completo",
+      "title": "Recompensas Recebidas",
+      "ep": "Engage Points",
+      "stars": "Estrelas",
+      "codex": "Codex",
+      "back": "Voltar ao HQ"
     }
   }
 }

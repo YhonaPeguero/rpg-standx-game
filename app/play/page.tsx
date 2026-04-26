@@ -1,9 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
+import { buttonClassName } from "@/components/ui/Button";
 import { MascotCanvas } from "@/components/mascot/MascotCanvas";
 import { useGameStore } from "@/store";
 
@@ -39,9 +40,9 @@ export default function PlayPage() {
               <p className="mt-1 text-xs uppercase tracking-[0.22em] text-sx-dim">{t("stats.rank")}</p>
             </div>
           </div>
-          <Button className="mt-8" disabled>
+          <Link className={buttonClassName("primary", "mt-8")} href="/play/scene/act1-c1-awakening">
             {t("lockedCta")}
-          </Button>
+          </Link>
         </Card>
       </section>
       <aside>

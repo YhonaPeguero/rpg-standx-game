@@ -14,13 +14,38 @@
   "dashboard": {
     "badge": "HQ Dashboard",
     "title": "Growth Path Console",
-    "intro": "Foundation online. Chapter systems are initializing; Stander is awake and ready for Act I.",
-    "lockedCta": "Chapter 1 initializing",
+    "intro": "Stander is awake. Begin Act I and learn how Engage Points turn small consistent actions into the Seed path.",
+    "lockedCta": "Start Chapter 1",
     "mascotStatus": "New Stander stage online",
     "stats": {
       "ep": "Engage Points",
       "streak": "Streak",
       "rank": "Rank"
+    }
+  },
+  "scene": {
+    "tap": "Tap to continue",
+    "continue": "Continue",
+    "choiceRecorded": "Choice recorded.",
+    "unknownRole": "Unknown role",
+    "nfa": "Community-made content, not financial advice.",
+    "quiz": {
+      "correct": "Correct. EP awarded if this was your first try.",
+      "miraPrefix": "Mira:",
+      "next": "Next question",
+      "finish": "Finish quiz"
+    },
+    "reflection": {
+      "badge": "Reflection",
+      "complete": "Complete reflection"
+    },
+    "reward": {
+      "badge": "Chapter Complete",
+      "title": "Rewards Secured",
+      "ep": "Engage Points",
+      "stars": "Stars",
+      "codex": "Codex",
+      "back": "Back to HQ"
     }
   }
 }
