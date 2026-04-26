@@ -2,6 +2,7 @@ import type { StateCreator } from "zustand";
 import type { Player, Rank, SquadId } from "@/types";
 import type { GameStore } from "@/store";
 import { rankFromEP } from "@/lib/game/ep";
+import { nextStreakDays } from "@/lib/game/streak";
 
 export type PlayerSlice = {
   player: Player;
@@ -85,11 +86,20 @@ export const createPlayerSlice: StateCreator<GameStore, [], [], PlayerSlice> = (
       },
     })),
   bumpStreak: () =>
-    set((state) => ({
-      player: {
-        ...state.player,
-        streakDays: state.player.streakDays + 1,
-        lastActiveAt: new Date().toISOString(),
-      },
-    })),
+    set((state) => {
+      const now = new Date();
+      const streakDays = nextStreakDays(state.player.lastActiveAt, state.player.streakDays, now);
+
+      if (streakDays === state.player.streakDays) {
+        return state;
+      }
+
+      return {
+        player: {
+          ...state.player,
+          streakDays,
+          lastActiveAt: now.toISOString(),
+        },
+      };
+    }),
 });

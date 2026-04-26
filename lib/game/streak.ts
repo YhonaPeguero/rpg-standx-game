@@ -1,4 +1,8 @@
 export function nextStreakDays(lastActiveAt: string, currentStreak: number, now: Date) {
+  if (currentStreak <= 0) {
+    return 1;
+  }
+
   const last = new Date(lastActiveAt);
 
   if (Number.isNaN(last.getTime())) {

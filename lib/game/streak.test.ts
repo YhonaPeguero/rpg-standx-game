@@ -2,6 +2,10 @@ import { describe, expect, it } from "vitest";
 import { nextStreakDays, streakRewardEP } from "./streak";
 
 describe("streak", () => {
+  it("starts a streak for first-day activity", () => {
+    expect(nextStreakDays("2026-04-26T01:00:00.000Z", 0, new Date("2026-04-26T23:00:00.000Z"))).toBe(1);
+  });
+
   it("keeps the streak unchanged on the same UTC day", () => {
     expect(nextStreakDays("2026-04-26T01:00:00.000Z", 4, new Date("2026-04-26T23:00:00.000Z"))).toBe(4);
   });

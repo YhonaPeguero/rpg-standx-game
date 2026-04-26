@@ -21,7 +21,70 @@
       "ep": "Engage Points",
       "streak": "Sequencia",
       "rank": "Rank"
+    },
+    "chapter": {
+      "continue": "Continuar",
+      "completed": "Rejogar",
+      "lockedC1": "Bloqueado: Complete o Capitulo 1",
+      "c1Title": "Capitulo 1: O Despertar",
+      "c1Subtitle": "Conheca Mira e aprenda o gate de 3.000 EP para Seed.",
+      "c1Estimate": "6 min",
+      "c2Title": "Capitulo 2: Discord Plaza",
+      "c2Subtitle": "Anuncios, reacoes e habitos de consistencia.",
+      "c2Estimate": "7 min",
+      "mira": "Mira",
+      "dias": "Dias"
     }
+  },
+  "stubs": {
+    "codex": {
+      "badge": "Codex",
+      "title": "Disponivel na Fase 4"
+    },
+    "leaderboard": {
+      "badge": "Leaderboard",
+      "title": "Stub para v2"
+    },
+    "profile": {
+      "badge": "Perfil",
+      "title": "Perfil local do Stander"
+    }
+  },
+  "hud": {
+    "ep": "Engage Points",
+    "streak": "Sequencia",
+    "audioOn": "Audio On",
+    "audioOff": "Audio Off"
+  },
+  "nav": {
+    "hq": "HQ",
+    "growth": "Growth",
+    "squads": "Squads",
+    "codex": "Codex",
+    "leaderboard": "Leaderboard",
+    "profile": "Perfil",
+    "about": "Sobre",
+    "locked": "Bloqueado"
+  },
+  "onboarding": {
+    "badge": "Primeiro Acesso",
+    "skip": "Pular",
+    "next": "Proximo",
+    "finish": "Entrar no HQ",
+    "steps": [
+      {
+        "title": "Nomeie seu Stander",
+        "body": "Este nome fica salvo localmente e aparece durante sua jornada no Growth Path."
+      },
+      {
+        "title": "Escolha uma cor de sinal",
+        "body": "O mascote segue verde StandX no MVP, mas isso prepara a customizacao futura por squad."
+      },
+      {
+        "title": "Aprenda o ciclo",
+        "body": "Jogue capitulos, ganhe EP, desbloqueie entradas do codex e construa presenca consistente para aplicar ao Seed."
+      }
+    ]
   },
   "scene": {
     "tap": "Toque para continuar",

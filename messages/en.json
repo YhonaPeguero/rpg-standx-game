@@ -21,7 +21,70 @@
       "ep": "Engage Points",
       "streak": "Streak",
       "rank": "Rank"
+    },
+    "chapter": {
+      "continue": "Continue",
+      "completed": "Replay",
+      "lockedC1": "Locked: Complete Chapter 1",
+      "c1Title": "Chapter 1: The Awakening",
+      "c1Subtitle": "Meet Mira and learn the 3,000 EP Seed gate.",
+      "c1Estimate": "6 min",
+      "c2Title": "Chapter 2: Discord Plaza",
+      "c2Subtitle": "Announcements, reactions, and consistency habits.",
+      "c2Estimate": "7 min",
+      "mira": "Mira",
+      "dias": "Dias"
     }
+  },
+  "stubs": {
+    "codex": {
+      "badge": "Codex",
+      "title": "Coming online in Phase 4"
+    },
+    "leaderboard": {
+      "badge": "Leaderboard",
+      "title": "Stub for v2"
+    },
+    "profile": {
+      "badge": "Profile",
+      "title": "Local Stander profile"
+    }
+  },
+  "hud": {
+    "ep": "Engage Points",
+    "streak": "Streak",
+    "audioOn": "Audio On",
+    "audioOff": "Audio Off"
+  },
+  "nav": {
+    "hq": "HQ",
+    "growth": "Growth",
+    "squads": "Squads",
+    "codex": "Codex",
+    "leaderboard": "Leaderboard",
+    "profile": "Profile",
+    "about": "About",
+    "locked": "Locked"
+  },
+  "onboarding": {
+    "badge": "First Run",
+    "skip": "Skip",
+    "next": "Next",
+    "finish": "Enter HQ",
+    "steps": [
+      {
+        "title": "Name your Stander",
+        "body": "This name is saved locally and used across your Growth Path run."
+      },
+      {
+        "title": "Pick a signal color",
+        "body": "The mascot stays canonical StandX green in MVP, but this sets the tone for future squad customization."
+      },
+      {
+        "title": "Learn the loop",
+        "body": "Play chapters, earn EP, unlock codex entries, and build enough consistent presence to apply for Seed."
+      }
+    ]
   },
   "scene": {
     "tap": "Tap to continue",
