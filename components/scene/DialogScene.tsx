@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
-import type { Choice, DialogLine } from "@/types";
+import type { Choice, DialogLine, SquadId } from "@/types";
 import { getCharacterById } from "@/lib/content/loader";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -12,10 +12,11 @@ type DialogSceneProps = {
   choices?: Choice[];
   educational?: boolean;
   onReward: (reward: Choice["reward"]) => void;
+  onSquad: (squad: SquadId) => void;
   onComplete: () => void;
 };
 
-export function DialogScene({ lines, choices, educational = false, onReward, onComplete }: DialogSceneProps) {
+export function DialogScene({ lines, choices, educational = false, onReward, onSquad, onComplete }: DialogSceneProps) {
   const t = useTranslations("scene");
   const [index, setIndex] = useState(0);
   const [visibleText, setVisibleText] = useState("");
@@ -61,6 +62,10 @@ export function DialogScene({ lines, choices, educational = false, onReward, onC
   }
 
   function choose(choice: Choice) {
+    if (choice.squad) {
+      onSquad(choice.squad);
+    }
+
     onReward(choice.reward);
     setFeedback(choice.feedback ?? t("choiceRecorded"));
   }

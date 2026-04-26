@@ -1,7 +1,8 @@
 "use client";
 
-import type { Reward, Scene } from "@/types";
+import type { Reward, Scene, SquadId } from "@/types";
 import { DialogScene } from "./DialogScene";
+import { MiniGameScene } from "./MiniGameScene";
 import { QuizScene } from "./QuizScene";
 import { ReflectionScene } from "./ReflectionScene";
 
@@ -10,10 +11,11 @@ type SceneRouterProps = {
   onReward: (reward: Reward) => void;
   onQuestionReward: (ep: number) => void;
   onMastery: (sceneId: string, stars: number) => void;
+  onSquad: (squad: SquadId) => void;
   onComplete: () => void;
 };
 
-export function SceneRouter({ scene, onReward, onQuestionReward, onMastery, onComplete }: SceneRouterProps) {
+export function SceneRouter({ scene, onReward, onQuestionReward, onMastery, onSquad, onComplete }: SceneRouterProps) {
   switch (scene.kind) {
     case "dialog":
       return (
@@ -22,6 +24,7 @@ export function SceneRouter({ scene, onReward, onQuestionReward, onMastery, onCo
           choices={scene.choices}
           educational={scene.educational}
           onReward={onReward}
+          onSquad={onSquad}
           onComplete={onComplete}
         />
       );
@@ -39,6 +42,6 @@ export function SceneRouter({ scene, onReward, onQuestionReward, onMastery, onCo
     case "reflection":
       return <ReflectionScene prompt={scene.prompt} options={scene.options} onComplete={onComplete} />;
     case "minigame":
-      return null;
+      return <MiniGameScene {...scene} onReward={onReward} onMastery={onMastery} onComplete={onComplete} />;
   }
 }

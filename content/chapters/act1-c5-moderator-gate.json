@@ -1,0 +1,28 @@
+{
+  "id": "act1-c5-moderator-gate",
+  "act": 1,
+  "zone": "moderator_gate",
+  "title": "Moderator Gate",
+  "subtitle": "Arttifex reviews everything",
+  "unlock": [{ "type": "previous", "chapterId": "act1-c4-content-district" }],
+  "reward": { "ep": 500, "codex": ["seed_application_review"] },
+  "scenes": [
+    {
+      "id": "s5-1-gate-enter",
+      "kind": "dialog",
+      "lines": [
+        { "character": "arttifex", "text": "I'm Arttifex. BR mod. Moderator Gate - this is where we evaluate whether you are ready for SEED." },
+        { "character": "arttifex", "text": "It is not automatic. We look at overall activity, quality of what you posted, and how you treated other members." },
+        { "character": "stander", "text": "What are you looking for exactly?" },
+        { "character": "arttifex", "text": "Genuine. Someone who came to contribute, not just farm points." },
+        { "character": "mira", "text": "I always watch the logs. Every interaction. The SEED application is a filter - it passes people who built real presence." },
+        { "character": "arttifex", "text": "You have Engage Points. Now comes the part points cannot cover. One question." }
+      ],
+      "choices": [
+        { "id": "c-contribute", "label": "I want to contribute for real. I learned a lot and want to pass it forward.", "tag": "GENUINE", "reward": { "ep": 150 }, "feedback": "+150 EP - Approved with distinction." },
+        { "id": "c-benefits", "label": "I want the benefits and the path toward Sprout.", "tag": "LEARN", "reward": { "ep": 80 }, "feedback": "+80 EP - Honest. Arttifex noted it." },
+        { "id": "c-visibility", "label": "I need the role for more visibility.", "tag": "RISK", "reward": { "ep": 20 }, "feedback": "+20 EP - Arttifex raised an eyebrow." }
+      ]
+    }
+  ]
+}

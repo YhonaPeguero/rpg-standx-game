@@ -1,0 +1,35 @@
+{
+  "id": "act1-c4-content-district",
+  "act": 1,
+  "zone": "content_district",
+  "title": "Content District",
+  "subtitle": "depth beats hype",
+  "unlock": [{ "type": "previous", "chapterId": "act1-c3-event-arena" }],
+  "reward": { "ep": 400, "codex": ["dusd_delta_neutral", "content_quality"] },
+  "scenes": [
+    {
+      "id": "s4-1-studio-enter",
+      "kind": "dialog",
+      "educational": true,
+      "lines": [
+        { "character": "jovan", "text": "Hey. I'm Jovan - Content Squad, Sprout to Flower route. Quality content can earn 15 to 40 points per piece. Weekly highlight adds more." },
+        { "character": "stander", "text": "How do you define quality?" },
+        { "character": "jovan", "text": "Depth. Content that teaches, analyzes, and gives context. Hype will not make you stand out. An honest analysis of how DUSD works can." },
+        { "character": "aifilho", "text": "And visuals matter. I'm Aifilho, Creative Squad. Visual consistency is a differentiator: identity, readability, clarity." },
+        { "character": "victor", "text": "I'm Victor de Souza - Content/Research Squad, also Sprout. I came from CEX. I thought knowing trade was enough to make technical content. It was not." },
+        { "character": "victor", "text": "The community can feel when something is shallow. Technical depth with a human voice - that is the path." }
+      ],
+      "choices": [
+        { "id": "c-dusd", "label": "Technical analysis: how DUSD maintains delta-neutral structure", "tag": "DEEP", "reward": { "ep": 40 }, "feedback": "+40 EP - Victor would approve this angle." },
+        { "id": "c-newcomer", "label": "Basic tutorial: how to start on StandX", "tag": "LEARN", "reward": { "ep": 25 }, "feedback": "+25 EP - Useful for newcomers. Keep developing it." },
+        { "id": "c-hype", "label": "Generic hype post about the platform", "tag": "RISK", "reward": { "ep": 5 }, "feedback": "+5 EP - Low depth. Hype teaches little." }
+      ]
+    },
+    {
+      "id": "s4-2-content-pick",
+      "kind": "minigame",
+      "gameId": "content_pick",
+      "config": {}
+    }
+  ]
+}

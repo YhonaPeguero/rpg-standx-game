@@ -18,6 +18,7 @@ export function ScenePlayer({ chapter }: ScenePlayerProps) {
   const addEP = useGameStore((state) => state.addEP);
   const addCodex = useGameStore((state) => state.addCodex);
   const unlockAchievement = useGameStore((state) => state.unlockAchievement);
+  const setSquad = useGameStore((state) => state.setSquad);
   const setMastery = useGameStore((state) => state.setMastery);
   const markSceneComplete = useGameStore((state) => state.markSceneComplete);
   const markChapterComplete = useGameStore((state) => state.markChapterComplete);
@@ -43,13 +44,17 @@ export function ScenePlayer({ chapter }: ScenePlayerProps) {
   function completeScene(extraReward: Reward = {}) {
     markSceneComplete(scene.id);
 
+    if (extraReward.ep || extraReward.stars || extraReward.codex?.length || extraReward.achievement) {
+      applyReward(extraReward);
+    }
+
     if (sceneIndex < chapter.scenes.length - 1) {
       setSceneIndex((value) => value + 1);
       return;
     }
 
     const reward = mergeRewards(extraReward, chapter.reward);
-    applyReward(reward);
+    applyReward(chapter.reward);
     markChapterComplete(chapter.id);
     setCompleteReward(reward);
   }
@@ -72,6 +77,7 @@ export function ScenePlayer({ chapter }: ScenePlayerProps) {
         onReward={applyReward}
         onQuestionReward={(ep) => addEP(ep)}
         onMastery={setMastery}
+        onSquad={setSquad}
         onComplete={() => completeScene(scene.kind === "reflection" ? { ep: 10 } : {})}
       />
     </div>

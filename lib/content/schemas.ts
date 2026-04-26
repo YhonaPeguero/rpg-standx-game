@@ -50,8 +50,9 @@ export const dialogLineSchema = z.object({
 export const choiceSchema = z.object({
   id: z.string(),
   label: z.string(),
-  tag: z.enum(["EP", "LEARN", "RISK", "DEEP", "GENUINE"]).optional(),
+  tag: z.enum(["EP", "LEARN", "RISK", "DEEP", "GENUINE", "SQUAD"]).optional(),
   reward: rewardSchema,
+  squad: squadIdSchema.optional(),
   feedback: z.string().optional(),
 });
 

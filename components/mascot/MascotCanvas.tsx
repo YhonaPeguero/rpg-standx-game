@@ -10,10 +10,16 @@ type MascotCanvasProps = {
   className?: string;
 };
 
-function leaf(ctx: CanvasRenderingContext2D, t: number) {
+function stageIndex(stage: Rank) {
+  return ["new_stander", "active", "consistent", "seed_candidate", "seed", "sprout", "flower"].indexOf(stage);
+}
+
+function leaf(ctx: CanvasRenderingContext2D, t: number, stage: Rank) {
+  const growth = Math.max(0, stageIndex(stage));
   ctx.save();
   ctx.translate(8, -48);
   ctx.rotate(-0.44 + Math.sin(t * 0.04) * 0.06);
+  ctx.scale(1 + growth * 0.05, 1 + growth * 0.03);
   const gradient = ctx.createLinearGradient(-18, 0, 22, 0);
   gradient.addColorStop(0, "#1a5a1a");
   gradient.addColorStop(0.5, "#00b020");
@@ -31,9 +37,78 @@ function leaf(ctx: CanvasRenderingContext2D, t: number) {
   ctx.restore();
 }
 
-function drawNewStander(ctx: CanvasRenderingContext2D, size: number, t: number, still: boolean) {
+function drawGrowth(ctx: CanvasRenderingContext2D, t: number, stage: Rank) {
+  const growth = stageIndex(stage);
+
+  if (growth < 2) {
+    return;
+  }
+
+  ctx.save();
+  ctx.strokeStyle = "#00b020";
+  ctx.lineCap = "round";
+  ctx.lineWidth = 4;
+  ctx.beginPath();
+  ctx.moveTo(0, -42);
+  ctx.quadraticCurveTo(2, -62, 0, -78 - growth * 2);
+  ctx.stroke();
+
+  if (growth >= 3) {
+    ctx.fillStyle = "#00e832";
+    ctx.save();
+    ctx.translate(-12, -66);
+    ctx.rotate(-0.7 + Math.sin(t * 0.04) * 0.05);
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 14, 7, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  if (growth >= 4) {
+    ctx.fillStyle = "#9dffad";
+    ctx.save();
+    ctx.translate(14, -76);
+    ctx.rotate(0.6 + Math.sin(t * 0.04) * 0.05);
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 16, 8, 0, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  if (growth === 5) {
+    ctx.fillStyle = "#ffe600";
+    ctx.beginPath();
+    ctx.arc(0, -92, 8, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  if (growth >= 6) {
+    const petalColors = ["#00e832", "#ffe600", "#00aaff", "#9945ff", "#ff3366", "#00e8c8"];
+    for (let i = 0; i < 6; i += 1) {
+      const angle = (i / 6) * Math.PI * 2 + t * 0.01;
+      ctx.save();
+      ctx.translate(Math.cos(angle) * 11, -94 + Math.sin(angle) * 8);
+      ctx.rotate(angle);
+      ctx.fillStyle = petalColors[i];
+      ctx.beginPath();
+      ctx.ellipse(0, 0, 9, 15, 0, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.restore();
+    }
+    ctx.fillStyle = "#ffe600";
+    ctx.beginPath();
+    ctx.arc(0, -94, 7, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  ctx.restore();
+}
+
+function drawNewStander(ctx: CanvasRenderingContext2D, size: number, t: number, still: boolean, stage: Rank) {
   const scale = size / 180;
   const bob = still ? 0 : Math.sin(t * 0.05) * 3;
+  const growth = Math.max(0, stageIndex(stage));
+  const bodyBoost = growth * 2.2;
 
   ctx.save();
   ctx.translate(size / 2, size / 2 + 16 + bob);
@@ -51,7 +126,7 @@ function drawNewStander(ctx: CanvasRenderingContext2D, size: number, t: number, 
   ctx.lineWidth = 7;
   ctx.fillStyle = "#080b0d";
   ctx.beginPath();
-  ctx.ellipse(0, 6, 46, 43, 0, 0, Math.PI * 2);
+  ctx.ellipse(0, 6 - growth * 0.8, 46 + bodyBoost, 43 + bodyBoost * 0.8, 0, 0, Math.PI * 2);
   ctx.fill();
   ctx.stroke();
 
@@ -62,7 +137,8 @@ function drawNewStander(ctx: CanvasRenderingContext2D, size: number, t: number, 
   ctx.moveTo(0, -38);
   ctx.quadraticCurveTo(4, -52, 9, -62);
   ctx.stroke();
-  leaf(ctx, t);
+  leaf(ctx, t, stage);
+  drawGrowth(ctx, t, stage);
 
   ctx.fillStyle = "#0a0a0a";
   ctx.strokeStyle = "#222831";
@@ -174,7 +250,7 @@ export function MascotCanvas({ stage = "new_stander", className }: MascotCanvasP
 
       ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
       ctx.clearRect(0, 0, size, size);
-      drawNewStander(ctx, size, frame, reduceMotion || mediaQuery.matches);
+      drawNewStander(ctx, size, frame, reduceMotion || mediaQuery.matches, stage);
       frame += stage === "new_stander" ? 1 : 1;
 
       if (!disposed && !reduceMotion && !mediaQuery.matches) {

@@ -61,8 +61,9 @@ export type DialogLine = {
 export type Choice = {
   id: string;
   label: string;
-  tag?: "EP" | "LEARN" | "RISK" | "DEEP" | "GENUINE";
+  tag?: "EP" | "LEARN" | "RISK" | "DEEP" | "GENUINE" | "SQUAD";
   reward: Reward;
+  squad?: SquadId;
   feedback?: string;
 };
 

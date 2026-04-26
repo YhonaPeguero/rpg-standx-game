@@ -2,7 +2,8 @@
 
 import { useEffect } from "react";
 import { useTranslations } from "next-intl";
-import type { Gate } from "@/types";
+import type { Chapter } from "@/types";
+import { getChapters } from "@/lib/content/loader";
 import { chapterUnlocked } from "@/lib/game/gates";
 import { useGameStore } from "@/store";
 import { ChapterCard, type DashboardChapter } from "@/components/dashboard/ChapterCard";
@@ -13,33 +14,43 @@ import { Sidebar } from "@/components/dashboard/Sidebar";
 import { StatCard } from "@/components/dashboard/StatCard";
 import { formatRank } from "@/components/hud/RankLabel";
 
+const mentorByZone: Record<Chapter["zone"], string> = {
+  void: "Mira",
+  discord_plaza: "Dias",
+  event_arena: "Gaboo",
+  content_district: "Victor",
+  moderator_gate: "Arttifex",
+  seed_hall: "Mira",
+};
+
+const estimateById: Record<string, string> = {
+  "act1-c1-awakening": "6 min",
+  "act1-c2-discord-plaza": "7 min",
+  "act1-c3-event-arena": "8 min",
+  "act1-c4-content-district": "8 min",
+  "act1-c5-moderator-gate": "6 min",
+  "act1-c6-seed-hall": "7 min",
+};
+
+function toDashboardChapter(chapter: Chapter): DashboardChapter & Pick<Chapter, "unlock"> {
+  return {
+    id: chapter.id,
+    title: chapter.title,
+    subtitle: chapter.subtitle ?? "Act I mission",
+    zone: chapter.zone,
+    href: `/play/scene/${chapter.id}`,
+    estimate: estimateById[chapter.id] ?? "7 min",
+    mentor: mentorByZone[chapter.zone],
+    unlock: chapter.unlock,
+  };
+}
+
 export default function PlayPage() {
   const t = useTranslations("dashboard");
   const player = useGameStore((state) => state.player);
   const completedChapters = useGameStore((state) => state.completedChapters);
   const setDisplayName = useGameStore((state) => state.setDisplayName);
-  const dashboardChapters: (DashboardChapter & { unlock: Gate[] })[] = [
-    {
-      id: "act1-c1-awakening",
-      title: t("chapter.c1Title"),
-      subtitle: t("chapter.c1Subtitle"),
-      zone: "void",
-      href: "/play/scene/act1-c1-awakening",
-      estimate: t("chapter.c1Estimate"),
-      mentor: t("chapter.mira"),
-      unlock: [],
-    },
-    {
-      id: "act1-c2-discord-plaza",
-      title: t("chapter.c2Title"),
-      subtitle: t("chapter.c2Subtitle"),
-      zone: "discord_plaza",
-      href: "/play/scene/act1-c2-discord-plaza",
-      estimate: t("chapter.c2Estimate"),
-      mentor: t("chapter.dias"),
-      unlock: [{ type: "previous", chapterId: "act1-c1-awakening" }],
-    },
-  ];
+  const dashboardChapters = getChapters().map(toDashboardChapter);
 
   useEffect(() => {
     setDisplayName(player.displayName);

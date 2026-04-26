@@ -1,0 +1,29 @@
+{
+  "id": "act1-c3-event-arena",
+  "act": 1,
+  "zone": "event_arena",
+  "title": "Event Arena",
+  "subtitle": "where Gaboo rallies the server",
+  "unlock": [{ "type": "previous", "chapterId": "act1-c2-discord-plaza" }],
+  "reward": { "ep": 350, "codex": ["weekly_events", "trade_setup_basics"] },
+  "scenes": [
+    {
+      "id": "s3-1-arena-enter",
+      "kind": "dialog",
+      "educational": true,
+      "lines": [
+        { "character": "gaboo", "text": "I'm Gaboo, BR mod. This is the Event Arena. Weekly Events can move 200 to 300 Engage Points at once." },
+        { "character": "stander", "text": "Two hundred points? That accelerates everything." },
+        { "character": "gaboo", "text": "Exactly. But mods notice who contributes for real. Weekly shoutout adds more for people who bring energy and help newcomers." },
+        { "character": "mira", "text": "Gaboo coordinates BR events. To stand out, bring presence, stay useful, and respect the room." },
+        { "character": "gaboo", "text": "Ready? The market will not wait." }
+      ]
+    },
+    {
+      "id": "s3-2-trade-timing",
+      "kind": "minigame",
+      "gameId": "trade_timing",
+      "config": {}
+    }
+  ]
+}
