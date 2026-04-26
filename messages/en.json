@@ -1,0 +1,26 @@
+{
+  "marketing": {
+    "badge": "Episode I: Origin",
+    "title": "StandX RPG",
+    "subtitle": "Play as Stander and learn the Growth Path from New Stander to Seed.",
+    "cta": "Enter HQ",
+    "about": "About"
+  },
+  "about": {
+    "badge": "Community Growth Path",
+    "title": "Learn by playing",
+    "body": "StandX RPG turns Engage Points, events, content quality, DUSD education, and squad responsibilities into a single-player narrative path. The MVP focuses on Act I: reaching Seed."
+  },
+  "dashboard": {
+    "badge": "HQ Dashboard",
+    "title": "Growth Path Console",
+    "intro": "Foundation online. Chapter systems are initializing; Stander is awake and ready for Act I.",
+    "lockedCta": "Chapter 1 initializing",
+    "mascotStatus": "New Stander stage online",
+    "stats": {
+      "ep": "Engage Points",
+      "streak": "Streak",
+      "rank": "Rank"
+    }
+  }
+}
