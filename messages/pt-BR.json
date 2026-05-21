@@ -3,8 +3,15 @@
     "badge": "Episodio I: Origem",
     "title": "StandX RPG",
     "subtitle": "Jogue como Stander e aprenda o Growth Path de New Stander ate Seed.",
+    "tagline": "Pequenas acoes. Progresso real. Feito pela comunidade, para a comunidade.",
     "cta": "Entrar no HQ",
-    "about": "Sobre"
+    "about": "Sobre",
+    "features": {
+      "story": "Narrativa do Ato I em seis zonas tematicas",
+      "quests": "Missoes diarias, semanais e da comunidade com recompensas reais",
+      "ranks": "Avance de New Stander para Seed, Sprout e Flower",
+      "i18n": "Disponivel em 5 idiomas"
+    }
   },
   "about": {
     "badge": "Community Growth Path",
@@ -17,11 +24,7 @@
     "intro": "Stander despertou. Comece o Ato I e aprenda como Engage Points transformam pequenas acoes consistentes no caminho para Seed.",
     "lockedCta": "Iniciar Capitulo 1",
     "mascotStatus": "Estagio New Stander online",
-    "stats": {
-      "ep": "Engage Points",
-      "streak": "Sequencia",
-      "rank": "Rank"
-    },
+    "stats": { "ep": "Engage Points", "streak": "Sequencia", "rank": "Rank" },
     "chapter": {
       "continue": "Continuar",
       "completed": "Rejogar",
@@ -37,24 +40,15 @@
     }
   },
   "stubs": {
-    "codex": {
-      "badge": "Codex",
-      "title": "Disponivel na Fase 4"
-    },
-    "leaderboard": {
-      "badge": "Leaderboard",
-      "title": "Stub para v2"
-    },
-    "profile": {
-      "badge": "Perfil",
-      "title": "Perfil local do Stander"
-    }
+    "codex": { "badge": "Codex", "title": "Disponivel na Fase 4" },
+    "leaderboard": { "badge": "Leaderboard", "title": "Stub para v2" },
+    "profile": { "badge": "Perfil", "title": "Perfil local do Stander" }
   },
   "hud": {
     "ep": "Engage Points",
     "streak": "Sequencia",
-    "audioOn": "Audio On",
-    "audioOff": "Audio Off",
+    "audioOn": "Som On",
+    "audioOff": "Som Off",
     "motionOn": "Movimento On",
     "motionOff": "Movimento Off",
     "claim": "Coletar +{ep}",
@@ -120,6 +114,8 @@
     "growth": "Growth",
     "squads": "Squads",
     "codex": "Codex",
+    "quests": "Missoes",
+    "ranks": "Ranks",
     "leaderboard": "Leaderboard",
     "profile": "Perfil",
     "about": "Sobre",
@@ -131,18 +127,9 @@
     "next": "Proximo",
     "finish": "Entrar no HQ",
     "steps": [
-      {
-        "title": "Nomeie seu Stander",
-        "body": "Este nome fica salvo localmente e aparece durante sua jornada no Growth Path."
-      },
-      {
-        "title": "Escolha uma cor de sinal",
-        "body": "O mascote segue verde StandX no MVP, mas isso prepara a customizacao futura por squad."
-      },
-      {
-        "title": "Aprenda o ciclo",
-        "body": "Jogue capitulos, ganhe EP, desbloqueie entradas do codex e construa presenca consistente para aplicar ao Seed."
-      }
+      { "title": "Nomeie seu Stander", "body": "Este nome fica salvo localmente e aparece durante sua jornada no Growth Path." },
+      { "title": "Escolha uma cor de sinal", "body": "O mascote segue verde StandX no MVP, mas isso prepara a customizacao futura por squad." },
+      { "title": "Aprenda o ciclo", "body": "Jogue capitulos, ganhe EP, desbloqueie entradas do codex e construa presenca consistente para aplicar ao Seed." }
     ]
   },
   "content": {
@@ -310,10 +297,7 @@
       "next": "Proxima pergunta",
       "finish": "Finalizar quiz"
     },
-    "reflection": {
-      "badge": "Reflexao",
-      "complete": "Completar reflexao"
-    },
+    "reflection": { "badge": "Reflexao", "complete": "Completar reflexao" },
     "reward": {
       "badge": "Capitulo Completo",
       "title": "Recompensas Recebidas",
@@ -322,6 +306,71 @@
       "codex": "Codex",
       "back": "Voltar ao HQ",
       "noSquad": "Sem squad"
+    }
+  },
+  "quests": {
+    "badge": "Quadro de Missoes",
+    "title": "Missoes Ativas",
+    "intro": "Missoes diarias, semanais e da comunidade. Complete para ganhar EP, entradas do codex e ritmo rumo ao Seed.",
+    "claim": "Coletar",
+    "claimed": "Coletado",
+    "rewardEp": "+{ep} EP",
+    "rewardCodex": "+Codex",
+    "tabs": { "daily": "Diarias", "weekly": "Semanais", "community": "Comunidade" },
+    "empty": "Tudo em dia. Novas missoes a 00:00 UTC.",
+    "resetIn": "Reseta em {hours}h",
+    "locked": "Bloqueado",
+    "progress": "{done}/{total}",
+    "list": {
+      "daily_reaction": { "title": "Reaja ao anuncio do dia", "body": "Va ao canal oficial e reaja ao ultimo post." },
+      "daily_event": { "title": "Participe de um evento semanal", "body": "Apareca. Traga presenca. Ajude um newcomer." },
+      "daily_content": { "title": "Leia uma entrada do Codex", "body": "Abra o Codex e absorva um novo contexto." },
+      "weekly_quality": { "title": "Publique um post de qualidade", "body": "Profundidade + voz humana. Hype nao conta." },
+      "weekly_squad": { "title": "Ajude dois newcomers do seu squad", "body": "Repasse o que voce aprendeu no Ato I." },
+      "weekly_streak": { "title": "Atinja 7 dias de streak", "body": "Consistencia real. Reseta a qualquer falha." },
+      "community_shoutout": { "title": "Ganhe um shoutout semanal", "body": "Seja indicado por Arttifex ou Gaboo na sala BR." },
+      "community_thread": { "title": "Solte uma thread profunda", "body": "DUSD, perps ou governanca. Use dados. Mostre estrutura." }
+    }
+  },
+  "ranks": {
+    "badge": "Trilha de Ranks",
+    "title": "Ranks do Growth Path",
+    "intro": "Cada acao avanca a trilha. Ranks desbloqueiam missoes, cenas e squads. Seed e o primeiro cargo oficial no Discord.",
+    "current": "Atual",
+    "next": "Proximo rank",
+    "remaining": "Faltam {ep} EP",
+    "unlocked": "Desbloqueado",
+    "locked": "Bloqueado",
+    "perks": "Beneficios",
+    "labels": {
+      "new_stander": "New Stander",
+      "active": "Ativo",
+      "consistent": "Consistente",
+      "seed_candidate": "Candidato a Seed",
+      "seed": "Seed",
+      "sprout": "Sprout",
+      "flower": "Flower"
+    },
+    "details": {
+      "new_stander": "Dia zero. Recem chegou na StandX. Observe, aprenda, reaja.",
+      "active": "Voce esta aparecendo. Reacoes e eventos contam.",
+      "consistent": "Voce mantem o loop diario. A sequencia rende juros.",
+      "seed_candidate": "Elegivel para revisao da moderacao. Qualidade > quantidade.",
+      "seed": "Cargo oficial no Discord. Escolha um Squad e comece a contribuir.",
+      "sprout": "Contribuidor reconhecido. Tarefas de squad abrem slots de destaque.",
+      "flower": "Pilar da comunidade. Define o padrao e ensina."
+    }
+  },
+  "locale": {
+    "switch": "Idioma",
+    "label": "Mudar idioma"
+  },
+  "errors": {
+    "notFound": {
+      "badge": "404",
+      "title": "Fora do Growth Path",
+      "body": "Essa rota nao existe no mapa.",
+      "back": "Voltar ao HQ"
     }
   }
 }

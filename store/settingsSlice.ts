@@ -1,17 +1,19 @@
 import type { StateCreator } from "zustand";
+import type { Locale } from "@/lib/i18n/config";
+import { defaultLocale } from "@/lib/i18n/config";
 import type { GameStore } from "@/store";
 
 export type SettingsSlice = {
-  locale: "en" | "pt-BR";
+  locale: Locale;
   audioEnabled: boolean;
   reduceMotion: boolean;
-  setLocale: (locale: "en" | "pt-BR") => void;
+  setLocale: (locale: Locale) => void;
   toggleAudio: () => void;
   toggleReduceMotion: () => void;
 };
 
 export const createSettingsSlice: StateCreator<GameStore, [], [], SettingsSlice> = (set) => ({
-  locale: "en",
+  locale: defaultLocale,
   audioEnabled: true,
   reduceMotion: false,
   setLocale: (locale) =>

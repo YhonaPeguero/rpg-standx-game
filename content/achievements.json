@@ -1,14 +1,72 @@
 [
-  { "id": "act1-c1-awakening_complete", "title": { "en": "Awake", "pt-BR": "Desperto" }, "description": { "en": "Completed Chapter 1.", "pt-BR": "Completou o Capitulo 1." } },
-  { "id": "act1-c2-discord-plaza_complete", "title": { "en": "Plaza Regular", "pt-BR": "Presenca na Plaza" }, "description": { "en": "Completed Chapter 2.", "pt-BR": "Completou o Capitulo 2." } },
-  { "id": "act1-c3-event-arena_complete", "title": { "en": "Arena Signal", "pt-BR": "Sinal da Arena" }, "description": { "en": "Completed Chapter 3.", "pt-BR": "Completou o Capitulo 3." } },
-  { "id": "act1-c4-content-district_complete", "title": { "en": "Depth Wins", "pt-BR": "Profundidade Vence" }, "description": { "en": "Completed Chapter 4.", "pt-BR": "Completou o Capitulo 4." } },
-  { "id": "act1-c5-moderator-gate_complete", "title": { "en": "Gate Reviewed", "pt-BR": "Gate Revisado" }, "description": { "en": "Completed Chapter 5.", "pt-BR": "Completou o Capitulo 5." } },
-  { "id": "act1-c6-seed-hall_complete", "title": { "en": "Seed Hall", "pt-BR": "Seed Hall" }, "description": { "en": "Completed Chapter 6.", "pt-BR": "Completou o Capitulo 6." } },
-  { "id": "first_reflection", "title": { "en": "Self Signal", "pt-BR": "Sinal Interno" }, "description": { "en": "Completed a reflection.", "pt-BR": "Completou uma reflexao." } },
-  { "id": "trade_setup_master", "title": { "en": "Setup Master", "pt-BR": "Mestre do Setup" }, "description": { "en": "Earned 3 stars in Trade Timing.", "pt-BR": "Conquistou 3 estrelas no Trade Timing." } },
-  { "id": "content_depth_pick", "title": { "en": "Depth Picker", "pt-BR": "Escolha Profunda" }, "description": { "en": "Picked a deep DUSD content angle.", "pt-BR": "Escolheu um angulo profundo sobre DUSD." } },
-  { "id": "squad_selected", "title": { "en": "Squad Path", "pt-BR": "Caminho de Squad" }, "description": { "en": "Selected an Act I squad.", "pt-BR": "Selecionou um squad no Ato I." } },
-  { "id": "seed_unlocked", "title": { "en": "SEED Unlocked", "pt-BR": "SEED Desbloqueado" }, "description": { "en": "Unlocked the SEED role.", "pt-BR": "Desbloqueou o cargo SEED." } },
-  { "id": "act1_complete", "title": { "en": "Act I Complete", "pt-BR": "Ato I Completo" }, "description": { "en": "Finished the MVP Act I path.", "pt-BR": "Finalizou o caminho MVP do Ato I." } }
+  {
+    "id": "act1-c1-awakening_complete",
+    "title": { "en-US": "Awake", "pt-BR": "Desperto", "es-ES": "Despierto", "ko-KR": "각성" },
+    "description": { "en-US": "Completed Chapter 1.", "pt-BR": "Completou o Capitulo 1.", "es-ES": "Completaste el Capitulo 1.", "ko-KR": "챕터 1을 완료했습니다." }
+  },
+  {
+    "id": "act1-c2-discord-plaza_complete",
+    "title": { "en-US": "Plaza Regular", "pt-BR": "Presenca na Plaza", "es-ES": "Regular de la Plaza", "ko-KR": "Plaza 단골" },
+    "description": { "en-US": "Completed Chapter 2.", "pt-BR": "Completou o Capitulo 2.", "es-ES": "Completaste el Capitulo 2.", "ko-KR": "챕터 2를 완료했습니다." }
+  },
+  {
+    "id": "act1-c3-event-arena_complete",
+    "title": { "en-US": "Arena Signal", "pt-BR": "Sinal da Arena", "es-ES": "Senal de la Arena", "ko-KR": "Arena 시그널" },
+    "description": { "en-US": "Completed Chapter 3.", "pt-BR": "Completou o Capitulo 3.", "es-ES": "Completaste el Capitulo 3.", "ko-KR": "챕터 3을 완료했습니다." }
+  },
+  {
+    "id": "act1-c4-content-district_complete",
+    "title": { "en-US": "Depth Wins", "pt-BR": "Profundidade Vence", "es-ES": "Gana la Profundidad", "ko-KR": "깊이가 이긴다" },
+    "description": { "en-US": "Completed Chapter 4.", "pt-BR": "Completou o Capitulo 4.", "es-ES": "Completaste el Capitulo 4.", "ko-KR": "챕터 4를 완료했습니다." }
+  },
+  {
+    "id": "act1-c5-moderator-gate_complete",
+    "title": { "en-US": "Gate Reviewed", "pt-BR": "Gate Revisado", "es-ES": "Gate Revisado", "ko-KR": "게이트 통과" },
+    "description": { "en-US": "Completed Chapter 5.", "pt-BR": "Completou o Capitulo 5.", "es-ES": "Completaste el Capitulo 5.", "ko-KR": "챕터 5를 완료했습니다." }
+  },
+  {
+    "id": "act1-c6-seed-hall_complete",
+    "title": { "en-US": "Seed Hall", "pt-BR": "Seed Hall", "es-ES": "Seed Hall", "ko-KR": "Seed Hall" },
+    "description": { "en-US": "Completed Chapter 6.", "pt-BR": "Completou o Capitulo 6.", "es-ES": "Completaste el Capitulo 6.", "ko-KR": "챕터 6을 완료했습니다." }
+  },
+  {
+    "id": "first_reflection",
+    "title": { "en-US": "Self Signal", "pt-BR": "Sinal Interno", "es-ES": "Senal Interna", "ko-KR": "내면 시그널" },
+    "description": { "en-US": "Completed a reflection.", "pt-BR": "Completou uma reflexao.", "es-ES": "Completaste una reflexion.", "ko-KR": "되돌아보기 한 가지를 완료했습니다." }
+  },
+  {
+    "id": "trade_setup_master",
+    "title": { "en-US": "Setup Master", "pt-BR": "Mestre do Setup", "es-ES": "Maestro del Setup", "ko-KR": "셋업 마스터" },
+    "description": { "en-US": "Earned 3 stars in Trade Timing.", "pt-BR": "Conquistou 3 estrelas no Trade Timing.", "es-ES": "Ganaste 3 estrellas en Trade Timing.", "ko-KR": "Trade Timing에서 별 3개를 얻었습니다." }
+  },
+  {
+    "id": "content_depth_pick",
+    "title": { "en-US": "Depth Picker", "pt-BR": "Escolha Profunda", "es-ES": "Eleccion Profunda", "ko-KR": "깊이의 선택" },
+    "description": { "en-US": "Picked a deep DUSD content angle.", "pt-BR": "Escolheu um angulo profundo sobre DUSD.", "es-ES": "Elegiste un angulo profundo sobre DUSD.", "ko-KR": "DUSD에 대한 깊이 있는 각도를 골랐습니다." }
+  },
+  {
+    "id": "squad_selected",
+    "title": { "en-US": "Squad Path", "pt-BR": "Caminho de Squad", "es-ES": "Camino de Squad", "ko-KR": "스쿼드의 길" },
+    "description": { "en-US": "Selected an Act I squad.", "pt-BR": "Selecionou um squad no Ato I.", "es-ES": "Seleccionaste un squad del Acto I.", "ko-KR": "1막의 스쿼드를 선택했습니다." }
+  },
+  {
+    "id": "seed_unlocked",
+    "title": { "en-US": "SEED Unlocked", "pt-BR": "SEED Desbloqueado", "es-ES": "SEED Desbloqueado", "ko-KR": "SEED 해금" },
+    "description": { "en-US": "Unlocked the SEED role.", "pt-BR": "Desbloqueou o cargo SEED.", "es-ES": "Desbloqueaste el rol SEED.", "ko-KR": "SEED 역할을 해금했습니다." }
+  },
+  {
+    "id": "act1_complete",
+    "title": { "en-US": "Act I Complete", "pt-BR": "Ato I Completo", "es-ES": "Acto I Completo", "ko-KR": "1막 완료" },
+    "description": { "en-US": "Finished the MVP Act I path.", "pt-BR": "Finalizou o caminho MVP do Ato I.", "es-ES": "Terminaste el camino MVP del Acto I.", "ko-KR": "MVP 1막을 완료했습니다." }
+  },
+  {
+    "id": "weekly_streak",
+    "title": { "en-US": "Seven Days", "pt-BR": "Sete Dias", "es-ES": "Siete Dias", "ko-KR": "7일" },
+    "description": { "en-US": "Held a 7-day streak.", "pt-BR": "Manteve sequencia de 7 dias.", "es-ES": "Mantuviste 7 dias de racha.", "ko-KR": "7일 연속을 유지했습니다." }
+  },
+  {
+    "id": "community_shoutout",
+    "title": { "en-US": "Shoutout", "pt-BR": "Shoutout", "es-ES": "Shoutout", "ko-KR": "샤웃아웃" },
+    "description": { "en-US": "Earned a weekly shoutout.", "pt-BR": "Recebeu um shoutout semanal.", "es-ES": "Recibiste un shoutout semanal.", "ko-KR": "주간 샤웃아웃을 받았습니다." }
+  }
 ]

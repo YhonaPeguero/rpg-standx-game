@@ -3,8 +3,15 @@
     "badge": "Episode I: Origin",
     "title": "StandX RPG",
     "subtitle": "Play as Stander and learn the Growth Path from New Stander to Seed.",
+    "tagline": "Small actions. Real progress. Built by the community, for the community.",
     "cta": "Enter HQ",
-    "about": "About"
+    "about": "About",
+    "features": {
+      "story": "Story-driven Act I across six narrative zones",
+      "quests": "Daily, weekly and community quests with real rewards",
+      "ranks": "Progress from New Stander to Seed, Sprout and Flower",
+      "i18n": "Available in 5 languages"
+    }
   },
   "about": {
     "badge": "Community Growth Path",
@@ -37,18 +44,9 @@
     }
   },
   "stubs": {
-    "codex": {
-      "badge": "Codex",
-      "title": "Coming online in Phase 4"
-    },
-    "leaderboard": {
-      "badge": "Leaderboard",
-      "title": "Stub for v2"
-    },
-    "profile": {
-      "badge": "Profile",
-      "title": "Local Stander profile"
-    }
+    "codex": { "badge": "Codex", "title": "Coming online in Phase 4" },
+    "leaderboard": { "badge": "Leaderboard", "title": "Stub for v2" },
+    "profile": { "badge": "Profile", "title": "Local Stander profile" }
   },
   "hud": {
     "ep": "Engage Points",
@@ -120,6 +118,8 @@
     "growth": "Growth",
     "squads": "Squads",
     "codex": "Codex",
+    "quests": "Quests",
+    "ranks": "Ranks",
     "leaderboard": "Leaderboard",
     "profile": "Profile",
     "about": "About",
@@ -131,18 +131,9 @@
     "next": "Next",
     "finish": "Enter HQ",
     "steps": [
-      {
-        "title": "Name your Stander",
-        "body": "This name is saved locally and used across your Growth Path run."
-      },
-      {
-        "title": "Pick a signal color",
-        "body": "The mascot stays canonical StandX green in MVP, but this sets the tone for future squad customization."
-      },
-      {
-        "title": "Learn the loop",
-        "body": "Play chapters, earn EP, unlock codex entries, and build enough consistent presence to apply for Seed."
-      }
+      { "title": "Name your Stander", "body": "This name is saved locally and used across your Growth Path run." },
+      { "title": "Pick a signal color", "body": "The mascot stays canonical StandX green in MVP, but this sets the tone for future squad customization." },
+      { "title": "Learn the loop", "body": "Play chapters, earn EP, unlock codex entries, and build enough consistent presence to apply for Seed." }
     ]
   },
   "scene": {
@@ -157,10 +148,7 @@
       "next": "Next question",
       "finish": "Finish quiz"
     },
-    "reflection": {
-      "badge": "Reflection",
-      "complete": "Complete reflection"
-    },
+    "reflection": { "badge": "Reflection", "complete": "Complete reflection" },
     "reward": {
       "badge": "Chapter Complete",
       "title": "Rewards Secured",
@@ -169,6 +157,71 @@
       "codex": "Codex",
       "back": "Back to HQ",
       "noSquad": "No squad"
+    }
+  },
+  "quests": {
+    "badge": "Quest Board",
+    "title": "Active Missions",
+    "intro": "Daily, weekly and community missions. Complete them to earn EP, codex entries and momentum toward Seed.",
+    "claim": "Claim",
+    "claimed": "Claimed",
+    "rewardEp": "+{ep} EP",
+    "rewardCodex": "+Codex",
+    "tabs": { "daily": "Daily", "weekly": "Weekly", "community": "Community" },
+    "empty": "All caught up. New missions roll over at 00:00 UTC.",
+    "resetIn": "Resets in {hours}h",
+    "locked": "Locked",
+    "progress": "{done}/{total}",
+    "list": {
+      "daily_reaction": { "title": "React to today's announcement", "body": "Hit the official channel and react to the latest post." },
+      "daily_event": { "title": "Join one weekly event", "body": "Show up. Bring presence. Help one newcomer." },
+      "daily_content": { "title": "Read one Codex entry", "body": "Open the Codex and absorb a new piece of context." },
+      "weekly_quality": { "title": "Publish one quality post", "body": "Depth + human voice. Hype does not count." },
+      "weekly_squad": { "title": "Help two newcomers in your squad", "body": "Pay forward what you learned in Act I." },
+      "weekly_streak": { "title": "Hit a 7-day streak", "body": "Real consistency. Reset at any miss." },
+      "community_shoutout": { "title": "Earn a weekly shoutout", "body": "Get nominated by Arttifex or Gaboo in the BR room." },
+      "community_thread": { "title": "Ship a deep thread", "body": "DUSD, perps or governance. Source data. Show structure." }
+    }
+  },
+  "ranks": {
+    "badge": "Rank Ladder",
+    "title": "Growth Path Ranks",
+    "intro": "Every action moves you up the ladder. Ranks unlock missions, scenes and squads. Seed is the first official Discord rank.",
+    "current": "Current",
+    "next": "Next rank",
+    "remaining": "{ep} EP to go",
+    "unlocked": "Unlocked",
+    "locked": "Locked",
+    "perks": "Perks",
+    "labels": {
+      "new_stander": "New Stander",
+      "active": "Active",
+      "consistent": "Consistent",
+      "seed_candidate": "Seed Candidate",
+      "seed": "Seed",
+      "sprout": "Sprout",
+      "flower": "Flower"
+    },
+    "details": {
+      "new_stander": "Day zero. Just landed on StandX. Watch, learn, react.",
+      "active": "You're showing up. Reactions and event taps count.",
+      "consistent": "You hit the loop daily. Streak compounds.",
+      "seed_candidate": "Eligible for Moderator review. Quality > quantity now.",
+      "seed": "Official Discord role. Pick a Squad and start contributing.",
+      "sprout": "Recognized contributor. Squad tasks unlock weekly highlight slots.",
+      "flower": "Community pillar. Standards-setter and mentor."
+    }
+  },
+  "locale": {
+    "switch": "Language",
+    "label": "Switch language"
+  },
+  "errors": {
+    "notFound": {
+      "badge": "404",
+      "title": "Off the Growth Path",
+      "body": "That route doesn't exist on the map.",
+      "back": "Back to HQ"
     }
   }
 }

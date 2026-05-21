@@ -1,0 +1,9 @@
+import { QuestBoard } from "@/components/quests/QuestBoard";
+
+export default function QuestsPage() {
+  return (
+    <main className="mx-auto max-w-6xl">
+      <QuestBoard />
+    </main>
+  );
+}

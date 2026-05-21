@@ -1,0 +1,70 @@
+[
+  {
+    "id": "daily_reaction",
+    "kind": "daily",
+    "i18nKey": "quests.list.daily_reaction",
+    "goal": 1,
+    "category": "engage",
+    "reward": { "ep": 60 }
+  },
+  {
+    "id": "daily_event",
+    "kind": "daily",
+    "i18nKey": "quests.list.daily_event",
+    "goal": 1,
+    "category": "community",
+    "reward": { "ep": 120 }
+  },
+  {
+    "id": "daily_content",
+    "kind": "daily",
+    "i18nKey": "quests.list.daily_content",
+    "goal": 1,
+    "category": "content",
+    "reward": { "ep": 50, "codex": ["weekly_active_bonus"] }
+  },
+  {
+    "id": "weekly_quality",
+    "kind": "weekly",
+    "i18nKey": "quests.list.weekly_quality",
+    "goal": 1,
+    "category": "content",
+    "reward": { "ep": 250, "codex": ["content_quality"] },
+    "unlock": [{ "type": "rank", "value": "consistent" }]
+  },
+  {
+    "id": "weekly_squad",
+    "kind": "weekly",
+    "i18nKey": "quests.list.weekly_squad",
+    "goal": 2,
+    "category": "community",
+    "reward": { "ep": 220 },
+    "unlock": [{ "type": "rank", "value": "seed" }]
+  },
+  {
+    "id": "weekly_streak",
+    "kind": "weekly",
+    "i18nKey": "quests.list.weekly_streak",
+    "goal": 7,
+    "category": "consistency",
+    "reward": { "ep": 300, "achievement": "weekly_streak" }
+  },
+  {
+    "id": "community_shoutout",
+    "kind": "community",
+    "i18nKey": "quests.list.community_shoutout",
+    "goal": 1,
+    "category": "community",
+    "reward": { "ep": 400, "achievement": "community_shoutout" },
+    "unlock": [{ "type": "rank", "value": "seed_candidate" }]
+  },
+  {
+    "id": "community_thread",
+    "kind": "community",
+    "i18nKey": "quests.list.community_thread",
+    "goal": 1,
+    "category": "content",
+    "reward": { "ep": 350, "codex": ["dusd_delta_neutral"] },
+    "unlock": [{ "type": "rank", "value": "seed" }]
+  }
+]

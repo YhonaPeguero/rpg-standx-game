@@ -1,0 +1,223 @@
+{
+  "marketing": {
+    "badge": "에피소드 I: 기원",
+    "title": "StandX RPG",
+    "subtitle": "Stander가 되어 New Stander에서 Seed까지 Growth Path를 배워보세요.",
+    "tagline": "작은 행동. 진짜 성장. 커뮤니티가 만든, 커뮤니티를 위한 게임.",
+    "cta": "HQ 입장",
+    "about": "소개",
+    "features": {
+      "story": "여섯 개의 내러티브 존을 가로지르는 1막 스토리",
+      "quests": "실제 보상이 있는 일일/주간/커뮤니티 퀘스트",
+      "ranks": "New Stander에서 Seed, Sprout, Flower까지 진화",
+      "i18n": "5개 언어 지원"
+    }
+  },
+  "about": {
+    "badge": "커뮤니티 Growth Path",
+    "title": "플레이로 배우기",
+    "body": "StandX RPG는 Engage Points, 이벤트, 콘텐츠 품질, DUSD 학습, 스쿼드 책임을 1인용 내러티브 게임으로 만듭니다. MVP는 1막 - Seed 도달에 집중합니다."
+  },
+  "dashboard": {
+    "badge": "HQ 대시보드",
+    "title": "Growth Path 콘솔",
+    "intro": "Stander가 깨어났습니다. 1막을 시작하고, 작고 꾸준한 행동이 어떻게 Seed로 가는 길이 되는지 배워보세요.",
+    "lockedCta": "챕터 1 시작",
+    "mascotStatus": "New Stander 단계 온라인",
+    "stats": { "ep": "Engage Points", "streak": "연속", "rank": "랭크" },
+    "chapter": {
+      "continue": "계속",
+      "completed": "다시 플레이",
+      "lockedC1": "잠김: 챕터 1을 완료하세요",
+      "c1Title": "챕터 1: 각성",
+      "c1Subtitle": "Mira를 만나고 Seed를 위한 3,000 EP 게이트를 배웁니다.",
+      "c1Estimate": "6분",
+      "c2Title": "챕터 2: Discord Plaza",
+      "c2Subtitle": "공지, 반응, 그리고 일관성의 습관.",
+      "c2Estimate": "7분",
+      "mira": "Mira",
+      "dias": "Dias"
+    }
+  },
+  "stubs": {
+    "codex": { "badge": "Codex", "title": "Phase 4에 공개 예정" },
+    "leaderboard": { "badge": "Leaderboard", "title": "v2 준비 중" },
+    "profile": { "badge": "프로필", "title": "로컬 Stander 프로필" }
+  },
+  "hud": {
+    "ep": "Engage Points",
+    "streak": "연속",
+    "audioOn": "사운드 ON",
+    "audioOff": "사운드 OFF",
+    "motionOn": "모션 ON",
+    "motionOff": "모션 OFF",
+    "claim": "+{ep} 받기",
+    "claimed": "받음"
+  },
+  "codex": {
+    "badge": "Codex",
+    "title": "해금된 지식",
+    "empty": "아직 해금된 항목이 없습니다. 챕터를 완료해 코덱스를 채우세요."
+  },
+  "profile": {
+    "badge": "프로필",
+    "rank": "랭크",
+    "squad": "스쿼드",
+    "none": "없음",
+    "achievements": "업적",
+    "empty": "아직 해금된 업적이 없습니다."
+  },
+  "share": {
+    "badge": "공유 카드",
+    "title": "1200x630 PNG 생성",
+    "body": "로컬 진행 상황을 깔끔한 카드로 만드세요. 다운로드하거나 X에 공유할 수 있습니다.",
+    "generate": "PNG 생성",
+    "copy": "data URL 복사",
+    "download": "다운로드",
+    "shareX": "X에 공유",
+    "tweet": "StandX RPG에서 StandX Growth Path를 만들고 있어요.",
+    "squad": "스쿼드",
+    "previewAlt": "생성된 StandX 공유 카드"
+  },
+  "minigames": {
+    "trade": {
+      "badge": "QTE - 트레이드 실행",
+      "title": "셋업 존에서 누르세요",
+      "mentor": "Jovan: 지지선 3회 테스트. 펀딩 마이너스. 거래량 증가. 그린 존이 최적입니다.",
+      "action": "트레이드",
+      "continue": "계속",
+      "perfectTitle": "완벽한 타이밍",
+      "perfectLesson": "정확한 셋업입니다. 통합 + 마이너스 펀딩은 시장이 잘못 포지셔닝되어 있다는 신호입니다. 그게 엣지입니다.",
+      "okTitle": "괜찮은 진입",
+      "okLesson": "가까웠어요. 약간 빠르거나 늦었습니다. 실전에서는 슬리피지가 늘고 스탑이 타이트해집니다.",
+      "missTitle": "강제 진입",
+      "missLesson": "셋업 존 바깥입니다. 분석이 아니라 FOMO죠. Jovan: 항상 확인을 기다리세요."
+    },
+    "content": {
+      "badge": "QTE - 콘텐츠 품질",
+      "title": "Victor가 멈춰서서 볼 만한 글을 고르세요",
+      "mentor": "Victor: DUSD 수익 구조에 대한 콘텐츠가 필요해요. 깊이가 관심을 만들고, 하이프는 그러지 못합니다.",
+      "continue": "계속",
+      "deepTitle": "선택됨",
+      "deepLesson": "Victor가 승인합니다 - Content Squad의 기준이에요. 구조가 마법인 척하지 않고 진짜 가치를 더합니다.",
+      "hypeTitle": "선택 안 됨",
+      "hypeLesson": "하이프는 아무것도 가르치지 않습니다. 팀은 실제 가치를 더하는 글을 고릅니다.",
+      "cards": {
+        "a": { "label": "A - DEEP", "text": "DUSD의 델타 중립 구조는 방향성 노출 없이 자본이 일하게 만듭니다. 마법 수익이 아니라 구조죠. 메커니즘 스레드 >" },
+        "b": { "label": "B - HYPE", "text": "StandX의 DUSD 진짜 대박! 자는 동안 패시브 수익! 최고의 DeFi 플랫폼!" },
+        "c": { "label": "C - DEEP", "text": "perps에서의 DUSD vs USDC: 델타 중립 vs 직접 노출. 실제 데이터, 솔직한 분석. >" }
+      }
+    }
+  },
+  "nav": {
+    "hq": "HQ",
+    "growth": "성장",
+    "squads": "스쿼드",
+    "codex": "코덱스",
+    "quests": "퀘스트",
+    "ranks": "랭크",
+    "leaderboard": "리더보드",
+    "profile": "프로필",
+    "about": "소개",
+    "locked": "잠김"
+  },
+  "onboarding": {
+    "badge": "첫 실행",
+    "skip": "건너뛰기",
+    "next": "다음",
+    "finish": "HQ 입장",
+    "steps": [
+      { "title": "Stander의 이름을 지어주세요", "body": "이 이름은 로컬에 저장되며 Growth Path 전체에서 사용됩니다." },
+      { "title": "시그널 색을 고르세요", "body": "MVP에서는 마스코트가 StandX 그린을 유지하지만, 이후 스쿼드 커스터마이즈를 위한 톤이 됩니다." },
+      { "title": "루프를 배우세요", "body": "챕터를 플레이하고 EP를 얻고 코덱스를 해금하여 Seed에 지원할 만큼의 꾸준한 존재감을 쌓으세요." }
+    ]
+  },
+  "scene": {
+    "tap": "탭하여 계속",
+    "continue": "계속",
+    "choiceRecorded": "선택이 기록되었습니다.",
+    "unknownRole": "알 수 없는 역할",
+    "nfa": "커뮤니티 콘텐츠입니다. 투자 자문이 아닙니다.",
+    "quiz": {
+      "correct": "정답입니다. 첫 시도였다면 EP가 지급됩니다.",
+      "miraPrefix": "Mira:",
+      "next": "다음 질문",
+      "finish": "퀴즈 종료"
+    },
+    "reflection": { "badge": "되돌아보기", "complete": "되돌아보기 완료" },
+    "reward": {
+      "badge": "챕터 완료",
+      "title": "보상 획득",
+      "ep": "Engage Points",
+      "stars": "별",
+      "codex": "코덱스",
+      "back": "HQ로 돌아가기",
+      "noSquad": "스쿼드 없음"
+    }
+  },
+  "quests": {
+    "badge": "퀘스트 보드",
+    "title": "활성 미션",
+    "intro": "일일/주간/커뮤니티 미션을 완료해 EP와 코덱스, Seed로 가는 추진력을 얻으세요.",
+    "claim": "받기",
+    "claimed": "받음",
+    "rewardEp": "+{ep} EP",
+    "rewardCodex": "+코덱스",
+    "tabs": { "daily": "일일", "weekly": "주간", "community": "커뮤니티" },
+    "empty": "모두 완료했습니다. 새 미션은 00:00 UTC에 갱신됩니다.",
+    "resetIn": "{hours}시간 후 초기화",
+    "locked": "잠김",
+    "progress": "{done}/{total}",
+    "list": {
+      "daily_reaction": { "title": "오늘의 공지에 반응하기", "body": "공식 채널로 가서 최신 글에 반응을 남기세요." },
+      "daily_event": { "title": "주간 이벤트에 참여하기", "body": "나타나세요. 존재감을 보여주세요. 뉴커머 한 명을 도와주세요." },
+      "daily_content": { "title": "코덱스 한 항목 읽기", "body": "코덱스를 열고 새로운 컨텍스트를 흡수하세요." },
+      "weekly_quality": { "title": "퀄리티 글 한 편 발행", "body": "깊이 + 사람의 목소리. 하이프는 카운트되지 않습니다." },
+      "weekly_squad": { "title": "스쿼드 뉴커머 두 명 돕기", "body": "1막에서 배운 것을 전해주세요." },
+      "weekly_streak": { "title": "7일 연속 달성", "body": "진짜 일관성. 한 번이라도 빠지면 초기화됩니다." },
+      "community_shoutout": { "title": "주간 샤웃아웃 받기", "body": "BR 룸에서 Arttifex나 Gaboo에게 지명되세요." },
+      "community_thread": { "title": "깊이 있는 스레드 출시", "body": "DUSD, perps, 거버넌스. 데이터로 구조를 보여주세요." }
+    }
+  },
+  "ranks": {
+    "badge": "랭크 사다리",
+    "title": "Growth Path 랭크",
+    "intro": "모든 행동이 사다리를 올라가게 합니다. 랭크는 미션, 씬, 스쿼드를 해금합니다. Seed는 Discord 최초의 공식 랭크입니다.",
+    "current": "현재",
+    "next": "다음 랭크",
+    "remaining": "남은 {ep} EP",
+    "unlocked": "해금됨",
+    "locked": "잠김",
+    "perks": "혜택",
+    "labels": {
+      "new_stander": "New Stander",
+      "active": "Active",
+      "consistent": "Consistent",
+      "seed_candidate": "Seed Candidate",
+      "seed": "Seed",
+      "sprout": "Sprout",
+      "flower": "Flower"
+    },
+    "details": {
+      "new_stander": "0일차. StandX에 막 도착. 보고, 배우고, 반응하세요.",
+      "active": "이제 나타나고 있어요. 반응과 이벤트가 카운트됩니다.",
+      "consistent": "매일 루프를 돕니다. 연속이 복리로 쌓입니다.",
+      "seed_candidate": "모더레이터 리뷰 대상. 이제는 양보다 질입니다.",
+      "seed": "공식 Discord 역할. 스쿼드를 골라 기여를 시작하세요.",
+      "sprout": "공인된 컨트리뷰터. 스쿼드 태스크가 주간 하이라이트 슬롯을 엽니다.",
+      "flower": "커뮤니티의 기둥. 표준을 세우고 멘토링합니다."
+    }
+  },
+  "locale": {
+    "switch": "언어",
+    "label": "언어 변경"
+  },
+  "errors": {
+    "notFound": {
+      "badge": "404",
+      "title": "Growth Path를 벗어났습니다",
+      "body": "지도에 없는 경로입니다.",
+      "back": "HQ로 돌아가기"
+    }
+  }
+}

@@ -1,0 +1,91 @@
+import type { ReactNode } from "react";
+import type { ZoneId } from "@/types";
+import { MascotCanvas } from "@/components/mascot/MascotCanvas";
+
+type GameStageProps = {
+  act: number;
+  title: string;
+  subtitle?: string;
+  zone: ZoneId;
+  sceneIndex: number;
+  sceneTotal: number;
+  mode: "dialog" | "panel";
+  children: ReactNode;
+};
+
+const zoneMeta: Record<ZoneId, { label: string; accent: string; sky: string; ground: string }> = {
+  void: { label: "THE VOID", accent: "#00e832", sky: "from-[#02050a] via-[#061020] to-[#04080f]", ground: "#00e832" },
+  discord_plaza: { label: "DISCORD PLAZA", accent: "#00aaff", sky: "from-[#030611] via-[#07162a] to-[#040a18]", ground: "#00aaff" },
+  event_arena: { label: "EVENT ARENA", accent: "#ff3366", sky: "from-[#100307] via-[#1a0610] to-[#08040a]", ground: "#ff3366" },
+  content_district: { label: "CONTENT DISTRICT", accent: "#9945ff", sky: "from-[#07030d] via-[#11071f] to-[#080412]", ground: "#9945ff" },
+  moderator_gate: { label: "MODERATOR GATE", accent: "#ff9900", sky: "from-[#0f0702] via-[#180e06] to-[#080502]", ground: "#ff9900" },
+  seed_hall: { label: "SEED HALL", accent: "#ffe600", sky: "from-[#0d0d04] via-[#161407] to-[#080804]", ground: "#ffe600" },
+};
+
+const stars = [
+  [6, 24, 1], [13, 43, 2], [19, 16, 1], [26, 31, 1], [32, 11, 2], [38, 45, 1], [44, 20, 1], [51, 37, 2],
+  [58, 13, 1], [63, 48, 1], [70, 26, 2], [77, 8, 1], [82, 39, 1], [89, 18, 2], [95, 33, 1], [22, 55, 1],
+] as const;
+
+export function GameStage({ act, title, subtitle, zone, sceneIndex, sceneTotal, mode, children }: GameStageProps) {
+  const meta = zoneMeta[zone];
+  const sceneProgress = Math.round(((sceneIndex + 1) / sceneTotal) * 100);
+  const markerLeft = 34 + Math.min(42, sceneIndex * 11);
+
+  return (
+    <section className={`relative mx-auto min-h-[720px] overflow-hidden rounded-sx-lg border border-[var(--stroke-brand)] bg-gradient-to-b ${meta.sky} shadow-[0_0_70px_rgba(0,0,0,0.45)]`}>
+      <div className="absolute inset-x-0 top-0 z-20 flex items-center gap-4 border-b border-[var(--stroke-brand)] bg-sx-bg/60 px-4 py-2 backdrop-blur-sm">
+        <p className="font-mono text-xs uppercase tracking-[0.28em] text-sx-green">Act {act}</p>
+        <div className="h-px flex-1 bg-sx-green/20">
+          <div className="h-px bg-sx-green" style={{ width: `${sceneProgress}%` }} />
+        </div>
+        <p className="font-mono text-xs uppercase tracking-[0.28em] text-sx-gold">{meta.label}</p>
+        <p className="rounded-sx border border-[var(--stroke-soft)] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-sx-dim">
+          {sceneIndex + 1}/{sceneTotal}
+        </p>
+      </div>
+
+      <div className="absolute inset-0">
+        {stars.map(([left, top, size], index) => (
+          <span
+            className="absolute rounded-full bg-white/70 shadow-[0_0_8px_rgba(255,255,255,0.45)]"
+            key={`${left}-${top}-${index}`}
+            style={{ left: `${left}%`, top: `${top}%`, width: `${size + 1}px`, height: `${size + 1}px`, opacity: 0.35 + (index % 3) * 0.16 }}
+          />
+        ))}
+        <span className="absolute left-[16%] top-[35%] h-5 w-5 rounded-full blur-md" style={{ background: `${meta.accent}44` }} />
+        <span className="absolute left-[67%] top-[18%] h-7 w-7 rounded-full blur-lg" style={{ background: `${meta.accent}33` }} />
+        <span className="absolute left-[42%] top-[57%] h-6 w-6 rounded-full blur-lg" style={{ background: `${meta.accent}2c` }} />
+      </div>
+
+      <div className="absolute bottom-[158px] left-0 right-0 h-px shadow-[0_0_16px_currentColor]" style={{ color: meta.ground, background: meta.ground }} />
+      <div
+        className="absolute bottom-0 left-0 right-0 h-[158px] opacity-60"
+        style={{
+          backgroundImage: `linear-gradient(${meta.ground}18 1px, transparent 1px), linear-gradient(90deg, ${meta.ground}14 1px, transparent 1px)`,
+          backgroundSize: "72px 28px",
+        }}
+      />
+
+      <div className="absolute bottom-[130px] left-[13%] z-10 h-24 w-24 md:left-[28%]">
+        <MascotCanvas className="h-full w-full drop-shadow-[0_0_14px_rgba(0,232,50,0.45)]" />
+      </div>
+
+      <div className="absolute bottom-[180px] z-10" style={{ left: `${markerLeft}%` }}>
+        <div className="relative h-16 w-16 rounded-full border-2 border-current bg-sx-bg/30 text-sx-green shadow-glow-green" style={{ color: meta.accent }}>
+          <span className="absolute inset-3 rounded-full border border-current opacity-40" />
+          <span className="absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.22em]">signal</span>
+        </div>
+      </div>
+
+      <div className="absolute left-5 top-16 z-20 max-w-xl md:left-8 md:top-20">
+        <p className="font-mono text-xs uppercase tracking-[0.35em] text-sx-gold">{subtitle ?? meta.label}</p>
+        <h1 className="mt-3 font-display text-3xl font-black uppercase tracking-[0.14em] text-sx-green drop-shadow-[0_0_18px_rgba(0,232,50,0.42)] md:text-5xl">
+          {title}
+        </h1>
+      </div>
+
+      <div className={mode === "dialog" ? "absolute inset-0 z-30" : "absolute inset-x-4 top-32 z-30 mx-auto max-w-4xl pb-8 md:top-36"}>{children}</div>
+    </section>
+  );
+}

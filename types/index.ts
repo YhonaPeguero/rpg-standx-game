@@ -1,3 +1,7 @@
+import type { Locale } from "@/lib/i18n/config";
+
+export type { Locale };
+
 export type SquadId = "creative" | "content_research" | "tech_support" | "outreach" | "offline";
 
 export type Rank =
@@ -29,6 +33,8 @@ export type CharacterId =
   | "victor"
   | "stander";
 
+export type QuestKind = "daily" | "weekly" | "community";
+
 export type Player = {
   id: string;
   displayName: string;
@@ -42,7 +48,7 @@ export type Player = {
   codexUnlocks: string[];
   achievements: string[];
   createdAt: string;
-  locale: "en" | "pt-BR";
+  locale: Locale;
 };
 
 export type Reward = {
@@ -107,10 +113,7 @@ export type Character = {
   mentorOf?: SquadId;
 };
 
-export type LocalizedText = {
-  en: string;
-  "pt-BR": string;
-};
+export type LocalizedText = Partial<Record<Locale, string>> & { "en-US": string };
 
 export type CodexEntry = {
   id: string;
@@ -123,4 +126,14 @@ export type Achievement = {
   id: string;
   title: LocalizedText;
   description: LocalizedText;
+};
+
+export type Quest = {
+  id: string;
+  kind: QuestKind;
+  i18nKey: string;
+  reward: Reward;
+  goal: number;
+  unlock?: Gate[];
+  category?: "engage" | "content" | "consistency" | "community" | "trading";
 };

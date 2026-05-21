@@ -1,0 +1,223 @@
+{
+  "marketing": {
+    "badge": "Episodio I: Origen",
+    "title": "StandX RPG",
+    "subtitle": "Juega como Stander y aprende el Growth Path de New Stander a Seed.",
+    "tagline": "Pequenas acciones. Progreso real. Hecho por la comunidad, para la comunidad.",
+    "cta": "Entrar al HQ",
+    "about": "Acerca",
+    "features": {
+      "story": "Narrativa del Acto I en seis zonas tematicas",
+      "quests": "Misiones diarias, semanales y de la comunidad con recompensas reales",
+      "ranks": "Avanza de New Stander a Seed, Sprout y Flower",
+      "i18n": "Disponible en 5 idiomas"
+    }
+  },
+  "about": {
+    "badge": "Community Growth Path",
+    "title": "Aprende jugando",
+    "body": "StandX RPG convierte Engage Points, eventos, calidad de contenido, educacion sobre DUSD y responsabilidades de squad en una aventura narrativa para un jugador. El MVP se centra en el Acto I: llegar a Seed."
+  },
+  "dashboard": {
+    "badge": "HQ Dashboard",
+    "title": "Consola del Growth Path",
+    "intro": "Stander desperto. Comienza el Acto I y aprende como los Engage Points convierten pequenas acciones consistentes en el camino hacia Seed.",
+    "lockedCta": "Iniciar Capitulo 1",
+    "mascotStatus": "Etapa New Stander en linea",
+    "stats": { "ep": "Engage Points", "streak": "Racha", "rank": "Rango" },
+    "chapter": {
+      "continue": "Continuar",
+      "completed": "Rejugar",
+      "lockedC1": "Bloqueado: Completa el Capitulo 1",
+      "c1Title": "Capitulo 1: El Despertar",
+      "c1Subtitle": "Conoce a Mira y aprende el umbral de 3.000 EP para Seed.",
+      "c1Estimate": "6 min",
+      "c2Title": "Capitulo 2: Discord Plaza",
+      "c2Subtitle": "Anuncios, reacciones y habitos de consistencia.",
+      "c2Estimate": "7 min",
+      "mira": "Mira",
+      "dias": "Dias"
+    }
+  },
+  "stubs": {
+    "codex": { "badge": "Codex", "title": "Disponible en la Fase 4" },
+    "leaderboard": { "badge": "Leaderboard", "title": "Stub para v2" },
+    "profile": { "badge": "Perfil", "title": "Perfil local del Stander" }
+  },
+  "hud": {
+    "ep": "Engage Points",
+    "streak": "Racha",
+    "audioOn": "Audio On",
+    "audioOff": "Audio Off",
+    "motionOn": "Movimiento On",
+    "motionOff": "Movimiento Off",
+    "claim": "Reclamar +{ep}",
+    "claimed": "Reclamado"
+  },
+  "codex": {
+    "badge": "Codex",
+    "title": "Conocimiento Desbloqueado",
+    "empty": "Sin entradas todavia. Completa capitulos para construir tu codex."
+  },
+  "profile": {
+    "badge": "Perfil",
+    "rank": "Rango",
+    "squad": "Squad",
+    "none": "Ninguno",
+    "achievements": "Logros",
+    "empty": "Sin logros desbloqueados todavia."
+  },
+  "share": {
+    "badge": "Share Card",
+    "title": "Generar PNG 1200x630",
+    "body": "Crea una tarjeta limpia para tu partida local. Descargala o comparte tu progreso en X.",
+    "generate": "Generar PNG",
+    "copy": "Copiar data URL",
+    "download": "Descargar",
+    "shareX": "Compartir en X",
+    "tweet": "Estoy construyendo mi StandX Growth Path en StandX RPG.",
+    "squad": "Squad",
+    "previewAlt": "Tarjeta de StandX generada"
+  },
+  "minigames": {
+    "trade": {
+      "badge": "QTE - Ejecucion de Trade",
+      "title": "Pulsa en la zona de setup",
+      "mentor": "Jovan: Soporte probado 3x. Funding negativo. Volumen creciendo. La zona verde es lo ideal.",
+      "action": "Trade",
+      "continue": "Continuar",
+      "perfectTitle": "TIMING PERFECTO",
+      "perfectLesson": "Entraste en el setup exacto. Consolidacion mas funding negativo = mercado mal posicionado. Ahi esta el edge.",
+      "okTitle": "EJECUCION OK",
+      "okLesson": "Cerca. Un poco temprano o tarde. En la practica, mas slippage y stop mas ajustado.",
+      "missTitle": "ENTRADA FORZADA",
+      "missLesson": "Fuera de la zona. FOMO, no analisis. Jovan: espera confirmacion siempre."
+    },
+    "content": {
+      "badge": "QTE - Calidad de Contenido",
+      "title": "Elige el post por el que Victor se detendria",
+      "mentor": "Victor: Hay que escribir sobre el yield del DUSD. La profundidad gana atencion. El hype no.",
+      "continue": "Continuar",
+      "deepTitle": "SELECCIONADO",
+      "deepLesson": "Victor lo aprueba - es el estandar del Content Squad. Aporta valor real sin fingir que la estructura es magia.",
+      "hypeTitle": "NO SELECCIONADO",
+      "hypeLesson": "El hype no ensena nada. El equipo elige lo que aporta valor real.",
+      "cards": {
+        "a": { "label": "A - DEEP", "text": "La arquitectura delta-neutral de DUSD hace que tu capital trabaje sin exposicion direccional. No es yield magico, es estructura. Hilo sobre los mecanismos >" },
+        "b": { "label": "B - HYPE", "text": "DUSD en StandX es increible! Yield pasivo mientras duermes! Mejor plataforma DeFi!" },
+        "c": { "label": "C - DEEP", "text": "DUSD vs USDC en perps: delta-neutral vs exposicion directa. Datos reales, analisis honesto. >" }
+      }
+    }
+  },
+  "nav": {
+    "hq": "HQ",
+    "growth": "Crecimiento",
+    "squads": "Squads",
+    "codex": "Codex",
+    "quests": "Misiones",
+    "ranks": "Rangos",
+    "leaderboard": "Leaderboard",
+    "profile": "Perfil",
+    "about": "Acerca",
+    "locked": "Bloqueado"
+  },
+  "onboarding": {
+    "badge": "Primera Vez",
+    "skip": "Omitir",
+    "next": "Siguiente",
+    "finish": "Entrar al HQ",
+    "steps": [
+      { "title": "Nombra a tu Stander", "body": "Este nombre se guarda localmente y se usa durante tu Growth Path." },
+      { "title": "Elige un color de senal", "body": "El mascota mantiene el verde StandX en el MVP, pero esto prepara la personalizacion futura por squad." },
+      { "title": "Aprende el ciclo", "body": "Juega capitulos, gana EP, desbloquea entradas del codex y construye presencia consistente para postularte a Seed." }
+    ]
+  },
+  "scene": {
+    "tap": "Toca para continuar",
+    "continue": "Continuar",
+    "choiceRecorded": "Eleccion registrada.",
+    "unknownRole": "Rol desconocido",
+    "nfa": "Contenido hecho por la comunidad, no es consejo financiero.",
+    "quiz": {
+      "correct": "Correcto. EP otorgado si fue tu primer intento.",
+      "miraPrefix": "Mira:",
+      "next": "Siguiente pregunta",
+      "finish": "Terminar quiz"
+    },
+    "reflection": { "badge": "Reflexion", "complete": "Completar reflexion" },
+    "reward": {
+      "badge": "Capitulo Completo",
+      "title": "Recompensas Aseguradas",
+      "ep": "Engage Points",
+      "stars": "Estrellas",
+      "codex": "Codex",
+      "back": "Volver al HQ",
+      "noSquad": "Sin squad"
+    }
+  },
+  "quests": {
+    "badge": "Tablero de Misiones",
+    "title": "Misiones Activas",
+    "intro": "Misiones diarias, semanales y de la comunidad. Completalas para ganar EP, entradas del codex e impulso hacia Seed.",
+    "claim": "Reclamar",
+    "claimed": "Reclamado",
+    "rewardEp": "+{ep} EP",
+    "rewardCodex": "+Codex",
+    "tabs": { "daily": "Diarias", "weekly": "Semanales", "community": "Comunidad" },
+    "empty": "Todo al dia. Nuevas misiones a las 00:00 UTC.",
+    "resetIn": "Reinicia en {hours}h",
+    "locked": "Bloqueado",
+    "progress": "{done}/{total}",
+    "list": {
+      "daily_reaction": { "title": "Reacciona al anuncio de hoy", "body": "Entra al canal oficial y reacciona al ultimo post." },
+      "daily_event": { "title": "Asiste a un evento semanal", "body": "Aparece. Trae presencia. Ayuda a un newcomer." },
+      "daily_content": { "title": "Lee una entrada del Codex", "body": "Abre el Codex y absorbe un nuevo contexto." },
+      "weekly_quality": { "title": "Publica un post de calidad", "body": "Profundidad + voz humana. El hype no cuenta." },
+      "weekly_squad": { "title": "Ayuda a dos newcomers de tu squad", "body": "Devuelve lo aprendido en el Acto I." },
+      "weekly_streak": { "title": "Alcanza 7 dias de racha", "body": "Consistencia real. Se reinicia con cualquier fallo." },
+      "community_shoutout": { "title": "Gana un shoutout semanal", "body": "Que te nomine Arttifex o Gaboo en la sala BR." },
+      "community_thread": { "title": "Lanza un hilo profundo", "body": "DUSD, perps o gobernanza. Usa datos. Muestra estructura." }
+    }
+  },
+  "ranks": {
+    "badge": "Escalera de Rangos",
+    "title": "Rangos del Growth Path",
+    "intro": "Cada accion sube la escalera. Los rangos desbloquean misiones, escenas y squads. Seed es el primer rango oficial en Discord.",
+    "current": "Actual",
+    "next": "Siguiente rango",
+    "remaining": "Faltan {ep} EP",
+    "unlocked": "Desbloqueado",
+    "locked": "Bloqueado",
+    "perks": "Beneficios",
+    "labels": {
+      "new_stander": "New Stander",
+      "active": "Activo",
+      "consistent": "Consistente",
+      "seed_candidate": "Candidato a Seed",
+      "seed": "Seed",
+      "sprout": "Sprout",
+      "flower": "Flower"
+    },
+    "details": {
+      "new_stander": "Dia cero. Recien aterrizaste en StandX. Observa, aprende, reacciona.",
+      "active": "Estas apareciendo. Reacciones y eventos cuentan.",
+      "consistent": "Mantienes el loop diario. La racha compone.",
+      "seed_candidate": "Elegible para revision de la moderacion. Calidad > cantidad.",
+      "seed": "Rol oficial en Discord. Elige un Squad y empieza a contribuir.",
+      "sprout": "Contribuidor reconocido. Las tareas de squad abren destacados semanales.",
+      "flower": "Pilar de la comunidad. Marca el estandar y guia."
+    }
+  },
+  "locale": {
+    "switch": "Idioma",
+    "label": "Cambiar idioma"
+  },
+  "errors": {
+    "notFound": {
+      "badge": "404",
+      "title": "Fuera del Growth Path",
+      "body": "Esa ruta no existe en el mapa.",
+      "back": "Volver al HQ"
+    }
+  }
+}

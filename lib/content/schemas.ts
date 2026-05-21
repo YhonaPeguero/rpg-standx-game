@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { locales } from "@/lib/i18n/config";
 
 export const squadIdSchema = z.enum(["creative", "content_research", "tech_support", "outreach", "offline"]);
 
@@ -129,10 +130,14 @@ export const characterSchema = z.object({
 
 export const charactersSchema = z.array(characterSchema).min(1);
 
-export const localizedTextSchema = z.object({
-  en: z.string().min(1),
-  "pt-BR": z.string().min(1),
-});
+const localeFields = locales.reduce<Record<string, z.ZodOptional<z.ZodString>>>((acc, locale) => {
+  acc[locale] = z.string().min(1).optional();
+  return acc;
+}, {});
+
+export const localizedTextSchema = z
+  .object({ "en-US": z.string().min(1), ...localeFields })
+  .passthrough();
 
 export const codexEntrySchema = z.object({
   id: z.string(),

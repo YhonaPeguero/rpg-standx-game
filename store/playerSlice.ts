@@ -1,6 +1,7 @@
 import type { StateCreator } from "zustand";
 import type { Player, Rank, SquadId } from "@/types";
 import type { GameStore } from "@/store";
+import { defaultLocale } from "@/lib/i18n/config";
 import { rankFromEP } from "@/lib/game/ep";
 import { nextStreakDays } from "@/lib/game/streak";
 
@@ -40,7 +41,7 @@ export function createDefaultPlayer(): Player {
     codexUnlocks: [],
     achievements: [],
     createdAt: now,
-    locale: "en",
+    locale: defaultLocale,
   };
 }
 

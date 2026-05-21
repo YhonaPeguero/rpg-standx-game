@@ -1,23 +1,27 @@
 import { create, type StateCreator } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import type { Player } from "@/types";
+import { normalizeLocale } from "@/lib/i18n/config";
 import { createPlayerSlice, type PlayerSlice } from "./playerSlice";
 import { createProgressSlice, type ProgressSlice } from "./progressSlice";
+import { createQuestsSlice, type QuestsSlice, type QuestState } from "./questsSlice";
 import { createSettingsSlice, type SettingsSlice } from "./settingsSlice";
 
-export type GameStore = PlayerSlice & ProgressSlice & SettingsSlice;
+export type GameStore = PlayerSlice & ProgressSlice & SettingsSlice & QuestsSlice;
 
 type PersistedGameStore = {
   player: Player;
   completedScenes: string[];
   completedChapters: string[];
   currentChapterId: string | null;
+  questState: QuestState;
 };
 
 const createGameStore: StateCreator<GameStore, [], [], GameStore> = (...args) => ({
   ...createPlayerSlice(...args),
   ...createProgressSlice(...args),
   ...createSettingsSlice(...args),
+  ...createQuestsSlice(...args),
 });
 
 function stringArray(value: unknown) {
@@ -34,11 +38,18 @@ function persistedFromUnknown(value: unknown): PersistedGameStore | null {
     return null;
   }
 
+  const player = record.player as Player & { locale?: unknown };
+  const normalizedLocale = normalizeLocale(typeof player.locale === "string" ? player.locale : null);
+
   return {
-    player: record.player as Player,
+    player: { ...player, locale: normalizedLocale } as Player,
     completedScenes: stringArray(record.completedScenes),
     completedChapters: stringArray(record.completedChapters),
     currentChapterId: typeof record.currentChapterId === "string" ? record.currentChapterId : null,
+    questState:
+      record.questState && typeof record.questState === "object"
+        ? (record.questState as QuestState)
+        : { activeDaily: [], progress: {}, claimed: [], lastRollISO: "" },
   };
 }
 
@@ -51,6 +62,7 @@ export const useGameStore = create<GameStore>()(
       completedScenes: Array.from(state.completedScenes),
       completedChapters: Array.from(state.completedChapters),
       currentChapterId: state.currentChapterId,
+      questState: state.questState,
     }),
     merge: (persistedState, currentState) => {
       const persisted = persistedFromUnknown(persistedState);
@@ -66,6 +78,7 @@ export const useGameStore = create<GameStore>()(
         completedScenes: new Set(persisted.completedScenes),
         completedChapters: new Set(persisted.completedChapters),
         currentChapterId: persisted.currentChapterId,
+        questState: persisted.questState,
       };
     },
   }),

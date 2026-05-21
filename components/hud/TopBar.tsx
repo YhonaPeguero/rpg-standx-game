@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { useTranslations } from "next-intl";
 import { nextRankThreshold, RANK_THRESHOLDS } from "@/lib/game/ep";
 import { useGameStore } from "@/store";
+import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { EPRing } from "./EPRing";
 import { DailyClaim } from "./DailyClaim";
 import { RankLabel } from "./RankLabel";
@@ -12,19 +13,19 @@ import { StreakBadge } from "./StreakBadge";
 export function TopBar() {
   const t = useTranslations("hud");
   const player = useGameStore((state) => state.player);
-  const locale = useGameStore((state) => state.locale);
   const audioEnabled = useGameStore((state) => state.audioEnabled);
-  const setLocale = useGameStore((state) => state.setLocale);
   const toggleAudio = useGameStore((state) => state.toggleAudio);
   const toggleReduceMotion = useGameStore((state) => state.toggleReduceMotion);
   const reduceMotion = useGameStore((state) => state.reduceMotion);
   const bumpStreak = useGameStore((state) => state.bumpStreak);
+  const rollDailyIfNeeded = useGameStore((state) => state.rollDailyIfNeeded);
   const next = nextRankThreshold(player.ep);
   const current = RANK_THRESHOLDS.find((threshold) => threshold.rank === player.rank)?.min ?? 0;
 
   useEffect(() => {
     bumpStreak();
-  }, [bumpStreak]);
+    rollDailyIfNeeded();
+  }, [bumpStreak, rollDailyIfNeeded]);
 
   return (
     <header className="sticky top-0 z-40 mb-5 rounded-sx-lg border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] px-4 py-3 backdrop-blur md:px-5">
@@ -40,17 +41,12 @@ export function TopBar() {
         <div className="flex items-center gap-2">
           <StreakBadge days={player.streakDays} label={t("streak")} />
           <DailyClaim />
-          <button
-            className="rounded-sx border border-[var(--stroke-soft)] px-3 py-2 font-mono text-xs uppercase tracking-[0.18em] text-sx-text transition hover:border-sx-green"
-            type="button"
-            onClick={() => setLocale(locale === "en" ? "pt-BR" : "en")}
-          >
-            {locale}
-          </button>
+          <LocaleSwitcher variant="compact" />
           <button
             className="rounded-sx border border-[var(--stroke-soft)] px-3 py-2 font-mono text-xs uppercase tracking-[0.18em] text-sx-text transition hover:border-sx-green"
             type="button"
             onClick={toggleAudio}
+            aria-pressed={audioEnabled}
           >
             {audioEnabled ? t("audioOn") : t("audioOff")}
           </button>
@@ -58,6 +54,7 @@ export function TopBar() {
             className="rounded-sx border border-[var(--stroke-soft)] px-3 py-2 font-mono text-xs uppercase tracking-[0.18em] text-sx-text transition hover:border-sx-green"
             type="button"
             onClick={toggleReduceMotion}
+            aria-pressed={reduceMotion}
           >
             {reduceMotion ? t("motionOff") : t("motionOn")}
           </button>

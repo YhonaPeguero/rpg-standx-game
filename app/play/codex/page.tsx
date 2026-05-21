@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { getCodexEntries } from "@/lib/content/codex";
+import { localizeText } from "@/lib/i18n/localizeText";
 import { useGameStore } from "@/store";
 import { Card } from "@/components/ui/Card";
 
@@ -25,8 +26,10 @@ export default function CodexPage() {
         entries.map((entry) => (
           <Card className="p-6" key={entry.id}>
             <p className="font-mono text-xs uppercase tracking-[0.24em] text-sx-gold">{entry.category}</p>
-            <h2 className="mt-3 font-display text-xl font-bold uppercase tracking-[0.12em] text-sx-green">{entry.title[locale]}</h2>
-            <p className="mt-3 text-lg font-semibold leading-8 text-sx-text">{entry.body[locale]}</p>
+            <h2 className="mt-3 font-display text-xl font-bold uppercase tracking-[0.12em] text-sx-green">
+              {localizeText(entry.title, locale)}
+            </h2>
+            <p className="mt-3 text-lg font-semibold leading-8 text-sx-text">{localizeText(entry.body, locale)}</p>
           </Card>
         ))
       )}

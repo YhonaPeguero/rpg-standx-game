@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { useMessages, useTranslations } from "next-intl";
 import type { Chapter } from "@/types";
 import { getChapters } from "@/lib/content/loader";
@@ -13,7 +14,9 @@ import { MascotPanel } from "@/components/dashboard/MascotPanel";
 import { Onboarding } from "@/components/dashboard/Onboarding";
 import { Sidebar } from "@/components/dashboard/Sidebar";
 import { StatCard } from "@/components/dashboard/StatCard";
+import { RankProgress } from "@/components/hud/RankProgress";
 import { formatRank } from "@/components/hud/RankLabel";
+import { buttonClassName } from "@/components/ui/Button";
 
 const mentorByZone: Record<Chapter["zone"], string> = {
   void: "Mira",
@@ -48,6 +51,7 @@ function toDashboardChapter(chapter: Chapter): DashboardChapter & Pick<Chapter, 
 
 export default function PlayPage() {
   const t = useTranslations("dashboard");
+  const tNav = useTranslations("nav");
   const messages = useMessages();
   const player = useGameStore((state) => state.player);
   const completedChapters = useGameStore((state) => state.completedChapters);
@@ -58,7 +62,9 @@ export default function PlayPage() {
     setDisplayName(player.displayName);
   }, [player.displayName, setDisplayName]);
 
-  const nextChapter = dashboardChapters.find((chapter) => !completedChapters.has(chapter.id)) ?? dashboardChapters[dashboardChapters.length - 1];
+  const nextChapter =
+    dashboardChapters.find((chapter) => !completedChapters.has(chapter.id)) ??
+    dashboardChapters[dashboardChapters.length - 1];
 
   return (
     <main className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-12">
@@ -69,14 +75,20 @@ export default function PlayPage() {
       <section className="space-y-6 lg:col-span-6">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.35em] text-sx-gold">{t("badge")}</p>
-          <h1 className="mt-4 font-display text-3xl font-black uppercase tracking-[0.16em] text-sx-green md:text-5xl">{t("title")}</h1>
+          <h1 className="mt-4 font-display text-3xl font-black uppercase tracking-[0.16em] text-sx-green md:text-5xl">
+            {t("title")}
+          </h1>
           <p className="mt-4 max-w-2xl text-lg font-semibold leading-8 text-sx-text">{t("intro")}</p>
         </div>
+
+        <RankProgress ep={player.ep} />
+
         <div className="grid gap-3 sm:grid-cols-3">
           <StatCard icon="EP" label={t("stats.ep")} value={player.ep} />
           <StatCard icon="ST" label={t("stats.streak")} value={player.streakDays} />
           <StatCard icon="RK" label={t("stats.rank")} value={formatRank(player.rank)} />
         </div>
+
         <ChapterCard
           chapter={nextChapter}
           completed={completedChapters.has(nextChapter.id)}
@@ -85,6 +97,7 @@ export default function PlayPage() {
           lockReason={t("chapter.lockedC1")}
           unlocked={chapterUnlocked(nextChapter.unlock, player, completedChapters)}
         />
+
         <div className="grid gap-4">
           {dashboardChapters.map((chapter) => (
             <ChapterCard
@@ -98,7 +111,17 @@ export default function PlayPage() {
             />
           ))}
         </div>
+
         <GrowthTree completedChapterIds={completedChapters} currentChapterId={nextChapter.id} />
+
+        <div className="flex flex-wrap gap-3">
+          <Link className={buttonClassName("secondary")} href="/play/quests">
+            {tNav("quests")} →
+          </Link>
+          <Link className={buttonClassName("secondary")} href="/play/ranks">
+            {tNav("ranks")} →
+          </Link>
+        </div>
       </section>
       <aside className="lg:col-span-4">
         <MascotPanel />

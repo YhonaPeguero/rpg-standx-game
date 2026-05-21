@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { getAchievements } from "@/lib/content/codex";
+import { localizeText } from "@/lib/i18n/localizeText";
 import { useGameStore } from "@/store";
 import { Card } from "@/components/ui/Card";
 import { ShareCard } from "@/components/ui/ShareCard";
@@ -37,8 +38,10 @@ export default function ProfilePage() {
           {unlocked.length === 0 ? <p className="font-semibold text-sx-text">{t("empty")}</p> : null}
           {unlocked.map((achievement) => (
             <div className="rounded-sx border border-[var(--stroke-brand)] bg-sx-green/5 p-4" key={achievement.id}>
-              <p className="font-display text-sm font-bold uppercase tracking-[0.16em] text-sx-green">{achievement.title[locale]}</p>
-              <p className="mt-2 font-semibold text-sx-text">{achievement.description[locale]}</p>
+              <p className="font-display text-sm font-bold uppercase tracking-[0.16em] text-sx-green">
+                {localizeText(achievement.title, locale)}
+              </p>
+              <p className="mt-2 font-semibold text-sx-text">{localizeText(achievement.description, locale)}</p>
             </div>
           ))}
         </div>

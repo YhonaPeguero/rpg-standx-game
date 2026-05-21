@@ -20,6 +20,8 @@ export function SceneRouter({ scene, onReward, onQuestionReward, onMastery, onSq
     case "dialog":
       return (
         <DialogScene
+          key={scene.id}
+          sceneId={scene.id}
           lines={scene.lines}
           choices={scene.choices}
           educational={scene.educational}
@@ -31,6 +33,7 @@ export function SceneRouter({ scene, onReward, onQuestionReward, onMastery, onSq
     case "quiz":
       return (
         <QuizScene
+          key={scene.id}
           sceneId={scene.id}
           questions={scene.questions}
           passingScore={scene.passingScore}
@@ -40,8 +43,8 @@ export function SceneRouter({ scene, onReward, onQuestionReward, onMastery, onSq
         />
       );
     case "reflection":
-      return <ReflectionScene prompt={scene.prompt} options={scene.options} onComplete={onComplete} />;
+      return <ReflectionScene key={scene.id} prompt={scene.prompt} options={scene.options} onComplete={onComplete} />;
     case "minigame":
-      return <MiniGameScene {...scene} onReward={onReward} onMastery={onMastery} onComplete={onComplete} />;
+      return <MiniGameScene key={scene.id} {...scene} onReward={onReward} onMastery={onMastery} onComplete={onComplete} />;
   }
 }

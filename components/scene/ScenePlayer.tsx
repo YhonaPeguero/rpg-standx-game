@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { useMessages } from "next-intl";
 import type { Chapter, Reward } from "@/types";
 import { useGameStore } from "@/store";
 import { localizeChapter } from "@/lib/content/localize";
 import { mergeRewards } from "@/lib/game/rewards";
-import { Card } from "@/components/ui/Card";
+import { GameStage } from "./GameStage";
 import { RewardScreen } from "./RewardScreen";
 import { SceneRouter } from "./SceneRouter";
 
@@ -27,6 +28,7 @@ export function ScenePlayer({ chapter }: ScenePlayerProps) {
   const markSceneComplete = useGameStore((state) => state.markSceneComplete);
   const markChapterComplete = useGameStore((state) => state.markChapterComplete);
   const setCurrentChapter = useGameStore((state) => state.setCurrentChapter);
+  const reduceMotion = useGameStore((state) => state.reduceMotion);
   const scene = localizedChapter.scenes[sceneIndex];
 
   useEffect(() => {
@@ -95,22 +97,35 @@ export function ScenePlayer({ chapter }: ScenePlayerProps) {
   }
 
   return (
-    <div className="mx-auto max-w-4xl py-4 md:py-10">
-      <Card className="mb-5 p-4 md:p-5">
-        <p className="font-mono text-xs uppercase tracking-[0.3em] text-sx-gold">Act {localizedChapter.act}</p>
-        <h1 className="mt-2 font-display text-2xl font-black uppercase tracking-[0.14em] text-sx-green md:text-4xl">
-          {localizedChapter.title}
-        </h1>
-        {localizedChapter.subtitle ? <p className="mt-1 font-semibold text-sx-text">{localizedChapter.subtitle}</p> : null}
-      </Card>
-      <SceneRouter
-        scene={scene}
-        onReward={applyReward}
-        onQuestionReward={(ep) => addEP(ep)}
-        onMastery={handleMastery}
-        onSquad={handleSquad}
-        onComplete={() => completeScene(scene.kind === "reflection" ? { ep: 10 } : {})}
-      />
+    <div className="mx-auto max-w-7xl py-2 md:py-4">
+      <GameStage
+        act={localizedChapter.act}
+        mode={scene.kind === "dialog" ? "dialog" : "panel"}
+        sceneIndex={sceneIndex}
+        sceneTotal={localizedChapter.scenes.length}
+        subtitle={localizedChapter.subtitle}
+        title={localizedChapter.title}
+        zone={localizedChapter.zone}
+      >
+        <AnimatePresence initial={false} mode="wait">
+          <motion.div
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            initial={{ opacity: 0, y: 8 }}
+            key={scene.id}
+            transition={{ duration: reduceMotion ? 0 : 0.32, ease: [0.16, 1, 0.3, 1] }}
+          >
+            <SceneRouter
+              scene={scene}
+              onReward={applyReward}
+              onQuestionReward={(ep) => addEP(ep)}
+              onMastery={handleMastery}
+              onSquad={handleSquad}
+              onComplete={() => completeScene(scene.kind === "reflection" ? { ep: 10 } : {})}
+            />
+          </motion.div>
+        </AnimatePresence>
+      </GameStage>
     </div>
   );
 }

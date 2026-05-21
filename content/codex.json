@@ -1,12 +1,164 @@
 [
-  { "id": "engage_points_intro", "category": "growth", "title": { "en": "Engage Points", "pt-BR": "Engage Points" }, "body": { "en": "EP tracks useful participation: reactions, events, content, help, and consistency. It is a signal for SEED readiness, not a replacement for judgment.", "pt-BR": "EP mede participacao util: reacoes, eventos, conteudo, ajuda e consistencia. E um sinal para SEED, nao substitui avaliacao humana." } },
-  { "id": "weekly_active_bonus", "category": "community", "title": { "en": "Weekly Active Bonus", "pt-BR": "Bonus Weekly Active" }, "body": { "en": "Weekly Active adds +100 EP when you maintain useful weekly presence.", "pt-BR": "Weekly Active adiciona +100 EP quando voce mantem presenca semanal util." } },
-  { "id": "announcements_reactions", "category": "community", "title": { "en": "Announcement Reactions", "pt-BR": "Reacoes em Anuncios" }, "body": { "en": "Reacting to official announcements is a small habit with compounding value.", "pt-BR": "Reagir a anuncios oficiais e um pequeno habito com valor acumulado." } },
-  { "id": "weekly_events", "category": "community", "title": { "en": "Weekly Events", "pt-BR": "Eventos Semanais" }, "body": { "en": "Events reward presence, contribution, and helping newcomers in real time.", "pt-BR": "Eventos recompensam presenca, contribuicao e ajuda a newcomers em tempo real." } },
-  { "id": "trade_setup_basics", "category": "trading", "title": { "en": "Trade Setup Basics", "pt-BR": "Base de Setup de Trade" }, "body": { "en": "A setup needs context: tested support, funding, volume, and confirmation. FOMO is not analysis.", "pt-BR": "Um setup precisa de contexto: suporte testado, funding, volume e confirmacao. FOMO nao e analise." } },
-  { "id": "dusd_delta_neutral", "category": "content", "title": { "en": "DUSD Delta-Neutral", "pt-BR": "DUSD Delta-Neutral" }, "body": { "en": "DUSD content should explain structure honestly: delta-neutral design reduces directional exposure; it is not magic yield.", "pt-BR": "Conteudo sobre DUSD deve explicar a estrutura honestamente: delta-neutral reduz exposicao direcional; nao e yield magico." } },
-  { "id": "content_quality", "category": "content", "title": { "en": "Content Quality", "pt-BR": "Qualidade de Conteudo" }, "body": { "en": "Strong content teaches, analyzes, and gives context in a human voice.", "pt-BR": "Conteudo forte ensina, analisa e da contexto com voz humana." } },
-  { "id": "seed_application_review", "category": "growth", "title": { "en": "SEED Review", "pt-BR": "Revisao de SEED" }, "body": { "en": "SEED review weighs EP, quality, attitude, and genuine contribution.", "pt-BR": "A revisao de SEED considera EP, qualidade, atitude e contribuicao genuina." } },
-  { "id": "seed_role_explained", "category": "growth", "title": { "en": "SEED Role", "pt-BR": "Cargo SEED" }, "body": { "en": "SEED is the first recognized role in the Growth Path and the entry point to squad responsibility.", "pt-BR": "SEED e o primeiro cargo reconhecido no Growth Path e a entrada para responsabilidades de squad." } },
-  { "id": "squads_overview", "category": "squads", "title": { "en": "Squads Overview", "pt-BR": "Visao de Squads" }, "body": { "en": "Squads focus your contribution: Content/Research, Creative, Tech Support, Outreach, and Offline.", "pt-BR": "Squads direcionam sua contribuicao: Content/Research, Creative, Tech Support, Outreach e Offline." } }
+  {
+    "id": "engage_points_intro",
+    "category": "growth",
+    "title": {
+      "en-US": "Engage Points",
+      "en-GB": "Engage Points",
+      "pt-BR": "Engage Points",
+      "es-ES": "Engage Points",
+      "ko-KR": "Engage Points"
+    },
+    "body": {
+      "en-US": "EP tracks useful participation: reactions, events, content, help, and consistency. It is a signal for SEED readiness, not a replacement for judgment.",
+      "en-GB": "EP tracks useful participation: reactions, events, content, help, and consistency. It is a signal for SEED readiness, not a replacement for judgement.",
+      "pt-BR": "EP mede participacao util: reacoes, eventos, conteudo, ajuda e consistencia. E um sinal para SEED, nao substitui avaliacao humana.",
+      "es-ES": "EP mide participacion util: reacciones, eventos, contenido, ayuda y consistencia. Es una senal para SEED, no reemplaza el criterio humano.",
+      "ko-KR": "EP는 유용한 참여(반응, 이벤트, 콘텐츠, 도움, 일관성)를 추적합니다. SEED 준비의 신호이지 판단의 대체가 아닙니다."
+    }
+  },
+  {
+    "id": "weekly_active_bonus",
+    "category": "community",
+    "title": {
+      "en-US": "Weekly Active Bonus",
+      "pt-BR": "Bonus Weekly Active",
+      "es-ES": "Bono Weekly Active",
+      "ko-KR": "Weekly Active 보너스"
+    },
+    "body": {
+      "en-US": "Weekly Active adds +100 EP when you maintain useful weekly presence.",
+      "pt-BR": "Weekly Active adiciona +100 EP quando voce mantem presenca semanal util.",
+      "es-ES": "Weekly Active suma +100 EP cuando mantienes presencia semanal util.",
+      "ko-KR": "주간 유용한 활동을 유지하면 Weekly Active가 +100 EP를 제공합니다."
+    }
+  },
+  {
+    "id": "announcements_reactions",
+    "category": "community",
+    "title": {
+      "en-US": "Announcement Reactions",
+      "pt-BR": "Reacoes em Anuncios",
+      "es-ES": "Reacciones en Anuncios",
+      "ko-KR": "공지 반응"
+    },
+    "body": {
+      "en-US": "Reacting to official announcements is a small habit with compounding value.",
+      "pt-BR": "Reagir a anuncios oficiais e um pequeno habito com valor acumulado.",
+      "es-ES": "Reaccionar a anuncios oficiales es un habito pequeno con valor compuesto.",
+      "ko-KR": "공식 공지에 반응하는 것은 복리로 쌓이는 작은 습관입니다."
+    }
+  },
+  {
+    "id": "weekly_events",
+    "category": "community",
+    "title": {
+      "en-US": "Weekly Events",
+      "pt-BR": "Eventos Semanais",
+      "es-ES": "Eventos Semanales",
+      "ko-KR": "주간 이벤트"
+    },
+    "body": {
+      "en-US": "Events reward presence, contribution, and helping newcomers in real time.",
+      "pt-BR": "Eventos recompensam presenca, contribuicao e ajuda a newcomers em tempo real.",
+      "es-ES": "Los eventos premian presencia, contribucion y ayudar a newcomers en tiempo real.",
+      "ko-KR": "이벤트는 존재감, 기여, 뉴커머를 실시간으로 돕는 행동을 보상합니다."
+    }
+  },
+  {
+    "id": "trade_setup_basics",
+    "category": "trading",
+    "title": {
+      "en-US": "Trade Setup Basics",
+      "pt-BR": "Base de Setup de Trade",
+      "es-ES": "Bases del Setup de Trade",
+      "ko-KR": "트레이드 셋업 기초"
+    },
+    "body": {
+      "en-US": "A setup needs context: tested support, funding, volume, and confirmation. FOMO is not analysis.",
+      "pt-BR": "Um setup precisa de contexto: suporte testado, funding, volume e confirmacao. FOMO nao e analise.",
+      "es-ES": "Un setup necesita contexto: soporte probado, funding, volumen y confirmacion. FOMO no es analisis.",
+      "ko-KR": "셋업에는 컨텍스트가 필요합니다: 검증된 지지선, 펀딩, 거래량, 확인. FOMO는 분석이 아닙니다."
+    }
+  },
+  {
+    "id": "dusd_delta_neutral",
+    "category": "content",
+    "title": {
+      "en-US": "DUSD Delta-Neutral",
+      "pt-BR": "DUSD Delta-Neutral",
+      "es-ES": "DUSD Delta-Neutral",
+      "ko-KR": "DUSD 델타 중립"
+    },
+    "body": {
+      "en-US": "DUSD content should explain structure honestly: delta-neutral design reduces directional exposure; it is not magic yield.",
+      "pt-BR": "Conteudo sobre DUSD deve explicar a estrutura honestamente: delta-neutral reduz exposicao direcional; nao e yield magico.",
+      "es-ES": "El contenido sobre DUSD debe explicar la estructura con honestidad: el diseno delta-neutral reduce la exposicion direccional; no es yield magico.",
+      "ko-KR": "DUSD 콘텐츠는 구조를 정직하게 설명해야 합니다. 델타 중립 설계는 방향성 노출을 줄이지만 마법 수익이 아닙니다."
+    }
+  },
+  {
+    "id": "content_quality",
+    "category": "content",
+    "title": {
+      "en-US": "Content Quality",
+      "pt-BR": "Qualidade de Conteudo",
+      "es-ES": "Calidad de Contenido",
+      "ko-KR": "콘텐츠 품질"
+    },
+    "body": {
+      "en-US": "Strong content teaches, analyzes, and gives context in a human voice.",
+      "pt-BR": "Conteudo forte ensina, analisa e da contexto com voz humana.",
+      "es-ES": "El contenido fuerte ensena, analiza y da contexto con voz humana.",
+      "ko-KR": "강한 콘텐츠는 사람의 목소리로 가르치고 분석하며 컨텍스트를 제공합니다."
+    }
+  },
+  {
+    "id": "seed_application_review",
+    "category": "growth",
+    "title": {
+      "en-US": "SEED Review",
+      "pt-BR": "Revisao de SEED",
+      "es-ES": "Revision de SEED",
+      "ko-KR": "SEED 리뷰"
+    },
+    "body": {
+      "en-US": "SEED review weighs EP, quality, attitude, and genuine contribution.",
+      "pt-BR": "A revisao de SEED considera EP, qualidade, atitude e contribuicao genuina.",
+      "es-ES": "La revision de SEED pondera EP, calidad, actitud y contribucion genuina.",
+      "ko-KR": "SEED 리뷰는 EP, 품질, 태도, 진정성 있는 기여를 함께 평가합니다."
+    }
+  },
+  {
+    "id": "seed_role_explained",
+    "category": "growth",
+    "title": {
+      "en-US": "SEED Role",
+      "pt-BR": "Cargo SEED",
+      "es-ES": "Rol SEED",
+      "ko-KR": "SEED 역할"
+    },
+    "body": {
+      "en-US": "SEED is the first recognized role in the Growth Path and the entry point to squad responsibility.",
+      "pt-BR": "SEED e o primeiro cargo reconhecido no Growth Path e a entrada para responsabilidades de squad.",
+      "es-ES": "SEED es el primer rol reconocido en el Growth Path y la puerta de entrada a las responsabilidades de squad.",
+      "ko-KR": "SEED는 Growth Path에서 처음으로 인정받는 역할이자 스쿼드 책임의 시작점입니다."
+    }
+  },
+  {
+    "id": "squads_overview",
+    "category": "squads",
+    "title": {
+      "en-US": "Squads Overview",
+      "pt-BR": "Visao de Squads",
+      "es-ES": "Vista de Squads",
+      "ko-KR": "스쿼드 개요"
+    },
+    "body": {
+      "en-US": "Squads focus your contribution: Content/Research, Creative, Tech Support, Outreach, and Offline.",
+      "pt-BR": "Squads direcionam sua contribuicao: Content/Research, Creative, Tech Support, Outreach e Offline.",
+      "es-ES": "Los squads enfocan tu contribucion: Content/Research, Creative, Tech Support, Outreach y Offline.",
+      "ko-KR": "스쿼드는 기여 방향을 정합니다: Content/Research, Creative, Tech Support, Outreach, Offline."
+    }
+  }
 ]

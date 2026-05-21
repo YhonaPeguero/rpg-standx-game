@@ -15,7 +15,7 @@ const player: Player = {
   codexUnlocks: [],
   achievements: [],
   createdAt: "2026-04-26T00:00:00.000Z",
-  locale: "en",
+  locale: "en-US",
 };
 
 describe("gates", () => {
