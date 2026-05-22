@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import Link from "next/link";
+import { useTranslations } from "next-intl";
 import type { ZoneId } from "@/types";
 import { MascotCanvas } from "@/components/mascot/MascotCanvas";
 
@@ -10,6 +12,7 @@ type GameStageProps = {
   sceneIndex: number;
   sceneTotal: number;
   mode: "dialog" | "panel";
+  notLocalized?: boolean;
   children: ReactNode;
 };
 
@@ -27,22 +30,40 @@ const stars = [
   [58, 13, 1], [63, 48, 1], [70, 26, 2], [77, 8, 1], [82, 39, 1], [89, 18, 2], [95, 33, 1], [22, 55, 1],
 ] as const;
 
-export function GameStage({ act, title, subtitle, zone, sceneIndex, sceneTotal, mode, children }: GameStageProps) {
+export function GameStage({ act, title, subtitle, zone, sceneIndex, sceneTotal, mode, notLocalized, children }: GameStageProps) {
+  const t = useTranslations("scene");
   const meta = zoneMeta[zone];
   const sceneProgress = Math.round(((sceneIndex + 1) / sceneTotal) * 100);
   const markerLeft = 34 + Math.min(42, sceneIndex * 11);
 
   return (
     <section className={`relative mx-auto min-h-[720px] overflow-hidden rounded-sx-lg border border-[var(--stroke-brand)] bg-gradient-to-b ${meta.sky} shadow-[0_0_70px_rgba(0,0,0,0.45)]`}>
-      <div className="absolute inset-x-0 top-0 z-20 flex items-center gap-4 border-b border-[var(--stroke-brand)] bg-sx-bg/60 px-4 py-2 backdrop-blur-sm">
-        <p className="font-mono text-xs uppercase tracking-[0.28em] text-sx-green">Act {act}</p>
-        <div className="h-px flex-1 bg-sx-green/20">
-          <div className="h-px bg-sx-green" style={{ width: `${sceneProgress}%` }} />
+      <div className="absolute inset-x-0 top-0 z-20 border-b border-[var(--stroke-brand)] bg-sx-bg/60 backdrop-blur-sm">
+        <div className="flex items-center gap-4 px-4 py-2">
+          <Link
+            aria-label={t("exitToHq")}
+            className="rounded-sx border border-[var(--stroke-soft)] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-sx-text transition hover:border-sx-green hover:text-sx-green"
+            href="/play"
+          >
+            ← {t("exitToHq")}
+          </Link>
+          <p className="font-mono text-xs uppercase tracking-[0.28em] text-sx-green">Act {act}</p>
+          <div className="h-px flex-1 bg-sx-green/20">
+            <div className="h-px bg-sx-green" style={{ width: `${sceneProgress}%` }} />
+          </div>
+          <p className="hidden font-mono text-xs uppercase tracking-[0.28em] text-sx-gold md:block">{meta.label}</p>
+          <p className="rounded-sx border border-[var(--stroke-soft)] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-sx-dim">
+            {sceneIndex + 1}/{sceneTotal}
+          </p>
         </div>
-        <p className="font-mono text-xs uppercase tracking-[0.28em] text-sx-gold">{meta.label}</p>
-        <p className="rounded-sx border border-[var(--stroke-soft)] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-sx-dim">
-          {sceneIndex + 1}/{sceneTotal}
-        </p>
+        {notLocalized ? (
+          <p
+            className="border-t border-sx-gold/30 bg-sx-gold/10 px-4 py-1 text-center font-mono text-[10px] uppercase tracking-[0.22em] text-sx-gold"
+            role="status"
+          >
+            {t("fallbackNotice")}
+          </p>
+        ) : null}
       </div>
 
       <div className="absolute inset-0">

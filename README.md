@@ -50,7 +50,7 @@ components/
   scene/            # ScenePlayer, GameStage, DialogScene, QuizScene, ReflectionScene, MiniGameScene, RewardScreen, Starfield
   minigames/        # TradeTimingQTE, ContentPickQTE
   dashboard/        # ChapterCard, GrowthTree, MascotPanel, Onboarding, Sidebar, StatCard
-  hud/              # TopBar, EPRing, RankLabel, RankProgress, StreakBadge, DailyClaim
+  hud/              # TopBar, EPRing, RankLabel, RankProgress
   quests/           # QuestBoard, QuestCard
   mascot/           # MascotCanvas (canvas2d), EvolutionCelebration
   i18n/             # LocaleProvider, LocaleSwitcher

@@ -15,6 +15,9 @@ type PersistedGameStore = {
   completedChapters: string[];
   currentChapterId: string | null;
   questState: QuestState;
+  audioEnabled: boolean;
+  reduceMotion: boolean;
+  volume: number;
 };
 
 const createGameStore: StateCreator<GameStore, [], [], GameStore> = (...args) => ({
@@ -41,6 +44,7 @@ function persistedFromUnknown(value: unknown): PersistedGameStore | null {
   const player = record.player as Player & { locale?: unknown };
   const normalizedLocale = normalizeLocale(typeof player.locale === "string" ? player.locale : null);
 
+  const rawVolume = typeof record.volume === "number" ? record.volume : 0.4;
   return {
     player: { ...player, locale: normalizedLocale } as Player,
     completedScenes: stringArray(record.completedScenes),
@@ -50,6 +54,9 @@ function persistedFromUnknown(value: unknown): PersistedGameStore | null {
       record.questState && typeof record.questState === "object"
         ? (record.questState as QuestState)
         : { activeDaily: [], progress: {}, claimed: [], lastRollISO: "" },
+    audioEnabled: typeof record.audioEnabled === "boolean" ? record.audioEnabled : true,
+    reduceMotion: typeof record.reduceMotion === "boolean" ? record.reduceMotion : false,
+    volume: Math.max(0, Math.min(1, rawVolume)),
   };
 }
 
@@ -63,6 +70,9 @@ export const useGameStore = create<GameStore>()(
       completedChapters: Array.from(state.completedChapters),
       currentChapterId: state.currentChapterId,
       questState: state.questState,
+      audioEnabled: state.audioEnabled,
+      reduceMotion: state.reduceMotion,
+      volume: state.volume,
     }),
     merge: (persistedState, currentState) => {
       const persisted = persistedFromUnknown(persistedState);
@@ -79,6 +89,9 @@ export const useGameStore = create<GameStore>()(
         completedChapters: new Set(persisted.completedChapters),
         currentChapterId: persisted.currentChapterId,
         questState: persisted.questState,
+        audioEnabled: persisted.audioEnabled,
+        reduceMotion: persisted.reduceMotion,
+        volume: persisted.volume,
       };
     },
   }),

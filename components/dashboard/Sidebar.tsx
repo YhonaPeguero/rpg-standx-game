@@ -9,18 +9,16 @@ import { cn } from "@/lib/utils";
 
 type NavItem = {
   href: string;
-  key: "hq" | "quests" | "ranks" | "codex" | "leaderboard" | "profile" | "about";
+  key: "hq" | "quests" | "ranks" | "codex" | "profile";
   seedOnly?: boolean;
 };
 
 const navItems: readonly NavItem[] = [
   { href: "/play", key: "hq" },
   { href: "/play/quests", key: "quests" },
-  { href: "/play/ranks", key: "ranks" },
   { href: "/play/codex", key: "codex" },
-  { href: "/play/leaderboard", key: "leaderboard" },
+  { href: "/play/ranks", key: "ranks" },
   { href: "/play/profile", key: "profile" },
-  { href: "/about", key: "about" },
 ] as const;
 
 export function Sidebar() {

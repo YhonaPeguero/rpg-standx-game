@@ -10,17 +10,25 @@ export type ProgressSlice = {
   setCurrentChapter: (id: string) => void;
 };
 
-export const createProgressSlice: StateCreator<GameStore, [], [], ProgressSlice> = (set) => ({
+export const createProgressSlice: StateCreator<GameStore, [], [], ProgressSlice> = (set, get) => ({
   completedScenes: new Set<string>(),
   completedChapters: new Set<string>(),
   currentChapterId: null,
-  markSceneComplete: (id) =>
+  markSceneComplete: (id) => {
     set((state) => ({
       completedScenes: new Set(state.completedScenes).add(id),
-    })),
-  markChapterComplete: (id) =>
+    }));
+    get().recordQuestEvent({
+      type: "scene_complete",
+      sceneId: id,
+      chapterId: get().currentChapterId,
+    });
+  },
+  markChapterComplete: (id) => {
     set((state) => ({
       completedChapters: new Set(state.completedChapters).add(id),
-    })),
+    }));
+    get().recordQuestEvent({ type: "chapter_complete", chapterId: id });
+  },
   setCurrentChapter: (id) => set({ currentChapterId: id }),
 });

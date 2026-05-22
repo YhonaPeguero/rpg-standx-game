@@ -7,15 +7,18 @@ export type SettingsSlice = {
   locale: Locale;
   audioEnabled: boolean;
   reduceMotion: boolean;
+  volume: number;
   setLocale: (locale: Locale) => void;
   toggleAudio: () => void;
   toggleReduceMotion: () => void;
+  setVolume: (volume: number) => void;
 };
 
 export const createSettingsSlice: StateCreator<GameStore, [], [], SettingsSlice> = (set) => ({
   locale: defaultLocale,
   audioEnabled: true,
   reduceMotion: false,
+  volume: 0.4,
   setLocale: (locale) =>
     set((state) => ({
       locale,
@@ -23,4 +26,5 @@ export const createSettingsSlice: StateCreator<GameStore, [], [], SettingsSlice>
     })),
   toggleAudio: () => set((state) => ({ audioEnabled: !state.audioEnabled })),
   toggleReduceMotion: () => set((state) => ({ reduceMotion: !state.reduceMotion })),
+  setVolume: (volume) => set({ volume: Math.max(0, Math.min(1, volume)) }),
 });

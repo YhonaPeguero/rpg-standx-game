@@ -7,9 +7,20 @@ import type { Chapter, Reward } from "@/types";
 import { useGameStore } from "@/store";
 import { localizeChapter } from "@/lib/content/localize";
 import { mergeRewards } from "@/lib/game/rewards";
+import { audioEngine } from "@/lib/audio/engine";
 import { GameStage } from "./GameStage";
 import { RewardScreen } from "./RewardScreen";
 import { SceneRouter } from "./SceneRouter";
+
+type MessagesWithChapters = {
+  content?: { chapters?: Record<string, unknown> };
+};
+
+function hasChapterOverlay(messages: unknown, chapterId: string, locale: string): boolean {
+  if (locale.startsWith("en")) return true;
+  const overlay = (messages as MessagesWithChapters).content?.chapters?.[chapterId];
+  return overlay !== undefined && overlay !== null;
+}
 
 type ScenePlayerProps = {
   chapter: Chapter;
@@ -17,7 +28,9 @@ type ScenePlayerProps = {
 
 export function ScenePlayer({ chapter }: ScenePlayerProps) {
   const messages = useMessages();
+  const locale = useGameStore((state) => state.locale);
   const localizedChapter = localizeChapter(chapter, messages);
+  const isLocalized = hasChapterOverlay(messages, chapter.id, locale);
   const [sceneIndex, setSceneIndex] = useState(0);
   const [completeReward, setCompleteReward] = useState<Reward | null>(null);
   const addEP = useGameStore((state) => state.addEP);
@@ -35,9 +48,15 @@ export function ScenePlayer({ chapter }: ScenePlayerProps) {
     setCurrentChapter(localizedChapter.id);
   }, [localizedChapter.id, setCurrentChapter]);
 
+  useEffect(() => {
+    audioEngine.startAmbient(localizedChapter.zone);
+    return () => audioEngine.stopAmbient();
+  }, [localizedChapter.zone]);
+
   function applyReward(reward: Reward) {
     if (reward.ep) {
       addEP(reward.ep);
+      audioEngine.playEp();
     }
 
     reward.codex?.forEach(addCodex);
@@ -72,6 +91,8 @@ export function ScenePlayer({ chapter }: ScenePlayerProps) {
     }
 
     markChapterComplete(localizedChapter.id);
+    audioEngine.stopAmbient();
+    audioEngine.playComplete();
     setCompleteReward(reward);
   }
 
@@ -101,6 +122,7 @@ export function ScenePlayer({ chapter }: ScenePlayerProps) {
       <GameStage
         act={localizedChapter.act}
         mode={scene.kind === "dialog" ? "dialog" : "panel"}
+        notLocalized={!isLocalized}
         sceneIndex={sceneIndex}
         sceneTotal={localizedChapter.scenes.length}
         subtitle={localizedChapter.subtitle}
@@ -118,7 +140,10 @@ export function ScenePlayer({ chapter }: ScenePlayerProps) {
             <SceneRouter
               scene={scene}
               onReward={applyReward}
-              onQuestionReward={(ep) => addEP(ep)}
+              onQuestionReward={(ep) => {
+                addEP(ep);
+                audioEngine.playEp();
+              }}
               onMastery={handleMastery}
               onSquad={handleSquad}
               onComplete={() => completeScene(scene.kind === "reflection" ? { ep: 10 } : {})}

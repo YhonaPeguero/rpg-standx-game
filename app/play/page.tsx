@@ -13,7 +13,6 @@ import { GrowthTree } from "@/components/dashboard/GrowthTree";
 import { MascotPanel } from "@/components/dashboard/MascotPanel";
 import { Onboarding } from "@/components/dashboard/Onboarding";
 import { Sidebar } from "@/components/dashboard/Sidebar";
-import { StatCard } from "@/components/dashboard/StatCard";
 import { RankProgress } from "@/components/hud/RankProgress";
 import { formatRank } from "@/components/hud/RankLabel";
 import { buttonClassName } from "@/components/ui/Button";
@@ -65,6 +64,8 @@ export default function PlayPage() {
   const nextChapter =
     dashboardChapters.find((chapter) => !completedChapters.has(chapter.id)) ??
     dashboardChapters[dashboardChapters.length - 1];
+  const nextUnlocked = chapterUnlocked(nextChapter.unlock, player, completedChapters);
+  const completedCount = dashboardChapters.filter((chapter) => completedChapters.has(chapter.id)).length;
 
   return (
     <main className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-12">
@@ -75,44 +76,80 @@ export default function PlayPage() {
       <section className="space-y-6 lg:col-span-6">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.35em] text-sx-gold">{t("badge")}</p>
-          <h1 className="mt-4 font-display text-3xl font-black uppercase tracking-[0.16em] text-sx-green md:text-5xl">
+          <h1 className="mt-3 font-display text-3xl font-black uppercase tracking-[0.16em] text-sx-green md:text-4xl">
             {t("title")}
           </h1>
-          <p className="mt-4 max-w-2xl text-lg font-semibold leading-8 text-sx-text">{t("intro")}</p>
         </div>
 
-        <RankProgress ep={player.ep} />
+        <section
+          aria-label={t("nextStep")}
+          className="rounded-sx-lg border-2 border-sx-green/60 bg-sx-green/[0.04] p-5 shadow-glow-green md:p-6"
+        >
+          <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-sx-gold">{t("nextStep")}</p>
+          <ChapterCard
+            chapter={nextChapter}
+            completed={completedChapters.has(nextChapter.id)}
+            completedLabel={t("chapter.completed")}
+            continueLabel={t("chapter.continue")}
+            key={nextChapter.id}
+            lockReason={t("chapter.lockedC1")}
+            unlocked={nextUnlocked}
+          />
+        </section>
 
-        <div className="grid gap-3 sm:grid-cols-3">
-          <StatCard icon="EP" label={t("stats.ep")} value={player.ep} />
-          <StatCard icon="ST" label={t("stats.streak")} value={player.streakDays} />
-          <StatCard icon="RK" label={t("stats.rank")} value={formatRank(player.rank)} />
-        </div>
-
-        <ChapterCard
-          chapter={nextChapter}
-          completed={completedChapters.has(nextChapter.id)}
-          completedLabel={t("chapter.completed")}
-          continueLabel={t("chapter.continue")}
-          lockReason={t("chapter.lockedC1")}
-          unlocked={chapterUnlocked(nextChapter.unlock, player, completedChapters)}
-        />
-
-        <div className="grid gap-4">
-          {dashboardChapters.map((chapter) => (
-            <ChapterCard
-              chapter={chapter}
-              completed={completedChapters.has(chapter.id)}
-              completedLabel={t("chapter.completed")}
-              continueLabel={t("chapter.continue")}
-              key={chapter.id}
-              lockReason={t("chapter.lockedC1")}
-              unlocked={chapterUnlocked(chapter.unlock, player, completedChapters)}
+        <section
+          aria-label={t("stats.chapters")}
+          className="rounded-sx-lg border border-[var(--stroke-brand)] bg-sx-bg/40 p-5"
+        >
+          <div className="flex items-baseline justify-between gap-3">
+            <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-sx-dim">{t("stats.chapters")}</p>
+            <p className="font-mono text-sm text-sx-green">
+              {completedCount}/{dashboardChapters.length}
+            </p>
+          </div>
+          <div className="mt-3 h-2 overflow-hidden rounded-full bg-white/5">
+            <div
+              className="h-full rounded-full bg-sx-green transition-all"
+              style={{ width: `${Math.round((completedCount / dashboardChapters.length) * 100)}%` }}
             />
-          ))}
-        </div>
+          </div>
+          <p className="mt-3 font-mono text-[10px] uppercase tracking-[0.24em] text-sx-dim">
+            <span className="text-sx-text">{player.ep}</span> {t("stats.ep")} · <span className="text-sx-text">{formatRank(player.rank)}</span>
+          </p>
+        </section>
 
-        <GrowthTree completedChapterIds={completedChapters} currentChapterId={nextChapter.id} />
+        <details className="rounded-sx-lg border border-[var(--stroke-brand)] bg-sx-bg/40">
+          <summary className="cursor-pointer list-none px-5 py-4 font-mono text-xs uppercase tracking-[0.28em] text-sx-text transition hover:text-sx-green">
+            <span className="mr-2 text-sx-green">▸</span>
+            {t("allChapters")}
+          </summary>
+          <div className="grid gap-4 px-5 pb-5">
+            {dashboardChapters.map((chapter) => (
+              <ChapterCard
+                chapter={chapter}
+                completed={completedChapters.has(chapter.id)}
+                completedLabel={t("chapter.completed")}
+                continueLabel={t("chapter.continue")}
+                key={chapter.id}
+                lockReason={t("chapter.lockedC1")}
+                unlocked={chapterUnlocked(chapter.unlock, player, completedChapters)}
+              />
+            ))}
+          </div>
+        </details>
+
+        <details className="rounded-sx-lg border border-[var(--stroke-brand)] bg-sx-bg/40">
+          <summary className="cursor-pointer list-none px-5 py-4 font-mono text-xs uppercase tracking-[0.28em] text-sx-text transition hover:text-sx-green">
+            <span className="mr-2 text-sx-green">▸</span>
+            {t("growthMap")}
+          </summary>
+          <div className="px-5 pb-5">
+            <GrowthTree completedChapterIds={completedChapters} currentChapterId={nextChapter.id} />
+            <div className="mt-5">
+              <RankProgress ep={player.ep} />
+            </div>
+          </div>
+        </details>
 
         <div className="flex flex-wrap gap-3">
           <Link className={buttonClassName("secondary")} href="/play/quests">

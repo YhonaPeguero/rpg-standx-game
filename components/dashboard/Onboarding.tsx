@@ -1,29 +1,40 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { useGameStore } from "@/store";
 
-const colors = ["#00e832", "#ffe600", "#00aaff"] as const;
+const STORAGE_KEY = "standx-rpg-onboarding";
+const FIRST_CHAPTER_ID = "act1-c1-awakening";
 
 export function Onboarding() {
   const t = useTranslations("onboarding");
+  const router = useRouter();
   const [open, setOpen] = useState(false);
   const [step, setStep] = useState(0);
   const [name, setName] = useState("STANDER");
-  const [color, setColor] = useState<(typeof colors)[number]>(colors[0]);
   const setDisplayName = useGameStore((state) => state.setDisplayName);
 
   useEffect(() => {
-    setOpen(window.localStorage.getItem("standx-rpg-onboarding") !== "complete");
+    setOpen(window.localStorage.getItem(STORAGE_KEY) !== "complete");
   }, []);
 
-  function finish() {
+  function persist() {
     setDisplayName(name);
-    window.localStorage.setItem("standx-rpg-onboarding", "complete");
+    window.localStorage.setItem(STORAGE_KEY, "complete");
     setOpen(false);
+  }
+
+  function skip() {
+    persist();
+  }
+
+  function startChapter() {
+    persist();
+    router.push(`/play/scene/${FIRST_CHAPTER_ID}`);
   }
 
   if (!open) {
@@ -46,27 +57,15 @@ export function Onboarding() {
           />
         ) : null}
 
-        {step === 1 ? (
-          <div className="mt-6 flex gap-3">
-            {colors.map((option) => (
-              <button
-                aria-label={option}
-                className="h-14 w-14 rounded-full border-2 transition data-[selected=true]:scale-110"
-                data-selected={color === option}
-                key={option}
-                style={{ background: option, borderColor: color === option ? "#ffffff" : option }}
-                type="button"
-                onClick={() => setColor(option)}
-              />
-            ))}
-          </div>
-        ) : null}
-
         <div className="mt-7 flex justify-end gap-3">
-          <Button variant="secondary" onClick={finish}>
+          <Button variant="secondary" onClick={skip}>
             {t("skip")}
           </Button>
-          <Button onClick={() => (step < 2 ? setStep((value) => value + 1) : finish())}>{step < 2 ? t("next") : t("finish")}</Button>
+          {step === 0 ? (
+            <Button onClick={() => setStep(1)}>{t("next")}</Button>
+          ) : (
+            <Button onClick={startChapter}>{t("startChapter1")}</Button>
+          )}
         </div>
       </Card>
     </div>

@@ -1,6 +1,7 @@
 import type { StateCreator } from "zustand";
 import type { GameStore } from "@/store";
 import { rollDailyQuestIds, utcDayKey } from "@/lib/game/quests";
+import { applyQuestEvent, type QuestEvent } from "@/lib/game/questEvents";
 
 export type QuestState = {
   activeDaily: string[];
@@ -15,6 +16,7 @@ export type QuestsSlice = {
   incrementQuest: (id: string, by?: number) => void;
   markQuestComplete: (id: string) => void;
   claimQuest: (id: string) => void;
+  recordQuestEvent: (event: QuestEvent) => void;
   resetQuestsForToday: () => void;
 };
 
@@ -72,5 +74,11 @@ export const createQuestsSlice: StateCreator<GameStore, [], [], QuestsSlice> = (
           : [...state.questState.claimed, id],
       },
     })),
+  recordQuestEvent: (event) => {
+    const { questState, player, completedChapters } = get();
+    const next = applyQuestEvent(questState, event, player, completedChapters);
+    if (next === questState) return;
+    set({ questState: next });
+  },
   resetQuestsForToday: () => set({ questState: emptyState() }),
 });

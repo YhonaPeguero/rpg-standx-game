@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import type { Choice, DialogLine, SquadId } from "@/types";
 import { getCharacterById } from "@/lib/content/loader";
+import { audioEngine } from "@/lib/audio/engine";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 
@@ -58,6 +59,8 @@ export function DialogScene({ sceneId, lines, choices, educational = false, onRe
       setVisibleText(text);
       return;
     }
+
+    audioEngine.playTick();
 
     if (index < lines.length - 1) {
       setIndex((value) => value + 1);

@@ -45,7 +45,7 @@ export function createDefaultPlayer(): Player {
   };
 }
 
-export const createPlayerSlice: StateCreator<GameStore, [], [], PlayerSlice> = (set) => ({
+export const createPlayerSlice: StateCreator<GameStore, [], [], PlayerSlice> = (set, get) => ({
   player: createDefaultPlayer(),
   setDisplayName: (name) =>
     set((state) => ({
@@ -67,40 +67,44 @@ export const createPlayerSlice: StateCreator<GameStore, [], [], PlayerSlice> = (
     set((state) => ({
       player: { ...state.player, squad },
     })),
-  addCodex: (id) =>
+  addCodex: (id) => {
+    const already = get().player.codexUnlocks.includes(id);
+    if (already) return;
     set((state) => ({
-      player: state.player.codexUnlocks.includes(id)
-        ? state.player
-        : { ...state.player, codexUnlocks: [...state.player.codexUnlocks, id] },
-    })),
+      player: { ...state.player, codexUnlocks: [...state.player.codexUnlocks, id] },
+    }));
+    get().recordQuestEvent({ type: "codex_unlock", codexId: id });
+  },
   unlockAchievement: (id) =>
     set((state) => ({
       player: state.player.achievements.includes(id)
         ? state.player
         : { ...state.player, achievements: [...state.player.achievements, id] },
     })),
-  setMastery: (sceneId, stars) =>
+  setMastery: (sceneId, stars) => {
+    const clamped = Math.max(0, Math.min(3, stars));
     set((state) => ({
       player: {
         ...state.player,
-        mastery: { ...state.player.mastery, [sceneId]: Math.max(0, Math.min(3, stars)) },
+        mastery: { ...state.player.mastery, [sceneId]: clamped },
       },
-    })),
-  bumpStreak: () =>
-    set((state) => {
-      const now = new Date();
-      const streakDays = nextStreakDays(state.player.lastActiveAt, state.player.streakDays, now);
+    }));
+    get().recordQuestEvent({ type: "mastery", sceneId, stars: clamped });
+  },
+  bumpStreak: () => {
+    const now = new Date();
+    const previous = get().player.streakDays;
+    const streakDays = nextStreakDays(get().player.lastActiveAt, previous, now);
 
-      if (streakDays === state.player.streakDays) {
-        return state;
-      }
+    if (streakDays === previous) return;
 
-      return {
-        player: {
-          ...state.player,
-          streakDays,
-          lastActiveAt: now.toISOString(),
-        },
-      };
-    }),
+    set((state) => ({
+      player: {
+        ...state.player,
+        streakDays,
+        lastActiveAt: now.toISOString(),
+      },
+    }));
+    get().recordQuestEvent({ type: "streak_day", days: streakDays });
+  },
 });

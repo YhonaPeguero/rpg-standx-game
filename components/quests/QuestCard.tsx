@@ -10,11 +10,12 @@ type QuestCardProps = {
   progress: number;
   claimed: boolean;
   unlocked: boolean;
+  manualTrigger: boolean;
   onClaim: () => void;
   onIncrement: () => void;
 };
 
-export function QuestCard({ quest, progress, claimed, unlocked, onClaim, onIncrement }: QuestCardProps) {
+export function QuestCard({ quest, progress, claimed, unlocked, manualTrigger, onClaim, onIncrement }: QuestCardProps) {
   const t = useTranslations("quests");
   const tShared = useTranslations();
   const titleKey = `${quest.i18nKey}.title` as const;
@@ -73,9 +74,9 @@ export function QuestCard({ quest, progress, claimed, unlocked, onClaim, onIncre
           </span>
         ) : (
           <div className="flex items-center gap-2">
-            {!ready ? (
+            {!ready && manualTrigger ? (
               <Button variant="secondary" onClick={onIncrement}>
-                +1
+                {t("markDone")}
               </Button>
             ) : null}
             {ready ? (

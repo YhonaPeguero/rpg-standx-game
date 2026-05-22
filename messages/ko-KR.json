@@ -23,8 +23,11 @@
     "title": "Growth Path 콘솔",
     "intro": "Stander가 깨어났습니다. 1막을 시작하고, 작고 꾸준한 행동이 어떻게 Seed로 가는 길이 되는지 배워보세요.",
     "lockedCta": "챕터 1 시작",
+    "nextStep": "다음 단계",
+    "allChapters": "1막 전체 챕터",
+    "growthMap": "성장 지도",
     "mascotStatus": "New Stander 단계 온라인",
-    "stats": { "ep": "Engage Points", "streak": "연속", "rank": "랭크" },
+    "stats": { "ep": "Engage Points", "streak": "연속", "rank": "랭크", "chapters": "챕터" },
     "chapter": {
       "continue": "계속",
       "completed": "다시 플레이",
@@ -52,7 +55,8 @@
     "motionOn": "모션 ON",
     "motionOff": "모션 OFF",
     "claim": "+{ep} 받기",
-    "claimed": "받음"
+    "claimed": "받음",
+    "continueJourney": "{n}장 계속"
   },
   "codex": {
     "badge": "Codex",
@@ -64,6 +68,13 @@
     "rank": "랭크",
     "squad": "스쿼드",
     "none": "없음",
+    "settings": "설정",
+    "audio": "오디오",
+    "motion": "모션",
+    "volume": "음량",
+    "mastery": "마스터리",
+    "masteryEmpty": "아직 별을 받은 씬이 없습니다. 퀴즈와 미니게임을 다시 플레이해 별을 모으세요.",
+    "squadXP": "스쿼드 XP",
     "achievements": "업적",
     "empty": "아직 해금된 업적이 없습니다."
   },
@@ -126,15 +137,17 @@
     "skip": "건너뛰기",
     "next": "다음",
     "finish": "HQ 입장",
+    "startChapter1": "1장 시작",
     "steps": [
-      { "title": "Stander의 이름을 지어주세요", "body": "이 이름은 로컬에 저장되며 Growth Path 전체에서 사용됩니다." },
-      { "title": "시그널 색을 고르세요", "body": "MVP에서는 마스코트가 StandX 그린을 유지하지만, 이후 스쿼드 커스터마이즈를 위한 톤이 됩니다." },
-      { "title": "루프를 배우세요", "body": "챕터를 플레이하고 EP를 얻고 코덱스를 해금하여 Seed에 지원할 만큼의 꾸준한 존재감을 쌓으세요." }
+      { "title": "Stander의 이름을 지어주세요", "body": "로컬에 저장됩니다. Growth Path 전체에서 사용돼요." },
+      { "title": "준비되면 출발", "body": "여섯 챕터가 New Stander부터 Seed까지 이끕니다. 지금 1장을 시작하고 Mira를 만나세요." }
     ]
   },
   "scene": {
     "tap": "탭하여 계속",
     "continue": "계속",
+    "exitToHq": "HQ로 나가기",
+    "fallbackNotice": "챕터는 영어 · 번역 준비 중",
     "choiceRecorded": "선택이 기록되었습니다.",
     "unknownRole": "알 수 없는 역할",
     "nfa": "커뮤니티 콘텐츠입니다. 투자 자문이 아닙니다.",
@@ -161,10 +174,13 @@
     "intro": "일일/주간/커뮤니티 미션을 완료해 EP와 코덱스, Seed로 가는 추진력을 얻으세요.",
     "claim": "받기",
     "claimed": "받음",
+    "markDone": "완료 표시",
     "rewardEp": "+{ep} EP",
     "rewardCodex": "+코덱스",
     "tabs": { "daily": "일일", "weekly": "주간", "community": "커뮤니티" },
     "empty": "모두 완료했습니다. 새 미션은 00:00 UTC에 갱신됩니다.",
+    "optionalLabel": "선택 연습 — 플레이 중에 즐기는 추가 미션",
+    "tabLockedAt": "{count}개 챕터를 완료하면 해금됩니다.",
     "resetIn": "{hours}시간 후 초기화",
     "locked": "잠김",
     "progress": "{done}/{total}",

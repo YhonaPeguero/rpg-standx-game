@@ -23,11 +23,15 @@
     "title": "Growth Path Console",
     "intro": "Stander is awake. Begin Act I and learn how Engage Points turn small consistent actions into the Seed path.",
     "lockedCta": "Start Chapter 1",
+    "nextStep": "Your next step",
+    "allChapters": "All Act I chapters",
+    "growthMap": "Growth map",
     "mascotStatus": "New Stander stage online",
     "stats": {
       "ep": "Engage Points",
       "streak": "Streak",
-      "rank": "Rank"
+      "rank": "Rank",
+      "chapters": "Chapters"
     },
     "chapter": {
       "continue": "Continue",
@@ -56,7 +60,8 @@
     "motionOn": "Motion On",
     "motionOff": "Motion Off",
     "claim": "Claim +{ep}",
-    "claimed": "Claimed"
+    "claimed": "Claimed",
+    "continueJourney": "Continue Ch. {n}"
   },
   "codex": {
     "badge": "Codex",
@@ -68,6 +73,13 @@
     "rank": "Rank",
     "squad": "Squad",
     "none": "None",
+    "settings": "Settings",
+    "audio": "Audio",
+    "motion": "Motion",
+    "volume": "Volume",
+    "mastery": "Mastery",
+    "masteryEmpty": "No starred scenes yet. Replay quizzes and mini-games to earn stars.",
+    "squadXP": "Squad XP",
     "achievements": "Achievements",
     "empty": "No achievements unlocked yet."
   },
@@ -130,15 +142,17 @@
     "skip": "Skip",
     "next": "Next",
     "finish": "Enter HQ",
+    "startChapter1": "Start Chapter 1",
     "steps": [
-      { "title": "Name your Stander", "body": "This name is saved locally and used across your Growth Path run." },
-      { "title": "Pick a signal color", "body": "The mascot stays canonical StandX green in MVP, but this sets the tone for future squad customization." },
-      { "title": "Learn the loop", "body": "Play chapters, earn EP, unlock codex entries, and build enough consistent presence to apply for Seed." }
+      { "title": "Name your Stander", "body": "Saved locally. Used across your Growth Path run." },
+      { "title": "Ready when you are", "body": "Six chapters take you from New Stander to Seed. Start Chapter 1 now and meet Mira." }
     ]
   },
   "scene": {
     "tap": "Tap to continue",
     "continue": "Continue",
+    "exitToHq": "Exit to HQ",
+    "fallbackNotice": "Chapter in English · translation coming soon",
     "choiceRecorded": "Choice recorded.",
     "unknownRole": "Unknown role",
     "nfa": "Community-made content, not financial advice.",
@@ -165,10 +179,13 @@
     "intro": "Daily, weekly and community missions. Complete them to earn EP, codex entries and momentum toward Seed.",
     "claim": "Claim",
     "claimed": "Claimed",
+    "markDone": "Mark done",
     "rewardEp": "+{ep} EP",
     "rewardCodex": "+Codex",
     "tabs": { "daily": "Daily", "weekly": "Weekly", "community": "Community" },
     "empty": "All caught up. New missions roll over at 00:00 UTC.",
+    "optionalLabel": "Optional practice — extras while you play",
+    "tabLockedAt": "Unlocks after completing {count} chapters.",
     "resetIn": "Resets in {hours}h",
     "locked": "Locked",
     "progress": "{done}/{total}",

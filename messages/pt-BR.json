@@ -23,8 +23,11 @@
     "title": "Console do Growth Path",
     "intro": "Stander despertou. Comece o Ato I e aprenda como Engage Points transformam pequenas acoes consistentes no caminho para Seed.",
     "lockedCta": "Iniciar Capitulo 1",
+    "nextStep": "Seu proximo passo",
+    "allChapters": "Todos os capitulos do Ato I",
+    "growthMap": "Mapa de crescimento",
     "mascotStatus": "Estagio New Stander online",
-    "stats": { "ep": "Engage Points", "streak": "Sequencia", "rank": "Rank" },
+    "stats": { "ep": "Engage Points", "streak": "Sequencia", "rank": "Rank", "chapters": "Capitulos" },
     "chapter": {
       "continue": "Continuar",
       "completed": "Rejogar",
@@ -52,7 +55,8 @@
     "motionOn": "Movimento On",
     "motionOff": "Movimento Off",
     "claim": "Coletar +{ep}",
-    "claimed": "Coletado"
+    "claimed": "Coletado",
+    "continueJourney": "Continuar Cap. {n}"
   },
   "codex": {
     "badge": "Codex",
@@ -64,6 +68,13 @@
     "rank": "Rank",
     "squad": "Squad",
     "none": "Nenhum",
+    "settings": "Ajustes",
+    "audio": "Audio",
+    "motion": "Movimento",
+    "volume": "Volume",
+    "mastery": "Maestria",
+    "masteryEmpty": "Ainda nao tem cenas com estrelas. Refaca quizzes e mini-jogos para ganhar.",
+    "squadXP": "XP de Squad",
     "achievements": "Conquistas",
     "empty": "Nenhuma conquista desbloqueada ainda."
   },
@@ -126,10 +137,10 @@
     "skip": "Pular",
     "next": "Proximo",
     "finish": "Entrar no HQ",
+    "startChapter1": "Comecar Capitulo 1",
     "steps": [
-      { "title": "Nomeie seu Stander", "body": "Este nome fica salvo localmente e aparece durante sua jornada no Growth Path." },
-      { "title": "Escolha uma cor de sinal", "body": "O mascote segue verde StandX no MVP, mas isso prepara a customizacao futura por squad." },
-      { "title": "Aprenda o ciclo", "body": "Jogue capitulos, ganhe EP, desbloqueie entradas do codex e construa presenca consistente para aplicar ao Seed." }
+      { "title": "Nomeie seu Stander", "body": "Fica salvo localmente. Acompanha voce durante toda a jornada no Growth Path." },
+      { "title": "Pronto quando voce estiver", "body": "Seis capitulos levam voce de New Stander a Seed. Comece o Capitulo 1 agora e conheca a Mira." }
     ]
   },
   "content": {
@@ -288,6 +299,8 @@
   "scene": {
     "tap": "Toque para continuar",
     "continue": "Continuar",
+    "exitToHq": "Sair para o HQ",
+    "fallbackNotice": "Capítulo em inglês · tradução em breve",
     "choiceRecorded": "Escolha registrada.",
     "unknownRole": "Cargo desconhecido",
     "nfa": "Conteudo feito pela comunidade, nao e aconselhamento financeiro.",
@@ -314,10 +327,13 @@
     "intro": "Missoes diarias, semanais e da comunidade. Complete para ganhar EP, entradas do codex e ritmo rumo ao Seed.",
     "claim": "Coletar",
     "claimed": "Coletado",
+    "markDone": "Marcar como feito",
     "rewardEp": "+{ep} EP",
     "rewardCodex": "+Codex",
     "tabs": { "daily": "Diarias", "weekly": "Semanais", "community": "Comunidade" },
     "empty": "Tudo em dia. Novas missoes a 00:00 UTC.",
+    "optionalLabel": "Prática opcional — extras enquanto você joga",
+    "tabLockedAt": "Desbloqueia após completar {count} capítulos.",
     "resetIn": "Reseta em {hours}h",
     "locked": "Bloqueado",
     "progress": "{done}/{total}",

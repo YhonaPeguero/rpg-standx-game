@@ -11,6 +11,14 @@ import { QuestCard } from "./QuestCard";
 
 const TABS: QuestKind[] = ["daily", "weekly", "community"];
 
+const TAB_UNLOCK_AT_COMPLETED: Record<QuestKind, number> = {
+  daily: 0,
+  weekly: 2,
+  community: 4,
+};
+
+const MANUAL_TRIGGER_QUESTS = new Set(["weekly_squad", "community_shoutout"]);
+
 export function QuestBoard() {
   const t = useTranslations("quests");
   const [tab, setTab] = useState<QuestKind>("daily");
@@ -29,13 +37,17 @@ export function QuestBoard() {
     rollDailyIfNeeded();
   }, [rollDailyIfNeeded]);
 
+  const tabUnlocked = (kind: QuestKind) => completed.size >= TAB_UNLOCK_AT_COMPLETED[kind];
+
   const allQuests = useMemo(() => getQuests(), []);
   const quests = useMemo<Quest[]>(() => {
+    if (!tabUnlocked(tab)) return [];
     if (tab === "daily") {
       return questState.activeDaily.map((id) => getQuestById(id)).filter((q): q is Quest => Boolean(q));
     }
     return allQuests.filter((quest) => quest.kind === tab);
-  }, [allQuests, questState.activeDaily, tab]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [allQuests, questState.activeDaily, tab, completed.size]);
 
   function applyClaim(quest: Quest) {
     if (questState.claimed.includes(quest.id)) return;
@@ -54,6 +66,9 @@ export function QuestBoard() {
             {t("title")}
           </h2>
           <p className="mt-2 max-w-2xl font-semibold leading-7 text-sx-text">{t("intro")}</p>
+          <p className="mt-3 inline-block rounded-sx border border-[var(--stroke-brand)] bg-sx-bg/60 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.22em] text-sx-dim">
+            {t("optionalLabel")}
+          </p>
         </div>
         <p className="rounded-sx border border-[var(--stroke-brand)] bg-sx-bg/60 px-3 py-2 font-mono text-xs uppercase tracking-[0.18em] text-sx-dim">
           {t("resetIn", { hours: hoursUntilUtcMidnight() })}
@@ -63,13 +78,16 @@ export function QuestBoard() {
       <div role="tablist" className="flex flex-wrap gap-2">
         {TABS.map((kind) => {
           const active = kind === tab;
+          const unlocked = tabUnlocked(kind);
           return (
             <button
               aria-selected={active}
               className={`rounded-sx border px-4 py-2 font-mono text-xs uppercase tracking-[0.22em] transition ${
                 active
                   ? "border-sx-green bg-sx-green/15 text-sx-green shadow-glow-green"
-                  : "border-[var(--stroke-soft)] text-sx-text hover:border-sx-green/60"
+                  : unlocked
+                    ? "border-[var(--stroke-soft)] text-sx-text hover:border-sx-green/60"
+                    : "border-[var(--stroke-soft)] text-sx-dim opacity-60 hover:border-sx-gold/60"
               }`}
               key={kind}
               role="tab"
@@ -77,12 +95,19 @@ export function QuestBoard() {
               onClick={() => setTab(kind)}
             >
               {t(`tabs.${kind}`)}
+              {unlocked ? null : <span className="ml-2 text-sx-gold">·</span>}
             </button>
           );
         })}
       </div>
 
-      {quests.length === 0 ? (
+      {!tabUnlocked(tab) ? (
+        <div className="rounded-sx-lg border border-dashed border-sx-gold/40 bg-sx-gold/5 p-6 text-center">
+          <p className="font-semibold text-sx-text">
+            {t("tabLockedAt", { count: TAB_UNLOCK_AT_COMPLETED[tab] })}
+          </p>
+        </div>
+      ) : quests.length === 0 ? (
         <div className="rounded-sx-lg border border-dashed border-[var(--stroke-brand)] p-6 text-center">
           <p className="font-semibold text-sx-text">{t("empty")}</p>
         </div>
@@ -97,6 +122,7 @@ export function QuestBoard() {
               <QuestCard
                 claimed={claimed}
                 key={quest.id}
+                manualTrigger={MANUAL_TRIGGER_QUESTS.has(quest.id)}
                 onClaim={() => applyClaim(quest)}
                 onIncrement={() => incrementQuest(quest.id)}
                 progress={progress}

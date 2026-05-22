@@ -44,7 +44,7 @@ export default function RootLayout({
       lang="en"
       className={`${orbitron.variable} ${shareTechMono.variable} ${rajdhani.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="sx-scanlines min-h-full">
+      <body className="min-h-full">
         <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>

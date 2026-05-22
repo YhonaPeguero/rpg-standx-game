@@ -12,7 +12,7 @@ export default function Home() {
   const featureKeys = ["story", "quests", "ranks", "i18n"] as const;
 
   return (
-    <main className="relative flex min-h-dvh items-center justify-center px-6 py-12">
+    <main className="sx-scanlines relative flex min-h-dvh items-center justify-center px-6 py-12">
       <Starfield className="pointer-events-none absolute inset-0 -z-10" density={120} />
       <div className="absolute right-6 top-6 z-10">
         <LocaleSwitcher />
