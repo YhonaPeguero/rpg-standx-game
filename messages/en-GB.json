@@ -54,6 +54,7 @@
     "audioOff": "Audio off",
     "muteAudio": "Mute audio",
     "unmuteAudio": "Unmute audio",
+    "guide": "Guide",
     "rankUp": "Rank Up",
     "motionOn": "Motion on",
     "motionOff": "Motion off",
@@ -138,15 +139,41 @@
     "locked": "Locked"
   },
   "onboarding": {
-    "badge": "First Run",
+    "badge": "How to play",
     "skip": "Skip",
     "next": "Next",
+    "back": "Back",
+    "done": "Got it",
     "finish": "Enter HQ",
     "startChapter1": "Start Chapter 1",
     "steps": [
-      { "title": "Name your Stander", "body": "Saved locally. Used across your Growth Path run." },
-      { "title": "Ready when you are", "body": "Six chapters take you from New Stander to Seed. Start Chapter 1 now and meet Mira." }
+      { "title": "Welcome, Stander", "body": "Name your character. Your run is saved locally on this device — no account needed." },
+      { "title": "How you earn EP", "body": "Engage Points are a conceptual learning score. You earn them by doing well: the best dialogue choices, and quizzes or mini-games graded by stars (30 / 50 / 80 EP). Weak or skipped actions earn nothing." },
+      { "title": "Your goal: SEED", "body": "Climb the Growth Path — New Stander, Active, Consistent, Seed Candidate, then SEED at 500 EP. Reaching SEED completes Act I." },
+      { "title": "Squads", "body": "When you reach SEED you join a Squad in the Seed Hall (Chapter 6): Content, Creative, Outreach, Tech or Offline. Open the Squads tab any time to preview them." },
+      { "title": "Ready", "body": "Six chapters take you from New Stander to Seed. Start Chapter 1 and meet Mira." }
     ]
+  },
+  "squads": {
+    "badge": "Squads",
+    "title": "Choose Your Squad",
+    "intro": "Squads are how Seeds contribute: each has a focus and a mentor. You pick one when you reach SEED.",
+    "lockedBanner": "Squads unlock at the SEED rank. You'll choose yours in the Seed Hall at the end of Act I — keep earning EP to get there.",
+    "haveSquad": "You're in a squad. You can switch any time below.",
+    "readyToChoose": "You reached SEED — pick the squad that fits you.",
+    "unlocksAt": "Unlocks at SEED",
+    "selected": "Your squad",
+    "select": "Choose",
+    "switch": "Switch here",
+    "mentor": "Mentor",
+    "mentorTbd": "Mentor TBD",
+    "list": {
+      "content_research": { "name": "Content / Research", "desc": "Analysis, tutorials and insights. Depth over hype." },
+      "creative": { "name": "Creative", "desc": "Visuals, video and identity. Consistency is the differentiator." },
+      "outreach": { "name": "Outreach", "desc": "KOLs, partnerships and community. Rally the room." },
+      "tech_support": { "name": "Tech Support", "desc": "Technical tutorials and helping members get unstuck." },
+      "offline": { "name": "Offline", "desc": "Local presence and real-world events." }
+    }
   },
   "scene": {
     "tap": "Tap to continue",

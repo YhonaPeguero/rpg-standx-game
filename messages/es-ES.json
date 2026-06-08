@@ -54,6 +54,7 @@
     "audioOff": "Audio Off",
     "muteAudio": "Silenciar audio",
     "unmuteAudio": "Activar audio",
+    "guide": "Guía",
     "rankUp": "Subiste de rango",
     "motionOn": "Movimiento On",
     "motionOff": "Movimiento Off",
@@ -138,14 +139,19 @@
     "locked": "Bloqueado"
   },
   "onboarding": {
-    "badge": "Primera Vez",
+    "badge": "Cómo jugar",
     "skip": "Omitir",
     "next": "Siguiente",
+    "back": "Atrás",
+    "done": "Entendido",
     "finish": "Entrar al HQ",
     "startChapter1": "Empezar Capítulo 1",
     "steps": [
-      { "title": "Nombra a tu Stander", "body": "Se guarda localmente. Te acompaña en todo tu Growth Path." },
-      { "title": "Listo cuando tú quieras", "body": "Seis capítulos te llevan de New Stander a Seed. Empieza el Capítulo 1 ahora y conoce a Mira." }
+      { "title": "Bienvenido, Stander", "body": "Ponle nombre a tu personaje. Tu partida se guarda localmente en este dispositivo, sin cuenta." },
+      { "title": "Cómo ganas EP", "body": "Los Engage Points son una puntuación conceptual de aprendizaje. Los ganas haciéndolo bien: las mejores decisiones, y quizzes o minijuegos calificados por estrellas (30 / 50 / 80 EP). Las acciones flojas u omitidas no dan nada." },
+      { "title": "Tu meta: SEED", "body": "Sube por el Growth Path — New Stander, Active, Consistent, Seed Candidate y SEED a los 500 EP. Llegar a SEED completa el Acto I." },
+      { "title": "Squads", "body": "Al llegar a SEED te unes a un Squad en el Seed Hall (Capítulo 6): Content, Creative, Outreach, Tech u Offline. Abre la pestaña Squads cuando quieras para conocerlos." },
+      { "title": "Listo", "body": "Seis capítulos te llevan de New Stander a Seed. Empieza el Capítulo 1 y conoce a Mira." }
     ]
   },
   "content": {
@@ -323,6 +329,27 @@
           }
         }
       }
+    }
+  },
+  "squads": {
+    "badge": "Squads",
+    "title": "Elige tu Squad",
+    "intro": "Los Squads son cómo contribuyen los Seeds: cada uno tiene un foco y un mentor. Eliges uno al llegar a SEED.",
+    "lockedBanner": "Los Squads se desbloquean en el rango SEED. Elegirás el tuyo en el Seed Hall, al final del Acto I — sigue ganando EP para llegar.",
+    "haveSquad": "Estás en un squad. Puedes cambiarlo abajo cuando quieras.",
+    "readyToChoose": "Llegaste a SEED — elige el squad que va contigo.",
+    "unlocksAt": "Se desbloquea en SEED",
+    "selected": "Tu squad",
+    "select": "Elegir",
+    "switch": "Cambiar aquí",
+    "mentor": "Mentor",
+    "mentorTbd": "Mentor por definir",
+    "list": {
+      "content_research": { "name": "Content / Research", "desc": "Análisis, tutoriales e insights. Profundidad sobre el hype." },
+      "creative": { "name": "Creative", "desc": "Visuales, vídeo e identidad. La consistencia es el diferenciador." },
+      "outreach": { "name": "Outreach", "desc": "KOLs, partnerships y comunidad. Activa la sala." },
+      "tech_support": { "name": "Tech Support", "desc": "Tutoriales técnicos y ayudar a los miembros a destrabarse." },
+      "offline": { "name": "Offline", "desc": "Presencia local y eventos presenciales." }
     }
   },
   "scene": {

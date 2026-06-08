@@ -10,7 +10,7 @@ import { Icon, type IconName } from "@/components/ui/Icon";
 
 type NavItem = {
   href: string;
-  key: "hq" | "quests" | "ranks" | "codex" | "profile";
+  key: "hq" | "quests" | "squads" | "ranks" | "codex" | "profile";
   icon: IconName;
   seedOnly?: boolean;
 };
@@ -18,6 +18,7 @@ type NavItem = {
 const navItems: readonly NavItem[] = [
   { href: "/play", key: "hq", icon: "hq" },
   { href: "/play/quests", key: "quests", icon: "quests" },
+  { href: "/play/squads", key: "squads", icon: "squads" },
   { href: "/play/codex", key: "codex", icon: "codex" },
   { href: "/play/ranks", key: "ranks", icon: "ranks" },
   { href: "/play/profile", key: "profile", icon: "profile" },
@@ -79,6 +80,7 @@ export function Sidebar() {
 const bottomItems: { href: string; key: NavItem["key"]; icon: IconName }[] = [
   { href: "/play", key: "hq", icon: "hq" },
   { href: "/play/quests", key: "quests", icon: "quests" },
+  { href: "/play/squads", key: "squads", icon: "squads" },
   { href: "/play/ranks", key: "ranks", icon: "ranks" },
   { href: "/play/codex", key: "codex", icon: "codex" },
   { href: "/play/profile", key: "profile", icon: "profile" },
@@ -89,7 +91,7 @@ export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-5 gap-1 rounded-sx-lg border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] p-2 backdrop-blur lg:hidden">
+    <nav className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-6 gap-1 rounded-sx-lg border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] p-2 backdrop-blur lg:hidden">
       {bottomItems.map((item) => {
         const active = pathname === item.href;
         return (

@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { nextRankThreshold, RANK_THRESHOLDS } from "@/lib/game/ep";
 import { getChapters } from "@/lib/content/loader";
 import { chapterUnlocked } from "@/lib/game/gates";
+import { openGuide } from "@/lib/game/guidePulse";
 import { useGameStore } from "@/store";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { buttonClassName } from "@/components/ui/Button";
@@ -66,6 +67,15 @@ export function TopBar() {
               {t("continueJourney", { n: chapterNumber(nextChapter.id) })} →
             </Link>
           ) : null}
+          <button
+            aria-label={t("guide")}
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-sx border border-[var(--stroke-soft)] text-sx-dim transition hover:border-sx-green hover:text-sx-green"
+            onClick={openGuide}
+            title={t("guide")}
+            type="button"
+          >
+            <Icon name="help" size={18} />
+          </button>
           <Link
             aria-label={tNav("home")}
             className="grid h-9 w-9 shrink-0 place-items-center rounded-sx border border-[var(--stroke-soft)] text-sx-dim transition hover:border-sx-green hover:text-sx-green"

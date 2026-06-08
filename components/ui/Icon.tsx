@@ -16,7 +16,9 @@ export type IconName =
   | "play"
   | "chevronDown"
   | "seed"
-  | "globe";
+  | "globe"
+  | "squads"
+  | "help";
 
 // Cohesive line-icon set (24x24, currentColor) so the UI stops relying on
 // generic emoji/unicode glyphs. Stroke-based with a couple of filled marks.
@@ -101,6 +103,21 @@ const paths: Record<IconName, ReactNode> = {
       <path d="M3.5 12h17" />
       <path d="M12 3.5c2.6 2.4 2.6 14.6 0 17" />
       <path d="M12 3.5c-2.6 2.4-2.6 14.6 0 17" />
+    </>
+  ),
+  squads: (
+    <>
+      <circle cx="9" cy="9" r="3" />
+      <path d="M3.5 19a5.5 5.5 0 0 1 11 0" />
+      <path d="M16 6.3a3 3 0 0 1 0 5.4" />
+      <path d="M17.5 19a5.5 5.5 0 0 0-3-4.9" />
+    </>
+  ),
+  help: (
+    <>
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M9.6 9.3a2.5 2.5 0 0 1 4.7 1.2c0 1.7-2.3 2-2.3 3.5" />
+      <circle cx="12" cy="17" r="0.7" fill="currentColor" stroke="none" />
     </>
   ),
 };

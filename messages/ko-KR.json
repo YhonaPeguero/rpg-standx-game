@@ -54,6 +54,7 @@
     "audioOff": "사운드 OFF",
     "muteAudio": "사운드 끄기",
     "unmuteAudio": "사운드 켜기",
+    "guide": "가이드",
     "rankUp": "랭크 업",
     "motionOn": "모션 ON",
     "motionOff": "모션 OFF",
@@ -138,15 +139,41 @@
     "locked": "잠김"
   },
   "onboarding": {
-    "badge": "첫 실행",
+    "badge": "플레이 방법",
     "skip": "건너뛰기",
     "next": "다음",
+    "back": "뒤로",
+    "done": "확인",
     "finish": "HQ 입장",
     "startChapter1": "1장 시작",
     "steps": [
-      { "title": "Stander의 이름을 지어주세요", "body": "로컬에 저장됩니다. Growth Path 전체에서 사용돼요." },
-      { "title": "준비되면 출발", "body": "여섯 챕터가 New Stander부터 Seed까지 이끕니다. 지금 1장을 시작하고 Mira를 만나세요." }
+      { "title": "환영합니다, Stander", "body": "캐릭터 이름을 정하세요. 진행 상황은 계정 없이 이 기기에 로컬로 저장됩니다." },
+      { "title": "EP 획득 방법", "body": "Engage Points는 학습용 개념 점수입니다. 잘하면 얻습니다: 최선의 선택, 그리고 별점으로 평가되는 퀴즈·미니게임(30 / 50 / 80 EP). 약하거나 건너뛴 행동은 아무것도 주지 않습니다." },
+      { "title": "목표: SEED", "body": "Growth Path를 오르세요 — New Stander, Active, Consistent, Seed Candidate, 그리고 500 EP의 SEED. SEED에 도달하면 1막이 완료됩니다." },
+      { "title": "스쿼드", "body": "SEED에 도달하면 Seed Hall(6장)에서 스쿼드에 합류합니다: Content, Creative, Outreach, Tech, Offline. 스쿼드 탭에서 언제든 미리 볼 수 있어요." },
+      { "title": "준비 완료", "body": "여섯 챕터가 New Stander부터 Seed까지 이끕니다. 1장을 시작하고 Mira를 만나세요." }
     ]
+  },
+  "squads": {
+    "badge": "스쿼드",
+    "title": "스쿼드 선택",
+    "intro": "스쿼드는 Seed가 기여하는 방식입니다: 각각 초점과 멘토가 있어요. SEED에 도달하면 하나를 고릅니다.",
+    "lockedBanner": "스쿼드는 SEED 랭크에서 해금됩니다. 1막 끝의 Seed Hall에서 선택하게 됩니다 — 거기까지 EP를 계속 모으세요.",
+    "haveSquad": "스쿼드에 속해 있습니다. 아래에서 언제든 바꿀 수 있어요.",
+    "readyToChoose": "SEED에 도달했습니다 — 당신에게 맞는 스쿼드를 고르세요.",
+    "unlocksAt": "SEED에서 해금",
+    "selected": "내 스쿼드",
+    "select": "선택",
+    "switch": "여기서 변경",
+    "mentor": "멘토",
+    "mentorTbd": "멘토 미정",
+    "list": {
+      "content_research": { "name": "Content / Research", "desc": "분석, 튜토리얼, 인사이트. 과장보다 깊이." },
+      "creative": { "name": "Creative", "desc": "비주얼, 영상, 아이덴티티. 일관성이 차별점." },
+      "outreach": { "name": "Outreach", "desc": "KOL, 파트너십, 커뮤니티. 분위기를 띄우세요." },
+      "tech_support": { "name": "Tech Support", "desc": "기술 튜토리얼과 멤버들의 문제 해결 지원." },
+      "offline": { "name": "Offline", "desc": "오프라인 존재감과 현장 이벤트." }
+    }
   },
   "scene": {
     "tap": "탭하여 계속",

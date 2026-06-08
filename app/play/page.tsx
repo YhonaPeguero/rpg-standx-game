@@ -12,7 +12,6 @@ import { ChapterCard, type DashboardChapter } from "@/components/dashboard/Chapt
 import { ChapterRoadmap, type RoadmapItem } from "@/components/dashboard/ChapterRoadmap";
 import { GrowthTree } from "@/components/dashboard/GrowthTree";
 import { MascotPanel } from "@/components/dashboard/MascotPanel";
-import { Onboarding } from "@/components/dashboard/Onboarding";
 import { Sidebar } from "@/components/dashboard/Sidebar";
 import { RankProgress } from "@/components/hud/RankProgress";
 import { formatRank } from "@/components/hud/RankLabel";
@@ -80,7 +79,6 @@ export default function PlayPage() {
 
   return (
     <main className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-12">
-      <Onboarding />
       <aside className="lg:col-span-2">
         <Sidebar />
       </aside>
