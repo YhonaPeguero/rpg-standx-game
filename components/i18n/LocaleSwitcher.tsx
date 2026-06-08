@@ -85,7 +85,13 @@ export function LocaleSwitcher({ className, variant = "default" }: LocaleSwitche
                     </span>
                     {meta.native}
                   </span>
-                  {active ? <span className="text-sx-green">✓</span> : null}
+                  {meta.storyComplete ? (
+                    active ? <span className="text-sx-green">✓</span> : null
+                  ) : (
+                    <span className="whitespace-nowrap rounded border border-sx-gold/40 bg-sx-gold/10 px-1.5 py-0.5 text-[9px] tracking-[0.1em] text-sx-gold">
+                      {t("storyEn")}
+                    </span>
+                  )}
                 </button>
               </li>
             );

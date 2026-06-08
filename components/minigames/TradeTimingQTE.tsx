@@ -2,7 +2,8 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import type { MiniGameOutcome } from "@/lib/game/mastery";
+import { miniGameStars, type MiniGameOutcome } from "@/lib/game/mastery";
+import { epForStars } from "@/lib/game/epTiers";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 
@@ -24,7 +25,7 @@ function resultFor(position: number, t: ReturnType<typeof useTranslations<"minig
   if (position >= perfect.from && position <= perfect.to) {
     return {
       outcome: "perfect",
-      ep: 250,
+      ep: epForStars(miniGameStars("perfect")),
       title: t("perfectTitle"),
       lesson: t("perfectLesson"),
     };
@@ -33,7 +34,7 @@ function resultFor(position: number, t: ReturnType<typeof useTranslations<"minig
   if (position >= ok.from && position <= ok.to) {
     return {
       outcome: "ok",
-      ep: 120,
+      ep: epForStars(miniGameStars("ok")),
       title: t("okTitle"),
       lesson: t("okLesson"),
     };
@@ -41,7 +42,7 @@ function resultFor(position: number, t: ReturnType<typeof useTranslations<"minig
 
   return {
     outcome: "miss",
-    ep: 40,
+    ep: epForStars(miniGameStars("miss")),
     title: t("missTitle"),
     lesson: t("missLesson"),
   };
@@ -124,7 +125,7 @@ export function TradeTimingQTE({ onResult }: TradeTimingQTEProps) {
         <div className="mt-6 rounded-sx border border-[var(--stroke-brand)] bg-sx-green/5 p-4">
           <p className="font-display text-xl font-bold uppercase tracking-[0.16em] text-sx-green">{result.title}</p>
           <p className="mt-3 font-semibold leading-7 text-sx-text">{result.lesson}</p>
-          <p className="mt-3 font-mono text-sx-gold">+{result.ep} EP</p>
+          {result.ep > 0 ? <p className="mt-3 font-mono text-sx-gold">+{result.ep} EP</p> : null}
           <Button className="mt-4" onClick={() => onResult(result)}>
             {t("continue")}
           </Button>

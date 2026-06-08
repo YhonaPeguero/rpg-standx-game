@@ -1,7 +1,7 @@
 import type { Quest } from "@/types";
 import { getQuestsByKind } from "@/lib/content/quests";
 
-export const DAILY_QUEST_COUNT = 3;
+export const DAILY_QUEST_COUNT = 1;
 
 export function utcDayKey(date = new Date()): string {
   return `${date.getUTCFullYear()}-${String(date.getUTCMonth() + 1).padStart(2, "0")}-${String(date.getUTCDate()).padStart(2, "0")}`;

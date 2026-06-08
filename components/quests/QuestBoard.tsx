@@ -17,7 +17,7 @@ const TAB_UNLOCK_AT_COMPLETED: Record<QuestKind, number> = {
   community: 4,
 };
 
-const MANUAL_TRIGGER_QUESTS = new Set(["weekly_squad", "community_shoutout"]);
+const MANUAL_TRIGGER_QUESTS = new Set(["weekly_rumble", "weekly_poker", "community_shoutout"]);
 
 export function QuestBoard() {
   const t = useTranslations("quests");

@@ -5,19 +5,19 @@
   "title": "Seed Hall",
   "subtitle": "the first gate opens",
   "unlock": [{ "type": "previous", "chapterId": "act1-c5-moderator-gate" }],
-  "reward": { "ep": 200, "codex": ["seed_role_explained", "squads_overview"], "achievement": "seed_unlocked" },
+  "reward": { "codex": ["seed_role_explained", "squads_overview"], "achievement": "seed_unlocked" },
   "scenes": [
     {
       "id": "s6-1-hall-enter",
       "kind": "dialog",
       "lines": [
-        { "character": "dias", "text": "HEY! You made it. I watched your run - consistent, useful, real. You earned this." },
+        { "character": "gaboo", "text": "HEY! You made it. I watched your run - consistent, useful, real. You earned this." },
         { "character": "mira", "text": "Application reviewed. Engage Points verified. Stander - you are approved for the @SEED role." },
         { "character": "stander", "text": "@SEED... is it real?" },
         { "character": "mira", "text": "It is real. But SEED is not the destination - it is the entry gate. Now you choose a Squad." },
-        { "character": "dan", "text": "..." },
+        { "character": "dave", "text": "..." },
         { "character": "stander", "text": "Who is that?" },
-        { "character": "dias", "text": "Dan. Creative Squad. Speaks little, but when he ships, the standard changes. That is the level you will chase." },
+        { "character": "gaboo", "text": "That's Dave. Creative Squad. Doesn't post much noise - but when he ships, the standard moves. That is the level you will chase." },
         { "character": "mira", "text": "Choose a Squad. Each path has responsibilities. Which route is yours?" }
       ]
     },
@@ -26,10 +26,10 @@
       "kind": "dialog",
       "lines": [{ "character": "mira", "text": "Select your Squad. This decision persists in your local profile." }],
       "choices": [
-        { "id": "s-content", "label": "Content/Research - analysis, tutorials, insights", "tag": "SQUAD", "reward": {}, "squad": "content_research", "feedback": "Content/Research selected. Victor and Jovan will be your references." },
-        { "id": "s-creative", "label": "Creative - visuals, videos, identity", "tag": "SQUAD", "reward": {}, "squad": "creative", "feedback": "Creative selected. Aifilho and Dan set the standard." },
+        { "id": "s-content", "label": "Content/Research - analysis, tutorials, insights", "tag": "SQUAD", "reward": {}, "squad": "content_research", "feedback": "Content/Research selected. 冷酷锦鲤 and 哆啦币梦 will be your references." },
+        { "id": "s-creative", "label": "Creative - visuals, videos, identity", "tag": "SQUAD", "reward": {}, "squad": "creative", "feedback": "Creative selected. Dave sets the standard." },
         { "id": "s-tech", "label": "Tech Support - technical tutorials and support", "tag": "SQUAD", "reward": {}, "squad": "tech_support", "feedback": "Tech Support selected. Mentor TBD in MVP." },
-        { "id": "s-outreach", "label": "Outreach - KOLs, partnerships, community", "tag": "SQUAD", "reward": {}, "squad": "outreach", "feedback": "Outreach selected. Gaboo knows how to rally a room." },
+        { "id": "s-outreach", "label": "Outreach - KOLs, partnerships, community", "tag": "SQUAD", "reward": {}, "squad": "outreach", "feedback": "Outreach selected. Gabo knows how to rally a room." },
         { "id": "s-offline", "label": "Offline - local presence and events", "tag": "SQUAD", "reward": {}, "squad": "offline", "feedback": "Offline selected. Mentor TBD in MVP." }
       ]
     }

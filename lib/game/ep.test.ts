@@ -4,13 +4,13 @@ import { nextRankThreshold, rankFromEP, rankOrder } from "./ep";
 describe("ep", () => {
   it("maps EP to the highest unlocked rank", () => {
     expect(rankFromEP(0)).toBe("new_stander");
-    expect(rankFromEP(500)).toBe("active");
-    expect(rankFromEP(3499)).toBe("seed");
+    expect(rankFromEP(60)).toBe("active");
+    expect(rankFromEP(550)).toBe("seed");
   });
 
   it("returns the next threshold above the current EP", () => {
-    expect(nextRankThreshold(499)).toEqual({ rank: "active", min: 500 });
-    expect(nextRankThreshold(8000)).toBeNull();
+    expect(nextRankThreshold(59)).toEqual({ rank: "active", min: 60 });
+    expect(nextRankThreshold(1300)).toBeNull();
   });
 
   it("returns deterministic rank order", () => {

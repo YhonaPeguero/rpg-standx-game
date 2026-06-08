@@ -10,6 +10,7 @@ import { chapterUnlocked } from "@/lib/game/gates";
 import { useGameStore } from "@/store";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { buttonClassName } from "@/components/ui/Button";
+import { AudioToggle } from "./AudioToggle";
 import { EPRing } from "./EPRing";
 import { RankLabel } from "./RankLabel";
 
@@ -28,14 +29,15 @@ export function TopBar() {
   const next = nextRankThreshold(player.ep);
   const current = RANK_THRESHOLDS.find((threshold) => threshold.rank === player.rank)?.min ?? 0;
   const inScene = pathname?.startsWith("/play/scene/") ?? false;
+  const onHq = pathname === "/play";
   const nextChapter = useMemo(() => {
-    if (inScene) return null;
+    if (inScene || onHq) return null;
     return (
       getChapters().find(
         (chapter) => !completedChapters.has(chapter.id) && chapterUnlocked(chapter.unlock, player, completedChapters),
       ) ?? null
     );
-  }, [inScene, completedChapters, player]);
+  }, [inScene, onHq, completedChapters, player]);
 
   useEffect(() => {
     bumpStreak();
@@ -62,6 +64,7 @@ export function TopBar() {
               {t("continueJourney", { n: chapterNumber(nextChapter.id) })} →
             </Link>
           ) : null}
+          <AudioToggle />
           <LocaleSwitcher variant="compact" />
         </div>
       </div>

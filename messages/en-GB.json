@@ -26,6 +26,7 @@
     "nextStep": "Your next step",
     "allChapters": "All Act I chapters",
     "growthMap": "Growth map",
+    "roadmap": { "step": "Step", "start": "Start", "done": "Done", "current": "Now", "locked": "Locked" },
     "mascotStatus": "New Stander stage online",
     "stats": { "ep": "Engage Points", "streak": "Streak", "rank": "Rank", "chapters": "Chapters" },
     "chapter": {
@@ -33,13 +34,12 @@
       "completed": "Replay",
       "lockedC1": "Locked: complete Chapter 1",
       "c1Title": "Chapter 1: The Awakening",
-      "c1Subtitle": "Meet Mira and learn the 3,000 EP Seed gate.",
+      "c1Subtitle": "Meet Mira and learn the 500 EP Seed gate.",
       "c1Estimate": "6 min",
       "c2Title": "Chapter 2: Discord Plaza",
       "c2Subtitle": "Announcements, reactions and consistency habits.",
       "c2Estimate": "7 min",
-      "mira": "Mira",
-      "dias": "Dias"
+      "mira": "Mira"
     }
   },
   "stubs": {
@@ -52,6 +52,9 @@
     "streak": "Streak",
     "audioOn": "Audio on",
     "audioOff": "Audio off",
+    "muteAudio": "Mute audio",
+    "unmuteAudio": "Unmute audio",
+    "rankUp": "Rank Up",
     "motionOn": "Motion on",
     "motionOff": "Motion off",
     "claim": "Claim +{ep}",
@@ -65,6 +68,7 @@
   },
   "profile": {
     "badge": "Profile",
+    "epDisclaimer": "Engage Points here are a conceptual learning metric — not StandX's real score, and not financial advice.",
     "rank": "Rank",
     "squad": "Squad",
     "none": "None",
@@ -94,7 +98,7 @@
     "trade": {
       "badge": "QTE - Trade Execution",
       "title": "Press in the setup zone",
-      "mentor": "Jovan: Support tested 3x. Funding rate negative. Volume growing. Green zone is the ideal.",
+      "mentor": "Gabo: Support tested 3x. Funding rate negative. Volume growing. Green zone is the ideal.",
       "action": "Trade",
       "continue": "Continue",
       "perfectTitle": "PERFECT TIMING",
@@ -102,15 +106,15 @@
       "okTitle": "CLEAN ENOUGH",
       "okLesson": "Close. Slightly early or late. In practice: more slippage and a tighter stop.",
       "missTitle": "FORCED ENTRY",
-      "missLesson": "Outside the setup zone. FOMO, not analysis. Jovan: wait for confirmation, always."
+      "missLesson": "Outside the setup zone. FOMO, not analysis. Gabo: wait for confirmation, always."
     },
     "content": {
       "badge": "QTE - Content Quality",
-      "title": "Pick the post Victor would stop for",
-      "mentor": "Victor: the brief is content about DUSD yield. Depth earns attention. Hype does not.",
+      "title": "Pick the post 冷酷锦鲤 would stop for",
+      "mentor": "冷酷锦鲤: the brief is content about DUSD yield. Depth earns attention. Hype does not.",
       "continue": "Continue",
       "deepTitle": "SELECTED",
-      "deepLesson": "Victor approves - this is the Content Squad standard. It adds real value without pretending structure is magic.",
+      "deepLesson": "冷酷锦鲤 approves - this is the Content Squad standard. It adds real value without pretending structure is magic.",
       "hypeTitle": "NOT SELECTED",
       "hypeLesson": "Hype teaches nothing. The team picks what adds real value.",
       "cards": {
@@ -152,10 +156,14 @@
     "unknownRole": "Unknown role",
     "nfa": "Community-made content, not financial advice.",
     "quiz": {
-      "correct": "Correct. EP awarded if this was your first try.",
+      "correct": "Correct.",
       "miraPrefix": "Mira:",
       "next": "Next question",
-      "finish": "Finish quiz"
+      "finish": "Finish quiz",
+      "summaryBadge": "Result",
+      "summaryTitle": "Quiz Complete",
+      "noEp": "No EP this time — replay to earn stars.",
+      "continue": "Continue"
     },
     "reflection": { "badge": "Reflection", "complete": "Complete reflection" },
     "reward": {
@@ -165,6 +173,7 @@
       "stars": "Stars",
       "codex": "Codex",
       "back": "Back to HQ",
+      "rankNow": "Current rank",
       "noSquad": "No squad"
     }
   },
@@ -185,13 +194,13 @@
     "locked": "Locked",
     "progress": "{done}/{total}",
     "list": {
-      "daily_reaction": { "title": "React to today's announcement", "body": "Hit the official channel and react to the latest post." },
-      "daily_event": { "title": "Join one weekly event", "body": "Show up. Bring presence. Help one newcomer." },
-      "daily_content": { "title": "Read one Codex entry", "body": "Open the Codex and absorb a new piece of context." },
+      "daily_x_post": { "title": "Post on X", "body": "Share one genuine post about StandX. Your daily signal." },
+      "weekly_rumble": { "title": "Play Rumble in Discord", "body": "Join the Rumble round in the Discord server this week." },
+      "weekly_poker": { "title": "Join poker night", "body": "Sit at the community poker table this week." },
+      "weekly_event": { "title": "Join the weekly event", "body": "Show up to this week's event. Bring presence, help one newcomer." },
       "weekly_quality": { "title": "Publish one quality post", "body": "Depth + human voice. Hype does not count." },
-      "weekly_squad": { "title": "Help two newcomers in your squad", "body": "Pay forward what you learned in Act I." },
       "weekly_streak": { "title": "Hit a 7-day streak", "body": "Real consistency. Resets on any miss." },
-      "community_shoutout": { "title": "Earn a weekly shoutout", "body": "Get nominated by Arttifex or Gaboo in the BR room." },
+      "community_shoutout": { "title": "Earn a weekly shoutout", "body": "Get nominated by Artifex or Gabo in the BR room." },
       "community_thread": { "title": "Ship a deep thread", "body": "DUSD, perps or governance. Source data. Show structure." }
     }
   },
@@ -226,7 +235,8 @@
   },
   "locale": {
     "switch": "Language",
-    "label": "Switch language"
+    "label": "Switch language",
+    "storyEn": "EN story"
   },
   "errors": {
     "notFound": {

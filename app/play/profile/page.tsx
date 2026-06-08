@@ -80,6 +80,9 @@ export default function ProfilePage() {
               <p className="text-xs uppercase tracking-[0.2em] text-sx-dim">{t("squad")}</p>
             </div>
           </div>
+          <p className="mt-5 border-t border-[var(--stroke-soft)] pt-4 font-mono text-[10px] leading-relaxed text-sx-dim">
+            {t("epDisclaimer")}
+          </p>
         </Card>
 
         <Card className="p-6">
