@@ -11,13 +11,13 @@
       "id": "s1-1-activation",
       "kind": "dialog",
       "lines": [
-        { "character": "sistema", "text": "[ ACTIVATION LOG ] Entity: STANDER. Status: New Stander. Engage Points: 0/500. Mission: Grow to FLOWER." },
+        { "character": "sistema", "text": "[ ACTIVATION LOG ] Entity: STANDER. Status: New Stander. Engage Points: 0/3000. Mission: Grow to FLOWER." },
         { "character": "stander", "text": "Where am I? Total darkness. Just me and an eye trying to understand this universe." },
         { "character": "stander", "text": "There's a signal. Faint, but constant. From a place called... StandX." },
         { "character": "mira", "text": "Welcome. I'm Mira - the Official Voice of StandX. I give the rules, the goals, the missions." },
         { "character": "mira", "text": "The Growth Path has three roles: SEED, SPROUT, FLOWER. Each demands more - consistency, quality, real impact on the community." },
         { "character": "stander", "text": "Where do I start?" },
-        { "character": "mira", "text": "From the start. 500 Engage Points to apply for SEED. Every action counts. Let's go." }
+        { "character": "mira", "text": "From the start. 3,000 Engage Points to apply for SEED. Every action counts. Let's go." }
       ]
     },
     {
@@ -48,11 +48,11 @@
           "id": "q2",
           "prompt": "How many Engage Points to apply for SEED?",
           "options": [
-            { "id": "a", "text": "300", "correct": false },
-            { "id": "b", "text": "500", "correct": true },
-            { "id": "c", "text": "1,000", "correct": false }
+            { "id": "a", "text": "1,000", "correct": false },
+            { "id": "b", "text": "3,000", "correct": true },
+            { "id": "c", "text": "5,000", "correct": false }
           ],
-          "explanation": "500 is the SEED gate. SPROUT needs at least 800 plus squad tasks."
+          "explanation": "3,000 is the SEED gate. SPROUT needs 4,000 EP plus 2 real contributions in Discord."
         },
         {
           "id": "q3",
@@ -62,7 +62,7 @@
             { "id": "b", "text": "+40 EP per week", "correct": true },
             { "id": "c", "text": "Nothing", "correct": false }
           ],
-          "explanation": "Weekly Active = +40 EP. Combined with 1-2 weekly activities and useful content, 500 is reachable through steady participation."
+          "explanation": "Weekly Active = +40 EP. Combined with weekly activities and useful content, 3,000 comes from steady, real participation over time."
         }
       ]
     },

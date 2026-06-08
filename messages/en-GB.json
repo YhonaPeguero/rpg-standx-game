@@ -34,7 +34,7 @@
       "completed": "Replay",
       "lockedC1": "Locked: complete Chapter 1",
       "c1Title": "Chapter 1: The Awakening",
-      "c1Subtitle": "Meet Mira and learn the 500 EP Seed gate.",
+      "c1Subtitle": "Meet Mira and learn the 3,000 EP Seed gate.",
       "c1Estimate": "6 min",
       "c2Title": "Chapter 2: Discord Plaza",
       "c2Subtitle": "Announcements, reactions and consistency habits.",
@@ -149,8 +149,8 @@
     "steps": [
       { "title": "Welcome, Stander", "body": "Name your character. Your run is saved locally on this device — no account needed." },
       { "title": "How you earn EP", "body": "Engage Points are a conceptual learning score. You earn them by doing well: the best dialogue choices, and quizzes or mini-games graded by stars (30 / 50 / 80 EP). Weak or skipped actions earn nothing." },
-      { "title": "Your goal: SEED", "body": "Climb the Growth Path — New Stander, Active, Consistent, Seed Candidate, then SEED at 500 EP. Reaching SEED completes Act I." },
-      { "title": "Squads", "body": "When you reach SEED you join a Squad in the Seed Hall (Chapter 6): Content, Creative, Outreach, Tech or Offline. Open the Squads tab any time to preview them." },
+      { "title": "Your goal: SEED", "body": "Climb the Growth Path. SEED is the real goal — 3,000 EP plus real Discord activity. Act I is your on-ramp: you finish it as a Seed Candidate, ready to keep growing." },
+      { "title": "Squads", "body": "Finish the Seed Hall (Chapter 6) to choose your Squad: Content, Creative, Outreach, Tech or Offline. Open the Squads tab any time to preview them." },
       { "title": "Ready", "body": "Six chapters take you from New Stander to Seed. Start Chapter 1 and meet Mira." }
     ]
   },
@@ -158,10 +158,10 @@
     "badge": "Squads",
     "title": "Choose Your Squad",
     "intro": "Squads are how Seeds contribute: each has a focus and a mentor. You pick one when you reach SEED.",
-    "lockedBanner": "Squads unlock at the SEED rank. You'll choose yours in the Seed Hall at the end of Act I — keep earning EP to get there.",
+    "lockedBanner": "You choose your squad in the Seed Hall — the final chapter of Act I. Finish the story to unlock squad selection here.",
     "haveSquad": "You're in a squad. You can switch any time below.",
     "readyToChoose": "You reached SEED — pick the squad that fits you.",
-    "unlocksAt": "Unlocks at SEED",
+    "unlocksAt": "Finish Act I",
     "selected": "Your squad",
     "select": "Choose",
     "switch": "Switch here",
@@ -242,6 +242,10 @@
     "unlocked": "Unlocked",
     "locked": "Locked",
     "perks": "Perks",
+    "req": {
+      "sprout": "4,000 EP + 2 real Discord contributions",
+      "flower": "Criteria TBD"
+    },
     "labels": {
       "new_stander": "New Stander",
       "active": "Active",

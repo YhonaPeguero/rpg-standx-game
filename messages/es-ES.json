@@ -34,7 +34,7 @@
       "completed": "Rejugar",
       "lockedC1": "Bloqueado: Completa el Capítulo 1",
       "c1Title": "Capítulo 1: El Despertar",
-      "c1Subtitle": "Conoce a Mira y aprende el umbral de 500 EP para Seed.",
+      "c1Subtitle": "Conoce a Mira y aprende el umbral de 3.000 EP para Seed.",
       "c1Estimate": "6 min",
       "c2Title": "Capítulo 2: Discord Plaza",
       "c2Subtitle": "Anuncios, reacciones y hábitos de consistencia.",
@@ -149,8 +149,8 @@
     "steps": [
       { "title": "Bienvenido, Stander", "body": "Ponle nombre a tu personaje. Tu partida se guarda localmente en este dispositivo, sin cuenta." },
       { "title": "Cómo ganas EP", "body": "Los Engage Points son una puntuación conceptual de aprendizaje. Los ganas haciéndolo bien: las mejores decisiones, y quizzes o minijuegos calificados por estrellas (30 / 50 / 80 EP). Las acciones flojas u omitidas no dan nada." },
-      { "title": "Tu meta: SEED", "body": "Sube por el Growth Path — New Stander, Active, Consistent, Seed Candidate y SEED a los 500 EP. Llegar a SEED completa el Acto I." },
-      { "title": "Squads", "body": "Al llegar a SEED te unes a un Squad en el Seed Hall (Capítulo 6): Content, Creative, Outreach, Tech u Offline. Abre la pestaña Squads cuando quieras para conocerlos." },
+      { "title": "Tu meta: SEED", "body": "Sube por el Growth Path. SEED es la meta real: 3.000 EP más actividad real en Discord. El Acto I es tu rampa de entrada: lo terminas como Seed Candidate, listo para seguir creciendo." },
+      { "title": "Squads", "body": "Termina el Seed Hall (Capítulo 6) para elegir tu Squad: Content, Creative, Outreach, Tech u Offline. Abre la pestaña Squads cuando quieras para conocerlos." },
       { "title": "Listo", "body": "Seis capítulos te llevan de New Stander a Seed. Empieza el Capítulo 1 y conoce a Mira." }
     ]
   },
@@ -162,13 +162,13 @@
         "scenes": {
           "s1-1-activation": {
             "lines": [
-              "[ LOG DE ACTIVACIÓN ] Entidad: STANDER. Estado: New Stander. Engage Points: 0/500. Misión: crecer hasta FLOWER.",
+              "[ LOG DE ACTIVACIÓN ] Entidad: STANDER. Estado: New Stander. Engage Points: 0/3000. Misión: crecer hasta FLOWER.",
               "¿Dónde estoy? Oscuridad total. Solo yo y un ojo intentando entender este universo.",
               "Hay una señal. Débil, pero constante. Viene de un lugar llamado... StandX.",
               "Bienvenido. Soy Mira, la Voz Oficial de StandX. Yo doy las reglas, las metas y las misiones.",
               "El Growth Path tiene tres rangos: SEED, SPROUT y FLOWER. Cada uno exige más: consistencia, calidad e impacto real en la comunidad.",
               "¿Por dónde empiezo?",
-              "Por el principio. 500 Engage Points para postularte a SEED. Cada acción cuenta. Vamos."
+              "Por el principio. 3.000 Engage Points para postularte a SEED. Cada acción cuenta. Vamos."
             ]
           },
           "s1-2-first-choice": {
@@ -187,13 +187,13 @@
               },
               {
                 "prompt": "¿Cuántos Engage Points hacen falta para postularte a SEED?",
-                "options": ["300", "500", "1.000"],
-                "explanation": "500 es el umbral de SEED. SPROUT exige al menos 800 más tareas de squad."
+                "options": ["1.000", "3.000", "5.000"],
+                "explanation": "3.000 es el umbral de SEED. SPROUT exige 4.000 EP más 2 contribuciones reales en Discord."
               },
               {
                 "prompt": "¿Qué otorga el bonus Weekly Active User?",
                 "options": ["+20 EP", "+40 EP por semana", "Nada"],
-                "explanation": "Weekly Active = +40 EP. Combinado con 1-2 actividades semanales y contenido útil, llegas a 500 con participación constante."
+                "explanation": "Weekly Active = +40 EP. Combinado con actividades semanales y contenido útil, llegar a 3.000 requiere participación real y constante en el tiempo."
               }
             ]
           },
@@ -335,10 +335,10 @@
     "badge": "Squads",
     "title": "Elige tu Squad",
     "intro": "Los Squads son cómo contribuyen los Seeds: cada uno tiene un foco y un mentor. Eliges uno al llegar a SEED.",
-    "lockedBanner": "Los Squads se desbloquean en el rango SEED. Elegirás el tuyo en el Seed Hall, al final del Acto I — sigue ganando EP para llegar.",
+    "lockedBanner": "Eliges tu squad en el Seed Hall, el capítulo final del Acto I. Termina la historia para habilitar la selección aquí.",
     "haveSquad": "Estás en un squad. Puedes cambiarlo abajo cuando quieras.",
     "readyToChoose": "Llegaste a SEED — elige el squad que va contigo.",
-    "unlocksAt": "Se desbloquea en SEED",
+    "unlocksAt": "Termina el Acto I",
     "selected": "Tu squad",
     "select": "Elegir",
     "switch": "Cambiar aquí",
@@ -419,6 +419,10 @@
     "unlocked": "Desbloqueado",
     "locked": "Bloqueado",
     "perks": "Beneficios",
+    "req": {
+      "sprout": "4.000 EP + 2 contribuciones reales en Discord",
+      "flower": "Criterio por definir"
+    },
     "labels": {
       "new_stander": "New Stander",
       "active": "Activo",

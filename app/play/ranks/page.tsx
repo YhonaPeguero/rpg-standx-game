@@ -51,7 +51,9 @@ export default function RanksPage() {
                     </div>
                     <div>
                       <p className="font-mono text-[10px] uppercase tracking-[0.26em] text-sx-dim">
-                        {meta.minEP} EP
+                        {meta.requirementKey
+                          ? t(meta.requirementKey as "req.sprout")
+                          : `${meta.minEP} EP`}
                         {meta.discordRole ? " · Discord" : ""}
                       </p>
                       <h3

@@ -34,7 +34,7 @@
       "completed": "다시 플레이",
       "lockedC1": "잠김: 챕터 1을 완료하세요",
       "c1Title": "챕터 1: 각성",
-      "c1Subtitle": "Mira를 만나고 Seed를 위한 500 EP 게이트를 배웁니다.",
+      "c1Subtitle": "Mira를 만나고 Seed를 위한 3,000 EP 게이트를 배웁니다.",
       "c1Estimate": "6분",
       "c2Title": "챕터 2: Discord Plaza",
       "c2Subtitle": "공지, 반응, 그리고 일관성의 습관.",
@@ -149,8 +149,8 @@
     "steps": [
       { "title": "환영합니다, Stander", "body": "캐릭터 이름을 정하세요. 진행 상황은 계정 없이 이 기기에 로컬로 저장됩니다." },
       { "title": "EP 획득 방법", "body": "Engage Points는 학습용 개념 점수입니다. 잘하면 얻습니다: 최선의 선택, 그리고 별점으로 평가되는 퀴즈·미니게임(30 / 50 / 80 EP). 약하거나 건너뛴 행동은 아무것도 주지 않습니다." },
-      { "title": "목표: SEED", "body": "Growth Path를 오르세요 — New Stander, Active, Consistent, Seed Candidate, 그리고 500 EP의 SEED. SEED에 도달하면 1막이 완료됩니다." },
-      { "title": "스쿼드", "body": "SEED에 도달하면 Seed Hall(6장)에서 스쿼드에 합류합니다: Content, Creative, Outreach, Tech, Offline. 스쿼드 탭에서 언제든 미리 볼 수 있어요." },
+      { "title": "목표: SEED", "body": "Growth Path를 오르세요. SEED는 실제 목표입니다 — 3,000 EP와 Discord의 실제 활동. 1막은 출발점이며, 끝내면 Seed Candidate가 되어 계속 성장할 준비가 됩니다." },
+      { "title": "스쿼드", "body": "Seed Hall(6장)을 끝내면 스쿼드를 선택합니다: Content, Creative, Outreach, Tech, Offline. 스쿼드 탭에서 언제든 미리 볼 수 있어요." },
       { "title": "준비 완료", "body": "여섯 챕터가 New Stander부터 Seed까지 이끕니다. 1장을 시작하고 Mira를 만나세요." }
     ]
   },
@@ -158,10 +158,10 @@
     "badge": "스쿼드",
     "title": "스쿼드 선택",
     "intro": "스쿼드는 Seed가 기여하는 방식입니다: 각각 초점과 멘토가 있어요. SEED에 도달하면 하나를 고릅니다.",
-    "lockedBanner": "스쿼드는 SEED 랭크에서 해금됩니다. 1막 끝의 Seed Hall에서 선택하게 됩니다 — 거기까지 EP를 계속 모으세요.",
+    "lockedBanner": "스쿼드는 1막의 마지막 챕터인 Seed Hall에서 선택합니다. 스토리를 끝내면 여기서 선택할 수 있어요.",
     "haveSquad": "스쿼드에 속해 있습니다. 아래에서 언제든 바꿀 수 있어요.",
     "readyToChoose": "SEED에 도달했습니다 — 당신에게 맞는 스쿼드를 고르세요.",
-    "unlocksAt": "SEED에서 해금",
+    "unlocksAt": "1막 완료 시",
     "selected": "내 스쿼드",
     "select": "선택",
     "switch": "여기서 변경",
@@ -242,6 +242,10 @@
     "unlocked": "해금됨",
     "locked": "잠김",
     "perks": "혜택",
+    "req": {
+      "sprout": "4,000 EP + Discord 실제 기여 2회",
+      "flower": "기준 미정"
+    },
     "labels": {
       "new_stander": "New Stander",
       "active": "Active",

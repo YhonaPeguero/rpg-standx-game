@@ -3,10 +3,11 @@
 import { useTranslations } from "next-intl";
 import type { SquadId } from "@/types";
 import { SQUADS } from "@/lib/game/squads";
-import { rankOrder } from "@/lib/game/ep";
 import { getCharacterById } from "@/lib/content/loader";
 import { audioEngine } from "@/lib/audio/engine";
 import { useGameStore } from "@/store";
+
+const SEED_HALL_ID = "act1-c6-seed-hall";
 import { Card } from "@/components/ui/Card";
 import { buttonClassName } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
@@ -15,10 +16,12 @@ import { CharacterAvatar } from "@/components/mascot/CharacterAvatar";
 export default function SquadsPage() {
   const t = useTranslations("squads");
   const player = useGameStore((state) => state.player);
+  const completedChapters = useGameStore((state) => state.completedChapters);
   const setSquad = useGameStore((state) => state.setSquad);
   const unlockAchievement = useGameStore((state) => state.unlockAchievement);
 
-  const unlocked = rankOrder(player.rank) >= rankOrder("seed");
+  // Squad selection opens once the Seed Hall (final Act I chapter) is cleared.
+  const unlocked = completedChapters.has(SEED_HALL_ID);
 
   function choose(id: SquadId) {
     if (!unlocked) return;

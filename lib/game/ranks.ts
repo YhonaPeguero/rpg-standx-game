@@ -14,6 +14,8 @@ export type RankMeta = {
   accent: string;
   /** Whether this rank is recognized as a Discord role */
   discordRole: boolean;
+  /** Optional i18n key for a custom requirement label (overrides "<minEP> EP"). */
+  requirementKey?: string;
   /** Static perks shown on the ranks page (already short and rank-neutral) */
   perks: string[];
 };
@@ -86,6 +88,7 @@ export const RANK_META: Record<Rank, RankMeta> = {
     icon: "✿",
     accent: "#9945ff",
     discordRole: true,
+    requirementKey: "req.sprout",
     perks: ["Weekly highlight slot", "Mentor tasks"],
   },
   flower: {
@@ -96,6 +99,7 @@ export const RANK_META: Record<Rank, RankMeta> = {
     icon: "❀",
     accent: "#ff3366",
     discordRole: true,
+    requirementKey: "req.flower",
     perks: ["Standards-setter", "Pillar status"],
   },
 };
