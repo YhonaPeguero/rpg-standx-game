@@ -27,11 +27,9 @@ export const characterIdSchema = z.enum([
   "mira",
   "arttifex",
   "gaboo",
-  "jovan",
-  "aifilho",
-  "dias",
-  "dan",
-  "victor",
+  "dave",
+  "jinli",
+  "doula",
   "stander",
 ]);
 
@@ -70,7 +68,6 @@ export const quizQuestionSchema = z.object({
     )
     .min(2),
   explanation: z.string(),
-  ep: z.number().int().nonnegative(),
 });
 
 export const sceneSchema = z.discriminatedUnion("kind", [

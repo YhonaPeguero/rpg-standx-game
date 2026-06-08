@@ -26,6 +26,7 @@
     "nextStep": "다음 단계",
     "allChapters": "1막 전체 챕터",
     "growthMap": "성장 지도",
+    "roadmap": { "step": "단계", "start": "시작", "done": "완료", "current": "현재", "locked": "잠김" },
     "mascotStatus": "New Stander 단계 온라인",
     "stats": { "ep": "Engage Points", "streak": "연속", "rank": "랭크", "chapters": "챕터" },
     "chapter": {
@@ -33,13 +34,12 @@
       "completed": "다시 플레이",
       "lockedC1": "잠김: 챕터 1을 완료하세요",
       "c1Title": "챕터 1: 각성",
-      "c1Subtitle": "Mira를 만나고 Seed를 위한 3,000 EP 게이트를 배웁니다.",
+      "c1Subtitle": "Mira를 만나고 Seed를 위한 500 EP 게이트를 배웁니다.",
       "c1Estimate": "6분",
       "c2Title": "챕터 2: Discord Plaza",
       "c2Subtitle": "공지, 반응, 그리고 일관성의 습관.",
       "c2Estimate": "7분",
-      "mira": "Mira",
-      "dias": "Dias"
+      "mira": "Mira"
     }
   },
   "stubs": {
@@ -52,6 +52,9 @@
     "streak": "연속",
     "audioOn": "사운드 ON",
     "audioOff": "사운드 OFF",
+    "muteAudio": "사운드 끄기",
+    "unmuteAudio": "사운드 켜기",
+    "rankUp": "랭크 업",
     "motionOn": "모션 ON",
     "motionOff": "모션 OFF",
     "claim": "+{ep} 받기",
@@ -65,6 +68,7 @@
   },
   "profile": {
     "badge": "프로필",
+    "epDisclaimer": "여기의 Engage Points는 학습용 개념 지표이며, StandX의 실제 점수나 투자 자문이 아닙니다.",
     "rank": "랭크",
     "squad": "스쿼드",
     "none": "없음",
@@ -94,7 +98,7 @@
     "trade": {
       "badge": "QTE - 트레이드 실행",
       "title": "셋업 존에서 누르세요",
-      "mentor": "Jovan: 지지선 3회 테스트. 펀딩 마이너스. 거래량 증가. 그린 존이 최적입니다.",
+      "mentor": "Gabo: 지지선 3회 테스트. 펀딩 마이너스. 거래량 증가. 그린 존이 최적입니다.",
       "action": "트레이드",
       "continue": "계속",
       "perfectTitle": "완벽한 타이밍",
@@ -102,15 +106,15 @@
       "okTitle": "괜찮은 진입",
       "okLesson": "가까웠어요. 약간 빠르거나 늦었습니다. 실전에서는 슬리피지가 늘고 스탑이 타이트해집니다.",
       "missTitle": "강제 진입",
-      "missLesson": "셋업 존 바깥입니다. 분석이 아니라 FOMO죠. Jovan: 항상 확인을 기다리세요."
+      "missLesson": "셋업 존 바깥입니다. 분석이 아니라 FOMO죠. Gabo: 항상 확인을 기다리세요."
     },
     "content": {
       "badge": "QTE - 콘텐츠 품질",
-      "title": "Victor가 멈춰서서 볼 만한 글을 고르세요",
-      "mentor": "Victor: DUSD 수익 구조에 대한 콘텐츠가 필요해요. 깊이가 관심을 만들고, 하이프는 그러지 못합니다.",
+      "title": "冷酷锦鲤가 멈춰서서 볼 만한 글을 고르세요",
+      "mentor": "冷酷锦鲤: DUSD 수익 구조에 대한 콘텐츠가 필요해요. 깊이가 관심을 만들고, 하이프는 그러지 못합니다.",
       "continue": "계속",
       "deepTitle": "선택됨",
-      "deepLesson": "Victor가 승인합니다 - Content Squad의 기준이에요. 구조가 마법인 척하지 않고 진짜 가치를 더합니다.",
+      "deepLesson": "冷酷锦鲤가 승인합니다 - Content Squad의 기준이에요. 구조가 마법인 척하지 않고 진짜 가치를 더합니다.",
       "hypeTitle": "선택 안 됨",
       "hypeLesson": "하이프는 아무것도 가르치지 않습니다. 팀은 실제 가치를 더하는 글을 고릅니다.",
       "cards": {
@@ -122,6 +126,7 @@
   },
   "nav": {
     "hq": "HQ",
+    "home": "홈",
     "growth": "성장",
     "squads": "스쿼드",
     "codex": "코덱스",
@@ -152,10 +157,14 @@
     "unknownRole": "알 수 없는 역할",
     "nfa": "커뮤니티 콘텐츠입니다. 투자 자문이 아닙니다.",
     "quiz": {
-      "correct": "정답입니다. 첫 시도였다면 EP가 지급됩니다.",
+      "correct": "정답입니다.",
       "miraPrefix": "Mira:",
       "next": "다음 질문",
-      "finish": "퀴즈 종료"
+      "finish": "퀴즈 종료",
+      "summaryBadge": "결과",
+      "summaryTitle": "퀴즈 완료",
+      "noEp": "이번에는 EP 없음 — 다시 플레이해 별을 모으세요.",
+      "continue": "계속"
     },
     "reflection": { "badge": "되돌아보기", "complete": "되돌아보기 완료" },
     "reward": {
@@ -165,6 +174,7 @@
       "stars": "별",
       "codex": "코덱스",
       "back": "HQ로 돌아가기",
+      "rankNow": "현재 랭크",
       "noSquad": "스쿼드 없음"
     }
   },
@@ -185,13 +195,13 @@
     "locked": "잠김",
     "progress": "{done}/{total}",
     "list": {
-      "daily_reaction": { "title": "오늘의 공지에 반응하기", "body": "공식 채널로 가서 최신 글에 반응을 남기세요." },
-      "daily_event": { "title": "주간 이벤트에 참여하기", "body": "나타나세요. 존재감을 보여주세요. 뉴커머 한 명을 도와주세요." },
-      "daily_content": { "title": "코덱스 한 항목 읽기", "body": "코덱스를 열고 새로운 컨텍스트를 흡수하세요." },
+      "daily_x_post": { "title": "X에 게시하기", "body": "StandX에 대한 진솔한 글을 하나 공유하세요. 당신의 일일 신호입니다." },
+      "weekly_rumble": { "title": "디스코드에서 럼블 플레이", "body": "이번 주 디스코드 서버의 럼블 라운드에 참여하세요." },
+      "weekly_poker": { "title": "포커 나이트 참여", "body": "이번 주 커뮤니티 포커 테이블에 앉으세요." },
+      "weekly_event": { "title": "주간 이벤트에 참여하기", "body": "이번 주 이벤트에 나타나세요. 존재감을 보여주고 뉴커머 한 명을 도와주세요." },
       "weekly_quality": { "title": "퀄리티 글 한 편 발행", "body": "깊이 + 사람의 목소리. 하이프는 카운트되지 않습니다." },
-      "weekly_squad": { "title": "스쿼드 뉴커머 두 명 돕기", "body": "1막에서 배운 것을 전해주세요." },
       "weekly_streak": { "title": "7일 연속 달성", "body": "진짜 일관성. 한 번이라도 빠지면 초기화됩니다." },
-      "community_shoutout": { "title": "주간 샤웃아웃 받기", "body": "BR 룸에서 Arttifex나 Gaboo에게 지명되세요." },
+      "community_shoutout": { "title": "주간 샤웃아웃 받기", "body": "BR 룸에서 Artifex나 Gabo에게 지명되세요." },
       "community_thread": { "title": "깊이 있는 스레드 출시", "body": "DUSD, perps, 거버넌스. 데이터로 구조를 보여주세요." }
     }
   },
@@ -226,7 +236,8 @@
   },
   "locale": {
     "switch": "언어",
-    "label": "언어 변경"
+    "label": "언어 변경",
+    "storyEn": "EN 스토리"
   },
   "errors": {
     "notFound": {

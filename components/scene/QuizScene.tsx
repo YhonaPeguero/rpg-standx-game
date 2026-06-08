@@ -4,25 +4,28 @@ import { useState } from "react";
 import { useTranslations } from "next-intl";
 import type { QuizQuestion } from "@/types";
 import { quizStars } from "@/lib/game/mastery";
+import { epForStars } from "@/lib/game/epTiers";
+import { audioEngine } from "@/lib/audio/engine";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { Icon } from "@/components/ui/Icon";
 
 type QuizSceneProps = {
   sceneId: string;
   questions: QuizQuestion[];
   passingScore: number;
-  onQuestionReward: (ep: number) => void;
   onMastery: (sceneId: string, stars: number) => void;
   onComplete: () => void;
 };
 
-export function QuizScene({ sceneId, questions, passingScore, onQuestionReward, onMastery, onComplete }: QuizSceneProps) {
+export function QuizScene({ sceneId, questions, passingScore, onMastery, onComplete }: QuizSceneProps) {
   const t = useTranslations("scene.quiz");
   const [index, setIndex] = useState(0);
   const [wrongAnswers, setWrongAnswers] = useState(0);
   const [score, setScore] = useState(0);
   const [failedCurrent, setFailedCurrent] = useState(false);
   const [feedback, setFeedback] = useState<string | null>(null);
+  const [result, setResult] = useState<{ stars: number; ep: number } | null>(null);
   const question = questions[index];
   const progress = `${index + 1}/${questions.length}`;
 
@@ -30,13 +33,14 @@ export function QuizScene({ sceneId, questions, passingScore, onQuestionReward, 
     if (correct) {
       if (!failedCurrent) {
         setScore((value) => value + 1);
-        onQuestionReward(question.ep);
       }
 
+      audioEngine.playCorrect();
       setFeedback(t("correct"));
       return;
     }
 
+    audioEngine.playWrong();
     setWrongAnswers((value) => value + 1);
     setFailedCurrent(true);
     setFeedback(`${t("miraPrefix")} ${question.explanation}`);
@@ -54,7 +58,30 @@ export function QuizScene({ sceneId, questions, passingScore, onQuestionReward, 
     const finalScore = score + (failedCurrent ? 0 : 1);
     const stars = quizStars(finalScore, wrongAnswers, passingScore);
     onMastery(sceneId, stars);
-    onComplete();
+    setResult({ stars, ep: epForStars(stars) });
+  }
+
+  if (result) {
+    return (
+      <Card className="p-6 text-center md:p-8">
+        <p className="font-mono text-xs uppercase tracking-[0.35em] text-sx-gold">{t("summaryBadge")}</p>
+        <h2 className="mt-4 font-display text-2xl font-bold uppercase tracking-[0.12em] text-sx-green">{t("summaryTitle")}</h2>
+        <div aria-label={`${result.stars}/3`} className="mt-6 flex items-center justify-center gap-2">
+          {[0, 1, 2].map((i) => (
+            <Icon
+              className={i < result.stars ? "text-sx-gold drop-shadow-[0_0_8px_rgba(255,230,0,0.5)]" : "text-sx-dim opacity-40"}
+              key={i}
+              name="star"
+              size={36}
+            />
+          ))}
+        </div>
+        <p className="mt-4 font-mono text-2xl text-sx-green">{result.ep > 0 ? `+${result.ep} EP` : t("noEp")}</p>
+        <Button className="mt-8" onClick={onComplete}>
+          {t("continue")}
+        </Button>
+      </Card>
+    );
   }
 
   return (

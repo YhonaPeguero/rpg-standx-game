@@ -4,12 +4,12 @@ export const fallbackLocale = "en-US" as const;
 
 export type Locale = (typeof locales)[number];
 
-export const localeMeta: Record<Locale, { label: string; native: string; flag: string }> = {
-  "en-US": { label: "English (US)", native: "English", flag: "US" },
-  "es-ES": { label: "Spanish",       native: "Espanol", flag: "ES" },
-  "pt-BR": { label: "Portuguese (BR)", native: "Portugues", flag: "BR" },
-  "en-GB": { label: "English (UK)",  native: "English UK", flag: "GB" },
-  "ko-KR": { label: "Korean",        native: "Hangugeo",  flag: "KR" },
+export const localeMeta: Record<Locale, { label: string; native: string; flag: string; storyComplete: boolean }> = {
+  "en-US": { label: "English (US)", native: "English", flag: "US", storyComplete: true },
+  "es-ES": { label: "Spanish",       native: "Espanol", flag: "ES", storyComplete: true },
+  "pt-BR": { label: "Portuguese (BR)", native: "Portugues", flag: "BR", storyComplete: true },
+  "en-GB": { label: "English (UK)",  native: "English UK", flag: "GB", storyComplete: true },
+  "ko-KR": { label: "Korean",        native: "Hangugeo",  flag: "KR", storyComplete: false },
 };
 
 export function isLocale(value: string): value is Locale {

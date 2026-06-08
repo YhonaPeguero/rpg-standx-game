@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useMessages } from "next-intl";
 import type { Chapter, Reward } from "@/types";
 import { useGameStore } from "@/store";
 import { localizeChapter } from "@/lib/content/localize";
-import { mergeRewards } from "@/lib/game/rewards";
+import { epForStars } from "@/lib/game/epTiers";
 import { audioEngine } from "@/lib/audio/engine";
 import { GameStage } from "./GameStage";
 import { RewardScreen } from "./RewardScreen";
@@ -33,6 +33,11 @@ export function ScenePlayer({ chapter }: ScenePlayerProps) {
   const isLocalized = hasChapterOverlay(messages, chapter.id, locale);
   const [sceneIndex, setSceneIndex] = useState(0);
   const [completeReward, setCompleteReward] = useState<Reward | null>(null);
+  const advancingRef = useRef(false);
+  // Totals accumulated across this chapter run, shown on the reward screen.
+  const earnedEpRef = useRef(0);
+  const earnedStarsRef = useRef(0);
+  const earnedCodexRef = useRef<Set<string>>(new Set());
   const addEP = useGameStore((state) => state.addEP);
   const addCodex = useGameStore((state) => state.addCodex);
   const unlockAchievement = useGameStore((state) => state.unlockAchievement);
@@ -45,6 +50,10 @@ export function ScenePlayer({ chapter }: ScenePlayerProps) {
   const scene = localizedChapter.scenes[sceneIndex];
 
   useEffect(() => {
+    advancingRef.current = false;
+  }, [sceneIndex]);
+
+  useEffect(() => {
     setCurrentChapter(localizedChapter.id);
   }, [localizedChapter.id, setCurrentChapter]);
 
@@ -53,25 +62,33 @@ export function ScenePlayer({ chapter }: ScenePlayerProps) {
     return () => audioEngine.stopAmbient();
   }, [localizedChapter.zone]);
 
-  function applyReward(reward: Reward) {
-    if (reward.ep) {
-      addEP(reward.ep);
-      audioEngine.playEp();
-    }
+  function grantEp(amount: number) {
+    if (amount <= 0) return;
+    addEP(amount);
+    earnedEpRef.current += amount;
+    audioEngine.playEp();
+  }
 
-    reward.codex?.forEach(addCodex);
+  function applyReward(reward: Reward) {
+    grantEp(reward.ep ?? 0);
+
+    reward.codex?.forEach((id) => {
+      addCodex(id);
+      earnedCodexRef.current.add(id);
+    });
 
     if (reward.achievement) {
       unlockAchievement(reward.achievement);
     }
   }
 
-  function completeScene(extraReward: Reward = {}) {
-    markSceneComplete(scene.id);
-
-    if (extraReward.ep || extraReward.stars || extraReward.codex?.length || extraReward.achievement) {
-      applyReward(extraReward);
+  function completeScene() {
+    if (advancingRef.current) {
+      return;
     }
+    advancingRef.current = true;
+
+    markSceneComplete(scene.id);
 
     if (scene.kind === "reflection") {
       unlockAchievement("first_reflection");
@@ -82,7 +99,8 @@ export function ScenePlayer({ chapter }: ScenePlayerProps) {
       return;
     }
 
-    const reward = mergeRewards(extraReward, localizedChapter.reward);
+    // Chapter completion grants codex/achievement/story — EP is earned through
+    // the chapter's graded scenes and choices, not handed out at the end.
     applyReward(localizedChapter.reward);
     unlockAchievement(`${localizedChapter.id}_complete`);
 
@@ -93,11 +111,18 @@ export function ScenePlayer({ chapter }: ScenePlayerProps) {
     markChapterComplete(localizedChapter.id);
     audioEngine.stopAmbient();
     audioEngine.playComplete();
-    setCompleteReward(reward);
+    setCompleteReward({
+      ep: earnedEpRef.current,
+      stars: earnedStarsRef.current,
+      codex: Array.from(earnedCodexRef.current),
+      achievement: localizedChapter.reward.achievement,
+    });
   }
 
   function handleMastery(sceneId: string, stars: number) {
     setMastery(sceneId, stars);
+    earnedStarsRef.current += stars;
+    grantEp(epForStars(stars));
 
     if (sceneId === "s3-2-trade-timing" && stars === 3) {
       unlockAchievement("trade_setup_master");
@@ -115,6 +140,10 @@ export function ScenePlayer({ chapter }: ScenePlayerProps) {
 
   if (completeReward) {
     return <RewardScreen reward={completeReward} />;
+  }
+
+  if (!scene) {
+    return null;
   }
 
   return (
@@ -140,13 +169,9 @@ export function ScenePlayer({ chapter }: ScenePlayerProps) {
             <SceneRouter
               scene={scene}
               onReward={applyReward}
-              onQuestionReward={(ep) => {
-                addEP(ep);
-                audioEngine.playEp();
-              }}
               onMastery={handleMastery}
               onSquad={handleSquad}
-              onComplete={() => completeScene(scene.kind === "reflection" ? { ep: 10 } : {})}
+              onComplete={completeScene}
             />
           </motion.div>
         </AnimatePresence>

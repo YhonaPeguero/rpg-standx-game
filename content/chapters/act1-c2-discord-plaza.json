@@ -5,17 +5,17 @@
   "title": "Discord Plaza",
   "subtitle": "the community is alive",
   "unlock": [{ "type": "previous", "chapterId": "act1-c1-awakening" }],
-  "reward": { "ep": 350, "codex": ["weekly_active_bonus", "announcements_reactions"] },
+  "reward": { "codex": ["weekly_active_bonus", "announcements_reactions"] },
   "scenes": [
     {
       "id": "s2-1-plaza-enter",
       "kind": "dialog",
       "lines": [
         { "character": "mira", "text": "Discord Plaza. Channels for everything: events, content, announcements, support. Each one has a purpose." },
-        { "character": "dias", "text": "Hey! I'm Dias. I'm already Sprout. You know what got me here? Presence. Every. Day." },
+        { "character": "dave", "text": "Hey! I'm Dave. One of the most active builders here. You know what got me going? Presence. Every. Day." },
         { "character": "stander", "text": "Every day? Really?" },
-        { "character": "dias", "text": "Every day. I reacted to announcements, joined events, helped newcomers. I was not the most technical, but I was present. That counts here." },
-        { "character": "mira", "text": "Dias is right. Reactions in announcements, weekly events, shoutouts - all of it earns Engage Points. Consistency is your strongest asset." }
+        { "character": "dave", "text": "Every day. I reacted to announcements, joined events, helped newcomers. I was not the most technical, but I was present. That counts here." },
+        { "character": "mira", "text": "Dave is right. Reactions in announcements, weekly events, shoutouts - all of it earns Engage Points. Consistency is your strongest asset." }
       ]
     },
     {
@@ -27,8 +27,8 @@
         { "character": "mira", "text": "That simple. Someone who does this daily moves faster than someone who does one huge thing once a month." }
       ],
       "choices": [
-        { "id": "c-comment", "label": "React and comment something relevant", "tag": "EP", "reward": { "ep": 120 }, "feedback": "+120 EP - Real engagement noticed." },
-        { "id": "c-react", "label": "React only, no comment", "tag": "EP", "reward": { "ep": 50 }, "feedback": "+50 EP - Reaction registered." },
+        { "id": "c-comment", "label": "React and comment something relevant", "tag": "EP", "reward": { "ep": 50 }, "feedback": "Real engagement noticed." },
+        { "id": "c-react", "label": "React only, no comment", "tag": "EP", "reward": { "ep": 30 }, "feedback": "Reaction registered." },
         { "id": "c-ignore", "label": "Ignore it for now", "tag": "RISK", "reward": { "ep": 0 }, "feedback": "Opportunity missed. Every action counts." }
       ]
     },
@@ -45,8 +45,7 @@
             { "id": "b", "text": "One burst of spam per week", "correct": false },
             { "id": "c", "text": "Only showing up for rewards", "correct": false }
           ],
-          "explanation": "The system rewards consistent, useful presence. Spam and reward-only behavior are weak signals.",
-          "ep": 30
+          "explanation": "The system rewards consistent, useful presence. Spam and reward-only behavior are weak signals."
         },
         {
           "id": "q2",
@@ -56,8 +55,7 @@
             { "id": "b", "text": "Posting hype with no substance", "correct": false },
             { "id": "c", "text": "Copy-pasting old comments", "correct": false }
           ],
-          "explanation": "Shoutouts are for useful contribution: energy, help, signal, and clear value to the community.",
-          "ep": 30
+          "explanation": "Shoutouts are for useful contribution: energy, help, signal, and clear value to the community."
         }
       ]
     }

@@ -31,11 +31,11 @@ type ProgressDelta = {
 function deltasForEvent(event: QuestEvent): ProgressDelta[] {
   switch (event.type) {
     case "scene_complete":
-      return [{ questId: "daily_reaction", by: 1 }];
+      return [{ questId: "daily_x_post", by: 1 }];
     case "chapter_complete": {
       const out: ProgressDelta[] = [];
       if (COMMUNITY_EVENT_CHAPTERS.has(event.chapterId)) {
-        out.push({ questId: "daily_event", by: 1 });
+        out.push({ questId: "weekly_event", by: 1 });
       }
       if (COMMUNITY_THREAD_CHAPTERS.has(event.chapterId)) {
         out.push({ questId: "community_thread", by: 1 });
@@ -43,7 +43,7 @@ function deltasForEvent(event: QuestEvent): ProgressDelta[] {
       return out;
     }
     case "codex_unlock":
-      return [{ questId: "daily_content", by: 1 }];
+      return [];
     case "mastery": {
       const threshold = QUALITY_MASTERY[event.sceneId];
       if (threshold && event.stars >= threshold) {

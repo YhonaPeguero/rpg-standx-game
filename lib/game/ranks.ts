@@ -18,10 +18,19 @@ export type RankMeta = {
   perks: string[];
 };
 
+/** EP threshold per rank, derived from the single source of truth in ep.ts. */
+const MIN_EP: Record<Rank, number> = RANK_THRESHOLDS.reduce(
+  (acc, { rank, min }) => {
+    acc[rank] = min;
+    return acc;
+  },
+  {} as Record<Rank, number>,
+);
+
 export const RANK_META: Record<Rank, RankMeta> = {
   new_stander: {
     id: "new_stander",
-    minEP: 0,
+    minEP: MIN_EP.new_stander,
     labelKey: "ranks.labels.new_stander",
     detailKey: "ranks.details.new_stander",
     icon: "○",
@@ -31,17 +40,17 @@ export const RANK_META: Record<Rank, RankMeta> = {
   },
   active: {
     id: "active",
-    minEP: 500,
+    minEP: MIN_EP.active,
     labelKey: "ranks.labels.active",
     detailKey: "ranks.details.active",
     icon: "·",
     accent: "#00aaff",
     discordRole: false,
-    perks: ["Chapter 2", "+1 daily quest"],
+    perks: ["Chapter 2", "Weekly event quest"],
   },
   consistent: {
     id: "consistent",
-    minEP: 1000,
+    minEP: MIN_EP.consistent,
     labelKey: "ranks.labels.consistent",
     detailKey: "ranks.details.consistent",
     icon: "✦",
@@ -51,7 +60,7 @@ export const RANK_META: Record<Rank, RankMeta> = {
   },
   seed_candidate: {
     id: "seed_candidate",
-    minEP: 2000,
+    minEP: MIN_EP.seed_candidate,
     labelKey: "ranks.labels.seed_candidate",
     detailKey: "ranks.details.seed_candidate",
     icon: "✺",
@@ -61,7 +70,7 @@ export const RANK_META: Record<Rank, RankMeta> = {
   },
   seed: {
     id: "seed",
-    minEP: 3000,
+    minEP: MIN_EP.seed,
     labelKey: "ranks.labels.seed",
     detailKey: "ranks.details.seed",
     icon: "❂",
@@ -71,7 +80,7 @@ export const RANK_META: Record<Rank, RankMeta> = {
   },
   sprout: {
     id: "sprout",
-    minEP: 4000,
+    minEP: MIN_EP.sprout,
     labelKey: "ranks.labels.sprout",
     detailKey: "ranks.details.sprout",
     icon: "✿",
@@ -81,7 +90,7 @@ export const RANK_META: Record<Rank, RankMeta> = {
   },
   flower: {
     id: "flower",
-    minEP: 8000,
+    minEP: MIN_EP.flower,
     labelKey: "ranks.labels.flower",
     detailKey: "ranks.details.flower",
     icon: "❀",

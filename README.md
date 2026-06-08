@@ -58,7 +58,7 @@ components/
 
 content/            # Authored game data (validated by zod)
   chapters/*.json   # Six Act I chapters (dialog/quiz/minigame/reflection scenes)
-  characters.json   # Cast (Mira, Victor, Jovan, Gaboo, Arttifex, Aifilho, Dias, Dan, Sistema, Stander)
+  characters.json   # Cast (Mira, Artifex, Gabo, Dave, 冷酷锦鲤.StandX, 哆啦币梦.StandX, Sistema, Stander)
   codex.json        # Localized codex entries
   achievements.json # Localized achievements
   quests.json       # Daily/weekly/community quest definitions

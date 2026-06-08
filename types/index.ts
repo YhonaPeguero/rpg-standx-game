@@ -26,11 +26,9 @@ export type CharacterId =
   | "mira"
   | "arttifex"
   | "gaboo"
-  | "jovan"
-  | "aifilho"
-  | "dias"
-  | "dan"
-  | "victor"
+  | "dave"
+  | "jinli"
+  | "doula"
   | "stander";
 
 export type QuestKind = "daily" | "weekly" | "community";
@@ -78,7 +76,6 @@ export type QuizQuestion = {
   prompt: string;
   options: { id: string; text: string; correct: boolean }[];
   explanation: string;
-  ep: number;
 };
 
 export type Scene =

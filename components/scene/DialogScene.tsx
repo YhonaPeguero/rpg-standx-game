@@ -73,6 +73,8 @@ export function DialogScene({ sceneId, lines, choices, educational = false, onRe
   }
 
   function choose(choice: Choice) {
+    audioEngine.playChoice();
+
     if (choice.squad) {
       onSquad(choice.squad);
     }

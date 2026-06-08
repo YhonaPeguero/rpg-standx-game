@@ -6,33 +6,21 @@ import { ContentPickQTE } from "@/components/minigames/ContentPickQTE";
 import { TradeTimingQTE } from "@/components/minigames/TradeTimingQTE";
 
 type MiniGameSceneProps = Extract<Scene, { kind: "minigame" }> & {
-  onReward: (reward: { ep?: number; stars?: number }) => void;
   onMastery: (sceneId: string, stars: number) => void;
   onComplete: () => void;
 };
 
-export function MiniGameScene({ id, gameId, onReward, onMastery, onComplete }: MiniGameSceneProps) {
-  if (gameId === "trade_timing") {
-    return (
-      <TradeTimingQTE
-        onResult={(result) => {
-          const stars = miniGameStars(result.outcome);
-          onReward({ ep: result.ep, stars });
-          onMastery(id, stars);
-          onComplete();
-        }}
-      />
-    );
+// EP is granted from the star result inside ScenePlayer's mastery handler, so
+// mini games only need to report how well the player did.
+export function MiniGameScene({ id, gameId, onMastery, onComplete }: MiniGameSceneProps) {
+  function finish(outcome: Parameters<typeof miniGameStars>[0]) {
+    onMastery(id, miniGameStars(outcome));
+    onComplete();
   }
 
-  return (
-    <ContentPickQTE
-      onResult={(result) => {
-        const stars = miniGameStars(result.outcome);
-        onReward({ ep: result.ep, stars });
-        onMastery(id, stars);
-        onComplete();
-      }}
-    />
-  );
+  if (gameId === "trade_timing") {
+    return <TradeTimingQTE onResult={(result) => finish(result.outcome)} />;
+  }
+
+  return <ContentPickQTE onResult={(result) => finish(result.outcome)} />;
 }

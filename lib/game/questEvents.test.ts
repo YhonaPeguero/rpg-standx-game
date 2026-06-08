@@ -24,7 +24,7 @@ function makePlayer(overrides: Partial<Player> = {}): Player {
 
 function makeState(overrides: Partial<QuestState> = {}): QuestState {
   return {
-    activeDaily: ["daily_reaction", "daily_event", "daily_content"],
+    activeDaily: ["daily_x_post"],
     progress: {},
     claimed: [],
     lastRollISO: "2026-04-26",
@@ -33,7 +33,7 @@ function makeState(overrides: Partial<QuestState> = {}): QuestState {
 }
 
 describe("applyQuestEvent", () => {
-  it("bumps daily_reaction on scene_complete", () => {
+  it("bumps daily_x_post on scene_complete", () => {
     const next = applyQuestEvent(
       makeState(),
       { type: "scene_complete", sceneId: "s1-1", chapterId: "act1-c1-awakening" },
@@ -41,29 +41,30 @@ describe("applyQuestEvent", () => {
       new Set(),
     );
 
-    expect(next.progress.daily_reaction).toBe(1);
+    expect(next.progress.daily_x_post).toBe(1);
   });
 
-  it("bumps daily_content on codex_unlock", () => {
-    const next = applyQuestEvent(
-      makeState(),
+  it("ignores codex_unlock (no quest is wired to it)", () => {
+    const before = makeState();
+    const after = applyQuestEvent(
+      before,
       { type: "codex_unlock", codexId: "ep_basics" },
       makePlayer(),
       new Set(),
     );
 
-    expect(next.progress.daily_content).toBe(1);
+    expect(after).toBe(before);
   });
 
-  it("bumps daily_event when a community-event chapter completes", () => {
+  it("bumps weekly_event when a community-event chapter completes", () => {
     const next = applyQuestEvent(
       makeState(),
       { type: "chapter_complete", chapterId: "act1-c2-discord-plaza" },
-      makePlayer(),
+      makePlayer({ rank: "active", ep: 200 }),
       new Set(["act1-c2-discord-plaza"]),
     );
 
-    expect(next.progress.daily_event).toBe(1);
+    expect(next.progress.weekly_event).toBe(1);
   });
 
   it("ignores chapter_complete for unrelated chapters", () => {
@@ -133,7 +134,7 @@ describe("applyQuestEvent", () => {
   });
 
   it("does not bump quests that are already claimed", () => {
-    const before = makeState({ claimed: ["daily_reaction"] });
+    const before = makeState({ claimed: ["daily_x_post"] });
     const after = applyQuestEvent(
       before,
       { type: "scene_complete", sceneId: "s1-1", chapterId: null },
@@ -144,7 +145,7 @@ describe("applyQuestEvent", () => {
   });
 
   it("does not bump daily quests that are not in today's roll", () => {
-    const before = makeState({ activeDaily: ["daily_event"] });
+    const before = makeState({ activeDaily: [] });
     const after = applyQuestEvent(
       before,
       { type: "scene_complete", sceneId: "s1-1", chapterId: null },
@@ -158,7 +159,7 @@ describe("applyQuestEvent", () => {
     const after = applyQuestEvent(
       makeState(),
       { type: "chapter_complete", chapterId: "act1-c4-content-district" },
-      makePlayer({ rank: "seed", ep: 3200 }),
+      makePlayer({ rank: "seed", ep: 1200 }),
       new Set(["act1-c4-content-district"]),
     );
     expect(after.progress.community_thread).toBe(1);

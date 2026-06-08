@@ -3,11 +3,11 @@
     "badge": "Episodio I: Origen",
     "title": "StandX RPG",
     "subtitle": "Juega como Stander y aprende el Growth Path de New Stander a Seed.",
-    "tagline": "Pequenas acciones. Progreso real. Hecho por la comunidad, para la comunidad.",
+    "tagline": "Pequeñas acciones. Progreso real. Hecho por la comunidad, para la comunidad.",
     "cta": "Entrar al HQ",
     "about": "Acerca",
     "features": {
-      "story": "Narrativa del Acto I en seis zonas tematicas",
+      "story": "Narrativa del Acto I en seis zonas temáticas",
       "quests": "Misiones diarias, semanales y de la comunidad con recompensas reales",
       "ranks": "Avanza de New Stander a Seed, Sprout y Flower",
       "i18n": "Disponible en 5 idiomas"
@@ -16,30 +16,30 @@
   "about": {
     "badge": "Community Growth Path",
     "title": "Aprende jugando",
-    "body": "StandX RPG convierte Engage Points, eventos, calidad de contenido, educacion sobre DUSD y responsabilidades de squad en una aventura narrativa para un jugador. El MVP se centra en el Acto I: llegar a Seed."
+    "body": "StandX RPG convierte Engage Points, eventos, calidad de contenido, educación sobre DUSD y responsabilidades de squad en una aventura narrativa para un jugador. El MVP se centra en el Acto I: llegar a Seed."
   },
   "dashboard": {
     "badge": "HQ Dashboard",
     "title": "Consola del Growth Path",
-    "intro": "Stander desperto. Comienza el Acto I y aprende como los Engage Points convierten pequenas acciones consistentes en el camino hacia Seed.",
-    "lockedCta": "Iniciar Capitulo 1",
-    "nextStep": "Tu proximo paso",
-    "allChapters": "Todos los capitulos del Acto I",
+    "intro": "Stander despertó. Comienza el Acto I y aprende cómo los Engage Points convierten pequeñas acciones consistentes en el camino hacia Seed.",
+    "lockedCta": "Iniciar Capítulo 1",
+    "nextStep": "Tu próximo paso",
+    "allChapters": "Todos los capítulos del Acto I",
     "growthMap": "Mapa de crecimiento",
-    "mascotStatus": "Etapa New Stander en linea",
-    "stats": { "ep": "Engage Points", "streak": "Racha", "rank": "Rango", "chapters": "Capitulos" },
+    "roadmap": { "step": "Paso", "start": "Empezar", "done": "Hecho", "current": "Ahora", "locked": "Bloqueado" },
+    "mascotStatus": "Etapa New Stander en línea",
+    "stats": { "ep": "Engage Points", "streak": "Racha", "rank": "Rango", "chapters": "Capítulos" },
     "chapter": {
       "continue": "Continuar",
       "completed": "Rejugar",
-      "lockedC1": "Bloqueado: Completa el Capitulo 1",
-      "c1Title": "Capitulo 1: El Despertar",
-      "c1Subtitle": "Conoce a Mira y aprende el umbral de 3.000 EP para Seed.",
+      "lockedC1": "Bloqueado: Completa el Capítulo 1",
+      "c1Title": "Capítulo 1: El Despertar",
+      "c1Subtitle": "Conoce a Mira y aprende el umbral de 500 EP para Seed.",
       "c1Estimate": "6 min",
-      "c2Title": "Capitulo 2: Discord Plaza",
-      "c2Subtitle": "Anuncios, reacciones y habitos de consistencia.",
+      "c2Title": "Capítulo 2: Discord Plaza",
+      "c2Subtitle": "Anuncios, reacciones y hábitos de consistencia.",
       "c2Estimate": "7 min",
-      "mira": "Mira",
-      "dias": "Dias"
+      "mira": "Mira"
     }
   },
   "stubs": {
@@ -52,6 +52,9 @@
     "streak": "Racha",
     "audioOn": "Audio On",
     "audioOff": "Audio Off",
+    "muteAudio": "Silenciar audio",
+    "unmuteAudio": "Activar audio",
+    "rankUp": "Subiste de rango",
     "motionOn": "Movimiento On",
     "motionOff": "Movimiento Off",
     "claim": "Reclamar +{ep}",
@@ -61,10 +64,11 @@
   "codex": {
     "badge": "Codex",
     "title": "Conocimiento Desbloqueado",
-    "empty": "Sin entradas todavia. Completa capitulos para construir tu codex."
+    "empty": "Sin entradas todavía. Completa capítulos para construir tu codex."
   },
   "profile": {
     "badge": "Perfil",
+    "epDisclaimer": "Los Engage Points aquí son una métrica conceptual de aprendizaje, no la puntuación real de StandX ni asesoría financiera.",
     "rank": "Rango",
     "squad": "Squad",
     "none": "Ninguno",
@@ -76,12 +80,12 @@
     "masteryEmpty": "Aún no tienes escenas con estrellas. Repite los quizzes y mini-juegos para ganarlas.",
     "squadXP": "XP de Squad",
     "achievements": "Logros",
-    "empty": "Sin logros desbloqueados todavia."
+    "empty": "Sin logros desbloqueados todavía."
   },
   "share": {
     "badge": "Share Card",
     "title": "Generar PNG 1200x630",
-    "body": "Crea una tarjeta limpia para tu partida local. Descargala o comparte tu progreso en X.",
+    "body": "Crea una tarjeta limpia para tu partida local. Descárgala o comparte tu progreso en X.",
     "generate": "Generar PNG",
     "copy": "Copiar data URL",
     "download": "Descargar",
@@ -92,36 +96,37 @@
   },
   "minigames": {
     "trade": {
-      "badge": "QTE - Ejecucion de Trade",
+      "badge": "QTE - Ejecución de Trade",
       "title": "Pulsa en la zona de setup",
-      "mentor": "Jovan: Soporte probado 3x. Funding negativo. Volumen creciendo. La zona verde es lo ideal.",
+      "mentor": "Gabo: Soporte probado 3x. Funding negativo. Volumen creciendo. La zona verde es lo ideal.",
       "action": "Trade",
       "continue": "Continuar",
       "perfectTitle": "TIMING PERFECTO",
-      "perfectLesson": "Entraste en el setup exacto. Consolidacion mas funding negativo = mercado mal posicionado. Ahi esta el edge.",
-      "okTitle": "EJECUCION OK",
-      "okLesson": "Cerca. Un poco temprano o tarde. En la practica, mas slippage y stop mas ajustado.",
+      "perfectLesson": "Entraste en el setup exacto. Consolidación más funding negativo = mercado mal posicionado. Ahí está el edge.",
+      "okTitle": "EJECUCIÓN OK",
+      "okLesson": "Cerca. Un poco temprano o tarde. En la práctica, más slippage y stop más ajustado.",
       "missTitle": "ENTRADA FORZADA",
-      "missLesson": "Fuera de la zona. FOMO, no analisis. Jovan: espera confirmacion siempre."
+      "missLesson": "Fuera de la zona. FOMO, no análisis. Gabo: espera confirmación siempre."
     },
     "content": {
       "badge": "QTE - Calidad de Contenido",
-      "title": "Elige el post por el que Victor se detendria",
-      "mentor": "Victor: Hay que escribir sobre el yield del DUSD. La profundidad gana atencion. El hype no.",
+      "title": "Elige el post por el que 冷酷锦鲤 se detendría",
+      "mentor": "冷酷锦鲤: Hay que escribir sobre el yield del DUSD. La profundidad gana atención. El hype no.",
       "continue": "Continuar",
       "deepTitle": "SELECCIONADO",
-      "deepLesson": "Victor lo aprueba - es el estandar del Content Squad. Aporta valor real sin fingir que la estructura es magia.",
+      "deepLesson": "冷酷锦鲤 lo aprueba - es el estándar del Content Squad. Aporta valor real sin fingir que la estructura es magia.",
       "hypeTitle": "NO SELECCIONADO",
-      "hypeLesson": "El hype no ensena nada. El equipo elige lo que aporta valor real.",
+      "hypeLesson": "El hype no enseña nada. El equipo elige lo que aporta valor real.",
       "cards": {
-        "a": { "label": "A - DEEP", "text": "La arquitectura delta-neutral de DUSD hace que tu capital trabaje sin exposicion direccional. No es yield magico, es estructura. Hilo sobre los mecanismos >" },
-        "b": { "label": "B - HYPE", "text": "DUSD en StandX es increible! Yield pasivo mientras duermes! Mejor plataforma DeFi!" },
-        "c": { "label": "C - DEEP", "text": "DUSD vs USDC en perps: delta-neutral vs exposicion directa. Datos reales, analisis honesto. >" }
+        "a": { "label": "A - DEEP", "text": "La arquitectura delta-neutral de DUSD hace que tu capital trabaje sin exposición direccional. No es yield mágico, es estructura. Hilo sobre los mecanismos >" },
+        "b": { "label": "B - HYPE", "text": "¡DUSD en StandX es increíble! ¡Yield pasivo mientras duermes! ¡Mejor plataforma DeFi!" },
+        "c": { "label": "C - DEEP", "text": "DUSD vs USDC en perps: delta-neutral vs exposición directa. Datos reales, análisis honesto. >" }
       }
     }
   },
   "nav": {
     "hq": "HQ",
+    "home": "Inicio",
     "growth": "Crecimiento",
     "squads": "Squads",
     "codex": "Codex",
@@ -137,10 +142,10 @@
     "skip": "Omitir",
     "next": "Siguiente",
     "finish": "Entrar al HQ",
-    "startChapter1": "Empezar Capitulo 1",
+    "startChapter1": "Empezar Capítulo 1",
     "steps": [
-      { "title": "Nombra a tu Stander", "body": "Se guarda localmente. Te acompana en todo tu Growth Path." },
-      { "title": "Listo cuando tu quieras", "body": "Seis capitulos te llevan de New Stander a Seed. Empieza el Capitulo 1 ahora y conoce a Mira." }
+      { "title": "Nombra a tu Stander", "body": "Se guarda localmente. Te acompaña en todo tu Growth Path." },
+      { "title": "Listo cuando tú quieras", "body": "Seis capítulos te llevan de New Stander a Seed. Empieza el Capítulo 1 ahora y conoce a Mira." }
     ]
   },
   "content": {
@@ -151,20 +156,20 @@
         "scenes": {
           "s1-1-activation": {
             "lines": [
-              "[ LOG DE ACTIVACIÓN ] Entidad: STANDER. Estado: New Stander. Engage Points: 0/3000. Misión: crecer hasta FLOWER.",
+              "[ LOG DE ACTIVACIÓN ] Entidad: STANDER. Estado: New Stander. Engage Points: 0/500. Misión: crecer hasta FLOWER.",
               "¿Dónde estoy? Oscuridad total. Solo yo y un ojo intentando entender este universo.",
               "Hay una señal. Débil, pero constante. Viene de un lugar llamado... StandX.",
               "Bienvenido. Soy Mira, la Voz Oficial de StandX. Yo doy las reglas, las metas y las misiones.",
               "El Growth Path tiene tres rangos: SEED, SPROUT y FLOWER. Cada uno exige más: consistencia, calidad e impacto real en la comunidad.",
               "¿Por dónde empiezo?",
-              "Por el principio. 3.000 Engage Points para postularte a SEED. Cada acción cuenta. Vamos."
+              "Por el principio. 500 Engage Points para postularte a SEED. Cada acción cuenta. Vamos."
             ]
           },
           "s1-2-first-choice": {
             "lines": ["¿Cómo quieres entrar al servidor?"],
             "choices": [
-              { "label": "Entrar con energía: primer evento, primer post", "feedback": "+80 EP — Presencia notada desde el primer día." },
-              { "label": "Observar antes de actuar: leerlo todo primero", "feedback": "+30 EP — La consistencia empieza por observar." }
+              { "label": "Entrar con energía: primer evento, primer post", "feedback": "Presencia notada desde el primer día." },
+              { "label": "Observar antes de actuar: leerlo todo primero", "feedback": "Observar es sabio, pero los Engage Points llegan al aparecer y actuar, no solo al mirar." }
             ]
           },
           "s1-3-quiz-engage": {
@@ -176,13 +181,13 @@
               },
               {
                 "prompt": "¿Cuántos Engage Points hacen falta para postularte a SEED?",
-                "options": ["1.000", "3.000", "10.000"],
-                "explanation": "3.000 es el umbral de SEED. SPROUT exige al menos 4.000 más tareas de squad."
+                "options": ["300", "500", "1.000"],
+                "explanation": "500 es el umbral de SEED. SPROUT exige al menos 800 más tareas de squad."
               },
               {
                 "prompt": "¿Qué otorga el bonus Weekly Active User?",
-                "options": ["+50 EP", "+100 EP por semana", "Nada"],
-                "explanation": "Weekly Active = +100 EP. Combinado con 1-2 actividades semanales y contenido útil, llegas a 3.000 con participación constante."
+                "options": ["+20 EP", "+40 EP por semana", "Nada"],
+                "explanation": "Weekly Active = +40 EP. Combinado con 1-2 actividades semanales y contenido útil, llegas a 500 con participación constante."
               }
             ]
           },
@@ -199,10 +204,10 @@
           "s2-1-plaza-enter": {
             "lines": [
               "Discord Plaza. Canales para todo: eventos, contenido, anuncios, soporte. Cada uno tiene un propósito.",
-              "¡Eh! Soy Dias. Ya soy Sprout. ¿Sabes qué me trajo hasta aquí? Presencia. Todos. Los. Días.",
+              "¡Eh! Soy Dave. Uno de los builders más activos de aquí. ¿Sabes qué me puso en marcha? Presencia. Todos. Los. Días.",
               "¿Todos los días? ¿En serio?",
               "Todos los días. Reaccionaba a los anuncios, entraba a los eventos, ayudaba a newcomers. No era el más técnico, pero estaba presente. Aquí eso cuenta.",
-              "Dias tiene razón. Reacciones en anuncios, weekly events, shoutouts: todo eso genera Engage Points. La consistencia es tu mayor activo."
+              "Dave tiene razón. Reacciones en anuncios, weekly events, shoutouts: todo eso genera Engage Points. La consistencia es tu mayor activo."
             ]
           },
           "s2-2-announcement": {
@@ -212,8 +217,8 @@
               "Así de simple. Quien hace esto a diario avanza más rápido que quien hace algo enorme una vez al mes."
             ],
             "choices": [
-              { "label": "Reaccionar y comentar algo relevante", "feedback": "+120 EP — Engagement real detectado." },
-              { "label": "Solo reaccionar, sin comentar", "feedback": "+50 EP — Reacción registrada." },
+              { "label": "Reaccionar y comentar algo relevante", "feedback": "Engagement real detectado." },
+              { "label": "Solo reaccionar, sin comentar", "feedback": "Reacción registrada." },
               { "label": "Ignorarlo por ahora", "feedback": "Oportunidad perdida. Cada acción cuenta." }
             ]
           },
@@ -235,14 +240,14 @@
       },
       "act1-c3-event-arena": {
         "title": "Event Arena",
-        "subtitle": "donde Gaboo enciende la sala",
+        "subtitle": "donde Gabo enciende la sala",
         "scenes": {
           "s3-1-arena-enter": {
             "lines": [
-              "Soy Gaboo, mod BR. Esto es la Event Arena. Los Weekly Events pueden mover entre 200 y 300 Engage Points de una sola vez.",
-              "¿Doscientos puntos? Eso lo acelera todo.",
+              "Soy Gabo, mod BR. Esto es la Event Arena. Los Weekly Events pueden mover entre 40 y 80 Engage Points de una sola vez.",
+              "¿Cien puntos? Eso lo acelera todo.",
               "Exacto. Pero los mods se fijan en quién contribuye de verdad. El shoutout semanal suma más para quienes traen energía y ayudan a los newcomers.",
-              "Gaboo coordina los eventos BR. Para destacar: trae presencia, sé útil y respeta la sala.",
+              "Gabo coordina los eventos BR. Para destacar: trae presencia, sé útil y respeta la sala.",
               "¿Listo? El mercado no espera."
             ]
           }
@@ -254,28 +259,28 @@
         "scenes": {
           "s4-1-studio-enter": {
             "lines": [
-              "Hola. Soy Jovan, Content Squad, en la ruta de Sprout a Flower. El contenido de calidad puede rendir entre 15 y 40 puntos por pieza. El destacado semanal suma más.",
+              "Hola. Soy 哆啦币梦.StandX, Content Squad. El contenido de calidad puede rendir entre 5 y 15 puntos por pieza. El destacado semanal suma más.",
               "¿Cómo defines calidad?",
               "Profundidad. Contenido que enseñe, analice y dé contexto. El hype no te va a destacar. Un análisis honesto sobre cómo funciona DUSD sí puede.",
-              "Y lo visual importa. Soy Aifilho, Creative Squad. La consistencia visual es un diferenciador: identidad, legibilidad, claridad.",
-              "Soy Victor de Souza, Content/Research Squad, también Sprout. Vengo del CEX. Pensaba que saber tradear bastaba para hacer contenido técnico. No bastaba.",
+              "Y lo visual importa. La consistencia visual es un diferenciador: identidad, legibilidad, claridad. El Creative Squad vive de eso.",
+              "Soy 冷酷锦鲤.StandX, Content/Research. Vengo de un CEX. Pensaba que saber tradear bastaba para hacer contenido técnico. No bastaba.",
               "La comunidad nota cuando algo es superficial. Profundidad técnica con voz humana: ese es el camino."
             ],
             "choices": [
-              { "label": "Análisis técnico: cómo DUSD mantiene su estructura delta-neutral", "feedback": "+40 EP — Victor aprobaría este ángulo." },
-              { "label": "Tutorial básico: cómo empezar en StandX", "feedback": "+25 EP — Útil para newcomers. Sigue desarrollándolo." },
-              { "label": "Post genérico de hype sobre la plataforma", "feedback": "+5 EP — Poca profundidad. El hype enseña poco." }
+              { "label": "Análisis técnico: cómo DUSD mantiene su estructura delta-neutral", "feedback": "冷酷锦鲤 aprobaría este ángulo." },
+              { "label": "Tutorial básico: cómo empezar en StandX", "feedback": "Útil para newcomers. Sigue desarrollándolo." },
+              { "label": "Post genérico de hype sobre la plataforma", "feedback": "Poca profundidad. El hype enseña poco." }
             ]
           }
         }
       },
       "act1-c5-moderator-gate": {
         "title": "Moderator Gate",
-        "subtitle": "Arttifex revisa todo",
+        "subtitle": "Artifex revisa todo",
         "scenes": {
           "s5-1-gate-enter": {
             "lines": [
-              "Soy Arttifex. Mod BR. Moderator Gate: aquí evaluamos si estás listo para SEED.",
+              "Soy Artifex. Mod BR. Moderator Gate: aquí evaluamos si estás listo para SEED.",
               "No es automático. Miramos la actividad general, la calidad de lo que publicaste y cómo trataste a los demás miembros.",
               "¿Qué buscáis exactamente?",
               "Genuino. Alguien que vino a contribuir, no solo a farmear puntos.",
@@ -283,9 +288,9 @@
               "Tienes Engage Points. Ahora viene la parte que los puntos no cubren. Una pregunta."
             ],
             "choices": [
-              { "label": "Quiero contribuir de verdad. Aprendí mucho y quiero pasarlo adelante.", "feedback": "+150 EP — Aprobado con distinción." },
-              { "label": "Quiero los beneficios y el camino hacia Sprout.", "feedback": "+80 EP — Honesto. Arttifex lo anotó." },
-              { "label": "Necesito el rol para tener más visibilidad.", "feedback": "+20 EP — Arttifex levantó una ceja." }
+              { "label": "Quiero contribuir de verdad. Aprendí mucho y quiero pasarlo adelante.", "feedback": "Aprobado con distinción." },
+              { "label": "Quiero los beneficios y el camino hacia Sprout.", "feedback": "Honesto. Artifex lo anotó." },
+              { "label": "Necesito el rol para tener más visibilidad.", "feedback": "Artifex levantó una ceja." }
             ]
           }
         }
@@ -302,17 +307,17 @@
               "Es de verdad. Pero SEED no es el destino: es la puerta de entrada. Ahora eliges un Squad.",
               "...",
               "¿Quién es ese?",
-              "Dan. Creative Squad. Habla poco, pero cuando entrega, mueve el estándar. Ese es el nivel al que vas a apuntar.",
+              "Ese es Dave. Creative Squad. No publica mucho ruido, pero cuando entrega, mueve el estándar. Ese es el nivel al que vas a apuntar.",
               "Elige un Squad. Cada camino tiene responsabilidades. ¿Cuál es tu ruta?"
             ]
           },
           "s6-2-squad-selection": {
             "lines": ["Elige tu Squad. Esta decisión queda guardada en tu perfil local."],
             "choices": [
-              { "label": "Content/Research: análisis, tutoriales, insights", "feedback": "Content/Research seleccionado. Victor y Jovan serán tus referencias." },
-              { "label": "Creative: visuales, vídeos, identidad", "feedback": "Creative seleccionado. Aifilho y Dan marcan el estándar." },
+              { "label": "Content/Research: análisis, tutoriales, insights", "feedback": "Content/Research seleccionado. 冷酷锦鲤 y 哆啦币梦 serán tus referencias." },
+              { "label": "Creative: visuales, vídeos, identidad", "feedback": "Creative seleccionado. Dave marca el estándar." },
               { "label": "Tech Support: tutoriales técnicos y soporte", "feedback": "Tech Support seleccionado. Mentor por definir en el MVP." },
-              { "label": "Outreach: KOLs, partnerships, comunidad", "feedback": "Outreach seleccionado. Gaboo sabe activar una sala." },
+              { "label": "Outreach: KOLs, partnerships, comunidad", "feedback": "Outreach seleccionado. Gabo sabe activar una sala." },
               { "label": "Offline: presencia local y eventos", "feedback": "Offline seleccionado. Mentor por definir en el MVP." }
             ]
           }
@@ -325,57 +330,62 @@
     "continue": "Continuar",
     "exitToHq": "Salir al HQ",
     "fallbackNotice": "Capítulo en inglés · traducción próximamente",
-    "choiceRecorded": "Eleccion registrada.",
+    "choiceRecorded": "Elección registrada.",
     "unknownRole": "Rol desconocido",
     "nfa": "Contenido hecho por la comunidad, no es consejo financiero.",
     "quiz": {
-      "correct": "Correcto. EP otorgado si fue tu primer intento.",
+      "correct": "Correcto.",
       "miraPrefix": "Mira:",
       "next": "Siguiente pregunta",
-      "finish": "Terminar quiz"
+      "finish": "Terminar quiz",
+      "summaryBadge": "Resultado",
+      "summaryTitle": "Quiz Completado",
+      "noEp": "Sin EP esta vez — repite para ganar estrellas.",
+      "continue": "Continuar"
     },
-    "reflection": { "badge": "Reflexion", "complete": "Completar reflexion" },
+    "reflection": { "badge": "Reflexión", "complete": "Completar reflexión" },
     "reward": {
-      "badge": "Capitulo Completo",
+      "badge": "Capítulo Completo",
       "title": "Recompensas Aseguradas",
       "ep": "Engage Points",
       "stars": "Estrellas",
       "codex": "Codex",
       "back": "Volver al HQ",
+      "rankNow": "Rango actual",
       "noSquad": "Sin squad"
     }
   },
   "quests": {
     "badge": "Tablero de Misiones",
     "title": "Misiones Activas",
-    "intro": "Misiones diarias, semanales y de la comunidad. Completalas para ganar EP, entradas del codex e impulso hacia Seed.",
+    "intro": "Misiones diarias, semanales y de la comunidad. Complétalas para ganar EP, entradas del codex e impulso hacia Seed.",
     "claim": "Reclamar",
     "claimed": "Reclamado",
     "markDone": "Marcar como hecho",
     "rewardEp": "+{ep} EP",
     "rewardCodex": "+Codex",
     "tabs": { "daily": "Diarias", "weekly": "Semanales", "community": "Comunidad" },
-    "empty": "Todo al dia. Nuevas misiones a las 00:00 UTC.",
+    "empty": "Todo al día. Nuevas misiones a las 00:00 UTC.",
     "optionalLabel": "Práctica opcional — extras mientras juegas",
     "tabLockedAt": "Se desbloquea tras completar {count} capítulos.",
     "resetIn": "Reinicia en {hours}h",
     "locked": "Bloqueado",
     "progress": "{done}/{total}",
     "list": {
-      "daily_reaction": { "title": "Reacciona al anuncio de hoy", "body": "Entra al canal oficial y reacciona al ultimo post." },
-      "daily_event": { "title": "Asiste a un evento semanal", "body": "Aparece. Trae presencia. Ayuda a un newcomer." },
-      "daily_content": { "title": "Lee una entrada del Codex", "body": "Abre el Codex y absorbe un nuevo contexto." },
+      "daily_x_post": { "title": "Publica en X", "body": "Comparte un post genuino sobre StandX. Tu señal diaria." },
+      "weekly_rumble": { "title": "Juega Rumble en Discord", "body": "Únete a la ronda de Rumble en el servidor de Discord esta semana." },
+      "weekly_poker": { "title": "Únete a la noche de póker", "body": "Siéntate en la mesa de póker de la comunidad esta semana." },
+      "weekly_event": { "title": "Asiste al evento semanal", "body": "Aparece en el evento de esta semana. Trae presencia, ayuda a un newcomer." },
       "weekly_quality": { "title": "Publica un post de calidad", "body": "Profundidad + voz humana. El hype no cuenta." },
-      "weekly_squad": { "title": "Ayuda a dos newcomers de tu squad", "body": "Devuelve lo aprendido en el Acto I." },
-      "weekly_streak": { "title": "Alcanza 7 dias de racha", "body": "Consistencia real. Se reinicia con cualquier fallo." },
-      "community_shoutout": { "title": "Gana un shoutout semanal", "body": "Que te nomine Arttifex o Gaboo en la sala BR." },
+      "weekly_streak": { "title": "Alcanza 7 días de racha", "body": "Consistencia real. Se reinicia con cualquier fallo." },
+      "community_shoutout": { "title": "Gana un shoutout semanal", "body": "Que te nomine Artifex o Gabo en la sala BR." },
       "community_thread": { "title": "Lanza un hilo profundo", "body": "DUSD, perps o gobernanza. Usa datos. Muestra estructura." }
     }
   },
   "ranks": {
     "badge": "Escalera de Rangos",
     "title": "Rangos del Growth Path",
-    "intro": "Cada accion sube la escalera. Los rangos desbloquean misiones, escenas y squads. Seed es el primer rango oficial en Discord.",
+    "intro": "Cada acción sube la escalera. Los rangos desbloquean misiones, escenas y squads. Seed es el primer rango oficial en Discord.",
     "current": "Actual",
     "next": "Siguiente rango",
     "remaining": "Faltan {ep} EP",
@@ -392,18 +402,19 @@
       "flower": "Flower"
     },
     "details": {
-      "new_stander": "Dia cero. Recien aterrizaste en StandX. Observa, aprende, reacciona.",
-      "active": "Estas apareciendo. Reacciones y eventos cuentan.",
+      "new_stander": "Día cero. Recién aterrizaste en StandX. Observa, aprende, reacciona.",
+      "active": "Estás apareciendo. Reacciones y eventos cuentan.",
       "consistent": "Mantienes el loop diario. La racha compone.",
-      "seed_candidate": "Elegible para revision de la moderacion. Calidad > cantidad.",
+      "seed_candidate": "Elegible para revisión de la moderación. Calidad > cantidad.",
       "seed": "Rol oficial en Discord. Elige un Squad y empieza a contribuir.",
       "sprout": "Contribuidor reconocido. Las tareas de squad abren destacados semanales.",
-      "flower": "Pilar de la comunidad. Marca el estandar y guia."
+      "flower": "Pilar de la comunidad. Marca el estándar y guía."
     }
   },
   "locale": {
     "switch": "Idioma",
-    "label": "Cambiar idioma"
+    "label": "Cambiar idioma",
+    "storyEn": "Historia EN"
   },
   "errors": {
     "notFound": {

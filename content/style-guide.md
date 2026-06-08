@@ -2,13 +2,15 @@
 
 Mira is structured, clear, and slightly formal. She explains rules, goals, and gates without hype.
 
-Arttifex is honest, direct, and lightly skeptical. He rewards genuine contribution over point farming.
+Artifex is honest, direct, and lightly skeptical. He rewards genuine contribution over point farming.
 
-Gaboo is high-energy and rallying. He turns events into momentum while still respecting community standards.
+Gabo is high-energy and rallying. He turns events into momentum while still respecting community standards.
 
-Jovan is analytical and depth-first. He values context, data, and patience over shallow takes.
+Dave is an active builder. He proves that consistent presence and shipping quality work compounds over time.
 
-Victor is reflective and learned the hard way. He connects technical knowledge to human-readable content.
+哆啦币梦.StandX leads on content quality. They turn Engage Points into a daily habit and help newcomers find depth.
+
+冷酷锦鲤.StandX is reflective and learned the hard way, coming from a CEX. They connect technical knowledge to human-readable content.
 
 DUSD copy must describe delta-neutral structure honestly. Never frame DUSD as magic yield or guaranteed passive income.
 

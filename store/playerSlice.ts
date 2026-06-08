@@ -4,6 +4,7 @@ import type { GameStore } from "@/store";
 import { defaultLocale } from "@/lib/i18n/config";
 import { rankFromEP } from "@/lib/game/ep";
 import { nextStreakDays } from "@/lib/game/streak";
+import { emitEpGain } from "@/lib/game/epPulse";
 
 export type PlayerSlice = {
   player: Player;
@@ -51,14 +52,16 @@ export const createPlayerSlice: StateCreator<GameStore, [], [], PlayerSlice> = (
     set((state) => ({
       player: { ...state.player, displayName: name.trim() || "STANDER" },
     })),
-  addEP: (delta) =>
+  addEP: (delta) => {
     set((state) => {
       const ep = Math.max(0, state.player.ep + delta);
 
       return {
         player: { ...state.player, ep, rank: rankFromEP(ep) },
       };
-    }),
+    });
+    emitEpGain(delta);
+  },
   setRank: (rank) =>
     set((state) => ({
       player: { ...state.player, rank },

@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
-import type { MiniGameOutcome } from "@/lib/game/mastery";
+import { miniGameStars, type MiniGameOutcome } from "@/lib/game/mastery";
+import { epForStars } from "@/lib/game/epTiers";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 
@@ -17,7 +18,7 @@ type ContentPickQTEProps = {
   onResult: (result: ContentResult) => void;
 };
 
-type ContentCard = { id: string; label: string; text: string; outcome: "deep" | "hype"; ep: number };
+type ContentCard = { id: string; label: string; text: string; outcome: "deep" | "hype" };
 
 function resultFor(index: number, cards: ContentCard[], t: ReturnType<typeof useTranslations<"minigames.content">>): ContentResult {
   const card = cards[index];
@@ -25,7 +26,7 @@ function resultFor(index: number, cards: ContentCard[], t: ReturnType<typeof use
   if (card.outcome === "deep") {
     return {
       outcome: "deep",
-      ep: card.ep,
+      ep: epForStars(miniGameStars("deep")),
       title: t("deepTitle"),
       lesson: t("deepLesson"),
     };
@@ -33,7 +34,7 @@ function resultFor(index: number, cards: ContentCard[], t: ReturnType<typeof use
 
   return {
     outcome: "hype",
-    ep: card.ep,
+    ep: epForStars(miniGameStars("hype")),
     title: t("hypeTitle"),
     lesson: t("hypeLesson"),
   };
@@ -42,9 +43,9 @@ function resultFor(index: number, cards: ContentCard[], t: ReturnType<typeof use
 export function ContentPickQTE({ onResult }: ContentPickQTEProps) {
   const t = useTranslations("minigames.content");
   const cards: ContentCard[] = [
-    { id: "a", label: t("cards.a.label"), text: t("cards.a.text"), outcome: "deep", ep: 40 },
-    { id: "b", label: t("cards.b.label"), text: t("cards.b.text"), outcome: "hype", ep: 5 },
-    { id: "c", label: t("cards.c.label"), text: t("cards.c.text"), outcome: "deep", ep: 35 },
+    { id: "a", label: t("cards.a.label"), text: t("cards.a.text"), outcome: "deep" },
+    { id: "b", label: t("cards.b.label"), text: t("cards.b.text"), outcome: "hype" },
+    { id: "c", label: t("cards.c.label"), text: t("cards.c.text"), outcome: "deep" },
   ];
   const [remaining, setRemaining] = useState(6);
   const [picked, setPicked] = useState<number | null>(null);
@@ -103,7 +104,7 @@ export function ContentPickQTE({ onResult }: ContentPickQTEProps) {
         <div className="mt-6 rounded-sx border border-[var(--stroke-brand)] bg-sx-green/5 p-4">
           <p className="font-display text-xl font-bold uppercase tracking-[0.16em] text-sx-green">{result.title}</p>
           <p className="mt-3 font-semibold leading-7 text-sx-text">{result.lesson}</p>
-          <p className="mt-3 font-mono text-sx-gold">+{result.ep} EP</p>
+          {result.ep > 0 ? <p className="mt-3 font-mono text-sx-gold">+{result.ep} EP</p> : null}
           <Button className="mt-4" onClick={() => onResult(result)}>
             {t("continue")}
           </Button>

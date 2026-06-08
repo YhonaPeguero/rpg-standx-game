@@ -9,13 +9,12 @@ import { ReflectionScene } from "./ReflectionScene";
 type SceneRouterProps = {
   scene: Scene;
   onReward: (reward: Reward) => void;
-  onQuestionReward: (ep: number) => void;
   onMastery: (sceneId: string, stars: number) => void;
   onSquad: (squad: SquadId) => void;
   onComplete: () => void;
 };
 
-export function SceneRouter({ scene, onReward, onQuestionReward, onMastery, onSquad, onComplete }: SceneRouterProps) {
+export function SceneRouter({ scene, onReward, onMastery, onSquad, onComplete }: SceneRouterProps) {
   switch (scene.kind) {
     case "dialog":
       return (
@@ -37,7 +36,6 @@ export function SceneRouter({ scene, onReward, onQuestionReward, onMastery, onSq
           sceneId={scene.id}
           questions={scene.questions}
           passingScore={scene.passingScore}
-          onQuestionReward={onQuestionReward}
           onMastery={onMastery}
           onComplete={onComplete}
         />
@@ -45,6 +43,6 @@ export function SceneRouter({ scene, onReward, onQuestionReward, onMastery, onSq
     case "reflection":
       return <ReflectionScene key={scene.id} prompt={scene.prompt} options={scene.options} onComplete={onComplete} />;
     case "minigame":
-      return <MiniGameScene key={scene.id} {...scene} onReward={onReward} onMastery={onMastery} onComplete={onComplete} />;
+      return <MiniGameScene key={scene.id} {...scene} onMastery={onMastery} onComplete={onComplete} />;
   }
 }

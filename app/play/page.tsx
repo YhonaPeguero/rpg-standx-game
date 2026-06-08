@@ -9,6 +9,7 @@ import { localizeChapter } from "@/lib/content/localize";
 import { chapterUnlocked } from "@/lib/game/gates";
 import { useGameStore } from "@/store";
 import { ChapterCard, type DashboardChapter } from "@/components/dashboard/ChapterCard";
+import { ChapterRoadmap, type RoadmapItem } from "@/components/dashboard/ChapterRoadmap";
 import { GrowthTree } from "@/components/dashboard/GrowthTree";
 import { MascotPanel } from "@/components/dashboard/MascotPanel";
 import { Onboarding } from "@/components/dashboard/Onboarding";
@@ -19,10 +20,10 @@ import { buttonClassName } from "@/components/ui/Button";
 
 const mentorByZone: Record<Chapter["zone"], string> = {
   void: "Mira",
-  discord_plaza: "Dias",
-  event_arena: "Gaboo",
-  content_district: "Victor",
-  moderator_gate: "Arttifex",
+  discord_plaza: "Dave",
+  event_arena: "Gabo",
+  content_district: "冷酷锦鲤.StandX",
+  moderator_gate: "Artifex",
   seed_hall: "Mira",
 };
 
@@ -66,6 +67,16 @@ export default function PlayPage() {
     dashboardChapters[dashboardChapters.length - 1];
   const nextUnlocked = chapterUnlocked(nextChapter.unlock, player, completedChapters);
   const completedCount = dashboardChapters.filter((chapter) => completedChapters.has(chapter.id)).length;
+
+  const roadmapItems: RoadmapItem[] = dashboardChapters.map((chapter) => {
+    const completed = completedChapters.has(chapter.id);
+    return {
+      ...chapter,
+      completed,
+      unlocked: chapterUnlocked(chapter.unlock, player, completedChapters),
+      current: !completed && chapter.id === nextChapter.id,
+    };
+  });
 
   return (
     <main className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-12">
@@ -118,25 +129,23 @@ export default function PlayPage() {
           </p>
         </section>
 
-        <details className="rounded-sx-lg border border-[var(--stroke-brand)] bg-sx-bg/40">
-          <summary className="cursor-pointer list-none px-5 py-4 font-mono text-xs uppercase tracking-[0.28em] text-sx-text transition hover:text-sx-green">
-            <span className="mr-2 text-sx-green">▸</span>
-            {t("allChapters")}
-          </summary>
-          <div className="grid gap-4 px-5 pb-5">
-            {dashboardChapters.map((chapter) => (
-              <ChapterCard
-                chapter={chapter}
-                completed={completedChapters.has(chapter.id)}
-                completedLabel={t("chapter.completed")}
-                continueLabel={t("chapter.continue")}
-                key={chapter.id}
-                lockReason={t("chapter.lockedC1")}
-                unlocked={chapterUnlocked(chapter.unlock, player, completedChapters)}
-              />
-            ))}
-          </div>
-        </details>
+        <RankProgress ep={player.ep} />
+
+        <section aria-label={t("allChapters")} className="space-y-4">
+          <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-sx-gold">{t("allChapters")}</p>
+          <ChapterRoadmap
+            items={roadmapItems}
+            labels={{
+              step: t("roadmap.step"),
+              start: t("roadmap.start"),
+              continueLabel: t("chapter.continue"),
+              replay: t("chapter.completed"),
+              done: t("roadmap.done"),
+              current: t("roadmap.current"),
+              locked: t("roadmap.locked"),
+            }}
+          />
+        </section>
 
         <details className="rounded-sx-lg border border-[var(--stroke-brand)] bg-sx-bg/40">
           <summary className="cursor-pointer list-none px-5 py-4 font-mono text-xs uppercase tracking-[0.28em] text-sx-text transition hover:text-sx-green">
@@ -145,9 +154,6 @@ export default function PlayPage() {
           </summary>
           <div className="px-5 pb-5">
             <GrowthTree completedChapterIds={completedChapters} currentChapterId={nextChapter.id} />
-            <div className="mt-5">
-              <RankProgress ep={player.ep} />
-            </div>
           </div>
         </details>
 

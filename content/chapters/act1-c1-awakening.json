@@ -5,19 +5,19 @@
   "title": "The Awakening",
   "subtitle": "where it all begins",
   "unlock": [],
-  "reward": { "ep": 380, "codex": ["engage_points_intro"] },
+  "reward": { "codex": ["engage_points_intro"] },
   "scenes": [
     {
       "id": "s1-1-activation",
       "kind": "dialog",
       "lines": [
-        { "character": "sistema", "text": "[ ACTIVATION LOG ] Entity: STANDER. Status: New Stander. Engage Points: 0/3000. Mission: Grow to FLOWER." },
+        { "character": "sistema", "text": "[ ACTIVATION LOG ] Entity: STANDER. Status: New Stander. Engage Points: 0/500. Mission: Grow to FLOWER." },
         { "character": "stander", "text": "Where am I? Total darkness. Just me and an eye trying to understand this universe." },
         { "character": "stander", "text": "There's a signal. Faint, but constant. From a place called... StandX." },
         { "character": "mira", "text": "Welcome. I'm Mira - the Official Voice of StandX. I give the rules, the goals, the missions." },
         { "character": "mira", "text": "The Growth Path has three roles: SEED, SPROUT, FLOWER. Each demands more - consistency, quality, real impact on the community." },
         { "character": "stander", "text": "Where do I start?" },
-        { "character": "mira", "text": "From the start. 3,000 Engage Points to apply for SEED. Every action counts. Let's go." }
+        { "character": "mira", "text": "From the start. 500 Engage Points to apply for SEED. Every action counts. Let's go." }
       ]
     },
     {
@@ -25,8 +25,8 @@
       "kind": "dialog",
       "lines": [{ "character": "mira", "text": "How do you want to enter the server?" }],
       "choices": [
-        { "id": "c-energy", "label": "Enter with energy - first event, first post", "tag": "EP", "reward": { "ep": 80 }, "feedback": "+80 EP - Presence noted from day one." },
-        { "id": "c-observe", "label": "Observe before acting - read everything first", "tag": "LEARN", "reward": { "ep": 30 }, "feedback": "+30 EP - Consistency starts with observation." }
+        { "id": "c-energy", "label": "Enter with energy - first event, first post", "tag": "EP", "reward": { "ep": 30 }, "feedback": "Presence noted from day one." },
+        { "id": "c-observe", "label": "Observe before acting - read everything first", "tag": "LEARN", "reward": { "ep": 0 }, "feedback": "Observing is wise - but Engage Points come from showing up and acting, not just watching." }
       ]
     },
     {
@@ -42,30 +42,27 @@
             { "id": "b", "text": "Joining a weekly event", "correct": true },
             { "id": "c", "text": "Spamming the same emoji", "correct": false }
           ],
-          "explanation": "Reactions and event participation count. Spam is filtered and can get you flagged.",
-          "ep": 25
+          "explanation": "Reactions and event participation count. Spam is filtered and can get you flagged."
         },
         {
           "id": "q2",
           "prompt": "How many Engage Points to apply for SEED?",
           "options": [
-            { "id": "a", "text": "1,000", "correct": false },
-            { "id": "b", "text": "3,000", "correct": true },
-            { "id": "c", "text": "10,000", "correct": false }
+            { "id": "a", "text": "300", "correct": false },
+            { "id": "b", "text": "500", "correct": true },
+            { "id": "c", "text": "1,000", "correct": false }
           ],
-          "explanation": "3,000 is the SEED gate. SPROUT requires at least 4,000 plus squad tasks.",
-          "ep": 25
+          "explanation": "500 is the SEED gate. SPROUT needs at least 800 plus squad tasks."
         },
         {
           "id": "q3",
           "prompt": "What does the Weekly Active User Bonus give?",
           "options": [
-            { "id": "a", "text": "+50 EP", "correct": false },
-            { "id": "b", "text": "+100 EP per week", "correct": true },
+            { "id": "a", "text": "+20 EP", "correct": false },
+            { "id": "b", "text": "+40 EP per week", "correct": true },
             { "id": "c", "text": "Nothing", "correct": false }
           ],
-          "explanation": "Weekly Active = +100 EP. Combined with 1-2 weekly activities and useful content, 3,000 is reachable through steady participation.",
-          "ep": 30
+          "explanation": "Weekly Active = +40 EP. Combined with 1-2 weekly activities and useful content, 500 is reachable through steady participation."
         }
       ]
     },

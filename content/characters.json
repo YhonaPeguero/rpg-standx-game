@@ -1,12 +1,10 @@
 [
   { "id": "sistema", "name": "SISTEMA", "role": "Activation Interface", "color": "#3a5070", "bio": "The system's voice. Logs, gates, system messages." },
-  { "id": "mira", "name": "MIRA", "role": "Official Voice of StandX", "color": "#00aaff", "bio": "Sets the rules, the goals, the missions. The anchor of Act I." },
-  { "id": "arttifex", "name": "ARTTIFEX", "role": "BR Moderator - StandX", "color": "#ff9900", "bio": "Moderator who reviews Seed applications. Honest, direct." },
-  { "id": "gaboo", "name": "GABOO", "role": "BR Moderator - StandX", "color": "#ff3366", "bio": "Coordinates BR weekly events. High energy.", "mentorOf": "outreach" },
-  { "id": "jovan", "name": "JOVAN", "role": "Content Squad - Sprout to Flower", "color": "#00e8c8", "bio": "Mentor on content depth and analysis." },
-  { "id": "aifilho", "name": "AIFILHO", "role": "Creative Squad - Sprout", "color": "#9945ff", "bio": "Mentor on visual identity and consistency.", "mentorOf": "creative" },
-  { "id": "dias", "name": "DIAS", "role": "Creative Squad - Sprout", "color": "#ffe600", "bio": "Sprout member who got there through pure consistency." },
-  { "id": "dan", "name": "DAN", "role": "Creative Squad - Sprout", "color": "#ff6600", "bio": "Speaks little, delivers excellence. Aspirational figure." },
-  { "id": "victor", "name": "VICTOR DE SOUZA", "role": "Content/Research Squad - Sprout", "color": "#00b832", "bio": "Came from CEX. Learned that depth + human voice is what wins.", "mentorOf": "content_research" },
+  { "id": "mira", "name": "MIRA", "role": "Official Voice of StandX", "color": "#00aaff", "bio": "Highest authority in the room. Sets the rules, the goals, the missions. The anchor of Act I." },
+  { "id": "arttifex", "name": "ARTIFEX", "role": "Moderator - StandX", "color": "#ff9900", "bio": "Moderator who reviews Seed applications. Honest, direct, hard to impress." },
+  { "id": "gaboo", "name": "GABO", "role": "Community Mod - StandX", "color": "#ff3366", "bio": "Runs the weekly events and keeps the energy up. Always around.", "mentorOf": "outreach" },
+  { "id": "dave", "name": "DAVE", "role": "Active Contributor - StandX", "color": "#00e8c8", "bio": "One of the most active builders day to day. Proof that presence compounds.", "mentorOf": "creative" },
+  { "id": "jinli", "name": "冷酷锦鲤.StandX", "role": "Core Community - StandX", "color": "#9945ff", "bio": "Core community member focused on depth and research. Came from a CEX, learned the hard way.", "mentorOf": "content_research" },
+  { "id": "doula", "name": "哆啦币梦.StandX", "role": "Core Community - StandX", "color": "#ffb000", "bio": "Core community member. Turns Engage Points into a daily habit and helps newcomers." },
   { "id": "stander", "name": "STANDER", "role": "The player", "color": "#00e832", "bio": "The StandX cyclops mascot. You." }
 ]
