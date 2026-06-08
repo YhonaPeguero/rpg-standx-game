@@ -10,14 +10,24 @@ export function PlayChrome({ children }: { children: ReactNode }) {
   const inScene = pathname?.startsWith("/play/scene/") ?? false;
 
   if (inScene) {
-    return <div className="min-h-dvh px-3 py-3 md:px-6 md:py-4">{children}</div>;
+    return (
+      <>
+        <div aria-hidden className="sx-vignette" />
+        <div aria-hidden className="sx-grain-overlay" />
+        <div className="min-h-dvh px-3 py-3 md:px-6 md:py-4">{children}</div>
+      </>
+    );
   }
 
   return (
-    <div className="min-h-dvh px-4 pb-28 pt-4 md:px-8 md:pb-8 md:pt-6">
-      <TopBar />
-      {children}
-      <BottomNav />
-    </div>
+    <>
+      <div aria-hidden className="sx-vignette" />
+      <div aria-hidden className="sx-grain-overlay" />
+      <div className="min-h-dvh px-4 pb-28 pt-4 md:px-8 md:pb-8 md:pt-6">
+        <TopBar />
+        {children}
+        <BottomNav />
+      </div>
+    </>
   );
 }

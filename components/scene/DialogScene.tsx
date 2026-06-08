@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import type { Choice, DialogLine, SquadId } from "@/types";
 import { getCharacterById } from "@/lib/content/loader";
 import { audioEngine } from "@/lib/audio/engine";
+import { CharacterAvatar } from "@/components/mascot/CharacterAvatar";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 
@@ -88,13 +89,13 @@ export function DialogScene({ sceneId, lines, choices, educational = false, onRe
       <div className="pointer-events-none absolute inset-x-0 bottom-full h-40 bg-gradient-to-t from-sx-bg to-transparent" />
       <Card className="rounded-none border-x-0 border-b-0 bg-[linear-gradient(0deg,rgba(4,8,15,0.99)_78%,rgba(4,8,15,0.7))] p-4 md:p-6">
       <div className="flex items-end gap-4">
-        <div
-          className="relative grid h-16 w-16 shrink-0 place-items-center overflow-hidden rounded-full border-2 bg-sx-bg font-display text-lg font-bold shadow-[0_0_18px_currentColor] md:h-20 md:w-20"
-          style={{ borderColor: characterColor, color: characterColor }}
-        >
-          <span className="absolute inset-0 bg-[radial-gradient(circle_at_50%_35%,rgba(255,255,255,0.16),transparent_36%),radial-gradient(circle,rgba(0,232,50,0.12),transparent_70%)]" />
-          {character?.name.slice(0, 1) ?? "?"}
-        </div>
+        <CharacterAvatar
+          className="h-16 w-16 md:h-20 md:w-20"
+          color={characterColor}
+          glyphSize={34}
+          id={character?.id}
+          name={character?.name ?? current?.character ?? "?"}
+        />
         <div>
           <p className="font-display text-sm font-bold uppercase tracking-[0.22em]" style={{ color: characterColor }}>
             {character?.name ?? current?.character ?? "?"}
