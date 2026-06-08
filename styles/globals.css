@@ -65,7 +65,21 @@ select {
   color: var(--text-primary);
 }
 
+@keyframes sx-talk {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.055);
+  }
+}
+
 @layer utilities {
+  .sx-talking {
+    animation: sx-talk 1.05s ease-in-out infinite;
+  }
+
   .sx-panel {
     position: relative;
     border: 1px solid var(--stroke-brand);

@@ -65,18 +65,25 @@ type CharacterAvatarProps = {
   className?: string;
   /** Sigil glyph size in px. */
   glyphSize?: number;
+  /** When true, the badge gently "breathes" to signal the active speaker. */
+  speaking?: boolean;
 };
 
-export function CharacterAvatar({ id, name, color, className, glyphSize = 30 }: CharacterAvatarProps) {
+export function CharacterAvatar({ id, name, color, className, glyphSize = 30, speaking = false }: CharacterAvatarProps) {
   const sigil = id ? sigils[id] : undefined;
 
   return (
     <div
       className={cn(
         "relative grid shrink-0 place-items-center overflow-hidden rounded-full border-2 bg-sx-bg",
+        speaking && "sx-talking",
         className,
       )}
-      style={{ borderColor: color, color, boxShadow: `0 0 18px ${color}55, inset 0 0 16px ${color}22` }}
+      style={{
+        borderColor: color,
+        color,
+        boxShadow: speaking ? `0 0 26px ${color}88, inset 0 0 18px ${color}33` : `0 0 18px ${color}55, inset 0 0 16px ${color}22`,
+      }}
     >
       <span className="absolute inset-0 bg-[radial-gradient(circle_at_50%_30%,rgba(255,255,255,0.16),transparent_42%)]" />
       {sigil ? (

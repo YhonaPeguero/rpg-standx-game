@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import type { Choice, DialogLine, SquadId } from "@/types";
 import { getCharacterById } from "@/lib/content/loader";
 import { audioEngine } from "@/lib/audio/engine";
+import { useGameStore } from "@/store";
 import { CharacterAvatar } from "@/components/mascot/CharacterAvatar";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -21,6 +23,7 @@ type DialogSceneProps = {
 
 export function DialogScene({ sceneId, lines, choices, educational = false, onReward, onSquad, onComplete }: DialogSceneProps) {
   const t = useTranslations("scene");
+  const reduceMotion = useGameStore((state) => state.reduceMotion);
   const [index, setIndex] = useState(0);
   const [visibleText, setVisibleText] = useState("");
   const [feedback, setFeedback] = useState<string | null>(null);
@@ -88,13 +91,20 @@ export function DialogScene({ sceneId, lines, choices, educational = false, onRe
     <div className="absolute inset-x-0 bottom-0">
       <div className="pointer-events-none absolute inset-x-0 bottom-full h-40 bg-gradient-to-t from-sx-bg to-transparent" />
       <Card className="rounded-none border-x-0 border-b-0 bg-[linear-gradient(0deg,rgba(4,8,15,0.99)_78%,rgba(4,8,15,0.7))] p-4 md:p-6">
-      <div className="flex items-end gap-4">
+      <motion.div
+        animate={{ opacity: 1, x: 0 }}
+        className="flex items-end gap-4"
+        initial={reduceMotion ? false : { opacity: 0, x: -10 }}
+        key={current?.character}
+        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+      >
         <CharacterAvatar
           className="h-16 w-16 md:h-20 md:w-20"
           color={characterColor}
           glyphSize={34}
           id={character?.id}
           name={character?.name ?? current?.character ?? "?"}
+          speaking={!complete && !reduceMotion}
         />
         <div>
           <p className="font-display text-sm font-bold uppercase tracking-[0.22em]" style={{ color: characterColor }}>
@@ -102,7 +112,7 @@ export function DialogScene({ sceneId, lines, choices, educational = false, onRe
           </p>
           <p className="font-mono text-xs uppercase tracking-[0.18em] text-sx-dim">{role}</p>
         </div>
-      </div>
+      </motion.div>
 
       <button type="button" className="mt-6 block w-full text-left" onClick={advance}>
         <p className="min-h-24 max-w-6xl text-xl font-semibold leading-8 text-sx-text md:text-2xl md:leading-9">
