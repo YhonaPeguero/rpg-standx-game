@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ZoneId } from "@/types";
 import { buttonClassName } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
 import { cn } from "@/lib/utils";
 import type { DashboardChapter } from "./ChapterCard";
 
@@ -54,7 +55,7 @@ export function ChapterRoadmap({ items, labels }: ChapterRoadmapProps) {
                   boxShadow: item.current ? `0 0 18px ${accent}55` : "none",
                 }}
               >
-                {item.completed ? "✓" : index + 1}
+                {item.completed ? <Icon name="check" size={18} /> : index + 1}
               </span>
               {index < items.length - 1 ? <span className="mt-1 w-px flex-1 bg-[var(--stroke-brand)]" /> : null}
             </div>
@@ -99,7 +100,10 @@ export function ChapterRoadmap({ items, labels }: ChapterRoadmapProps) {
                     {item.completed ? labels.replay : item.current ? labels.continueLabel : labels.start}
                   </Link>
                 ) : (
-                  <span className="shrink-0 font-mono text-[10px] uppercase tracking-[0.16em] text-sx-dim">{labels.locked}</span>
+                  <span className="flex shrink-0 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-sx-dim">
+                    <Icon name="lock" size={13} />
+                    {labels.locked}
+                  </span>
                 )}
               </div>
             </div>

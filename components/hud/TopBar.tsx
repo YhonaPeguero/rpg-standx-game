@@ -10,6 +10,7 @@ import { chapterUnlocked } from "@/lib/game/gates";
 import { useGameStore } from "@/store";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { buttonClassName } from "@/components/ui/Button";
+import { Icon } from "@/components/ui/Icon";
 import { AudioToggle } from "./AudioToggle";
 import { EPRing } from "./EPRing";
 import { RankLabel } from "./RankLabel";
@@ -21,6 +22,7 @@ function chapterNumber(id: string): string {
 
 export function TopBar() {
   const t = useTranslations("hud");
+  const tNav = useTranslations("nav");
   const pathname = usePathname();
   const player = useGameStore((state) => state.player);
   const completedChapters = useGameStore((state) => state.completedChapters);
@@ -64,6 +66,14 @@ export function TopBar() {
               {t("continueJourney", { n: chapterNumber(nextChapter.id) })} →
             </Link>
           ) : null}
+          <Link
+            aria-label={tNav("home")}
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-sx border border-[var(--stroke-soft)] text-sx-dim transition hover:border-sx-green hover:text-sx-green"
+            href="/"
+            title={tNav("home")}
+          >
+            <Icon name="home" size={18} />
+          </Link>
           <AudioToggle />
           <LocaleSwitcher variant="compact" />
         </div>

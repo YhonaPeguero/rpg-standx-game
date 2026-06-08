@@ -8,6 +8,7 @@ import { epForStars } from "@/lib/game/epTiers";
 import { audioEngine } from "@/lib/audio/engine";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { Icon } from "@/components/ui/Icon";
 
 type QuizSceneProps = {
   sceneId: string;
@@ -65,10 +66,16 @@ export function QuizScene({ sceneId, questions, passingScore, onMastery, onCompl
       <Card className="p-6 text-center md:p-8">
         <p className="font-mono text-xs uppercase tracking-[0.35em] text-sx-gold">{t("summaryBadge")}</p>
         <h2 className="mt-4 font-display text-2xl font-bold uppercase tracking-[0.12em] text-sx-green">{t("summaryTitle")}</h2>
-        <p aria-label={`${result.stars}/3`} className="mt-6 font-mono text-4xl tracking-[0.3em] text-sx-gold">
-          {"★".repeat(result.stars)}
-          <span className="text-sx-dim opacity-40">{"★".repeat(3 - result.stars)}</span>
-        </p>
+        <div aria-label={`${result.stars}/3`} className="mt-6 flex items-center justify-center gap-2">
+          {[0, 1, 2].map((i) => (
+            <Icon
+              className={i < result.stars ? "text-sx-gold drop-shadow-[0_0_8px_rgba(255,230,0,0.5)]" : "text-sx-dim opacity-40"}
+              key={i}
+              name="star"
+              size={36}
+            />
+          ))}
+        </div>
         <p className="mt-4 font-mono text-2xl text-sx-green">{result.ep > 0 ? `+${result.ep} EP` : t("noEp")}</p>
         <Button className="mt-8" onClick={onComplete}>
           {t("continue")}

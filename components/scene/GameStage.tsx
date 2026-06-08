@@ -6,6 +6,7 @@ import { useTranslations } from "next-intl";
 import type { ZoneId } from "@/types";
 import { useGameStore } from "@/store";
 import { AudioToggle } from "@/components/hud/AudioToggle";
+import { Icon } from "@/components/ui/Icon";
 import { MascotCanvas } from "@/components/mascot/MascotCanvas";
 import { Starfield } from "./Starfield";
 
@@ -43,10 +44,11 @@ export function GameStage({ act, title, subtitle, zone, sceneIndex, sceneTotal, 
         <div className="flex items-center gap-4 px-4 py-2">
           <Link
             aria-label={t("exitToHq")}
-            className="rounded-sx border border-[var(--stroke-soft)] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-sx-text transition hover:border-sx-green hover:text-sx-green"
+            className="flex items-center gap-1.5 rounded-sx border border-[var(--stroke-soft)] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-sx-text transition hover:border-sx-green hover:text-sx-green"
             href="/play"
           >
-            ← {t("exitToHq")}
+            <Icon name="arrowLeft" size={14} />
+            <span className="hidden sm:inline">{t("exitToHq")}</span>
           </Link>
           <p className="font-mono text-xs uppercase tracking-[0.28em] text-sx-green">Act {act}</p>
           <div className="h-px flex-1 bg-sx-green/20">

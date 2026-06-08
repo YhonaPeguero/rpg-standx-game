@@ -6,19 +6,21 @@ import { useTranslations } from "next-intl";
 import { rankOrder } from "@/lib/game/ep";
 import { useGameStore } from "@/store";
 import { cn } from "@/lib/utils";
+import { Icon, type IconName } from "@/components/ui/Icon";
 
 type NavItem = {
   href: string;
   key: "hq" | "quests" | "ranks" | "codex" | "profile";
+  icon: IconName;
   seedOnly?: boolean;
 };
 
 const navItems: readonly NavItem[] = [
-  { href: "/play", key: "hq" },
-  { href: "/play/quests", key: "quests" },
-  { href: "/play/codex", key: "codex" },
-  { href: "/play/ranks", key: "ranks" },
-  { href: "/play/profile", key: "profile" },
+  { href: "/play", key: "hq", icon: "hq" },
+  { href: "/play/quests", key: "quests", icon: "quests" },
+  { href: "/play/codex", key: "codex", icon: "codex" },
+  { href: "/play/ranks", key: "ranks", icon: "ranks" },
+  { href: "/play/profile", key: "profile", icon: "profile" },
 ] as const;
 
 export function Sidebar() {
@@ -29,28 +31,42 @@ export function Sidebar() {
 
   return (
     <nav className="hidden rounded-sx-lg border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] p-3 lg:block">
-      <p className="px-3 py-2 font-display text-sm font-bold uppercase tracking-[0.24em] text-sx-green">StandX</p>
-      <div className="mt-4 grid gap-2">
+      <Link
+        className="group flex items-center gap-2.5 rounded-sx px-3 py-2 transition hover:bg-sx-green/5"
+        href="/"
+        title={t("home")}
+      >
+        <span className="grid h-7 w-7 place-items-center rounded-sx border border-sx-green/40 bg-sx-green/10 text-sx-green shadow-[0_0_12px_rgba(0,232,50,0.25)]">
+          <Icon name="seed" size={16} />
+        </span>
+        <span className="font-display text-sm font-bold uppercase tracking-[0.24em] text-sx-green">StandX</span>
+        <Icon className="ml-auto text-sx-dim transition group-hover:text-sx-green" name="home" size={14} />
+      </Link>
+
+      <div className="mt-4 grid gap-1.5">
         {navItems.map((item) => {
           const locked = item.seedOnly && ranksLocked;
           const active = pathname === item.href;
 
           return locked ? (
             <span
-              className="rounded-sx border border-transparent px-3 py-3 font-mono text-xs uppercase tracking-[0.16em] text-sx-dim opacity-60"
+              className="flex items-center gap-3 rounded-sx border border-transparent px-3 py-2.5 font-mono text-xs uppercase tracking-[0.16em] text-sx-dim opacity-60"
               key={item.key}
             >
-              {t(item.key)} · {t("locked")}
+              <Icon name="lock" size={16} />
+              {t(item.key)}
             </span>
           ) : (
             <Link
               className={cn(
-                "rounded-sx border border-transparent px-3 py-3 font-mono text-xs uppercase tracking-[0.16em] text-sx-text transition hover:border-sx-green hover:bg-sx-green/5",
-                active && "border-sx-green bg-sx-green/10 text-sx-green",
+                "group relative flex items-center gap-3 rounded-sx border border-transparent px-3 py-2.5 font-mono text-xs uppercase tracking-[0.16em] text-sx-text transition hover:border-sx-green/40 hover:bg-sx-green/5",
+                active && "border-sx-green/60 bg-sx-green/10 text-sx-green shadow-[inset_0_0_18px_rgba(0,232,50,0.12)]",
               )}
               href={item.href}
               key={item.key}
             >
+              {active ? <span className="absolute inset-y-1.5 left-0 w-0.5 rounded-full bg-sx-green shadow-glow-green" /> : null}
+              <Icon className={cn("transition", active ? "text-sx-green" : "text-sx-dim group-hover:text-sx-green")} name={item.icon} size={18} />
               {t(item.key)}
             </Link>
           );
@@ -60,12 +76,12 @@ export function Sidebar() {
   );
 }
 
-const bottomItems: { href: string; key: NavItem["key"] }[] = [
-  { href: "/play", key: "hq" },
-  { href: "/play/quests", key: "quests" },
-  { href: "/play/ranks", key: "ranks" },
-  { href: "/play/codex", key: "codex" },
-  { href: "/play/profile", key: "profile" },
+const bottomItems: { href: string; key: NavItem["key"]; icon: IconName }[] = [
+  { href: "/play", key: "hq", icon: "hq" },
+  { href: "/play/quests", key: "quests", icon: "quests" },
+  { href: "/play/ranks", key: "ranks", icon: "ranks" },
+  { href: "/play/codex", key: "codex", icon: "codex" },
+  { href: "/play/profile", key: "profile", icon: "profile" },
 ];
 
 export function BottomNav() {
@@ -79,12 +95,13 @@ export function BottomNav() {
         return (
           <Link
             className={cn(
-              "rounded-sx px-1.5 py-2.5 text-center font-mono text-[10px] uppercase tracking-[0.12em] text-sx-text transition",
-              active && "bg-sx-green/15 text-sx-green",
+              "flex flex-col items-center gap-1 rounded-sx px-1 py-2 text-center font-mono text-[9px] uppercase tracking-[0.12em] transition",
+              active ? "bg-sx-green/15 text-sx-green shadow-[inset_0_0_14px_rgba(0,232,50,0.14)]" : "text-sx-dim",
             )}
             href={item.href}
             key={item.key}
           >
+            <Icon name={item.icon} size={20} />
             {t(item.key)}
           </Link>
         );

@@ -67,9 +67,24 @@ select {
 
 @layer utilities {
   .sx-panel {
+    position: relative;
     border: 1px solid var(--stroke-brand);
-    background: linear-gradient(180deg, rgba(8, 15, 26, 0.94), rgba(4, 8, 15, 0.96));
-    box-shadow: 0 18px 70px rgba(0, 0, 0, 0.34);
+    background:
+      radial-gradient(120% 80% at 50% -10%, rgba(0, 232, 50, 0.06), transparent 60%),
+      linear-gradient(180deg, rgba(10, 18, 30, 0.96), rgba(4, 8, 15, 0.97));
+    box-shadow:
+      0 18px 70px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  }
+
+  /* Hairline highlight along the top edge for a crisper, less-flat surface. */
+  .sx-panel::before {
+    content: "";
+    position: absolute;
+    inset: 0 12% auto 12%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 232, 50, 0.45), transparent);
+    pointer-events: none;
   }
 
   .sx-scanlines::after {
