@@ -75,6 +75,94 @@ select {
   }
 }
 
+/* Mascot life: idle bob, leaf sway, blink, celebration sparkles. */
+@keyframes sx-m-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes sx-m-bounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-7px) scale(1.025);
+  }
+}
+
+@keyframes sx-m-sway {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+}
+
+@keyframes sx-m-blink {
+  0%,
+  90.5%,
+  95.5%,
+  100% {
+    transform: scaleY(0);
+  }
+  92.5%,
+  93.5% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes sx-m-spark {
+  0%,
+  100% {
+    transform: scale(0.55);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+
+.sx-m-bob {
+  animation: sx-m-bob 3.4s ease-in-out infinite;
+}
+
+.sx-m-bounce {
+  animation: sx-m-bounce 1.5s ease-in-out infinite;
+}
+
+.sx-m-sway {
+  animation: sx-m-sway 3.6s ease-in-out infinite;
+}
+
+.sx-m-blink {
+  animation: sx-m-blink 4.6s linear infinite;
+}
+
+.sx-m-spark {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sx-m-spark 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sx-m-bob,
+  .sx-m-bounce,
+  .sx-m-sway,
+  .sx-m-blink,
+  .sx-m-spark {
+    animation: none;
+  }
+}
+
 @layer utilities {
   .sx-talking {
     animation: sx-talk 1.05s ease-in-out infinite;

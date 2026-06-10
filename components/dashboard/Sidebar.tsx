@@ -38,7 +38,7 @@ export function Sidebar() {
         title={t("home")}
       >
         <span className="grid h-7 w-7 place-items-center rounded-sx border border-sx-green/40 bg-sx-green/10 text-sx-green shadow-[0_0_12px_rgba(0,232,50,0.25)]">
-          <Icon name="seed" size={16} />
+          <Icon name="delta" size={16} />
         </span>
         <span className="font-display text-sm font-bold uppercase tracking-[0.24em] text-sx-green">StandX</span>
         <Icon className="ml-auto text-sx-dim transition group-hover:text-sx-green" name="home" size={14} />

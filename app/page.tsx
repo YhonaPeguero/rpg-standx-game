@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/Card";
 import { Icon, type IconName } from "@/components/ui/Icon";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { CharacterAvatar } from "@/components/mascot/CharacterAvatar";
-import { MascotCanvas } from "@/components/mascot/MascotCanvas";
+import { Mascot } from "@/components/mascot/Mascot";
 import { Starfield } from "@/components/scene/Starfield";
 
 const features: { key: "story" | "quests" | "ranks" | "i18n"; icon: IconName }[] = [
@@ -38,7 +38,7 @@ export default function Home() {
       <header className="relative z-10 mx-auto flex max-w-6xl items-center justify-between">
         <span className="flex items-center gap-2.5">
           <span className="grid h-8 w-8 place-items-center rounded-sx border border-sx-green/40 bg-sx-green/10 text-sx-green shadow-[0_0_14px_rgba(0,232,50,0.3)]">
-            <Icon name="seed" size={18} />
+            <Icon name="delta" size={18} />
           </span>
           <span className="font-display text-sm font-bold uppercase tracking-[0.28em] text-sx-green">StandX</span>
         </span>
@@ -82,7 +82,7 @@ export default function Home() {
               className="pointer-events-none absolute inset-0 opacity-60"
               style={{ backgroundImage: "radial-gradient(circle at 50% 40%, rgba(0,232,50,0.16), transparent 60%)" }}
             />
-            <MascotCanvas className="relative h-56 w-56 drop-shadow-[0_0_28px_rgba(0,232,50,0.5)] md:h-64 md:w-64" />
+            <Mascot className="relative h-56 w-56 drop-shadow-[0_0_28px_rgba(0,232,50,0.5)] md:h-64 md:w-64" pose="point" />
             <p className="relative mt-4 font-display text-lg font-bold uppercase tracking-[0.2em] text-sx-green">STANDER</p>
             <p className="relative mt-1 font-mono text-[10px] uppercase tracking-[0.3em] text-sx-dim">New Stander · online</p>
           </Card>

@@ -26,9 +26,20 @@
     "nextStep": "Your next step",
     "allChapters": "All Act I chapters",
     "growthMap": "Growth map",
-    "roadmap": { "step": "Step", "start": "Start", "done": "Done", "current": "Now", "locked": "Locked" },
+    "roadmap": {
+      "step": "Step",
+      "start": "Start",
+      "done": "Done",
+      "current": "Now",
+      "locked": "Locked"
+    },
     "mascotStatus": "New Stander stage online",
-    "stats": { "ep": "Engage Points", "streak": "Streak", "rank": "Rank", "chapters": "Chapters" },
+    "stats": {
+      "ep": "Engage Points",
+      "streak": "Streak",
+      "rank": "Rank",
+      "chapters": "Chapters"
+    },
     "chapter": {
       "continue": "Continue",
       "completed": "Replay",
@@ -43,9 +54,18 @@
     }
   },
   "stubs": {
-    "codex": { "badge": "Codex", "title": "Coming online in Phase 4" },
-    "leaderboard": { "badge": "Leaderboard", "title": "Stub for v2" },
-    "profile": { "badge": "Profile", "title": "Local Stander profile" }
+    "codex": {
+      "badge": "Codex",
+      "title": "Coming online in Phase 4"
+    },
+    "leaderboard": {
+      "badge": "Leaderboard",
+      "title": "Stub for v2"
+    },
+    "profile": {
+      "badge": "Profile",
+      "title": "Local Stander profile"
+    }
   },
   "hud": {
     "ep": "Engage Points",
@@ -119,9 +139,18 @@
       "hypeTitle": "NOT SELECTED",
       "hypeLesson": "Hype teaches nothing. The team picks what adds real value.",
       "cards": {
-        "a": { "label": "A - DEEP", "text": "DUSD's delta-neutral architecture means your capital works without directional exposure. Not magic yield - structure. Thread on the mechanisms >" },
-        "b": { "label": "B - HYPE", "text": "DUSD on StandX is amazing! Passive yield while you sleep! Best DeFi platform!" },
-        "c": { "label": "C - DEEP", "text": "DUSD vs USDC in perps: delta-neutral vs direct exposure. Real data, honest analysis. >" }
+        "a": {
+          "label": "A - DEEP",
+          "text": "DUSD's delta-neutral architecture means your capital works without directional exposure. Not magic yield - structure. Thread on the mechanisms >"
+        },
+        "b": {
+          "label": "B - HYPE",
+          "text": "DUSD on StandX is amazing! Passive yield while you sleep! Best DeFi platform!"
+        },
+        "c": {
+          "label": "C - DEEP",
+          "text": "DUSD vs USDC in perps: delta-neutral vs direct exposure. Real data, honest analysis. >"
+        }
       }
     }
   },
@@ -147,20 +176,35 @@
     "finish": "Enter HQ",
     "startChapter1": "Start Chapter 1",
     "steps": [
-      { "title": "Welcome, Stander", "body": "Name your character. Your run is saved locally on this device — no account needed." },
-      { "title": "How you earn EP", "body": "Engage Points are a conceptual learning score. You earn them by doing well: the best dialogue choices, and quizzes or mini-games graded by stars (30 / 50 / 80 EP). Weak or skipped actions earn nothing." },
-      { "title": "Your goal: SEED", "body": "Climb the Growth Path. SEED is the real goal — 3,000 EP plus real Discord activity. Act I is your on-ramp: you finish it as a Seed Candidate, ready to keep growing." },
-      { "title": "Squads", "body": "Finish the Seed Hall (Chapter 6) to choose your Squad: Content, Creative, Outreach, Tech or Offline. Open the Squads tab any time to preview them." },
-      { "title": "Ready", "body": "Six chapters take you from New Stander to Seed. Start Chapter 1 and meet Mira." }
+      {
+        "title": "Welcome, Stander",
+        "body": "Name your character. Your run is saved locally on this device — no account needed."
+      },
+      {
+        "title": "How you earn EP",
+        "body": "Engage Points are a conceptual learning score. You earn them by doing well: the best dialogue choices, and quizzes or mini-games graded by stars (30 / 50 / 80 EP). Weak or skipped actions earn nothing."
+      },
+      {
+        "title": "Your goal: SEED",
+        "body": "Climb the Growth Path. SEED is the real goal — 3,000 EP plus real Discord activity. Act I is your on-ramp: you finish it as a Seed Candidate, ready to keep growing."
+      },
+      {
+        "title": "Squads",
+        "body": "Finish the Seed Hall (Chapter 6) to choose your Squad: Content, Creative, Outreach, Tech or Offline. Open the Squads tab any time to preview them."
+      },
+      {
+        "title": "Ready",
+        "body": "Six chapters take you from New Stander to Seed. Start Chapter 1 and meet Mira."
+      }
     ]
   },
   "squads": {
     "badge": "Squads",
     "title": "Choose Your Squad",
-    "intro": "Squads are how Seeds contribute: each has a focus and a mentor. You pick one when you reach SEED.",
+    "intro": "Squads are how contributors organise in the real Discord — each has a focus, a mentor and SPROUT milestones. In the game, finishing Act I unlocks your choice.",
     "lockedBanner": "You choose your squad in the Seed Hall — the final chapter of Act I. Finish the story to unlock squad selection here.",
     "haveSquad": "You're in a squad. You can switch any time below.",
-    "readyToChoose": "You reached SEED — pick the squad that fits you.",
+    "readyToChoose": "Seed Hall cleared — pick the squad that fits you.",
     "unlocksAt": "Finish Act I",
     "selected": "Your squad",
     "select": "Choose",
@@ -168,12 +212,33 @@
     "mentor": "Mentor",
     "mentorTbd": "Mentor TBD",
     "list": {
-      "content_research": { "name": "Content / Research", "desc": "Analysis, tutorials and insights. Depth over hype." },
-      "creative": { "name": "Creative", "desc": "Visuals, video and identity. Consistency is the differentiator." },
-      "outreach": { "name": "Outreach", "desc": "KOLs, partnerships and community. Rally the room." },
-      "tech_support": { "name": "Tech Support", "desc": "Technical tutorials and helping members get unstuck." },
-      "offline": { "name": "Offline", "desc": "Local presence and real-world events." }
-    }
+      "content_research": {
+        "name": "Content / Research",
+        "desc": "Analysis, tutorials and insights. Depth over hype.",
+        "milestone": "2 in-depth original pieces selected by the team"
+      },
+      "creative": {
+        "name": "Creative",
+        "desc": "Visuals, video and identity. Consistency is the differentiator.",
+        "milestone": "4 approved visual materials"
+      },
+      "outreach": {
+        "name": "Outreach",
+        "desc": "KOLs, partnerships and community. Rally the room.",
+        "milestone": "Invite 3 KOLs or communities"
+      },
+      "tech_support": {
+        "name": "Tech Support",
+        "desc": "Technical tutorials and helping members get unstuck.",
+        "milestone": "25 answered questions + 1 tutorial"
+      },
+      "offline": {
+        "name": "Offline",
+        "desc": "Local presence and real-world events.",
+        "milestone": "2 events with 100+ total attendees"
+      }
+    },
+    "milestoneLabel": "Sprout milestone"
   },
   "scene": {
     "tap": "Tap to continue",
@@ -193,7 +258,10 @@
       "noEp": "No EP this time — replay to earn stars.",
       "continue": "Continue"
     },
-    "reflection": { "badge": "Reflection", "complete": "Complete reflection" },
+    "reflection": {
+      "badge": "Reflection",
+      "complete": "Complete reflection"
+    },
     "reward": {
       "badge": "Chapter Complete",
       "title": "Rewards Secured",
@@ -214,7 +282,11 @@
     "markDone": "Mark done",
     "rewardEp": "+{ep} EP",
     "rewardCodex": "+Codex",
-    "tabs": { "daily": "Daily", "weekly": "Weekly", "community": "Community" },
+    "tabs": {
+      "daily": "Daily",
+      "weekly": "Weekly",
+      "community": "Community"
+    },
     "empty": "All caught up. New missions roll over at 00:00 UTC.",
     "optionalLabel": "Optional practice — extras while you play",
     "tabLockedAt": "Unlocks after completing {count} chapters.",
@@ -222,14 +294,38 @@
     "locked": "Locked",
     "progress": "{done}/{total}",
     "list": {
-      "daily_x_post": { "title": "Post on X", "body": "Share one genuine post about StandX. Your daily signal." },
-      "weekly_rumble": { "title": "Play Rumble in Discord", "body": "Join the Rumble round in the Discord server this week." },
-      "weekly_poker": { "title": "Join poker night", "body": "Sit at the community poker table this week." },
-      "weekly_event": { "title": "Join the weekly event", "body": "Show up to this week's event. Bring presence, help one newcomer." },
-      "weekly_quality": { "title": "Publish one quality post", "body": "Depth + human voice. Hype does not count." },
-      "weekly_streak": { "title": "Hit a 7-day streak", "body": "Real consistency. Resets on any miss." },
-      "community_shoutout": { "title": "Earn a weekly shoutout", "body": "Get nominated by Artifex or Gabo in the BR room." },
-      "community_thread": { "title": "Ship a deep thread", "body": "DUSD, perps or governance. Source data. Show structure." }
+      "daily_x_post": {
+        "title": "Post on X",
+        "body": "Share one genuine post about StandX. Your daily signal."
+      },
+      "weekly_rumble": {
+        "title": "Play Rumble in Discord",
+        "body": "Join the Rumble round in the Discord server this week."
+      },
+      "weekly_poker": {
+        "title": "Join poker night",
+        "body": "Sit at the community poker table this week."
+      },
+      "weekly_event": {
+        "title": "Join the weekly event",
+        "body": "Show up to this week's event. Bring presence, help one newcomer."
+      },
+      "weekly_quality": {
+        "title": "Publish one quality post",
+        "body": "Depth + human voice. Hype does not count."
+      },
+      "weekly_streak": {
+        "title": "Hit a 7-day streak",
+        "body": "Real consistency. Resets on any miss."
+      },
+      "community_shoutout": {
+        "title": "Earn a weekly shoutout",
+        "body": "Get nominated by Artifex or Gabo in the BR room."
+      },
+      "community_thread": {
+        "title": "Ship a deep thread",
+        "body": "DUSD, perps or governance. Source data. Show structure."
+      }
     }
   },
   "ranks": {
@@ -263,6 +359,58 @@
       "seed": "Official Discord role. Pick a Squad and start contributing.",
       "sprout": "Recognised contributor. Squad tasks unlock weekly highlight slots.",
       "flower": "Community pillar. Standards-setter and mentor."
+    },
+    "roadmap": {
+      "badge": "The real path",
+      "title": "From 0 to FLOWER",
+      "intro": "This is how the Growth Path works inside the real StandX Discord. The game trains you for it — EP here is practice; the real score lives in Discord.",
+      "steps": [
+        {
+          "tag": "Step 1",
+          "title": "Join Discord & claim the Events role",
+          "body": "First move after joining: claim the Events role so every new event pings you. Without it, you miss opportunities."
+        },
+        {
+          "tag": "Step 2",
+          "title": "Accumulate Engage Points",
+          "body": "Events, social campaigns, content creation, daily activity and real community participation all add up."
+        },
+        {
+          "tag": "Step 3",
+          "title": "Hit 3,000 EP and apply for SEED",
+          "body": "Not automatic — the team manually reviews your account to verify you're a real contributor, not a bot. Rejected? You can reapply in 2 weeks."
+        },
+        {
+          "tag": "Step 4",
+          "title": "Choose your squad",
+          "body": "Creative, Offline, Tech, Outreach or Content. Pick what you're actually skilled at — not what looks easiest."
+        },
+        {
+          "tag": "Step 5",
+          "title": "Complete squad missions → SPROUT",
+          "body": "Maintain 4,000+ EP, hit your squad's milestones, stay consistently active and earn moderator approval. Every contribution is tracked on a Notion board."
+        },
+        {
+          "tag": "Step 6",
+          "title": "FLOWER — prove leadership",
+          "body": "There is no public checklist. SEED proves activity, SPROUT proves contribution, FLOWER proves leadership. Very few will reach it."
+        }
+      ],
+      "flowerNote": "No FLOWER has been selected yet. The seat is open — that scarcity is exactly what makes it valuable.",
+      "failTitle": "Where most people fail",
+      "fails": [
+        "Spamming messages",
+        "Picking the wrong squad",
+        "Treating it like a checklist",
+        "Quantity over quality"
+      ],
+      "workTitle": "What actually works",
+      "works": [
+        "Quality interactions",
+        "Helping others",
+        "Showcasing your strengths",
+        "Being visible across the whole Discord"
+      ]
     }
   },
   "locale": {

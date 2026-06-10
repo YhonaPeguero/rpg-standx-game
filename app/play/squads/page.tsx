@@ -12,6 +12,7 @@ import { Card } from "@/components/ui/Card";
 import { buttonClassName } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
 import { CharacterAvatar } from "@/components/mascot/CharacterAvatar";
+import { Mascot } from "@/components/mascot/Mascot";
 
 export default function SquadsPage() {
   const t = useTranslations("squads");
@@ -44,9 +45,12 @@ export default function SquadsPage() {
           <p className="font-semibold text-sx-text">{player.squad ? t("haveSquad") : t("readyToChoose")}</p>
         </div>
       ) : (
-        <div className="flex items-start gap-3 rounded-sx-lg border border-sx-gold/40 bg-sx-gold/5 p-4">
-          <Icon className="mt-0.5 shrink-0 text-sx-gold" name="lock" size={20} />
-          <p className="font-semibold leading-7 text-sx-text">{t("lockedBanner")}</p>
+        <div className="flex items-center gap-4 rounded-sx-lg border border-sx-gold/40 bg-sx-gold/5 p-4">
+          <Mascot className="h-20 w-20 shrink-0" pose="peek" />
+          <div className="flex items-start gap-3">
+            <Icon className="mt-0.5 shrink-0 text-sx-gold" name="lock" size={20} />
+            <p className="font-semibold leading-7 text-sx-text">{t("lockedBanner")}</p>
+          </div>
         </div>
       )}
 
@@ -82,6 +86,13 @@ export default function SquadsPage() {
               </div>
 
               <p className="mt-4 flex-1 text-sm font-semibold leading-6 text-sx-text">{t(`list.${squad.id}.desc`)}</p>
+
+              <p className="mt-3 flex items-start gap-2 rounded-sx border border-[var(--stroke-soft)] bg-white/[0.02] px-3 py-2">
+                <Icon className="mt-0.5 shrink-0" name="target" size={14} style={{ color: squad.accent }} />
+                <span className="font-mono text-[10px] uppercase leading-5 tracking-[0.14em] text-sx-dim">
+                  <span style={{ color: squad.accent }}>{t("milestoneLabel")}:</span> {t(`list.${squad.id}.milestone`)}
+                </span>
+              </p>
 
               <div className="mt-5">
                 {!unlocked ? (

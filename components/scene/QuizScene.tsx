@@ -9,6 +9,7 @@ import { audioEngine } from "@/lib/audio/engine";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { Icon } from "@/components/ui/Icon";
+import { Mascot } from "@/components/mascot/Mascot";
 
 type QuizSceneProps = {
   sceneId: string;
@@ -65,7 +66,11 @@ export function QuizScene({ sceneId, questions, passingScore, onMastery, onCompl
     return (
       <Card className="p-6 text-center md:p-8">
         <p className="font-mono text-xs uppercase tracking-[0.35em] text-sx-gold">{t("summaryBadge")}</p>
-        <h2 className="mt-4 font-display text-2xl font-bold uppercase tracking-[0.12em] text-sx-green">{t("summaryTitle")}</h2>
+        <Mascot
+          className="mx-auto mt-2 h-32 w-32 drop-shadow-[0_0_18px_rgba(0,232,50,0.3)]"
+          pose={result.stars >= 2 ? "cheer" : result.stars === 1 ? "idle" : "meh"}
+        />
+        <h2 className="mt-2 font-display text-2xl font-bold uppercase tracking-[0.12em] text-sx-green">{t("summaryTitle")}</h2>
         <div aria-label={`${result.stars}/3`} className="mt-6 flex items-center justify-center gap-2">
           {[0, 1, 2].map((i) => (
             <Icon

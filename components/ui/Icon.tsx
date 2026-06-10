@@ -18,7 +18,10 @@ export type IconName =
   | "seed"
   | "globe"
   | "squads"
-  | "help";
+  | "help"
+  | "delta"
+  | "target"
+  | "x";
 
 // Cohesive line-icon set (24x24, currentColor) so the UI stops relying on
 // generic emoji/unicode glyphs. Stroke-based with a couple of filled marks.
@@ -120,6 +123,23 @@ const paths: Record<IconName, ReactNode> = {
       <circle cx="12" cy="17" r="0.7" fill="currentColor" stroke="none" />
     </>
   ),
+  // StandX delta brand mark (filled, with the bowl counter cut out).
+  delta: (
+    <path
+      d="M6.2 3.5h11.6v3.4h-4.9c3.6 1.6 6 4.4 6 7.7a6.9 6.9 0 1 1-13.8 0c0-2.9 1.9-5.4 4.7-6.7-1.6-1-2.8-2.4-3.6-4.4zm5.8 7.4a3.7 3.7 0 1 0 0 7.4 3.7 3.7 0 0 0 0-7.4z"
+      fill="currentColor"
+      fillRule="evenodd"
+      stroke="none"
+    />
+  ),
+  target: (
+    <>
+      <circle cx="12" cy="12" r="8.5" />
+      <path d="M12 3.5V7M12 17v3.5M3.5 12H7M17 12h3.5" />
+      <circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none" />
+    </>
+  ),
+  x: <path d="M6.5 6.5l11 11M17.5 6.5l-11 11" />,
 };
 
 type IconProps = SVGProps<SVGSVGElement> & {

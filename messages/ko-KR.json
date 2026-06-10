@@ -26,9 +26,20 @@
     "nextStep": "다음 단계",
     "allChapters": "1막 전체 챕터",
     "growthMap": "성장 지도",
-    "roadmap": { "step": "단계", "start": "시작", "done": "완료", "current": "현재", "locked": "잠김" },
+    "roadmap": {
+      "step": "단계",
+      "start": "시작",
+      "done": "완료",
+      "current": "현재",
+      "locked": "잠김"
+    },
     "mascotStatus": "New Stander 단계 온라인",
-    "stats": { "ep": "Engage Points", "streak": "연속", "rank": "랭크", "chapters": "챕터" },
+    "stats": {
+      "ep": "Engage Points",
+      "streak": "연속",
+      "rank": "랭크",
+      "chapters": "챕터"
+    },
     "chapter": {
       "continue": "계속",
       "completed": "다시 플레이",
@@ -43,9 +54,18 @@
     }
   },
   "stubs": {
-    "codex": { "badge": "Codex", "title": "Phase 4에 공개 예정" },
-    "leaderboard": { "badge": "Leaderboard", "title": "v2 준비 중" },
-    "profile": { "badge": "프로필", "title": "로컬 Stander 프로필" }
+    "codex": {
+      "badge": "Codex",
+      "title": "Phase 4에 공개 예정"
+    },
+    "leaderboard": {
+      "badge": "Leaderboard",
+      "title": "v2 준비 중"
+    },
+    "profile": {
+      "badge": "프로필",
+      "title": "로컬 Stander 프로필"
+    }
   },
   "hud": {
     "ep": "Engage Points",
@@ -119,9 +139,18 @@
       "hypeTitle": "선택 안 됨",
       "hypeLesson": "하이프는 아무것도 가르치지 않습니다. 팀은 실제 가치를 더하는 글을 고릅니다.",
       "cards": {
-        "a": { "label": "A - DEEP", "text": "DUSD의 델타 중립 구조는 방향성 노출 없이 자본이 일하게 만듭니다. 마법 수익이 아니라 구조죠. 메커니즘 스레드 >" },
-        "b": { "label": "B - HYPE", "text": "StandX의 DUSD 진짜 대박! 자는 동안 패시브 수익! 최고의 DeFi 플랫폼!" },
-        "c": { "label": "C - DEEP", "text": "perps에서의 DUSD vs USDC: 델타 중립 vs 직접 노출. 실제 데이터, 솔직한 분석. >" }
+        "a": {
+          "label": "A - DEEP",
+          "text": "DUSD의 델타 중립 구조는 방향성 노출 없이 자본이 일하게 만듭니다. 마법 수익이 아니라 구조죠. 메커니즘 스레드 >"
+        },
+        "b": {
+          "label": "B - HYPE",
+          "text": "StandX의 DUSD 진짜 대박! 자는 동안 패시브 수익! 최고의 DeFi 플랫폼!"
+        },
+        "c": {
+          "label": "C - DEEP",
+          "text": "perps에서의 DUSD vs USDC: 델타 중립 vs 직접 노출. 실제 데이터, 솔직한 분석. >"
+        }
       }
     }
   },
@@ -147,20 +176,35 @@
     "finish": "HQ 입장",
     "startChapter1": "1장 시작",
     "steps": [
-      { "title": "환영합니다, Stander", "body": "캐릭터 이름을 정하세요. 진행 상황은 계정 없이 이 기기에 로컬로 저장됩니다." },
-      { "title": "EP 획득 방법", "body": "Engage Points는 학습용 개념 점수입니다. 잘하면 얻습니다: 최선의 선택, 그리고 별점으로 평가되는 퀴즈·미니게임(30 / 50 / 80 EP). 약하거나 건너뛴 행동은 아무것도 주지 않습니다." },
-      { "title": "목표: SEED", "body": "Growth Path를 오르세요. SEED는 실제 목표입니다 — 3,000 EP와 Discord의 실제 활동. 1막은 출발점이며, 끝내면 Seed Candidate가 되어 계속 성장할 준비가 됩니다." },
-      { "title": "스쿼드", "body": "Seed Hall(6장)을 끝내면 스쿼드를 선택합니다: Content, Creative, Outreach, Tech, Offline. 스쿼드 탭에서 언제든 미리 볼 수 있어요." },
-      { "title": "준비 완료", "body": "여섯 챕터가 New Stander부터 Seed까지 이끕니다. 1장을 시작하고 Mira를 만나세요." }
+      {
+        "title": "환영합니다, Stander",
+        "body": "캐릭터 이름을 정하세요. 진행 상황은 계정 없이 이 기기에 로컬로 저장됩니다."
+      },
+      {
+        "title": "EP 획득 방법",
+        "body": "Engage Points는 학습용 개념 점수입니다. 잘하면 얻습니다: 최선의 선택, 그리고 별점으로 평가되는 퀴즈·미니게임(30 / 50 / 80 EP). 약하거나 건너뛴 행동은 아무것도 주지 않습니다."
+      },
+      {
+        "title": "목표: SEED",
+        "body": "Growth Path를 오르세요. SEED는 실제 목표입니다 — 3,000 EP와 Discord의 실제 활동. 1막은 출발점이며, 끝내면 Seed Candidate가 되어 계속 성장할 준비가 됩니다."
+      },
+      {
+        "title": "스쿼드",
+        "body": "Seed Hall(6장)을 끝내면 스쿼드를 선택합니다: Content, Creative, Outreach, Tech, Offline. 스쿼드 탭에서 언제든 미리 볼 수 있어요."
+      },
+      {
+        "title": "준비 완료",
+        "body": "여섯 챕터가 New Stander부터 Seed까지 이끕니다. 1장을 시작하고 Mira를 만나세요."
+      }
     ]
   },
   "squads": {
     "badge": "스쿼드",
     "title": "스쿼드 선택",
-    "intro": "스쿼드는 Seed가 기여하는 방식입니다: 각각 초점과 멘토가 있어요. SEED에 도달하면 하나를 고릅니다.",
+    "intro": "스쿼드는 실제 디스코드에서 기여자들이 조직되는 방식입니다. 각자 초점, 멘토, SPROUT 마일스톤이 있습니다. 게임에서는 1막을 끝내면 선택이 열립니다.",
     "lockedBanner": "스쿼드는 1막의 마지막 챕터인 Seed Hall에서 선택합니다. 스토리를 끝내면 여기서 선택할 수 있어요.",
     "haveSquad": "스쿼드에 속해 있습니다. 아래에서 언제든 바꿀 수 있어요.",
-    "readyToChoose": "SEED에 도달했습니다 — 당신에게 맞는 스쿼드를 고르세요.",
+    "readyToChoose": "Seed Hall 클리어 — 당신에게 맞는 스쿼드를 고르세요.",
     "unlocksAt": "1막 완료 시",
     "selected": "내 스쿼드",
     "select": "선택",
@@ -168,12 +212,33 @@
     "mentor": "멘토",
     "mentorTbd": "멘토 미정",
     "list": {
-      "content_research": { "name": "Content / Research", "desc": "분석, 튜토리얼, 인사이트. 과장보다 깊이." },
-      "creative": { "name": "Creative", "desc": "비주얼, 영상, 아이덴티티. 일관성이 차별점." },
-      "outreach": { "name": "Outreach", "desc": "KOL, 파트너십, 커뮤니티. 분위기를 띄우세요." },
-      "tech_support": { "name": "Tech Support", "desc": "기술 튜토리얼과 멤버들의 문제 해결 지원." },
-      "offline": { "name": "Offline", "desc": "오프라인 존재감과 현장 이벤트." }
-    }
+      "content_research": {
+        "name": "Content / Research",
+        "desc": "분석, 튜토리얼, 인사이트. 과장보다 깊이.",
+        "milestone": "팀이 선정한 심층 오리지널 콘텐츠 2편"
+      },
+      "creative": {
+        "name": "Creative",
+        "desc": "비주얼, 영상, 아이덴티티. 일관성이 차별점.",
+        "milestone": "승인된 비주얼 자료 4개"
+      },
+      "outreach": {
+        "name": "Outreach",
+        "desc": "KOL, 파트너십, 커뮤니티. 분위기를 띄우세요.",
+        "milestone": "KOL 또는 커뮤니티 3곳 초대"
+      },
+      "tech_support": {
+        "name": "Tech Support",
+        "desc": "기술 튜토리얼과 멤버들의 문제 해결 지원.",
+        "milestone": "질문 답변 25회 + 튜토리얼 1개"
+      },
+      "offline": {
+        "name": "Offline",
+        "desc": "오프라인 존재감과 현장 이벤트.",
+        "milestone": "총 100명+ 참석 이벤트 2회"
+      }
+    },
+    "milestoneLabel": "SPROUT 마일스톤"
   },
   "scene": {
     "tap": "탭하여 계속",
@@ -193,7 +258,10 @@
       "noEp": "이번에는 EP 없음 — 다시 플레이해 별을 모으세요.",
       "continue": "계속"
     },
-    "reflection": { "badge": "되돌아보기", "complete": "되돌아보기 완료" },
+    "reflection": {
+      "badge": "되돌아보기",
+      "complete": "되돌아보기 완료"
+    },
     "reward": {
       "badge": "챕터 완료",
       "title": "보상 획득",
@@ -214,7 +282,11 @@
     "markDone": "완료 표시",
     "rewardEp": "+{ep} EP",
     "rewardCodex": "+코덱스",
-    "tabs": { "daily": "일일", "weekly": "주간", "community": "커뮤니티" },
+    "tabs": {
+      "daily": "일일",
+      "weekly": "주간",
+      "community": "커뮤니티"
+    },
     "empty": "모두 완료했습니다. 새 미션은 00:00 UTC에 갱신됩니다.",
     "optionalLabel": "선택 연습 — 플레이 중에 즐기는 추가 미션",
     "tabLockedAt": "{count}개 챕터를 완료하면 해금됩니다.",
@@ -222,14 +294,38 @@
     "locked": "잠김",
     "progress": "{done}/{total}",
     "list": {
-      "daily_x_post": { "title": "X에 게시하기", "body": "StandX에 대한 진솔한 글을 하나 공유하세요. 당신의 일일 신호입니다." },
-      "weekly_rumble": { "title": "디스코드에서 럼블 플레이", "body": "이번 주 디스코드 서버의 럼블 라운드에 참여하세요." },
-      "weekly_poker": { "title": "포커 나이트 참여", "body": "이번 주 커뮤니티 포커 테이블에 앉으세요." },
-      "weekly_event": { "title": "주간 이벤트에 참여하기", "body": "이번 주 이벤트에 나타나세요. 존재감을 보여주고 뉴커머 한 명을 도와주세요." },
-      "weekly_quality": { "title": "퀄리티 글 한 편 발행", "body": "깊이 + 사람의 목소리. 하이프는 카운트되지 않습니다." },
-      "weekly_streak": { "title": "7일 연속 달성", "body": "진짜 일관성. 한 번이라도 빠지면 초기화됩니다." },
-      "community_shoutout": { "title": "주간 샤웃아웃 받기", "body": "BR 룸에서 Artifex나 Gabo에게 지명되세요." },
-      "community_thread": { "title": "깊이 있는 스레드 출시", "body": "DUSD, perps, 거버넌스. 데이터로 구조를 보여주세요." }
+      "daily_x_post": {
+        "title": "X에 게시하기",
+        "body": "StandX에 대한 진솔한 글을 하나 공유하세요. 당신의 일일 신호입니다."
+      },
+      "weekly_rumble": {
+        "title": "디스코드에서 럼블 플레이",
+        "body": "이번 주 디스코드 서버의 럼블 라운드에 참여하세요."
+      },
+      "weekly_poker": {
+        "title": "포커 나이트 참여",
+        "body": "이번 주 커뮤니티 포커 테이블에 앉으세요."
+      },
+      "weekly_event": {
+        "title": "주간 이벤트에 참여하기",
+        "body": "이번 주 이벤트에 나타나세요. 존재감을 보여주고 뉴커머 한 명을 도와주세요."
+      },
+      "weekly_quality": {
+        "title": "퀄리티 글 한 편 발행",
+        "body": "깊이 + 사람의 목소리. 하이프는 카운트되지 않습니다."
+      },
+      "weekly_streak": {
+        "title": "7일 연속 달성",
+        "body": "진짜 일관성. 한 번이라도 빠지면 초기화됩니다."
+      },
+      "community_shoutout": {
+        "title": "주간 샤웃아웃 받기",
+        "body": "BR 룸에서 Artifex나 Gabo에게 지명되세요."
+      },
+      "community_thread": {
+        "title": "깊이 있는 스레드 출시",
+        "body": "DUSD, perps, 거버넌스. 데이터로 구조를 보여주세요."
+      }
     }
   },
   "ranks": {
@@ -263,6 +359,58 @@
       "seed": "공식 Discord 역할. 스쿼드를 골라 기여를 시작하세요.",
       "sprout": "공인된 컨트리뷰터. 스쿼드 태스크가 주간 하이라이트 슬롯을 엽니다.",
       "flower": "커뮤니티의 기둥. 표준을 세우고 멘토링합니다."
+    },
+    "roadmap": {
+      "badge": "실제 경로",
+      "title": "0에서 FLOWER까지",
+      "intro": "실제 StandX 디스코드에서 Growth Path가 작동하는 방식입니다. 이 게임은 그 훈련입니다 — 여기의 EP는 연습이고, 실제 점수는 디스코드에 있습니다.",
+      "steps": [
+        {
+          "tag": "1단계",
+          "title": "디스코드 가입 & Events 역할 받기",
+          "body": "가입 후 가장 먼저 Events 역할을 받으세요. 새 이벤트가 뜰 때마다 알림을 받습니다. 없으면 기회를 놓칩니다."
+        },
+        {
+          "tag": "2단계",
+          "title": "Engage Points 모으기",
+          "body": "이벤트, 소셜 캠페인, 콘텐츠 제작, 일일 활동, 진짜 커뮤니티 참여가 모두 쌓입니다."
+        },
+        {
+          "tag": "3단계",
+          "title": "3,000 EP 달성 후 SEED 신청",
+          "body": "자동이 아닙니다. 팀이 계정을 직접 검토해 봇이 아닌 진짜 기여자인지 확인합니다. 거절되면 2주 후 재신청할 수 있습니다."
+        },
+        {
+          "tag": "4단계",
+          "title": "스쿼드 선택",
+          "body": "Creative, Offline, Tech, Outreach, Content 중에서. 쉬워 보이는 것이 아니라 실제로 잘하는 것을 고르세요."
+        },
+        {
+          "tag": "5단계",
+          "title": "스쿼드 미션 완료 → SPROUT",
+          "body": "4,000+ EP 유지, 스쿼드별 마일스톤 달성, 꾸준한 활동, 모더레이터 승인까지. 모든 기여는 Notion 보드에 기록됩니다."
+        },
+        {
+          "tag": "6단계",
+          "title": "FLOWER: 리더십 증명",
+          "body": "공개 체크리스트가 없습니다. SEED는 활동을, SPROUT은 기여를, FLOWER는 리더십을 증명합니다. 극소수만 도달합니다."
+        }
+      ],
+      "flowerNote": "아직 선정된 FLOWER가 없습니다. 자리가 비어 있습니다 — 그 희소성이 바로 가치를 만듭니다.",
+      "failTitle": "대부분이 실패하는 지점",
+      "fails": [
+        "메시지 도배",
+        "맞지 않는 스쿼드 선택",
+        "체크리스트처럼 대하기",
+        "질보다 양"
+      ],
+      "workTitle": "실제로 통하는 것",
+      "works": [
+        "질 높은 상호작용",
+        "다른 사람 돕기",
+        "강점 보여주기",
+        "디스코드 전체에서 존재감 갖기"
+      ]
     }
   },
   "locale": {

@@ -9,6 +9,7 @@ import { useGameStore } from "@/store";
 import { buttonClassName } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { ShareCard } from "@/components/ui/ShareCard";
+import { Mascot } from "@/components/mascot/Mascot";
 import { formatRank } from "@/components/hud/RankLabel";
 
 type RewardScreenProps = {
@@ -58,7 +59,12 @@ export function RewardScreen({ reward }: RewardScreenProps) {
     >
       <Card className="p-6 text-center sm:p-8 md:p-10">
         <p className="font-mono text-[11px] uppercase tracking-[0.35em] text-sx-gold sm:text-xs">{t("badge")}</p>
-        <h2 className="mt-4 font-display text-3xl font-black uppercase tracking-[0.14em] text-sx-green sm:text-4xl">{t("title")}</h2>
+        <Mascot
+          className="mx-auto h-36 w-36 drop-shadow-[0_0_22px_rgba(0,232,50,0.35)] sm:h-40 sm:w-40"
+          pose={(reward.ep ?? 0) > 0 ? "cheer" : "idle"}
+          stage={player.rank}
+        />
+        <h2 className="mt-2 font-display text-3xl font-black uppercase tracking-[0.14em] text-sx-green sm:text-4xl">{t("title")}</h2>
         <div className="mt-6 grid grid-cols-3 gap-2 sm:mt-8 sm:gap-3">
           <div className="rounded-sx border border-[var(--stroke-soft)] bg-white/[0.02] px-2 py-4 sm:px-4">
             <p className="font-mono text-3xl text-sx-green sm:text-4xl">+{epCount}</p>
