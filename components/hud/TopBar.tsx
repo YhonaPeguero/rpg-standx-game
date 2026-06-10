@@ -61,7 +61,7 @@ export function TopBar() {
         <div className="flex items-center gap-2">
           {nextChapter ? (
             <Link
-              className={buttonClassName("primary", "min-h-0 px-4 py-2 text-[10px]")}
+              className={buttonClassName("primary", "min-h-0 whitespace-nowrap px-4 py-2 text-[10px]")}
               href={`/play/scene/${nextChapter.id}`}
             >
               {t("continueJourney", { n: chapterNumber(nextChapter.id) })} →

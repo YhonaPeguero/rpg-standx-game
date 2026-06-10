@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ZoneId } from "@/types";
 import { buttonClassName } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { CharacterAvatar } from "@/components/mascot/CharacterAvatar";
 
 export type DashboardChapter = {
   id: string;
@@ -11,6 +12,8 @@ export type DashboardChapter = {
   href: string;
   estimate: string;
   mentor: string;
+  mentorId: string;
+  mentorColor: string;
 };
 
 type ChapterCardProps = {
@@ -31,9 +34,7 @@ export function ChapterCard({ chapter, unlocked, completed, lockReason, continue
           <h3 className="mt-2 font-display text-xl font-bold uppercase tracking-[0.12em] text-sx-green">{chapter.title}</h3>
           <p className="mt-2 font-semibold text-sx-text">{chapter.subtitle}</p>
         </div>
-        <div className="grid h-14 w-14 place-items-center rounded-full border border-[var(--stroke-brand)] bg-sx-green/5 font-display text-sx-green">
-          {chapter.mentor.slice(0, 1)}
-        </div>
+        <CharacterAvatar className="h-14 w-14 shrink-0" color={chapter.mentorColor} glyphSize={26} id={chapter.mentorId} name={chapter.mentor} />
       </div>
       <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
         <p className="font-mono text-xs uppercase tracking-[0.18em] text-sx-dim">{chapter.estimate}</p>

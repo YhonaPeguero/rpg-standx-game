@@ -56,7 +56,7 @@ export function LocaleSwitcher({ className, variant = "default" }: LocaleSwitche
       {open ? (
         <ul
           aria-label={t("switch")}
-          className="absolute right-0 z-50 mt-2 max-h-[60dvh] min-w-28 overflow-y-auto overflow-x-hidden rounded-sx border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] shadow-glow-green"
+          className="absolute right-0 z-50 mt-2 max-h-[60dvh] overflow-y-auto overflow-x-hidden rounded-sx border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] shadow-glow-green"
           role="listbox"
         >
           {locales.map((code: Locale) => {
@@ -69,7 +69,7 @@ export function LocaleSwitcher({ className, variant = "default" }: LocaleSwitche
                   aria-label={meta.native}
                   aria-selected={active}
                   className={cn(
-                    "flex w-full items-center justify-between gap-3 px-3 py-2.5 text-left font-mono text-xs uppercase tracking-[0.16em] text-sx-text transition hover:bg-sx-green/10",
+                    "flex w-full items-center gap-2 px-2.5 py-2 text-left font-mono text-xs uppercase tracking-[0.16em] text-sx-text transition hover:bg-sx-green/10",
                     active && "bg-sx-green/15 text-sx-green",
                   )}
                   role="option"
@@ -83,13 +83,7 @@ export function LocaleSwitcher({ className, variant = "default" }: LocaleSwitche
                   <span className="rounded border border-sx-green/30 bg-sx-green/10 px-1.5 py-0.5 text-[10px] text-sx-green">
                     {meta.flag}
                   </span>
-                  {meta.storyComplete ? (
-                    active ? <span className="text-sx-green">✓</span> : null
-                  ) : (
-                    <span className="whitespace-nowrap rounded border border-sx-gold/40 bg-sx-gold/10 px-1.5 py-0.5 text-[9px] tracking-[0.1em] text-sx-gold">
-                      {t("storyEn")}
-                    </span>
-                  )}
+                  <span className={cn("text-sx-green", active ? "opacity-100" : "opacity-0")}>✓</span>
                 </button>
               </li>
             );

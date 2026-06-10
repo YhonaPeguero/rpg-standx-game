@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { useMessages, useTranslations } from "next-intl";
 import type { Chapter } from "@/types";
-import { getChapters } from "@/lib/content/loader";
+import { getCharacterById, getChapters } from "@/lib/content/loader";
 import { localizeChapter } from "@/lib/content/localize";
 import { chapterUnlocked } from "@/lib/game/gates";
 import { useGameStore } from "@/store";
@@ -17,13 +17,14 @@ import { RankProgress } from "@/components/hud/RankProgress";
 import { formatRank } from "@/components/hud/RankLabel";
 import { buttonClassName } from "@/components/ui/Button";
 
-const mentorByZone: Record<Chapter["zone"], string> = {
-  void: "Mira",
-  discord_plaza: "Dave",
-  event_arena: "Gabo",
-  content_district: "冷酷锦鲤.StandX",
-  moderator_gate: "Artifex",
-  seed_hall: "Mira",
+// Mentor character per zone; name/color resolve from content/characters.json.
+const mentorIdByZone: Record<Chapter["zone"], string> = {
+  void: "mira",
+  discord_plaza: "dave",
+  event_arena: "gaboo",
+  content_district: "jinli",
+  moderator_gate: "arttifex",
+  seed_hall: "mira",
 };
 
 const estimateById: Record<string, string> = {
@@ -36,6 +37,9 @@ const estimateById: Record<string, string> = {
 };
 
 function toDashboardChapter(chapter: Chapter): DashboardChapter & Pick<Chapter, "unlock"> {
+  const mentorId = mentorIdByZone[chapter.zone];
+  const mentor = getCharacterById(mentorId);
+
   return {
     id: chapter.id,
     title: chapter.title,
@@ -43,7 +47,9 @@ function toDashboardChapter(chapter: Chapter): DashboardChapter & Pick<Chapter, 
     zone: chapter.zone,
     href: `/play/scene/${chapter.id}`,
     estimate: estimateById[chapter.id] ?? "7 min",
-    mentor: mentorByZone[chapter.zone],
+    mentor: mentor?.name ?? mentorId,
+    mentorId,
+    mentorColor: mentor?.color ?? "#00e832",
     unlock: chapter.unlock,
   };
 }

@@ -105,7 +105,7 @@
   },
   "share": {
     "badge": "Share Card",
-    "title": "Generar PNG 1200x630",
+    "title": "Comparte tu partida",
     "body": "Crea una tarjeta limpia para tu partida local. Descárgala o comparte tu progreso en X.",
     "generate": "Generar PNG",
     "copy": "Copiar data URL",

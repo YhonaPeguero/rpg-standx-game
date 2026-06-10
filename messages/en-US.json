@@ -105,7 +105,7 @@
   },
   "share": {
     "badge": "Share Card",
-    "title": "Generate 1200x630 PNG",
+    "title": "Share your run",
     "body": "Create a clean card for your local run. Download it or share your progress on X.",
     "generate": "Generate PNG",
     "copy": "Copy data URL",
