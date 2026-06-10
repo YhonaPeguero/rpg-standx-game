@@ -151,15 +151,6 @@ export function Mascot({ pose = "idle", stage = "new_stander", className, still 
             <Limb d="M138 122 L148 98" />
           </>
         ) : null}
-        {/* Raised pointing arm: one continuous curve + finger so the joint never shows. */}
-        {pose === "point" ? (
-          <g>
-            <path d="M148 106 C166 98 176 84 175 64" fill="none" stroke={OUTLINE} strokeLinecap="round" strokeWidth={14.5} />
-            <path d="M175 64 L181 50" fill="none" stroke={OUTLINE} strokeLinecap="round" strokeWidth={10.5} />
-            <path d="M148 106 C166 98 176 84 175 64" fill="none" stroke={BODY_DARK} strokeLinecap="round" strokeWidth={9} />
-            <path d="M175 64 L181 50" fill="none" stroke={BODY_DARK} strokeLinecap="round" strokeWidth={5} />
-          </g>
-        ) : null}
 
         {/* Sprout stem + leaf */}
         <path d="M100 66 C103 56 107 47 114 38" fill="none" stroke={OUTLINE} strokeLinecap="round" strokeWidth="6" />
@@ -214,11 +205,6 @@ export function Mascot({ pose = "idle", stage = "new_stander", className, still 
         {/* Body */}
         <ellipse cx="100" cy="116" fill={`url(#${uid}-body)`} rx="54" ry="52" stroke={OUTLINE} strokeWidth="7" />
 
-        {/* Other hand resting on the belly while pointing */}
-        {pose === "point" ? (
-          <ellipse cx="84" cy="139" fill={BODY_DARK} rx="11" ry="8" stroke={OUTLINE} strokeWidth="4" transform="rotate(-14 84 139)" />
-        ) : null}
-
         {/* Eye */}
         <ellipse cx="100" cy="106" fill={SCLERA} rx="30" ry="31" />
         <circle cx={gaze.ix} cy={gaze.iy} fill={`url(#${uid}-iris)`} r="19" />
@@ -243,7 +229,7 @@ export function Mascot({ pose = "idle", stage = "new_stander", className, still 
             fill={BODY_DARK}
             rx="30"
             ry="31"
-            style={{ transformBox: "fill-box", transformOrigin: "50% 0%" }}
+            style={{ transformBox: "fill-box", transformOrigin: "50% 0%", transform: "scaleY(0)" }}
           />
         ) : null}
 
@@ -261,6 +247,19 @@ export function Mascot({ pose = "idle", stage = "new_stander", className, still 
             <path d="M55 128 l11 -4 M57 135 l11 -4 M59 142 l11 -4" stroke={BLUSH} strokeLinecap="round" strokeWidth="3.5" />
             <path d="M145 124 l-11 -4 M143 131 l-11 -4 M141 138 l-11 -4" stroke={BLUSH} strokeLinecap="round" strokeWidth="3.5" />
           </>
+        ) : null}
+
+        {/* Point pose (drawn over the body, like the reference art): one arm hugging
+            the belly ending in a fist over the smile's tip, the other raised with a
+            hand + index finger. */}
+        {pose === "point" ? (
+          <g>
+            <path d="M54 116 C64 132 74 142 86 148" fill="none" stroke={OUTLINE} strokeLinecap="round" strokeWidth={15} />
+            <path d="M54 116 C64 132 74 142 86 148" fill="none" stroke={BODY_DARK} strokeLinecap="round" strokeWidth={9.5} />
+            <circle cx="89" cy="149" fill={BODY_DARK} r="7.5" stroke={OUTLINE} strokeWidth="4" />
+            <path d="M150 108 C166 102 173 92 174 80 Q175 70 185 56" fill="none" stroke={OUTLINE} strokeLinecap="round" strokeWidth={13} />
+            <path d="M150 108 C166 102 173 92 174 80 Q175 70 185 56" fill="none" stroke={BODY_DARK} strokeLinecap="round" strokeWidth={8} />
+          </g>
         ) : null}
 
         {/* Hands raised to the face while cheering */}

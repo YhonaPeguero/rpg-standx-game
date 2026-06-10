@@ -12,7 +12,7 @@
       "kind": "dialog",
       "lines": [
         { "character": "gaboo", "text": "HEY! You made it. I watched your run - consistent, useful, real. You earned this." },
-        { "character": "mira", "text": "Application reviewed. Engage Points verified. Stander - you are approved for the @SEED role." },
+        { "character": "mira", "text": "Review complete. Engage Points verified. Stander - you are a certified SEED CANDIDATE. The real @SEED role is earned in Discord: 3,000 Engage Points, then a manual review." },
         { "character": "stander", "text": "@SEED... is it real?" },
         { "character": "mira", "text": "It is real. But SEED is not the destination - it is the entry gate. Now you choose a Squad." },
         { "character": "dave", "text": "..." },

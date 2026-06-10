@@ -51,13 +51,12 @@ export function LocaleSwitcher({ className, variant = "default" }: LocaleSwitche
         <span className="rounded border border-sx-green/40 bg-sx-green/10 px-1.5 py-0.5 text-[10px] text-sx-green">
           {current.flag}
         </span>
-        <span>{current.native}</span>
         <span className="text-sx-dim">▾</span>
       </button>
       {open ? (
         <ul
           aria-label={t("switch")}
-          className="absolute right-0 z-50 mt-2 max-h-[60dvh] w-56 overflow-y-auto overflow-x-hidden rounded-sx border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] shadow-glow-green"
+          className="absolute right-0 z-50 mt-2 max-h-[60dvh] min-w-28 overflow-y-auto overflow-x-hidden rounded-sx border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] shadow-glow-green"
           role="listbox"
         >
           {locales.map((code: Locale) => {
@@ -67,23 +66,22 @@ export function LocaleSwitcher({ className, variant = "default" }: LocaleSwitche
             return (
               <li key={code}>
                 <button
+                  aria-label={meta.native}
                   aria-selected={active}
                   className={cn(
                     "flex w-full items-center justify-between gap-3 px-3 py-2.5 text-left font-mono text-xs uppercase tracking-[0.16em] text-sx-text transition hover:bg-sx-green/10",
                     active && "bg-sx-green/15 text-sx-green",
                   )}
                   role="option"
+                  title={meta.native}
                   type="button"
                   onClick={() => {
                     setLocale(code);
                     setOpen(false);
                   }}
                 >
-                  <span className="flex items-center gap-2">
-                    <span className="rounded border border-sx-green/30 bg-sx-green/10 px-1.5 py-0.5 text-[10px] text-sx-green">
-                      {meta.flag}
-                    </span>
-                    {meta.native}
+                  <span className="rounded border border-sx-green/30 bg-sx-green/10 px-1.5 py-0.5 text-[10px] text-sx-green">
+                    {meta.flag}
                   </span>
                   {meta.storyComplete ? (
                     active ? <span className="text-sx-green">✓</span> : null
