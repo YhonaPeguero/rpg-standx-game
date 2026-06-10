@@ -48,7 +48,7 @@ export function TopBar() {
   }, [bumpStreak, rollDailyIfNeeded]);
 
   return (
-    <header className="sticky top-0 z-40 mb-5 rounded-sx-lg border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] px-4 py-3 backdrop-blur md:px-5">
+    <header className="sticky top-0 z-40 mx-auto mb-5 w-full max-w-7xl rounded-sx-lg border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] px-4 py-3 backdrop-blur md:px-5">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <EPRing ep={player.ep} current={current} next={next?.min ?? player.ep} />

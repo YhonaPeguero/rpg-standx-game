@@ -151,7 +151,15 @@ export function Mascot({ pose = "idle", stage = "new_stander", className, still 
             <Limb d="M138 122 L148 98" />
           </>
         ) : null}
-        {pose === "point" ? <Limb d="M146 100 L168 66" width={11} /> : null}
+        {/* Raised pointing arm: one continuous curve + finger so the joint never shows. */}
+        {pose === "point" ? (
+          <g>
+            <path d="M148 106 C166 98 176 84 175 64" fill="none" stroke={OUTLINE} strokeLinecap="round" strokeWidth={14.5} />
+            <path d="M175 64 L181 50" fill="none" stroke={OUTLINE} strokeLinecap="round" strokeWidth={10.5} />
+            <path d="M148 106 C166 98 176 84 175 64" fill="none" stroke={BODY_DARK} strokeLinecap="round" strokeWidth={9} />
+            <path d="M175 64 L181 50" fill="none" stroke={BODY_DARK} strokeLinecap="round" strokeWidth={5} />
+          </g>
+        ) : null}
 
         {/* Sprout stem + leaf */}
         <path d="M100 66 C103 56 107 47 114 38" fill="none" stroke={OUTLINE} strokeLinecap="round" strokeWidth="6" />
@@ -206,10 +214,10 @@ export function Mascot({ pose = "idle", stage = "new_stander", className, still 
         {/* Body */}
         <ellipse cx="100" cy="116" fill={`url(#${uid}-body)`} rx="54" ry="52" stroke={OUTLINE} strokeWidth="7" />
 
-        {/* Pointing finger tip (in front of body edge) */}
-        {pose === "point" ? <Limb d="M168 66 L175 55" width={6} /> : null}
-        {/* Belly arm for point pose */}
-        {pose === "point" ? <Limb d="M64 124 Q80 139 98 141" /> : null}
+        {/* Other hand resting on the belly while pointing */}
+        {pose === "point" ? (
+          <ellipse cx="84" cy="139" fill={BODY_DARK} rx="11" ry="8" stroke={OUTLINE} strokeWidth="4" transform="rotate(-14 84 139)" />
+        ) : null}
 
         {/* Eye */}
         <ellipse cx="100" cy="106" fill={SCLERA} rx="30" ry="31" />

@@ -57,7 +57,7 @@ export function LocaleSwitcher({ className, variant = "default" }: LocaleSwitche
       {open ? (
         <ul
           aria-label={t("switch")}
-          className="absolute right-0 z-50 mt-2 w-48 overflow-hidden rounded-sx border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] shadow-glow-green"
+          className="absolute right-0 z-50 mt-2 max-h-[60dvh] w-56 overflow-y-auto overflow-x-hidden rounded-sx border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] shadow-glow-green"
           role="listbox"
         >
           {locales.map((code: Locale) => {

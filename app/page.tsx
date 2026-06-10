@@ -35,7 +35,8 @@ export default function Home() {
       <div aria-hidden className="sx-vignette" />
       <div aria-hidden className="sx-grain-overlay" />
 
-      <header className="relative z-10 mx-auto flex max-w-6xl items-center justify-between">
+      {/* z-30: the locale dropdown must paint above the hero/feature sections below. */}
+      <header className="relative z-30 mx-auto flex max-w-6xl items-center justify-between">
         <span className="flex items-center gap-2.5">
           <span className="grid h-8 w-8 place-items-center rounded-sx border border-sx-green/40 bg-sx-green/10 text-sx-green shadow-[0_0_14px_rgba(0,232,50,0.3)]">
             <Icon name="delta" size={18} />

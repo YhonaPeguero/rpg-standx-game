@@ -19,10 +19,10 @@ export default function AboutPage() {
       <div aria-hidden className="sx-vignette" />
       <div aria-hidden className="sx-grain-overlay" />
 
-      <header className="relative z-10 mx-auto flex max-w-3xl items-center justify-between">
+      <header className="relative z-30 mx-auto flex max-w-3xl items-center justify-between">
         <Link className="flex items-center gap-2.5" href="/">
           <span className="grid h-8 w-8 place-items-center rounded-sx border border-sx-green/40 bg-sx-green/10 text-sx-green shadow-[0_0_14px_rgba(0,232,50,0.3)]">
-            <Icon name="seed" size={18} />
+            <Icon name="delta" size={18} />
           </span>
           <span className="font-display text-sm font-bold uppercase tracking-[0.28em] text-sx-green">StandX</span>
         </Link>
