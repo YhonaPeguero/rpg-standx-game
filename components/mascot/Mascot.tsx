@@ -5,7 +5,7 @@ import type { Rank } from "@/types";
 import { useGameStore } from "@/store";
 import { cn } from "@/lib/utils";
 
-export type MascotPose = "idle" | "point" | "peek" | "meh" | "cheer";
+export type MascotPose = "idle" | "peek" | "meh" | "cheer";
 
 type MascotProps = {
   pose?: MascotPose;
@@ -41,7 +41,6 @@ function Limb({ d, width = 10 }: { d: string; width?: number }) {
 
 const GAZE: Record<MascotPose, { ix: number; iy: number; px: number; py: number; hx: number; hy: number }> = {
   idle: { ix: 102, iy: 109, px: 106, py: 113, hx: 92, hy: 97 },
-  point: { ix: 106, iy: 103, px: 111, py: 98, hx: 96, hy: 92 },
   cheer: { ix: 102, iy: 107, px: 105, py: 109, hx: 92, hy: 96 },
   meh: { ix: 102, iy: 112, px: 105, py: 116, hx: 92, hy: 100 },
   peek: { ix: 94, iy: 110, px: 89, py: 113, hx: 86, hy: 99 },
@@ -234,7 +233,7 @@ export function Mascot({ pose = "idle", stage = "new_stander", className, still 
         ) : null}
 
         {/* Mouth */}
-        {pose === "idle" || pose === "point" ? (
+        {pose === "idle" ? (
           <path d="M85 148 Q100 158 115 148" fill="none" stroke={SMILE} strokeLinecap="round" strokeWidth="5" />
         ) : null}
         {lidded ? (
@@ -247,19 +246,6 @@ export function Mascot({ pose = "idle", stage = "new_stander", className, still 
             <path d="M55 128 l11 -4 M57 135 l11 -4 M59 142 l11 -4" stroke={BLUSH} strokeLinecap="round" strokeWidth="3.5" />
             <path d="M145 124 l-11 -4 M143 131 l-11 -4 M141 138 l-11 -4" stroke={BLUSH} strokeLinecap="round" strokeWidth="3.5" />
           </>
-        ) : null}
-
-        {/* Point pose (drawn over the body, like the reference art): one arm hugging
-            the belly ending in a fist over the smile's tip, the other raised with a
-            hand + index finger. */}
-        {pose === "point" ? (
-          <g>
-            <path d="M54 116 C64 132 74 142 86 148" fill="none" stroke={OUTLINE} strokeLinecap="round" strokeWidth={15} />
-            <path d="M54 116 C64 132 74 142 86 148" fill="none" stroke={BODY_DARK} strokeLinecap="round" strokeWidth={9.5} />
-            <circle cx="89" cy="149" fill={BODY_DARK} r="7.5" stroke={OUTLINE} strokeWidth="4" />
-            <path d="M150 108 C166 102 173 92 174 80 Q175 70 185 56" fill="none" stroke={OUTLINE} strokeLinecap="round" strokeWidth={13} />
-            <path d="M150 108 C166 102 173 92 174 80 Q175 70 185 56" fill="none" stroke={BODY_DARK} strokeLinecap="round" strokeWidth={8} />
-          </g>
         ) : null}
 
         {/* Hands raised to the face while cheering */}

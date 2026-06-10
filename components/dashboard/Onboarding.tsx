@@ -56,7 +56,7 @@ export function Onboarding() {
     <div className="fixed inset-0 z-[70] flex items-center justify-center bg-[var(--bg-overlay)] p-4 backdrop-blur-sm">
       <Card className="relative w-full max-w-xl p-6 md:p-8">
         <div className="pointer-events-none absolute -top-16 right-4 hidden h-28 w-28 sm:block">
-          <Mascot className="h-full w-full drop-shadow-[0_0_16px_rgba(0,232,50,0.35)]" pose={isLast ? "cheer" : "point"} />
+          <Mascot className="h-full w-full drop-shadow-[0_0_16px_rgba(0,232,50,0.35)]" pose={isLast ? "cheer" : "idle"} />
         </div>
         <div className="flex items-center justify-between">
           <p className="font-mono text-xs uppercase tracking-[0.35em] text-sx-gold">{t("badge")}</p>

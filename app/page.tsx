@@ -83,7 +83,7 @@ export default function Home() {
               className="pointer-events-none absolute inset-0 opacity-60"
               style={{ backgroundImage: "radial-gradient(circle at 50% 40%, rgba(0,232,50,0.16), transparent 60%)" }}
             />
-            <Mascot className="relative h-56 w-56 drop-shadow-[0_0_28px_rgba(0,232,50,0.5)] md:h-64 md:w-64" pose="point" />
+            <Mascot className="relative h-56 w-56 drop-shadow-[0_0_28px_rgba(0,232,50,0.5)] md:h-64 md:w-64" pose="idle" />
             <p className="relative mt-4 font-display text-lg font-bold uppercase tracking-[0.2em] text-sx-green">STANDER</p>
             <p className="relative mt-1 font-mono text-[10px] uppercase tracking-[0.3em] text-sx-dim">New Stander · online</p>
           </Card>

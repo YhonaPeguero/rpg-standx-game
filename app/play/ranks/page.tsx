@@ -139,7 +139,7 @@ export default function RanksPage() {
         </div>
 
         <div className="mt-8 flex items-center gap-4 rounded-sx-lg border border-sx-gold/40 bg-sx-gold/5 p-5">
-          <Mascot className="h-20 w-20 shrink-0 drop-shadow-[0_0_14px_rgba(255,230,0,0.25)]" pose="point" />
+          <Mascot className="h-20 w-20 shrink-0 drop-shadow-[0_0_14px_rgba(255,230,0,0.25)]" pose="cheer" still />
           <p className="font-semibold leading-7 text-sx-text">{t("roadmap.flowerNote")}</p>
         </div>
 
