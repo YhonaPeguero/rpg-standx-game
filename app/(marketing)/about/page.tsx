@@ -32,7 +32,7 @@ export default function AboutPage() {
       <div className="relative z-10 mx-auto flex min-h-[60dvh] max-w-3xl items-center">
         <Card className="w-full p-8 md:p-10">
           <p className="font-mono text-xs uppercase tracking-[0.35em] text-sx-gold">{t("badge")}</p>
-          <h1 className="mt-4 font-display text-3xl font-bold uppercase tracking-[0.16em] text-sx-green md:text-4xl">{t("title")}</h1>
+          <h1 className="mt-4 break-words font-display text-2xl sm:text-3xl font-bold uppercase tracking-[0.16em] text-sx-green md:text-4xl">{t("title")}</h1>
           <p className="mt-5 text-lg font-semibold leading-8 text-sx-text">{t("body")}</p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">

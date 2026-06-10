@@ -61,7 +61,7 @@ export default function ProfilePage() {
       <div className="space-y-5">
         <Card className="p-6">
           <p className="font-mono text-xs uppercase tracking-[0.35em] text-sx-gold">{t("badge")}</p>
-          <h1 className="mt-4 font-display text-3xl font-bold uppercase tracking-[0.16em] text-sx-green">{player.displayName}</h1>
+          <h1 className="mt-4 break-words font-display text-2xl sm:text-3xl font-bold uppercase tracking-[0.16em] text-sx-green">{player.displayName}</h1>
           <div className="mt-6 grid gap-3 sm:grid-cols-4">
             <div className="rounded-sx border border-[var(--stroke-soft)] p-4">
               <p className="font-mono text-2xl text-sx-green">{player.ep}</p>

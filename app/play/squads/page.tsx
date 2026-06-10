@@ -35,7 +35,7 @@ export default function SquadsPage() {
     <main className="mx-auto max-w-5xl space-y-6">
       <div>
         <p className="font-mono text-xs uppercase tracking-[0.35em] text-sx-gold">{t("badge")}</p>
-        <h1 className="mt-4 font-display text-3xl font-black uppercase tracking-[0.16em] text-sx-green md:text-5xl">{t("title")}</h1>
+        <h1 className="mt-4 break-words font-display text-2xl sm:text-3xl font-black uppercase tracking-[0.16em] text-sx-green md:text-5xl">{t("title")}</h1>
         <p className="mt-4 max-w-2xl text-lg font-semibold leading-8 text-sx-text">{t("intro")}</p>
       </div>
 

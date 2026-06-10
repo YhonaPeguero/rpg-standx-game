@@ -138,10 +138,11 @@ export function Mascot({ pose = "idle", stage = "new_stander", className, still 
         ) : null}
 
         {/* Arms behind/around the body */}
+        {/* Relaxed arms resting slightly downward-out, like the reference art. */}
         {pose === "idle" ? (
           <>
-            <Limb d="M58 124 L40 107" />
-            <Limb d="M142 124 L160 107" />
+            <Limb d="M58 120 L40 129" />
+            <Limb d="M142 120 L160 129" />
           </>
         ) : null}
         {pose === "cheer" ? (

@@ -7,7 +7,7 @@ export default function NotFound() {
     <main className="flex min-h-dvh items-center justify-center px-6 py-12">
       <Card className="w-full max-w-xl p-8 text-center md:p-10">
         <p className="font-mono text-xs uppercase tracking-[0.45em] text-sx-gold">404</p>
-        <h1 className="mt-4 font-display text-3xl font-bold uppercase tracking-[0.16em] text-sx-green md:text-4xl">
+        <h1 className="mt-4 break-words font-display text-2xl sm:text-3xl font-bold uppercase tracking-[0.16em] text-sx-green md:text-4xl">
           Off the Growth Path
         </h1>
         <p className="mt-4 text-lg font-semibold text-sx-text">That route doesn&apos;t exist on the map.</p>

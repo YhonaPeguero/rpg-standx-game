@@ -12,7 +12,6 @@ import { ChapterCard, type DashboardChapter } from "@/components/dashboard/Chapt
 import { ChapterRoadmap, type RoadmapItem } from "@/components/dashboard/ChapterRoadmap";
 import { GrowthTree } from "@/components/dashboard/GrowthTree";
 import { MascotPanel } from "@/components/dashboard/MascotPanel";
-import { Sidebar } from "@/components/dashboard/Sidebar";
 import { RankProgress } from "@/components/hud/RankProgress";
 import { formatRank } from "@/components/hud/RankLabel";
 import { buttonClassName } from "@/components/ui/Button";
@@ -84,14 +83,11 @@ export default function PlayPage() {
   });
 
   return (
-    <main className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-12">
-      <aside className="lg:col-span-2">
-        <Sidebar />
-      </aside>
+    <main className="grid gap-6 lg:grid-cols-10">
       <section className="space-y-6 lg:col-span-6">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.35em] text-sx-gold">{t("badge")}</p>
-          <h1 className="mt-3 font-display text-3xl font-black uppercase tracking-[0.16em] text-sx-green md:text-4xl">
+          <h1 className="mt-3 break-words font-display text-2xl sm:text-3xl font-black uppercase tracking-[0.16em] text-sx-green md:text-4xl">
             {t("title")}
           </h1>
         </div>
