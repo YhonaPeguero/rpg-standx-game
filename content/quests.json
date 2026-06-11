@@ -1,27 +1,11 @@
 [
   {
-    "id": "daily_x_post",
-    "kind": "daily",
-    "i18nKey": "quests.list.daily_x_post",
-    "goal": 1,
-    "category": "content",
-    "reward": { "ep": 50 }
-  },
-  {
-    "id": "weekly_rumble",
+    "id": "weekly_game",
     "kind": "weekly",
-    "i18nKey": "quests.list.weekly_rumble",
+    "i18nKey": "quests.list.weekly_game",
     "goal": 1,
     "category": "community",
-    "reward": { "ep": 50 }
-  },
-  {
-    "id": "weekly_poker",
-    "kind": "weekly",
-    "i18nKey": "quests.list.weekly_poker",
-    "goal": 1,
-    "category": "community",
-    "reward": { "ep": 50 }
+    "reward": { "ep": 30 }
   },
   {
     "id": "weekly_event",
@@ -29,7 +13,7 @@
     "i18nKey": "quests.list.weekly_event",
     "goal": 1,
     "category": "community",
-    "reward": { "ep": 50, "codex": ["weekly_events"] },
+    "reward": { "ep": 30, "codex": ["weekly_events"] },
     "unlock": [{ "type": "ep", "value": 60 }]
   },
   {
@@ -38,7 +22,7 @@
     "i18nKey": "quests.list.weekly_quality",
     "goal": 1,
     "category": "content",
-    "reward": { "ep": 50, "codex": ["content_quality"] },
+    "reward": { "ep": 30, "codex": ["content_quality"] },
     "unlock": [{ "type": "ep", "value": 150 }]
   },
   {

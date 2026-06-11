@@ -36,6 +36,9 @@ export function Sidebar() {
           <Icon name="delta" size={16} />
         </span>
         <span className="font-display text-sm font-bold uppercase tracking-[0.24em] text-sx-green">StandX</span>
+        <span className="rounded border border-sx-green/50 bg-sx-green/10 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.18em] text-sx-green">
+          Community
+        </span>
         <Icon className="ml-auto text-sx-dim transition group-hover:text-sx-green" name="home" size={14} />
       </Link>
 

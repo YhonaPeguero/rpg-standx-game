@@ -1,27 +1,27 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
 import type { Quest, QuestKind } from "@/types";
-import { getQuests, getQuestById } from "@/lib/content/quests";
-import { hoursUntilUtcMidnight } from "@/lib/game/quests";
+import { getQuests } from "@/lib/content/quests";
 import { chapterUnlocked } from "@/lib/game/gates";
 import { useGameStore } from "@/store";
 import { QuestCard } from "./QuestCard";
 
-const TABS: QuestKind[] = ["daily", "weekly", "community"];
+// Mirrors the real Discord cadence: weekly games/highlights + community events.
+const TABS: QuestKind[] = ["weekly", "community"];
 
 const TAB_UNLOCK_AT_COMPLETED: Record<QuestKind, number> = {
   daily: 0,
-  weekly: 2,
-  community: 4,
+  weekly: 0,
+  community: 3,
 };
 
-const MANUAL_TRIGGER_QUESTS = new Set(["weekly_rumble", "weekly_poker", "community_shoutout"]);
+const MANUAL_TRIGGER_QUESTS = new Set(["weekly_game", "community_shoutout"]);
 
 export function QuestBoard() {
   const t = useTranslations("quests");
-  const [tab, setTab] = useState<QuestKind>("daily");
+  const [tab, setTab] = useState<QuestKind>("weekly");
 
   const player = useGameStore((state) => state.player);
   const completed = useGameStore((state) => state.completedChapters);
@@ -29,25 +29,17 @@ export function QuestBoard() {
   const addCodex = useGameStore((state) => state.addCodex);
   const unlockAchievement = useGameStore((state) => state.unlockAchievement);
   const questState = useGameStore((state) => state.questState);
-  const rollDailyIfNeeded = useGameStore((state) => state.rollDailyIfNeeded);
   const claimQuest = useGameStore((state) => state.claimQuest);
   const incrementQuest = useGameStore((state) => state.incrementQuest);
-
-  useEffect(() => {
-    rollDailyIfNeeded();
-  }, [rollDailyIfNeeded]);
 
   const tabUnlocked = (kind: QuestKind) => completed.size >= TAB_UNLOCK_AT_COMPLETED[kind];
 
   const allQuests = useMemo(() => getQuests(), []);
   const quests = useMemo<Quest[]>(() => {
     if (!tabUnlocked(tab)) return [];
-    if (tab === "daily") {
-      return questState.activeDaily.map((id) => getQuestById(id)).filter((q): q is Quest => Boolean(q));
-    }
     return allQuests.filter((quest) => quest.kind === tab);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [allQuests, questState.activeDaily, tab, completed.size]);
+  }, [allQuests, tab, completed.size]);
 
   function applyClaim(quest: Quest) {
     if (questState.claimed.includes(quest.id)) return;
@@ -70,9 +62,6 @@ export function QuestBoard() {
             {t("optionalLabel")}
           </p>
         </div>
-        <p className="rounded-sx border border-[var(--stroke-brand)] bg-sx-bg/60 px-3 py-2 font-mono text-xs uppercase tracking-[0.18em] text-sx-dim">
-          {t("resetIn", { hours: hoursUntilUtcMidnight() })}
-        </p>
       </header>
 
       <div role="tablist" className="flex flex-wrap gap-2">

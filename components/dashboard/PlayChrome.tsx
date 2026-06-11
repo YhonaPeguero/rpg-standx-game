@@ -1,13 +1,22 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useEffect, type ReactNode } from "react";
 import { usePathname } from "next/navigation";
+import { audioEngine } from "@/lib/audio/engine";
 import { TopBar } from "@/components/hud/TopBar";
 import { BottomNav, Sidebar } from "@/components/dashboard/Sidebar";
 
 export function PlayChrome({ children }: { children: ReactNode }) {
   const pathname = usePathname();
   const inScene = pathname?.startsWith("/play/scene/") ?? false;
+
+  // Lobby music: scenes drive their own zone theme, every other play page
+  // hums the plaza track (kicks in after the first user gesture).
+  useEffect(() => {
+    if (inScene) return;
+    audioEngine.startAmbient("discord_plaza");
+    return () => audioEngine.stopAmbient();
+  }, [inScene]);
 
   if (inScene) {
     return (

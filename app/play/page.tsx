@@ -10,7 +10,6 @@ import { chapterUnlocked } from "@/lib/game/gates";
 import { useGameStore } from "@/store";
 import { ChapterCard, type DashboardChapter } from "@/components/dashboard/ChapterCard";
 import { ChapterRoadmap, type RoadmapItem } from "@/components/dashboard/ChapterRoadmap";
-import { GrowthTree } from "@/components/dashboard/GrowthTree";
 import { MascotPanel } from "@/components/dashboard/MascotPanel";
 import { RankProgress } from "@/components/hud/RankProgress";
 import { formatRank } from "@/components/hud/RankLabel";
@@ -146,16 +145,6 @@ export default function PlayPage() {
             }}
           />
         </section>
-
-        <details className="rounded-sx-lg border border-[var(--stroke-brand)] bg-sx-bg/40">
-          <summary className="cursor-pointer list-none px-5 py-4 font-mono text-xs uppercase tracking-[0.28em] text-sx-text transition hover:text-sx-green">
-            <span className="mr-2 text-sx-green">▸</span>
-            {t("growthMap")}
-          </summary>
-          <div className="px-5 pb-5">
-            <GrowthTree completedChapterIds={completedChapters} currentChapterId={nextChapter.id} />
-          </div>
-        </details>
 
         <div className="flex flex-wrap gap-3">
           <Link className={buttonClassName("secondary")} href="/play/quests">

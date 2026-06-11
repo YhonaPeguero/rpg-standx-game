@@ -42,6 +42,9 @@ export default function Home() {
             <Icon name="delta" size={18} />
           </span>
           <span className="font-display text-sm font-bold uppercase tracking-[0.28em] text-sx-green">StandX</span>
+          <span className="rounded border border-sx-green/50 bg-sx-green/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.22em] text-sx-green">
+            Community
+          </span>
         </span>
         <LocaleSwitcher />
       </header>

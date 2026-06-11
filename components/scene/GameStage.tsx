@@ -135,7 +135,10 @@ export function GameStage({ act, title, subtitle, zone, sceneIndex, sceneTotal, 
         </h1>
       </div>
 
-      <div className={mode === "dialog" ? "absolute inset-0 z-30" : "absolute inset-x-4 top-32 z-30 mx-auto max-w-4xl pb-8 md:top-36"}>{children}</div>
+      {/* Panel mode must scroll: minigame/quiz feedback can grow taller than the stage. */}
+      <div className={mode === "dialog" ? "absolute inset-0 z-30" : "absolute inset-x-4 bottom-0 top-32 z-30 overflow-y-auto md:top-36"}>
+        {mode === "dialog" ? children : <div className="mx-auto max-w-4xl pb-8">{children}</div>}
+      </div>
     </section>
   );
 }

@@ -25,7 +25,6 @@
     "lockedCta": "Iniciar Capítulo 1",
     "nextStep": "Tu próximo paso",
     "allChapters": "Todos los capítulos del Acto I",
-    "growthMap": "Mapa de crecimiento",
     "roadmap": {
       "step": "Paso",
       "start": "Empezar",
@@ -186,7 +185,7 @@
       },
       {
         "title": "Tu meta: SEED",
-        "body": "Sube por el Growth Path. SEED es la meta real: 3.000 EP más actividad real en Discord. El Acto I es tu rampa de entrada: termínalo y estarás listo para ir a por SEED de verdad."
+        "body": "Sube por el Growth Path. SEED es la meta real: 3.000 EP más actividad real. Recuerda: esto es una simulación educativa; los Engage Points reales se ganan en el Discord de StandX asistiendo a eventos y participando activamente."
       },
       {
         "title": "Squads",
@@ -530,55 +529,45 @@
   "quests": {
     "badge": "Tablero de Misiones",
     "title": "Misiones Activas",
-    "intro": "Misiones diarias, semanales y de la comunidad. Complétalas para ganar EP, entradas del codex e impulso hacia Seed.",
+    "intro": "Espejo del Discord real de StandX: juegos semanales, destacados del viernes y eventos de comunidad. El EP de aquí es práctica; los Engage Points reales se ganan en Discord.",
     "claim": "Reclamar",
     "claimed": "Reclamado",
     "markDone": "Marcar como hecho",
     "rewardEp": "+{ep} EP",
     "rewardCodex": "+Codex",
     "tabs": {
-      "daily": "Diarias",
       "weekly": "Semanales",
       "community": "Comunidad"
     },
     "empty": "Todo al día. Nuevas misiones a las 00:00 UTC.",
     "optionalLabel": "Práctica opcional — extras mientras juegas",
     "tabLockedAt": "Se desbloquea tras completar {count} capítulos.",
-    "resetIn": "Reinicia en {hours}h",
     "locked": "Bloqueado",
     "progress": "{done}/{total}",
     "list": {
-      "daily_x_post": {
-        "title": "Publica en X",
-        "body": "Comparte un post genuino sobre StandX. Tu señal diaria."
-      },
-      "weekly_rumble": {
-        "title": "Juega Rumble en Discord",
-        "body": "Únete a la ronda de Rumble en el servidor de Discord esta semana."
-      },
-      "weekly_poker": {
-        "title": "Únete a la noche de póker",
-        "body": "Siéntate en la mesa de póker de la comunidad esta semana."
-      },
       "weekly_event": {
-        "title": "Asiste al evento semanal",
-        "body": "Aparece en el evento de esta semana. Trae presencia, ayuda a un newcomer."
+        "title": "Únete a un evento de Discord",
+        "body": "Los eventos se anuncian en Discord. Reclama el rol Events para no perderte ninguno."
       },
       "weekly_quality": {
-        "title": "Publica un post de calidad",
-        "body": "Profundidad + voz humana. El hype no cuenta."
+        "title": "Publica contenido de calidad",
+        "body": "Profundidad + voz humana. Los mejores posts salen en los destacados del viernes por 15–40 EP reales."
       },
       "weekly_streak": {
-        "title": "Alcanza 7 días de racha",
-        "body": "Consistencia real. Se reinicia con cualquier fallo."
+        "title": "Mantente visiblemente activo",
+        "body": "Aparece a diario. Los sábados a veces destacan a los miembros muy activos con +100 EP reales."
       },
       "community_shoutout": {
-        "title": "Gana un shoutout semanal",
-        "body": "Que te nomine Artifex o Gabo en la sala BR."
+        "title": "Completa un evento de temporada",
+        "body": "Los eventos casuales de temporada y de lanzamientos pagan 80–100 EP reales. Atento a los anuncios de Discord."
       },
       "community_thread": {
         "title": "Lanza un hilo profundo",
         "body": "DUSD, perps o gobernanza. Usa datos. Muestra estructura."
+      },
+      "weekly_game": {
+        "title": "Juego comunitario del miércoles",
+        "body": "Rumble o Póker en Discord, los miércoles a las 14:00 UTC. Todos los participantes ganan +30 EP reales; el Póker paga hasta +50 al top 10 y en Rumble cada ronda ganada da +20."
       }
     }
   },

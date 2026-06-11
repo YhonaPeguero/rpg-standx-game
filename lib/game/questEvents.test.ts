@@ -24,7 +24,7 @@ function makePlayer(overrides: Partial<Player> = {}): Player {
 
 function makeState(overrides: Partial<QuestState> = {}): QuestState {
   return {
-    activeDaily: ["daily_x_post"],
+    activeDaily: [],
     progress: {},
     claimed: [],
     lastRollISO: "2026-04-26",
@@ -33,15 +33,16 @@ function makeState(overrides: Partial<QuestState> = {}): QuestState {
 }
 
 describe("applyQuestEvent", () => {
-  it("bumps daily_x_post on scene_complete", () => {
-    const next = applyQuestEvent(
-      makeState(),
+  it("ignores scene_complete (there are no daily quests)", () => {
+    const before = makeState();
+    const after = applyQuestEvent(
+      before,
       { type: "scene_complete", sceneId: "s1-1", chapterId: "act1-c1-awakening" },
       makePlayer(),
       new Set(),
     );
 
-    expect(next.progress.daily_x_post).toBe(1);
+    expect(after).toBe(before);
   });
 
   it("ignores codex_unlock (no quest is wired to it)", () => {
@@ -134,22 +135,11 @@ describe("applyQuestEvent", () => {
   });
 
   it("does not bump quests that are already claimed", () => {
-    const before = makeState({ claimed: ["daily_x_post"] });
+    const before = makeState({ claimed: ["weekly_quality"] });
     const after = applyQuestEvent(
       before,
-      { type: "scene_complete", sceneId: "s1-1", chapterId: null },
-      makePlayer(),
-      new Set(),
-    );
-    expect(after).toBe(before);
-  });
-
-  it("does not bump daily quests that are not in today's roll", () => {
-    const before = makeState({ activeDaily: [] });
-    const after = applyQuestEvent(
-      before,
-      { type: "scene_complete", sceneId: "s1-1", chapterId: null },
-      makePlayer(),
+      { type: "mastery", sceneId: "s4-2-content-pick", stars: 3 },
+      makePlayer({ ep: 1100 }),
       new Set(),
     );
     expect(after).toBe(before);

@@ -31,7 +31,8 @@ type ProgressDelta = {
 function deltasForEvent(event: QuestEvent): ProgressDelta[] {
   switch (event.type) {
     case "scene_complete":
-      return [{ questId: "daily_x_post", by: 1 }];
+      // No daily quests: the real system rewards weekly games/highlights, not daily chores.
+      return [];
     case "chapter_complete": {
       const out: ProgressDelta[] = [];
       if (COMMUNITY_EVENT_CHAPTERS.has(event.chapterId)) {
