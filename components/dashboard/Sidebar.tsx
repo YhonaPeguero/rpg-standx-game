@@ -32,14 +32,11 @@ export function Sidebar() {
         href="/"
         title={t("home")}
       >
-        <span className="grid h-7 w-7 place-items-center rounded-sx border border-sx-green/40 bg-sx-green/10 text-sx-green shadow-[0_0_12px_rgba(0,232,50,0.25)]">
-          <Icon name="delta" size={16} />
-        </span>
-        <span className="font-display text-sm font-bold uppercase tracking-[0.24em] text-sx-green">StandX</span>
-        <span className="rounded border border-sx-green/50 bg-sx-green/10 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.18em] text-sx-green">
+        <span className="font-display text-sm font-bold uppercase tracking-[0.2em] text-sx-green">StandX</span>
+        <span className="shrink-0 whitespace-nowrap rounded border border-sx-green/50 bg-sx-green/10 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-sx-green">
           Community
         </span>
-        <Icon className="ml-auto text-sx-dim transition group-hover:text-sx-green" name="home" size={14} />
+        <Icon className="ml-auto shrink-0 text-sx-dim transition group-hover:text-sx-green" name="home" size={14} />
       </Link>
 
       <div className="mt-4 grid gap-1.5">

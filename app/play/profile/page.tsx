@@ -62,22 +62,23 @@ export default function ProfilePage() {
         <Card className="p-6">
           <p className="font-mono text-xs uppercase tracking-[0.35em] text-sx-gold">{t("badge")}</p>
           <h1 className="mt-4 break-words font-display text-2xl sm:text-3xl font-bold uppercase tracking-[0.16em] text-sx-green">{player.displayName}</h1>
-          <div className="mt-6 grid gap-3 sm:grid-cols-4">
-            <div className="rounded-sx border border-[var(--stroke-soft)] p-4">
+          {/* 2-up below xl so long values (rank, squad names) never clip. */}
+          <div className="mt-6 grid grid-cols-2 gap-3 xl:grid-cols-4">
+            <div className="min-w-0 rounded-sx border border-[var(--stroke-soft)] p-4">
               <p className="font-mono text-2xl text-sx-green">{player.ep}</p>
-              <p className="text-xs uppercase tracking-[0.2em] text-sx-dim">EP</p>
+              <p className="mt-1 text-xs uppercase tracking-[0.2em] text-sx-dim">EP</p>
             </div>
-            <div className="rounded-sx border border-[var(--stroke-soft)] p-4">
-              <p className="font-mono text-2xl text-sx-gold">{formatRank(player.rank)}</p>
-              <p className="text-xs uppercase tracking-[0.2em] text-sx-dim">{t("rank")}</p>
+            <div className="min-w-0 rounded-sx border border-[var(--stroke-soft)] p-4">
+              <p className="break-words font-mono text-lg leading-6 text-sx-gold">{formatRank(player.rank)}</p>
+              <p className="mt-1 text-xs uppercase tracking-[0.2em] text-sx-dim">{t("rank")}</p>
             </div>
-            <div className="rounded-sx border border-[var(--stroke-soft)] p-4">
+            <div className="min-w-0 rounded-sx border border-[var(--stroke-soft)] p-4">
               <p className="font-mono text-2xl text-sx-text">{player.streakDays}</p>
-              <p className="text-xs uppercase tracking-[0.2em] text-sx-dim">{tHud("streak")}</p>
+              <p className="mt-1 text-xs uppercase tracking-[0.2em] text-sx-dim">{tHud("streak")}</p>
             </div>
-            <div className="rounded-sx border border-[var(--stroke-soft)] p-4">
-              <p className="font-mono text-2xl text-sx-text">{player.squad ? squadLabel[player.squad] : t("none")}</p>
-              <p className="text-xs uppercase tracking-[0.2em] text-sx-dim">{t("squad")}</p>
+            <div className="min-w-0 rounded-sx border border-[var(--stroke-soft)] p-4">
+              <p className="break-words font-mono text-lg leading-6 text-sx-text">{player.squad ? squadLabel[player.squad] : t("none")}</p>
+              <p className="mt-1 text-xs uppercase tracking-[0.2em] text-sx-dim">{t("squad")}</p>
             </div>
           </div>
           <p className="mt-5 border-t border-[var(--stroke-soft)] pt-4 font-mono text-[10px] leading-relaxed text-sx-dim">

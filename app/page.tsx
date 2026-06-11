@@ -37,12 +37,9 @@ export default function Home() {
 
       {/* z-30: the locale dropdown must paint above the hero/feature sections below. */}
       <header className="relative z-30 mx-auto flex max-w-6xl items-center justify-between">
-        <span className="flex items-center gap-2.5">
-          <span className="grid h-8 w-8 place-items-center rounded-sx border border-sx-green/40 bg-sx-green/10 text-sx-green shadow-[0_0_14px_rgba(0,232,50,0.3)]">
-            <Icon name="delta" size={18} />
-          </span>
-          <span className="font-display text-sm font-bold uppercase tracking-[0.28em] text-sx-green">StandX</span>
-          <span className="rounded border border-sx-green/50 bg-sx-green/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.22em] text-sx-green">
+        <span className="flex min-w-0 items-center gap-2">
+          <span className="font-display text-sm font-bold uppercase tracking-[0.22em] text-sx-green">StandX</span>
+          <span className="shrink-0 whitespace-nowrap rounded border border-sx-green/50 bg-sx-green/10 px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.16em] text-sx-green">
             Community
           </span>
         </span>
