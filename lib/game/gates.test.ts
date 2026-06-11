@@ -5,8 +5,8 @@ import { chapterUnlocked, gatePassed } from "./gates";
 const player: Player = {
   id: "test",
   displayName: "STANDER",
-  ep: 1200,
-  rank: "consistent",
+  ep: 3200,
+  rank: "seed",
   squad: "creative",
   squadXP: { creative: 0, content_research: 0, tech_support: 0, outreach: 0, offline: 0 },
   streakDays: 1,
@@ -24,7 +24,8 @@ describe("gates", () => {
 
     expect(gatePassed({ type: "previous", chapterId: "chapter-one" }, player, completed)).toBe(true);
     expect(gatePassed({ type: "ep", value: 1000 }, player, completed)).toBe(true);
-    expect(gatePassed({ type: "rank", value: "active" }, player, completed)).toBe(true);
+    expect(gatePassed({ type: "rank", value: "seed" }, player, completed)).toBe(true);
+    expect(gatePassed({ type: "rank", value: "sprout" }, player, completed)).toBe(false);
     expect(gatePassed({ type: "squad", value: "creative" }, player, completed)).toBe(true);
   });
 
@@ -39,6 +40,6 @@ describe("gates", () => {
         new Set(["chapter-one"]),
       ),
     ).toBe(true);
-    expect(chapterUnlocked([{ type: "ep", value: 2000 }], player, new Set())).toBe(false);
+    expect(chapterUnlocked([{ type: "ep", value: 5000 }], player, new Set())).toBe(false);
   });
 });

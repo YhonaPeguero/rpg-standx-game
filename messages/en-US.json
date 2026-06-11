@@ -186,7 +186,7 @@
       },
       {
         "title": "Your goal: SEED",
-        "body": "Climb the Growth Path. SEED is the real goal — 3,000 EP plus real Discord activity. Act I is your on-ramp: you finish it as a Seed Candidate, ready to keep growing."
+        "body": "Climb the Growth Path. SEED is the real goal — 3,000 EP plus real Discord activity. Act I is your on-ramp: finish it and you're ready to chase SEED for real."
       },
       {
         "title": "Squads",
@@ -331,7 +331,7 @@
   "ranks": {
     "badge": "Rank Ladder",
     "title": "Growth Path Ranks",
-    "intro": "Every action moves you up the ladder. Ranks unlock missions, scenes and squads. Seed is the first official Discord rank.",
+    "intro": "These are the real Growth Path tiers — the same ladder as the StandX Discord. The game trains you toward SEED, the first official rank.",
     "current": "Current",
     "next": "Next rank",
     "remaining": "{ep} EP to go",
@@ -344,18 +344,12 @@
     },
     "labels": {
       "new_stander": "New Stander",
-      "active": "Active",
-      "consistent": "Consistent",
-      "seed_candidate": "Seed Candidate",
       "seed": "Seed",
       "sprout": "Sprout",
       "flower": "Flower"
     },
     "details": {
       "new_stander": "Day zero. Just landed on StandX. Watch, learn, react.",
-      "active": "You're showing up. Reactions and event taps count.",
-      "consistent": "You hit the loop daily. Streak compounds.",
-      "seed_candidate": "Eligible for Moderator review. Quality > quantity now.",
       "seed": "Official Discord role. Pick a Squad and start contributing.",
       "sprout": "Recognized contributor. Squad tasks unlock weekly highlight slots.",
       "flower": "Community pillar. Standards-setter and mentor."

@@ -9,8 +9,9 @@ import { Icon } from "@/components/ui/Icon";
 import { Mascot } from "@/components/mascot/Mascot";
 import { RankProgress } from "@/components/hud/RankProgress";
 
-// One accent per real-world roadmap step (join → EP → SEED → squad → SPROUT → FLOWER).
-const ROADMAP_ACCENTS = ["#00aaff", "#00e832", "#ffe600", "#9945ff", "#00e8c8", "#ff3366"];
+// One accent per real-world roadmap step (join → EP → SEED → squad → SPROUT → FLOWER),
+// matching the tier identity colors: SEED green, SPROUT sky, FLOWER pink.
+const ROADMAP_ACCENTS = ["#00aaff", "#ffe600", "#00e832", "#9945ff", "#6fd2ff", "#ff6ba9"];
 
 export default function RanksPage() {
   const t = useTranslations("ranks");

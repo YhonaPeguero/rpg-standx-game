@@ -186,7 +186,7 @@
       },
       {
         "title": "Sua meta: SEED",
-        "body": "Suba pelo Growth Path. SEED é a meta real: 3.000 EP mais atividade real no Discord. O Ato I é sua rampa de entrada: você o termina como Seed Candidate, pronto para continuar crescendo."
+        "body": "Suba pelo Growth Path. SEED é a meta real: 3.000 EP mais atividade real no Discord. O Ato I é sua rampa de entrada: termine e você estará pronto para buscar o SEED de verdade."
       },
       {
         "title": "Squads",
@@ -412,7 +412,7 @@
           "s6-1-hall-enter": {
             "lines": [
               "EI! Você chegou. Vi sua jornada - consistente, útil, real. Você mereceu.",
-              "Revisão concluída. Engage Points verificados. Stander - você é oficialmente SEED CANDIDATE. O cargo @SEED real se conquista no Discord: 3.000 Engage Points e uma revisão manual.",
+              "Revisão concluída. Engage Points verificados. Stander - seu treinamento do Ato I está completo. O cargo @SEED real se conquista no Discord: 3.000 Engage Points e uma revisão manual.",
               "@SEED... é real?",
               "É real. Mas SEED não é destino - é porta de entrada. Agora você escolhe um Squad.",
               "...",
@@ -585,7 +585,7 @@
   "ranks": {
     "badge": "Trilha de Ranks",
     "title": "Ranks do Growth Path",
-    "intro": "Cada ação avança a trilha. Ranks desbloqueiam missões, cenas e squads. Seed é o primeiro cargo oficial no Discord.",
+    "intro": "Estes são os níveis reais do Growth Path, a mesma escada do Discord da StandX. O jogo treina você rumo ao SEED, o primeiro cargo oficial.",
     "current": "Atual",
     "next": "Próximo rank",
     "remaining": "Faltam {ep} EP",
@@ -598,18 +598,12 @@
     },
     "labels": {
       "new_stander": "New Stander",
-      "active": "Ativo",
-      "consistent": "Consistente",
-      "seed_candidate": "Candidato a Seed",
       "seed": "Seed",
       "sprout": "Sprout",
       "flower": "Flower"
     },
     "details": {
       "new_stander": "Dia zero. Recém chegou na StandX. Observe, aprenda, reaja.",
-      "active": "Você está aparecendo. Reações e eventos contam.",
-      "consistent": "Você mantém o loop diário. A sequência rende juros.",
-      "seed_candidate": "Elegível para revisão da moderação. Qualidade > quantidade.",
       "seed": "Cargo oficial no Discord. Escolha um Squad e comece a contribuir.",
       "sprout": "Contribuidor reconhecido. Tarefas de squad abrem slots de destaque.",
       "flower": "Pilar da comunidade. Define o padrão e ensina."

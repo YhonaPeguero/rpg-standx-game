@@ -30,7 +30,7 @@
     "goal": 1,
     "category": "community",
     "reward": { "ep": 50, "codex": ["weekly_events"] },
-    "unlock": [{ "type": "rank", "value": "active" }]
+    "unlock": [{ "type": "ep", "value": 60 }]
   },
   {
     "id": "weekly_quality",
@@ -39,7 +39,7 @@
     "goal": 1,
     "category": "content",
     "reward": { "ep": 50, "codex": ["content_quality"] },
-    "unlock": [{ "type": "rank", "value": "consistent" }]
+    "unlock": [{ "type": "ep", "value": 150 }]
   },
   {
     "id": "weekly_streak",
@@ -56,7 +56,7 @@
     "goal": 1,
     "category": "community",
     "reward": { "ep": 80, "achievement": "community_shoutout" },
-    "unlock": [{ "type": "rank", "value": "seed_candidate" }]
+    "unlock": [{ "type": "ep", "value": 300 }]
   },
   {
     "id": "community_thread",
@@ -65,6 +65,6 @@
     "goal": 1,
     "category": "content",
     "reward": { "ep": 80, "codex": ["dusd_delta_neutral"] },
-    "unlock": [{ "type": "rank", "value": "seed" }]
+    "unlock": [{ "type": "ep", "value": 500 }]
   }
 ]

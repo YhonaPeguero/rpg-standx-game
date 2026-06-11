@@ -186,7 +186,7 @@
       },
       {
         "title": "목표: SEED",
-        "body": "Growth Path를 오르세요. SEED는 실제 목표입니다 — 3,000 EP와 Discord의 실제 활동. 1막은 출발점이며, 끝내면 Seed Candidate가 되어 계속 성장할 준비가 됩니다."
+        "body": "Growth Path를 오르세요. SEED는 실제 목표입니다 — 3,000 EP와 Discord의 실제 활동. 1막은 출발점입니다. 끝내면 진짜 SEED에 도전할 준비가 됩니다."
       },
       {
         "title": "스쿼드",
@@ -331,7 +331,7 @@
   "ranks": {
     "badge": "랭크 사다리",
     "title": "Growth Path 랭크",
-    "intro": "모든 행동이 사다리를 올라가게 합니다. 랭크는 미션, 씬, 스쿼드를 해금합니다. Seed는 Discord 최초의 공식 랭크입니다.",
+    "intro": "실제 Growth Path 등급입니다 — StandX 디스코드와 같은 사다리. 게임은 첫 공식 등급인 SEED를 향해 당신을 훈련시킵니다.",
     "current": "현재",
     "next": "다음 랭크",
     "remaining": "남은 {ep} EP",
@@ -344,18 +344,12 @@
     },
     "labels": {
       "new_stander": "New Stander",
-      "active": "Active",
-      "consistent": "Consistent",
-      "seed_candidate": "Seed Candidate",
       "seed": "Seed",
       "sprout": "Sprout",
       "flower": "Flower"
     },
     "details": {
       "new_stander": "0일차. StandX에 막 도착. 보고, 배우고, 반응하세요.",
-      "active": "이제 나타나고 있어요. 반응과 이벤트가 카운트됩니다.",
-      "consistent": "매일 루프를 돕니다. 연속이 복리로 쌓입니다.",
-      "seed_candidate": "모더레이터 리뷰 대상. 이제는 양보다 질입니다.",
       "seed": "공식 Discord 역할. 스쿼드를 골라 기여를 시작하세요.",
       "sprout": "공인된 컨트리뷰터. 스쿼드 태스크가 주간 하이라이트 슬롯을 엽니다.",
       "flower": "커뮤니티의 기둥. 표준을 세우고 멘토링합니다."

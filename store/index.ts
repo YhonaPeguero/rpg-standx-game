@@ -1,6 +1,7 @@
 import { create, type StateCreator } from "zustand";
 import { createJSONStorage, persist } from "zustand/middleware";
 import type { Player } from "@/types";
+import { rankFromEP } from "@/lib/game/ep";
 import { normalizeLocale } from "@/lib/i18n/config";
 import { createPlayerSlice, type PlayerSlice } from "./playerSlice";
 import { createProgressSlice, type ProgressSlice } from "./progressSlice";
@@ -45,8 +46,11 @@ function persistedFromUnknown(value: unknown): PersistedGameStore | null {
   const normalizedLocale = normalizeLocale(typeof player.locale === "string" ? player.locale : null);
 
   const rawVolume = typeof record.volume === "number" ? record.volume : 0.4;
+  // Rank is purely EP-derived; recomputing on load also migrates saves that
+  // still carry retired ranks (active/consistent/seed_candidate).
+  const ep = typeof player.ep === "number" ? player.ep : 0;
   return {
-    player: { ...player, locale: normalizedLocale } as Player,
+    player: { ...player, locale: normalizedLocale, rank: rankFromEP(ep) } as Player,
     completedScenes: stringArray(record.completedScenes),
     completedChapters: stringArray(record.completedChapters),
     currentChapterId: typeof record.currentChapterId === "string" ? record.currentChapterId : null,

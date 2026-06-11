@@ -3,15 +3,7 @@ import { locales } from "@/lib/i18n/config";
 
 export const squadIdSchema = z.enum(["creative", "content_research", "tech_support", "outreach", "offline"]);
 
-export const rankSchema = z.enum([
-  "new_stander",
-  "active",
-  "consistent",
-  "seed_candidate",
-  "seed",
-  "sprout",
-  "flower",
-]);
+export const rankSchema = z.enum(["new_stander", "seed", "sprout", "flower"]);
 
 export const zoneIdSchema = z.enum([
   "void",

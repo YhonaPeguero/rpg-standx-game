@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { rankOrder } from "@/lib/game/ep";
-import { useGameStore } from "@/store";
 import { cn } from "@/lib/utils";
 import { Icon, type IconName } from "@/components/ui/Icon";
 
@@ -12,7 +10,6 @@ type NavItem = {
   href: string;
   key: "hq" | "quests" | "squads" | "ranks" | "codex" | "profile";
   icon: IconName;
-  seedOnly?: boolean;
 };
 
 const navItems: readonly NavItem[] = [
@@ -27,8 +24,6 @@ const navItems: readonly NavItem[] = [
 export function Sidebar() {
   const t = useTranslations("nav");
   const pathname = usePathname();
-  const rank = useGameStore((state) => state.player.rank);
-  const ranksLocked = rankOrder(rank) < rankOrder("active");
 
   return (
     <nav className="hidden rounded-sx-lg border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] p-3 lg:block">
@@ -46,18 +41,9 @@ export function Sidebar() {
 
       <div className="mt-4 grid gap-1.5">
         {navItems.map((item) => {
-          const locked = item.seedOnly && ranksLocked;
           const active = pathname === item.href;
 
-          return locked ? (
-            <span
-              className="flex items-center gap-3 rounded-sx border border-transparent px-3 py-2.5 font-mono text-xs uppercase tracking-[0.16em] text-sx-dim opacity-60"
-              key={item.key}
-            >
-              <Icon name="lock" size={16} />
-              {t(item.key)}
-            </span>
-          ) : (
+          return (
             <Link
               className={cn(
                 "group relative flex items-center gap-3 rounded-sx border border-transparent px-3 py-2.5 font-mono text-xs uppercase tracking-[0.16em] text-sx-text transition hover:border-sx-green/40 hover:bg-sx-green/5",

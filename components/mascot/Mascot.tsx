@@ -25,8 +25,11 @@ const GOLD = "#ffd900";
 const LEAF_LIGHT = "#46b14a";
 const LEAF_DARK = "#1e7e2f";
 
+// Sprout-growth level per real rank (drives extra leaves / bud / flower).
+const GROWTH_BY_RANK: Record<Rank, number> = { new_stander: 0, seed: 3, sprout: 4, flower: 6 };
+
 function stageIndex(stage: Rank) {
-  return ["new_stander", "active", "consistent", "seed_candidate", "seed", "sprout", "flower"].indexOf(stage);
+  return GROWTH_BY_RANK[stage] ?? 0;
 }
 
 /** Outlined capsule limb: a round-cap stroke drawn twice (outline + body fill). */
