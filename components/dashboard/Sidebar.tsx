@@ -27,19 +27,7 @@ export function Sidebar() {
 
   return (
     <nav className="hidden rounded-sx-lg border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] p-3 lg:block">
-      <Link
-        className="group flex items-center gap-2.5 rounded-sx px-3 py-2 transition hover:bg-sx-green/5"
-        href="/"
-        title={t("home")}
-      >
-        <span className="font-display text-sm font-bold uppercase tracking-[0.2em] text-sx-green">StandX</span>
-        <span className="shrink-0 whitespace-nowrap rounded border border-sx-green/50 bg-sx-green/10 px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-[0.14em] text-sx-green">
-          Community
-        </span>
-        <Icon className="ml-auto shrink-0 text-sx-dim transition group-hover:text-sx-green" name="home" size={14} />
-      </Link>
-
-      <div className="mt-4 grid gap-1.5">
+      <div className="grid gap-1.5">
         {navItems.map((item) => {
           const active = pathname === item.href;
 
