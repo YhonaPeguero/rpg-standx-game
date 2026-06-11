@@ -153,7 +153,7 @@ export function ShareCard({ run }: ShareCardProps) {
     ctx.fillText("SMALL ACTIONS. REAL PROGRESS.", 76, 562);
     ctx.fillStyle = "#00e832";
     ctx.textAlign = "right";
-    ctx.fillText("STANDX.IO", 1124, 562);
+    ctx.fillText("STANDX COMMUNITY", 1124, 562);
     ctx.textAlign = "left";
     setSpacing("0px");
 

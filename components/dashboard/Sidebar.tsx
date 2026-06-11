@@ -8,7 +8,7 @@ import { Icon, type IconName } from "@/components/ui/Icon";
 
 type NavItem = {
   href: string;
-  key: "hq" | "quests" | "squads" | "ranks" | "codex" | "profile";
+  key: "hq" | "quests" | "squads" | "ranks" | "profile" | "join";
   icon: IconName;
 };
 
@@ -16,9 +16,9 @@ const navItems: readonly NavItem[] = [
   { href: "/play", key: "hq", icon: "hq" },
   { href: "/play/quests", key: "quests", icon: "quests" },
   { href: "/play/squads", key: "squads", icon: "squads" },
-  { href: "/play/codex", key: "codex", icon: "codex" },
   { href: "/play/ranks", key: "ranks", icon: "ranks" },
   { href: "/play/profile", key: "profile", icon: "profile" },
+  { href: "/play/join", key: "join", icon: "discord" },
 ] as const;
 
 export function Sidebar() {
@@ -56,8 +56,8 @@ const bottomItems: { href: string; key: NavItem["key"]; icon: IconName }[] = [
   { href: "/play/quests", key: "quests", icon: "quests" },
   { href: "/play/squads", key: "squads", icon: "squads" },
   { href: "/play/ranks", key: "ranks", icon: "ranks" },
-  { href: "/play/codex", key: "codex", icon: "codex" },
   { href: "/play/profile", key: "profile", icon: "profile" },
+  { href: "/play/join", key: "join", icon: "discord" },
 ];
 
 export function BottomNav() {

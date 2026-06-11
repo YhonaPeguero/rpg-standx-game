@@ -107,7 +107,7 @@
     "title": "Comparte tu partida",
     "body": "Crea una tarjeta limpia para tu partida local. Descárgala o comparte tu progreso en X.",
     "generate": "Generar PNG",
-    "copy": "Copiar data URL",
+    "copy": "Copiar imagen",
     "download": "Descargar",
     "shareX": "Compartir en X",
     "tweet": "Estoy construyendo mi StandX Growth Path en StandX RPG.",
@@ -158,13 +158,13 @@
     "home": "Inicio",
     "growth": "Crecimiento",
     "squads": "Squads",
-    "codex": "Codex",
     "quests": "Misiones",
     "ranks": "Rangos",
     "leaderboard": "Leaderboard",
     "profile": "Perfil",
     "about": "Acerca",
-    "locked": "Bloqueado"
+    "locked": "Bloqueado",
+    "join": "Únete"
   },
   "onboarding": {
     "badge": "Cómo jugar",
@@ -662,5 +662,26 @@
       "body": "Esa ruta no existe en el mapa.",
       "back": "Volver al HQ"
     }
+  },
+  "join": {
+    "badge": "Comunidad",
+    "title": "Únete a StandX",
+    "intro": "Todo lo real pasa en la comunidad. Empieza por Discord: reclama el rol Events y preséntate.",
+    "discord": {
+      "title": "Discord",
+      "desc": "Aquí vive el Growth Path: eventos, juegos semanales, destacados y los Engage Points reales."
+    },
+    "website": {
+      "title": "Web",
+      "desc": "La plataforma oficial de StandX: perps DEX y DUSD."
+    },
+    "x": {
+      "title": "X (Twitter)",
+      "desc": "Noticias, campañas y anuncios."
+    },
+    "open": "Abrir"
+  },
+  "footer": {
+    "fanMade": "Hecho por la comunidad · no oficial"
   }
 }

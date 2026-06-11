@@ -8,6 +8,7 @@ import { Icon, type IconName } from "@/components/ui/Icon";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { CharacterAvatar } from "@/components/mascot/CharacterAvatar";
 import { Mascot } from "@/components/mascot/Mascot";
+import { SiteFooter } from "@/components/ui/SiteFooter";
 import { Starfield } from "@/components/scene/Starfield";
 
 const features: { key: "story" | "quests" | "ranks" | "i18n"; icon: IconName }[] = [
@@ -103,6 +104,10 @@ export default function Home() {
           </li>
         ))}
       </ul>
+
+      <div className="relative z-10 px-0">
+        <SiteFooter />
+      </div>
     </main>
   );
 }

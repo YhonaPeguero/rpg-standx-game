@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { audioEngine } from "@/lib/audio/engine";
 import { TopBar } from "@/components/hud/TopBar";
+import { SiteFooter } from "@/components/ui/SiteFooter";
 import { BottomNav, Sidebar } from "@/components/dashboard/Sidebar";
 
 export function PlayChrome({ children }: { children: ReactNode }) {
@@ -50,6 +51,7 @@ export function PlayChrome({ children }: { children: ReactNode }) {
           </aside>
           <div className="min-w-0 flex-1">{children}</div>
         </div>
+        <SiteFooter />
         <BottomNav />
       </div>
     </>

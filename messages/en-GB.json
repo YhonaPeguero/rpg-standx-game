@@ -107,7 +107,7 @@
     "title": "Share your run",
     "body": "Create a clean card for your local run. Download it or share your progress on X.",
     "generate": "Generate PNG",
-    "copy": "Copy data URL",
+    "copy": "Copy image",
     "download": "Download",
     "shareX": "Share to X",
     "tweet": "I am building my StandX Growth Path in StandX RPG.",
@@ -158,13 +158,13 @@
     "home": "Home",
     "growth": "Growth",
     "squads": "Squads",
-    "codex": "Codex",
     "quests": "Quests",
     "ranks": "Ranks",
     "leaderboard": "Leaderboard",
     "profile": "Profile",
     "about": "About",
-    "locked": "Locked"
+    "locked": "Locked",
+    "join": "Join"
   },
   "onboarding": {
     "badge": "How to play",
@@ -408,5 +408,26 @@
       "body": "That route doesn't exist on the map.",
       "back": "Back to HQ"
     }
+  },
+  "join": {
+    "badge": "Community",
+    "title": "Join StandX",
+    "intro": "Everything real happens in the community. Start with Discord — claim the Events role and say hi.",
+    "discord": {
+      "title": "Discord",
+      "desc": "The Growth Path lives here: events, weekly games, highlights and the real Engage Points."
+    },
+    "website": {
+      "title": "Website",
+      "desc": "The official StandX platform: perps DEX and DUSD."
+    },
+    "x": {
+      "title": "X (Twitter)",
+      "desc": "News, campaigns and announcements."
+    },
+    "open": "Open"
+  },
+  "footer": {
+    "fanMade": "Community-made · unofficial"
   }
 }

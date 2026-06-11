@@ -21,7 +21,9 @@ export type IconName =
   | "help"
   | "delta"
   | "target"
-  | "x";
+  | "x"
+  | "discord"
+  | "xSocial";
 
 // Cohesive line-icon set (24x24, currentColor) so the UI stops relying on
 // generic emoji/unicode glyphs. Stroke-based with a couple of filled marks.
@@ -140,6 +142,20 @@ const paths: Record<IconName, ReactNode> = {
     </>
   ),
   x: <path d="M6.5 6.5l11 11M17.5 6.5l-11 11" />,
+  discord: (
+    <path
+      d="M19.27 5.33A16.4 16.4 0 0 0 15.4 4l-.18.33c1.4.34 2.6.9 3.7 1.67a13.3 13.3 0 0 0-11.84 0c1.1-.77 2.3-1.33 3.7-1.67L10.6 4a16.4 16.4 0 0 0-3.87 1.33C4.26 8.96 3.58 12.5 3.92 16a16.5 16.5 0 0 0 4.96 2.5l.95-1.55c-.82-.3-1.6-.7-2.33-1.17l.57-.43a11.8 11.8 0 0 0 9.86 0l.57.43c-.73.48-1.51.86-2.33 1.17l.95 1.55A16.5 16.5 0 0 0 22.08 16c.4-4.03-.48-7.5-2.81-10.67ZM9.68 13.95c-.97 0-1.76-.9-1.76-2s.78-2 1.76-2c.99 0 1.78.9 1.76 2 0 1.1-.78 2-1.76 2Zm6.64 0c-.97 0-1.76-.9-1.76-2s.78-2 1.76-2c.99 0 1.78.9 1.76 2 0 1.1-.77 2-1.76 2Z"
+      fill="currentColor"
+      stroke="none"
+    />
+  ),
+  xSocial: (
+    <path
+      d="M17.53 3h3.02l-6.6 7.55L21.7 21h-6.08l-4.77-6.23L5.4 21H2.37l7.06-8.07L1.9 3h6.23l4.31 5.7L17.53 3Zm-1.06 16.2h1.67L6.86 4.7H5.06l11.41 14.5Z"
+      fill="currentColor"
+      stroke="none"
+    />
+  ),
 };
 
 type IconProps = SVGProps<SVGSVGElement> & {
