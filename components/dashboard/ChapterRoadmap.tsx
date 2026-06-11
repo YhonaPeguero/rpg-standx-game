@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import type { ZoneId } from "@/types";
 import { buttonClassName } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
@@ -37,6 +38,7 @@ type ChapterRoadmapProps = {
 };
 
 export function ChapterRoadmap({ items, labels }: ChapterRoadmapProps) {
+  const tScene = useTranslations("scene");
   const firstLockedIndex = items.findIndex((item) => !item.unlocked);
 
   return (
@@ -73,7 +75,7 @@ export function ChapterRoadmap({ items, labels }: ChapterRoadmapProps) {
               <div className="flex items-start justify-between gap-3">
                 <div className="min-w-0">
                   <p className="font-mono text-[10px] uppercase tracking-[0.26em]" style={{ color: item.unlocked ? accent : "var(--text-dim)" }}>
-                    {labels.step} {index + 1} · {item.zone.replace(/_/g, " ")}
+                    {labels.step} {index + 1} · {tScene(`zones.${item.zone}` as "zones.void")}
                   </p>
                   <h3 className="mt-1 truncate font-display text-lg font-bold uppercase tracking-[0.1em] text-sx-text">{item.title}</h3>
                   <p className="mt-1 text-sm font-semibold text-sx-dim">{item.subtitle}</p>

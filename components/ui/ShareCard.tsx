@@ -99,7 +99,7 @@ export function ShareCard({ run }: ShareCardProps) {
     setSpacing("7px");
     ctx.fillStyle = "#ffe600";
     ctx.font = `24px ${mono}`;
-    ctx.fillText("STANDX RPG · GROWTH PATH", 76, 110);
+    ctx.fillText(t("headline").toUpperCase(), 76, 110);
 
     // Player name (auto-shrinks to stay clear of the mascot).
     const name = run.displayName.toUpperCase().slice(0, 18);
@@ -150,7 +150,7 @@ export function ShareCard({ run }: ShareCardProps) {
     ctx.stroke();
     ctx.fillStyle = "#3a5070";
     ctx.font = `20px ${mono}`;
-    ctx.fillText("SMALL ACTIONS. REAL PROGRESS.", 76, 562);
+    ctx.fillText(t("tagline").toUpperCase(), 76, 562);
     ctx.fillStyle = "#00e832";
     ctx.textAlign = "right";
     ctx.fillText("STANDX COMMUNITY", 1124, 562);

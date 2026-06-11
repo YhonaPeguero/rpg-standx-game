@@ -39,7 +39,9 @@ export function QuestCard({ quest, progress, claimed, unlocked, manualTrigger, o
     >
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-sx-gold">{quest.kind}</p>
+          <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-sx-gold">
+            {t(`tabs.${quest.kind}` as "tabs.weekly")}
+          </p>
           <h3 className="mt-2 font-display text-lg font-bold uppercase tracking-[0.14em] text-sx-green">
             {tShared(titleKey)}
           </h3>

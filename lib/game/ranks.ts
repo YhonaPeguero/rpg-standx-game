@@ -16,8 +16,6 @@ export type RankMeta = {
   discordRole: boolean;
   /** Optional i18n key for a custom requirement label (overrides "<minEP> EP"). */
   requirementKey?: string;
-  /** Static perks shown on the ranks page (already short and rank-neutral) */
-  perks: string[];
 };
 
 /** EP threshold per rank, derived from the single source of truth in ep.ts. */
@@ -38,8 +36,7 @@ export const RANK_META: Record<Rank, RankMeta> = {
     detailKey: "ranks.details.new_stander",
     icon: "○",
     accent: "#3a5070",
-    discordRole: false,
-    perks: ["Act I unlocked", "Daily quests roll"],
+    discordRole: false,
   },
   seed: {
     id: "seed",
@@ -48,8 +45,7 @@ export const RANK_META: Record<Rank, RankMeta> = {
     detailKey: "ranks.details.seed",
     icon: "❂",
     accent: "#00e832",
-    discordRole: true,
-    perks: ["Squad selection", "Squad mentor channels"],
+    discordRole: true,
   },
   sprout: {
     id: "sprout",
@@ -59,8 +55,7 @@ export const RANK_META: Record<Rank, RankMeta> = {
     icon: "✿",
     accent: "#6fd2ff",
     discordRole: true,
-    requirementKey: "req.sprout",
-    perks: ["Weekly highlight slot", "Mentor tasks"],
+    requirementKey: "req.sprout",
   },
   flower: {
     id: "flower",
@@ -70,8 +65,7 @@ export const RANK_META: Record<Rank, RankMeta> = {
     icon: "❀",
     accent: "#ff6ba9",
     discordRole: true,
-    requirementKey: "req.flower",
-    perks: ["Standards-setter", "Pillar status"],
+    requirementKey: "req.flower",
   },
 };
 

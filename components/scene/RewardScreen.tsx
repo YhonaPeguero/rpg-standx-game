@@ -46,6 +46,7 @@ function useCountUp(target: number, enabled: boolean): number {
 
 export function RewardScreen({ reward }: RewardScreenProps) {
   const t = useTranslations("scene.reward");
+  const tSquads = useTranslations("squads");
   const player = useGameStore((state) => state.player);
   const reduceMotion = useGameStore((state) => state.reduceMotion);
   const epCount = useCountUp(reward.ep ?? 0, !reduceMotion);
@@ -86,7 +87,14 @@ export function RewardScreen({ reward }: RewardScreenProps) {
           {t("back")}
         </Link>
       </Card>
-      <ShareCard run={{ displayName: player.displayName, ep: player.ep, rank: formatRank(player.rank), squad: player.squad ?? t("noSquad") }} />
+      <ShareCard
+        run={{
+          displayName: player.displayName,
+          ep: player.ep,
+          rank: formatRank(player.rank),
+          squad: player.squad ? tSquads(`list.${player.squad}.name` as "list.creative.name") : t("noSquad"),
+        }}
+      />
     </motion.div>
   );
 }

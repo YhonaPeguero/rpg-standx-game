@@ -2,7 +2,7 @@
   "marketing": {
     "badge": "Episodio I: Origem",
     "title": "StandX RPG",
-    "subtitle": "Jogue como Stander e aprenda o Growth Path de New Stander até Seed.",
+    "subtitle": "Jogue como Stander e aprenda o Caminho de Crescimento de New Stander até Seed.",
     "tagline": "Pequenas ações. Progresso real. Feito pela comunidade, para a comunidade.",
     "cta": "Entrar no HQ",
     "about": "Sobre",
@@ -11,16 +11,18 @@
       "quests": "Missões diárias, semanais e da comunidade com recompensas reais",
       "ranks": "Avance de New Stander para Seed, Sprout e Flower",
       "i18n": "Disponível em 5 idiomas"
-    }
+    },
+    "cast": "Elenco do Ato I",
+    "mascotTag": "New Stander · online"
   },
   "about": {
-    "badge": "Community Growth Path",
+    "badge": "Caminho de Crescimento da comunidade",
     "title": "Aprenda jogando",
     "body": "StandX RPG transforma Engage Points, eventos, qualidade de conteúdo, educação sobre DUSD e responsabilidades de squads em uma jornada narrativa solo. O MVP foca no Ato I: chegar a Seed."
   },
   "dashboard": {
     "badge": "HQ Dashboard",
-    "title": "Console do Growth Path",
+    "title": "Console do Caminho de Crescimento",
     "intro": "Stander despertou. Comece o Ato I e aprenda como Engage Points transformam pequenas ações consistentes no caminho para Seed.",
     "lockedCta": "Iniciar Capítulo 1",
     "nextStep": "Seu próximo passo",
@@ -110,9 +112,11 @@
     "copy": "Copiar imagem",
     "download": "Baixar",
     "shareX": "Compartilhar no X",
-    "tweet": "Estou construindo meu Growth Path da StandX no StandX RPG.",
+    "tweet": "Estou trilhando o Caminho de Crescimento da StandX no StandX RPG.",
     "squad": "Squad",
-    "previewAlt": "Share card gerado da StandX"
+    "previewAlt": "Share card gerado da StandX",
+    "headline": "StandX RPG · Caminho de Crescimento",
+    "tagline": "Pequenas ações. Progresso real."
   },
   "minigames": {
     "trade": {
@@ -185,7 +189,7 @@
       },
       {
         "title": "Sua meta: SEED",
-        "body": "Suba pelo Growth Path. SEED é a meta real: 3.000 EP mais atividade real. Lembre-se: isto é uma simulação educativa; os Engage Points reais se ganham no Discord da StandX participando dos eventos e da comunidade."
+        "body": "Suba pelo Caminho de Crescimento. SEED é a meta real: 3.000 EP mais atividade real. Lembre-se: isto é uma simulação educativa; os Engage Points reais se ganham no Discord da StandX participando dos eventos e da comunidade."
       },
       {
         "title": "Squads",
@@ -209,7 +213,7 @@
               "Onde estou? Escuridão total. Só eu e um olho tentando entender esse universo.",
               "Tem um sinal. Fraco, mas constante. Vem de um lugar chamado... StandX.",
               "Bem-vindo. Eu sou a Mira - Voz Oficial da StandX. Sou quem dá as regras, as metas e as missões.",
-              "O Growth Path tem três cargos: SEED, SPROUT e FLOWER. Cada um exige mais: consistência, qualidade e impacto real na comunidade.",
+              "O Caminho de Crescimento tem três cargos: SEED, SPROUT e FLOWER. Cada um exige mais: consistência, qualidade e impacto real na comunidade.",
               "Por onde começo?",
               "Pelo começo. 3.000 Engage Points para aplicar ao SEED. Cada ação conta. Vamos."
             ]
@@ -308,7 +312,7 @@
           "s2-3-quiz-consistency": {
             "questions": [
               {
-                "prompt": "Qual comportamento combina mais com o Growth Path?",
+                "prompt": "Qual comportamento combina mais com o Caminho de Crescimento?",
                 "options": [
                   "Participação útil diária",
                   "Um surto de spam por semana",
@@ -524,6 +528,23 @@
       "back": "Voltar ao HQ",
       "rankNow": "Rank atual",
       "noSquad": "Sem squad"
+    },
+    "act": "Ato {n}",
+    "zones": {
+      "void": "O Vazio",
+      "discord_plaza": "Praça do Discord",
+      "event_arena": "Arena de Eventos",
+      "content_district": "Distrito do Conteúdo",
+      "moderator_gate": "Portão da Moderação",
+      "seed_hall": "Seed Hall"
+    },
+    "markers": {
+      "void": "início",
+      "discord_plaza": "canais",
+      "event_arena": "evento ao vivo",
+      "content_district": "estúdio",
+      "moderator_gate": "revisão",
+      "seed_hall": "seed"
     }
   },
   "quests": {
@@ -573,14 +594,31 @@
   },
   "ranks": {
     "badge": "Trilha de Ranks",
-    "title": "Ranks do Growth Path",
-    "intro": "Estes são os níveis reais do Growth Path, a mesma escada do Discord da StandX. O jogo treina você rumo ao SEED, o primeiro cargo oficial.",
+    "title": "Ranks do Caminho de Crescimento",
+    "intro": "Estes são os níveis reais do Caminho de Crescimento, a mesma escada do Discord da StandX. O jogo treina você rumo ao SEED, o primeiro cargo oficial.",
     "current": "Atual",
     "next": "Próximo rank",
     "remaining": "Faltam {ep} EP",
     "unlocked": "Desbloqueado",
     "locked": "Bloqueado",
-    "perks": "Benefícios",
+    "perks": {
+      "new_stander": [
+        "Ato I desbloqueado",
+        "Missões semanais"
+      ],
+      "seed": [
+        "Escolha de squad",
+        "Canais de mentores"
+      ],
+      "sprout": [
+        "Vaga nos destaques semanais",
+        "Tarefas de mentor"
+      ],
+      "flower": [
+        "Define o padrão",
+        "Status de pilar"
+      ]
+    },
     "req": {
       "sprout": "4.000 EP + 2 contribuições reais no Discord",
       "flower": "Critério a definir"
@@ -600,7 +638,7 @@
     "roadmap": {
       "badge": "O caminho real",
       "title": "De 0 a FLOWER",
-      "intro": "É assim que o Growth Path funciona no Discord real da StandX. O jogo treina você para isso: o EP daqui é prática; a pontuação real vive no Discord.",
+      "intro": "É assim que o Caminho de Crescimento funciona no Discord real da StandX. O jogo treina você para isso: o EP daqui é prática; a pontuação real vive no Discord.",
       "steps": [
         {
           "tag": "Passo 1",
@@ -658,7 +696,7 @@
   "errors": {
     "notFound": {
       "badge": "404",
-      "title": "Fora do Growth Path",
+      "title": "Fora do Caminho de Crescimento",
       "body": "Essa rota não existe no mapa.",
       "back": "Voltar ao HQ"
     }
@@ -669,7 +707,7 @@
     "intro": "Tudo o que é real acontece na comunidade. Comece pelo Discord: resgate o cargo Events e se apresente.",
     "discord": {
       "title": "Discord",
-      "desc": "O Growth Path vive aqui: eventos, jogos semanais, destaques e os Engage Points reais."
+      "desc": "O Caminho de Crescimento vive aqui: eventos, jogos semanais, destaques e os Engage Points reais."
     },
     "website": {
       "title": "Site",

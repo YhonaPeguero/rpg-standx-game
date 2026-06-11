@@ -67,7 +67,7 @@ export default function Home() {
           </div>
 
           <div className="mt-10">
-            <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-sx-dim">Act I cast</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-sx-dim">{t("cast")}</p>
             <ul className="mt-3 flex flex-wrap gap-2.5">
               {cast.map((member) => (
                 <li className="flex items-center" key={member.id}>
@@ -86,7 +86,7 @@ export default function Home() {
             />
             <Mascot className="relative h-56 w-56 drop-shadow-[0_0_28px_rgba(0,232,50,0.5)] md:h-64 md:w-64" pose="idle" />
             <p className="relative mt-4 font-display text-lg font-bold uppercase tracking-[0.2em] text-sx-green">STANDER</p>
-            <p className="relative mt-1 font-mono text-[10px] uppercase tracking-[0.3em] text-sx-dim">New Stander · online</p>
+            <p className="relative mt-1 font-mono text-[10px] uppercase tracking-[0.3em] text-sx-dim">{t("mascotTag")}</p>
           </Card>
         </section>
       </div>

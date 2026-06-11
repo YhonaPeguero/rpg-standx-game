@@ -2,7 +2,7 @@
   "marketing": {
     "badge": "에피소드 I: 기원",
     "title": "StandX RPG",
-    "subtitle": "Stander가 되어 New Stander에서 Seed까지 Growth Path를 배워보세요.",
+    "subtitle": "Stander가 되어 New Stander에서 Seed까지 성장 경로를 배워보세요.",
     "tagline": "작은 행동. 진짜 성장. 커뮤니티가 만든, 커뮤니티를 위한 게임.",
     "cta": "HQ 입장",
     "about": "소개",
@@ -11,16 +11,18 @@
       "quests": "실제 보상이 있는 일일/주간/커뮤니티 퀘스트",
       "ranks": "New Stander에서 Seed, Sprout, Flower까지 진화",
       "i18n": "5개 언어 지원"
-    }
+    },
+    "cast": "1막 등장인물",
+    "mascotTag": "New Stander · 온라인"
   },
   "about": {
-    "badge": "커뮤니티 Growth Path",
+    "badge": "커뮤니티 성장 경로",
     "title": "플레이로 배우기",
     "body": "StandX RPG는 Engage Points, 이벤트, 콘텐츠 품질, DUSD 학습, 스쿼드 책임을 1인용 내러티브 게임으로 만듭니다. MVP는 1막 - Seed 도달에 집중합니다."
   },
   "dashboard": {
     "badge": "HQ 대시보드",
-    "title": "Growth Path 콘솔",
+    "title": "성장 경로 콘솔",
     "intro": "Stander가 깨어났습니다. 1막을 시작하고, 작고 꾸준한 행동이 어떻게 Seed로 가는 길이 되는지 배워보세요.",
     "lockedCta": "챕터 1 시작",
     "nextStep": "다음 단계",
@@ -110,9 +112,11 @@
     "copy": "이미지 복사",
     "download": "다운로드",
     "shareX": "X에 공유",
-    "tweet": "StandX RPG에서 StandX Growth Path를 만들고 있어요.",
+    "tweet": "StandX RPG에서 StandX 성장 경로를 만들고 있어요.",
     "squad": "스쿼드",
-    "previewAlt": "생성된 StandX 공유 카드"
+    "previewAlt": "생성된 StandX 공유 카드",
+    "headline": "StandX RPG · 성장 경로",
+    "tagline": "작은 행동, 진짜 성장."
   },
   "minigames": {
     "trade": {
@@ -185,7 +189,7 @@
       },
       {
         "title": "목표: SEED",
-        "body": "Growth Path를 오르세요. SEED는 실제 목표입니다: 3,000 EP와 실제 활동. 기억하세요 — 이것은 교육용 시뮬레이션입니다. 실제 Engage Points는 StandX 디스코드의 이벤트 참여와 활발한 활동으로 얻습니다."
+        "body": "성장 경로를 오르세요. SEED는 실제 목표입니다: 3,000 EP와 실제 활동. 기억하세요 — 이것은 교육용 시뮬레이션입니다. 실제 Engage Points는 StandX 디스코드의 이벤트 참여와 활발한 활동으로 얻습니다."
       },
       {
         "title": "스쿼드",
@@ -270,6 +274,23 @@
       "back": "HQ로 돌아가기",
       "rankNow": "현재 랭크",
       "noSquad": "스쿼드 없음"
+    },
+    "act": "{n}막",
+    "zones": {
+      "void": "보이드",
+      "discord_plaza": "디스코드 광장",
+      "event_arena": "이벤트 아레나",
+      "content_district": "콘텐츠 지구",
+      "moderator_gate": "모더레이터 게이트",
+      "seed_hall": "Seed Hall"
+    },
+    "markers": {
+      "void": "부팅",
+      "discord_plaza": "채널",
+      "event_arena": "라이브",
+      "content_district": "스튜디오",
+      "moderator_gate": "리뷰",
+      "seed_hall": "seed"
     }
   },
   "quests": {
@@ -319,14 +340,31 @@
   },
   "ranks": {
     "badge": "랭크 사다리",
-    "title": "Growth Path 랭크",
-    "intro": "실제 Growth Path 등급입니다 — StandX 디스코드와 같은 사다리. 게임은 첫 공식 등급인 SEED를 향해 당신을 훈련시킵니다.",
+    "title": "성장 경로 랭크",
+    "intro": "실제 성장 경로 등급입니다 — StandX 디스코드와 같은 사다리. 게임은 첫 공식 등급인 SEED를 향해 당신을 훈련시킵니다.",
     "current": "현재",
     "next": "다음 랭크",
     "remaining": "남은 {ep} EP",
     "unlocked": "해금됨",
     "locked": "잠김",
-    "perks": "혜택",
+    "perks": {
+      "new_stander": [
+        "1막 해금",
+        "주간 미션"
+      ],
+      "seed": [
+        "스쿼드 선택",
+        "스쿼드 멘토 채널"
+      ],
+      "sprout": [
+        "주간 하이라이트 슬롯",
+        "멘토 과제"
+      ],
+      "flower": [
+        "기준 제시",
+        "기둥 지위"
+      ]
+    },
     "req": {
       "sprout": "4,000 EP + Discord 실제 기여 2회",
       "flower": "기준 미정"
@@ -346,7 +384,7 @@
     "roadmap": {
       "badge": "실제 경로",
       "title": "0에서 FLOWER까지",
-      "intro": "실제 StandX 디스코드에서 Growth Path가 작동하는 방식입니다. 이 게임은 그 훈련입니다 — 여기의 EP는 연습이고, 실제 점수는 디스코드에 있습니다.",
+      "intro": "실제 StandX 디스코드에서 성장 경로가 작동하는 방식입니다. 이 게임은 그 훈련입니다 — 여기의 EP는 연습이고, 실제 점수는 디스코드에 있습니다.",
       "steps": [
         {
           "tag": "1단계",
@@ -404,7 +442,7 @@
   "errors": {
     "notFound": {
       "badge": "404",
-      "title": "Growth Path를 벗어났습니다",
+      "title": "성장 경로를 벗어났습니다",
       "body": "지도에 없는 경로입니다.",
       "back": "HQ로 돌아가기"
     }
@@ -415,7 +453,7 @@
     "intro": "진짜는 모두 커뮤니티에서 일어납니다. 디스코드부터 시작하세요 — Events 역할을 받고 인사해 보세요.",
     "discord": {
       "title": "Discord",
-      "desc": "Growth Path가 여기 있습니다: 이벤트, 주간 게임, 하이라이트, 실제 Engage Points."
+      "desc": "성장 경로가 여기 있습니다: 이벤트, 주간 게임, 하이라이트, 실제 Engage Points."
     },
     "website": {
       "title": "웹사이트",

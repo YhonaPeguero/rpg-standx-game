@@ -23,13 +23,14 @@ type GameStageProps = {
   children: ReactNode;
 };
 
-const zoneMeta: Record<ZoneId, { label: string; accent: string; sky: string; ground: string; marker: string; glyph: string }> = {
-  void: { label: "THE VOID", accent: "#00e832", sky: "from-[#02050a] via-[#061020] to-[#04080f]", ground: "#00e832", marker: "boot", glyph: "◉" },
-  discord_plaza: { label: "DISCORD PLAZA", accent: "#00aaff", sky: "from-[#030611] via-[#07162a] to-[#040a18]", ground: "#00aaff", marker: "channels", glyph: "✦" },
-  event_arena: { label: "EVENT ARENA", accent: "#ff3366", sky: "from-[#100307] via-[#1a0610] to-[#08040a]", ground: "#ff3366", marker: "live event", glyph: "▲" },
-  content_district: { label: "CONTENT DISTRICT", accent: "#9945ff", sky: "from-[#07030d] via-[#11071f] to-[#080412]", ground: "#9945ff", marker: "studio", glyph: "❖" },
-  moderator_gate: { label: "MODERATOR GATE", accent: "#ff9900", sky: "from-[#0f0702] via-[#180e06] to-[#080502]", ground: "#ff9900", marker: "review", glyph: "◆" },
-  seed_hall: { label: "SEED HALL", accent: "#ffe600", sky: "from-[#0d0d04] via-[#161407] to-[#080804]", ground: "#ffe600", marker: "seed", glyph: "✸" },
+// Zone names and marker words live in i18n (scene.zones.* / scene.markers.*).
+const zoneMeta: Record<ZoneId, { accent: string; sky: string; ground: string; glyph: string }> = {
+  void: { accent: "#00e832", sky: "from-[#02050a] via-[#061020] to-[#04080f]", ground: "#00e832", glyph: "◉" },
+  discord_plaza: { accent: "#00aaff", sky: "from-[#030611] via-[#07162a] to-[#040a18]", ground: "#00aaff", glyph: "✦" },
+  event_arena: { accent: "#ff3366", sky: "from-[#100307] via-[#1a0610] to-[#08040a]", ground: "#ff3366", glyph: "▲" },
+  content_district: { accent: "#9945ff", sky: "from-[#07030d] via-[#11071f] to-[#080412]", ground: "#9945ff", glyph: "❖" },
+  moderator_gate: { accent: "#ff9900", sky: "from-[#0f0702] via-[#180e06] to-[#080502]", ground: "#ff9900", glyph: "◆" },
+  seed_hall: { accent: "#ffe600", sky: "from-[#0d0d04] via-[#161407] to-[#080804]", ground: "#ffe600", glyph: "✸" },
 };
 
 export function GameStage({ act, title, subtitle, zone, sceneIndex, sceneTotal, mode, notLocalized, children }: GameStageProps) {
@@ -53,6 +54,8 @@ export function GameStage({ act, title, subtitle, zone, sceneIndex, sceneTotal, 
   }, []);
 
   const meta = zoneMeta[zone];
+  const zoneName = t(`zones.${zone}` as "zones.void");
+  const zoneMarker = t(`markers.${zone}` as "markers.void");
   const sceneProgress = Math.round(((sceneIndex + 1) / sceneTotal) * 100);
   const markerLeft = 34 + Math.min(42, sceneIndex * 11);
 
@@ -68,11 +71,11 @@ export function GameStage({ act, title, subtitle, zone, sceneIndex, sceneTotal, 
             <Icon name="arrowLeft" size={14} />
             <span className="hidden sm:inline">{t("exitToHq")}</span>
           </Link>
-          <p className="font-mono text-xs uppercase tracking-[0.28em] text-sx-green">Act {act}</p>
+          <p className="font-mono text-xs uppercase tracking-[0.28em] text-sx-green">{t("act", { n: act })}</p>
           <div className="h-px flex-1 bg-sx-green/20">
             <div className="h-px bg-sx-green" style={{ width: `${sceneProgress}%` }} />
           </div>
-          <p className="hidden font-mono text-xs uppercase tracking-[0.28em] text-sx-gold md:block">{meta.label}</p>
+          <p className="hidden font-mono text-xs uppercase tracking-[0.28em] text-sx-gold md:block">{zoneName}</p>
           <p className="rounded-sx border border-[var(--stroke-soft)] px-2 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-sx-dim">
             {sceneIndex + 1}/{sceneTotal}
           </p>
@@ -124,12 +127,12 @@ export function GameStage({ act, title, subtitle, zone, sceneIndex, sceneTotal, 
           )}
           <span className="absolute inset-3 rounded-full border border-current opacity-40" />
           <span className="text-2xl leading-none" aria-hidden="true">{meta.glyph}</span>
-          <span className="absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.22em]">{meta.marker}</span>
+          <span className="absolute -top-7 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[10px] uppercase tracking-[0.22em]">{zoneMarker}</span>
         </div>
       </div>
 
       <div className="absolute left-5 top-16 z-20 max-w-xl md:left-8 md:top-20">
-        <p className="font-mono text-xs uppercase tracking-[0.35em] text-sx-gold">{subtitle ?? meta.label}</p>
+        <p className="font-mono text-xs uppercase tracking-[0.35em] text-sx-gold">{subtitle ?? zoneName}</p>
         <h1 className="mt-3 font-display text-3xl font-black uppercase tracking-[0.14em] text-sx-green drop-shadow-[0_0_18px_rgba(0,232,50,0.42)] md:text-5xl">
           {title}
         </h1>

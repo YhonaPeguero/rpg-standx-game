@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useTranslations } from "next-intl";
 import type { ZoneId } from "@/types";
 import { buttonClassName } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
@@ -26,11 +27,15 @@ type ChapterCardProps = {
 };
 
 export function ChapterCard({ chapter, unlocked, completed, lockReason, continueLabel, completedLabel }: ChapterCardProps) {
+  const tScene = useTranslations("scene");
+
   return (
     <Card className="p-5">
       <div className="flex items-start justify-between gap-4">
         <div>
-          <p className="font-mono text-xs uppercase tracking-[0.28em] text-sx-gold">{chapter.zone}</p>
+          <p className="font-mono text-xs uppercase tracking-[0.28em] text-sx-gold">
+            {tScene(`zones.${chapter.zone}` as "zones.void")}
+          </p>
           <h3 className="mt-2 font-display text-xl font-bold uppercase tracking-[0.12em] text-sx-green">{chapter.title}</h3>
           <p className="mt-2 font-semibold text-sx-text">{chapter.subtitle}</p>
         </div>

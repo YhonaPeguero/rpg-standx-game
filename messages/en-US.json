@@ -11,7 +11,9 @@
       "quests": "Daily, weekly and community quests with real rewards",
       "ranks": "Progress from New Stander to Seed, Sprout and Flower",
       "i18n": "Available in 5 languages"
-    }
+    },
+    "cast": "Act I cast",
+    "mascotTag": "New Stander · online"
   },
   "about": {
     "badge": "Community Growth Path",
@@ -112,7 +114,9 @@
     "shareX": "Share to X",
     "tweet": "I am building my StandX Growth Path in StandX RPG.",
     "squad": "Squad",
-    "previewAlt": "Generated StandX share card"
+    "previewAlt": "Generated StandX share card",
+    "headline": "StandX RPG · Growth Path",
+    "tagline": "Small actions. Real progress."
   },
   "minigames": {
     "trade": {
@@ -270,6 +274,23 @@
       "back": "Back to HQ",
       "rankNow": "Current rank",
       "noSquad": "No squad"
+    },
+    "act": "Act {n}",
+    "zones": {
+      "void": "The Void",
+      "discord_plaza": "Discord Plaza",
+      "event_arena": "Event Arena",
+      "content_district": "Content District",
+      "moderator_gate": "Moderator Gate",
+      "seed_hall": "Seed Hall"
+    },
+    "markers": {
+      "void": "boot",
+      "discord_plaza": "channels",
+      "event_arena": "live event",
+      "content_district": "studio",
+      "moderator_gate": "review",
+      "seed_hall": "seed"
     }
   },
   "quests": {
@@ -326,7 +347,24 @@
     "remaining": "{ep} EP to go",
     "unlocked": "Unlocked",
     "locked": "Locked",
-    "perks": "Perks",
+    "perks": {
+      "new_stander": [
+        "Act I unlocked",
+        "Weekly quests"
+      ],
+      "seed": [
+        "Squad selection",
+        "Squad mentor channels"
+      ],
+      "sprout": [
+        "Weekly highlight slot",
+        "Mentor tasks"
+      ],
+      "flower": [
+        "Standards-setter",
+        "Pillar status"
+      ]
+    },
     "req": {
       "sprout": "4,000 EP + 2 real Discord contributions",
       "flower": "Criteria TBD"

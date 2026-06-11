@@ -72,12 +72,12 @@ export default function RanksPage() {
                         {t(`details.${meta.id}` as `details.${typeof meta.id}`)}
                       </p>
                       <ul className="mt-3 flex flex-wrap gap-2">
-                        {meta.perks.map((perk) => (
+                        {[0, 1].map((i) => (
                           <li
                             className="rounded-sx border border-[var(--stroke-brand)] bg-sx-green/5 px-2.5 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-sx-text"
-                            key={perk}
+                            key={i}
                           >
-                            {perk}
+                            {t(`perks.${meta.id}.${i}` as "perks.seed.0")}
                           </li>
                         ))}
                       </ul>

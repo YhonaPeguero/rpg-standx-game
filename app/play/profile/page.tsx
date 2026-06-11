@@ -13,14 +13,6 @@ import { formatRank } from "@/components/hud/RankLabel";
 
 const squadOrder: SquadId[] = ["creative", "content_research", "tech_support", "outreach", "offline"];
 
-const squadLabel: Record<SquadId, string> = {
-  creative: "Creative",
-  content_research: "Content/Research",
-  tech_support: "Tech Support",
-  outreach: "Outreach",
-  offline: "Offline",
-};
-
 function MasteryStars({ stars }: { stars: number }) {
   return (
     <span aria-label={`${stars} of 3 stars`} className="font-mono text-sm tracking-wider text-sx-gold">
@@ -33,6 +25,8 @@ function MasteryStars({ stars }: { stars: number }) {
 export default function ProfilePage() {
   const t = useTranslations("profile");
   const tHud = useTranslations("hud");
+  const tSquads = useTranslations("squads");
+  const squadName = (id: SquadId) => tSquads(`list.${id}.name` as "list.creative.name");
   const messages = useMessages();
   const player = useGameStore((state) => state.player);
   const locale = useGameStore((state) => state.locale);
@@ -77,7 +71,7 @@ export default function ProfilePage() {
               <p className="mt-1 text-xs uppercase tracking-[0.2em] text-sx-dim">{tHud("streak")}</p>
             </div>
             <div className="min-w-0 rounded-sx border border-[var(--stroke-soft)] p-4">
-              <p className="break-words font-mono text-lg leading-6 text-sx-text">{player.squad ? squadLabel[player.squad] : t("none")}</p>
+              <p className="break-words font-mono text-lg leading-6 text-sx-text">{player.squad ? squadName(player.squad) : t("none")}</p>
               <p className="mt-1 text-xs uppercase tracking-[0.2em] text-sx-dim">{t("squad")}</p>
             </div>
           </div>
@@ -154,7 +148,7 @@ export default function ProfilePage() {
                 className="flex items-center justify-between rounded-sx border border-[var(--stroke-soft)] px-4 py-3"
                 key={squad}
               >
-                <span className="font-semibold text-sx-text">{squadLabel[squad]}</span>
+                <span className="font-semibold text-sx-text">{squadName(squad)}</span>
                 <span className="font-mono text-sx-green">{player.squadXP[squad]}</span>
               </li>
             ))}
@@ -177,7 +171,7 @@ export default function ProfilePage() {
         </Card>
       </div>
 
-      <ShareCard run={{ displayName: player.displayName, ep: player.ep, rank: formatRank(player.rank), squad: player.squad ? squadLabel[player.squad] : t("none") }} />
+      <ShareCard run={{ displayName: player.displayName, ep: player.ep, rank: formatRank(player.rank), squad: player.squad ? squadName(player.squad) : t("none") }} />
     </main>
   );
 }
