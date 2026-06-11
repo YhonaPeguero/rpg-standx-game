@@ -9,7 +9,7 @@ import { getRankMeta } from "@/lib/game/ranks";
 import { audioEngine } from "@/lib/audio/engine";
 import { useGameStore } from "@/store";
 import { formatRank } from "@/components/hud/RankLabel";
-import { MascotCanvas } from "./MascotCanvas";
+import { Mascot } from "./Mascot";
 
 export function EvolutionCelebration() {
   const rank = useGameStore((state) => state.player.rank);
@@ -90,7 +90,7 @@ export function EvolutionCelebration() {
         initial={{ scale: 1 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <MascotCanvas stage={celebrating} className="h-72 w-72 md:h-80 md:w-80" />
+        <Mascot className="h-72 w-72 md:h-80 md:w-80" pose="cheer" stage={celebrating} />
         <motion.p
           animate={{ opacity: 1, y: 0 }}
           className="font-mono text-xs uppercase tracking-[0.45em] text-sx-gold"

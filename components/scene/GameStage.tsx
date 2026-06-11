@@ -1,13 +1,14 @@
 "use client";
 
-import type { ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import type { ZoneId } from "@/types";
 import { useGameStore } from "@/store";
+import { onEpGain } from "@/lib/game/epPulse";
 import { AudioToggle } from "@/components/hud/AudioToggle";
 import { Icon } from "@/components/ui/Icon";
-import { MascotCanvas } from "@/components/mascot/MascotCanvas";
+import { Mascot, type MascotPose } from "@/components/mascot/Mascot";
 import { Starfield } from "./Starfield";
 
 type GameStageProps = {
@@ -34,6 +35,23 @@ const zoneMeta: Record<ZoneId, { label: string; accent: string; sky: string; gro
 export function GameStage({ act, title, subtitle, zone, sceneIndex, sceneTotal, mode, notLocalized, children }: GameStageProps) {
   const t = useTranslations("scene");
   const reduceMotion = useGameStore((state) => state.reduceMotion);
+  const rank = useGameStore((state) => state.player.rank);
+  const [mascotPose, setMascotPose] = useState<MascotPose>("idle");
+  const poseTimer = useRef(0);
+
+  // Companion celebrates when EP is earned mid-scene.
+  useEffect(() => {
+    const unsubscribe = onEpGain(() => {
+      setMascotPose("cheer");
+      window.clearTimeout(poseTimer.current);
+      poseTimer.current = window.setTimeout(() => setMascotPose("idle"), 1900);
+    });
+    return () => {
+      unsubscribe();
+      window.clearTimeout(poseTimer.current);
+    };
+  }, []);
+
   const meta = zoneMeta[zone];
   const sceneProgress = Math.round(((sceneIndex + 1) / sceneTotal) * 100);
   const markerLeft = 34 + Math.min(42, sceneIndex * 11);
@@ -96,7 +114,7 @@ export function GameStage({ act, title, subtitle, zone, sceneIndex, sceneTotal, 
       />
 
       <div className="absolute bottom-[130px] left-[13%] z-10 h-24 w-24 md:left-[28%]">
-        <MascotCanvas className="h-full w-full drop-shadow-[0_0_14px_rgba(0,232,50,0.45)]" />
+        <Mascot className="h-full w-full drop-shadow-[0_0_14px_rgba(0,232,50,0.45)]" pose={mascotPose} stage={rank} />
       </div>
 
       <div className="absolute bottom-[180px] z-10 transition-[left] duration-700 ease-out" style={{ left: `${markerLeft}%` }}>
@@ -117,7 +135,10 @@ export function GameStage({ act, title, subtitle, zone, sceneIndex, sceneTotal, 
         </h1>
       </div>
 
-      <div className={mode === "dialog" ? "absolute inset-0 z-30" : "absolute inset-x-4 top-32 z-30 mx-auto max-w-4xl pb-8 md:top-36"}>{children}</div>
+      {/* Panel mode must scroll: minigame/quiz feedback can grow taller than the stage. */}
+      <div className={mode === "dialog" ? "absolute inset-0 z-30" : "absolute inset-x-4 bottom-0 top-32 z-30 overflow-y-auto md:top-36"}>
+        {mode === "dialog" ? children : <div className="mx-auto max-w-4xl pb-8">{children}</div>}
+      </div>
     </section>
   );
 }

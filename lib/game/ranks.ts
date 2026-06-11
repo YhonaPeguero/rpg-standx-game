@@ -14,6 +14,8 @@ export type RankMeta = {
   accent: string;
   /** Whether this rank is recognized as a Discord role */
   discordRole: boolean;
+  /** Optional i18n key for a custom requirement label (overrides "<minEP> EP"). */
+  requirementKey?: string;
   /** Static perks shown on the ranks page (already short and rank-neutral) */
   perks: string[];
 };
@@ -27,6 +29,7 @@ const MIN_EP: Record<Rank, number> = RANK_THRESHOLDS.reduce(
   {} as Record<Rank, number>,
 );
 
+// Brand colors per tier: SEED = green, SPROUT = light sky blue, FLOWER = pink.
 export const RANK_META: Record<Rank, RankMeta> = {
   new_stander: {
     id: "new_stander",
@@ -36,37 +39,7 @@ export const RANK_META: Record<Rank, RankMeta> = {
     icon: "○",
     accent: "#3a5070",
     discordRole: false,
-    perks: ["Chapter 1 unlocked", "Daily quests roll"],
-  },
-  active: {
-    id: "active",
-    minEP: MIN_EP.active,
-    labelKey: "ranks.labels.active",
-    detailKey: "ranks.details.active",
-    icon: "·",
-    accent: "#00aaff",
-    discordRole: false,
-    perks: ["Chapter 2", "Weekly event quest"],
-  },
-  consistent: {
-    id: "consistent",
-    minEP: MIN_EP.consistent,
-    labelKey: "ranks.labels.consistent",
-    detailKey: "ranks.details.consistent",
-    icon: "✦",
-    accent: "#00e832",
-    discordRole: false,
-    perks: ["Weekly quests", "Streak multiplier"],
-  },
-  seed_candidate: {
-    id: "seed_candidate",
-    minEP: MIN_EP.seed_candidate,
-    labelKey: "ranks.labels.seed_candidate",
-    detailKey: "ranks.details.seed_candidate",
-    icon: "✺",
-    accent: "#ffe600",
-    discordRole: false,
-    perks: ["Moderator Gate", "Community quest tier"],
+    perks: ["Act I unlocked", "Daily quests roll"],
   },
   seed: {
     id: "seed",
@@ -74,7 +47,7 @@ export const RANK_META: Record<Rank, RankMeta> = {
     labelKey: "ranks.labels.seed",
     detailKey: "ranks.details.seed",
     icon: "❂",
-    accent: "#00b020",
+    accent: "#00e832",
     discordRole: true,
     perks: ["Squad selection", "Squad mentor channels"],
   },
@@ -84,8 +57,9 @@ export const RANK_META: Record<Rank, RankMeta> = {
     labelKey: "ranks.labels.sprout",
     detailKey: "ranks.details.sprout",
     icon: "✿",
-    accent: "#9945ff",
+    accent: "#6fd2ff",
     discordRole: true,
+    requirementKey: "req.sprout",
     perks: ["Weekly highlight slot", "Mentor tasks"],
   },
   flower: {
@@ -94,8 +68,9 @@ export const RANK_META: Record<Rank, RankMeta> = {
     labelKey: "ranks.labels.flower",
     detailKey: "ranks.details.flower",
     icon: "❀",
-    accent: "#ff3366",
+    accent: "#ff6ba9",
     discordRole: true,
+    requirementKey: "req.flower",
     perks: ["Standards-setter", "Pillar status"],
   },
 };

@@ -25,16 +25,26 @@
     "lockedCta": "Start Chapter 1",
     "nextStep": "Your next step",
     "allChapters": "All Act I chapters",
-    "growthMap": "Growth map",
-    "roadmap": { "step": "Step", "start": "Start", "done": "Done", "current": "Now", "locked": "Locked" },
+    "roadmap": {
+      "step": "Step",
+      "start": "Start",
+      "done": "Done",
+      "current": "Now",
+      "locked": "Locked"
+    },
     "mascotStatus": "New Stander stage online",
-    "stats": { "ep": "Engage Points", "streak": "Streak", "rank": "Rank", "chapters": "Chapters" },
+    "stats": {
+      "ep": "Engage Points",
+      "streak": "Streak",
+      "rank": "Rank",
+      "chapters": "Chapters"
+    },
     "chapter": {
       "continue": "Continue",
       "completed": "Replay",
       "lockedC1": "Locked: complete Chapter 1",
       "c1Title": "Chapter 1: The Awakening",
-      "c1Subtitle": "Meet Mira and learn the 500 EP Seed gate.",
+      "c1Subtitle": "Meet Mira and learn the 3,000 EP Seed gate.",
       "c1Estimate": "6 min",
       "c2Title": "Chapter 2: Discord Plaza",
       "c2Subtitle": "Announcements, reactions and consistency habits.",
@@ -43,9 +53,18 @@
     }
   },
   "stubs": {
-    "codex": { "badge": "Codex", "title": "Coming online in Phase 4" },
-    "leaderboard": { "badge": "Leaderboard", "title": "Stub for v2" },
-    "profile": { "badge": "Profile", "title": "Local Stander profile" }
+    "codex": {
+      "badge": "Codex",
+      "title": "Coming online in Phase 4"
+    },
+    "leaderboard": {
+      "badge": "Leaderboard",
+      "title": "Stub for v2"
+    },
+    "profile": {
+      "badge": "Profile",
+      "title": "Local Stander profile"
+    }
   },
   "hud": {
     "ep": "Engage Points",
@@ -54,6 +73,7 @@
     "audioOff": "Audio off",
     "muteAudio": "Mute audio",
     "unmuteAudio": "Unmute audio",
+    "guide": "Guide",
     "rankUp": "Rank Up",
     "motionOn": "Motion on",
     "motionOff": "Motion off",
@@ -84,10 +104,10 @@
   },
   "share": {
     "badge": "Share Card",
-    "title": "Generate 1200x630 PNG",
+    "title": "Share your run",
     "body": "Create a clean card for your local run. Download it or share your progress on X.",
     "generate": "Generate PNG",
-    "copy": "Copy data URL",
+    "copy": "Copy image",
     "download": "Download",
     "shareX": "Share to X",
     "tweet": "I am building my StandX Growth Path in StandX RPG.",
@@ -118,9 +138,18 @@
       "hypeTitle": "NOT SELECTED",
       "hypeLesson": "Hype teaches nothing. The team picks what adds real value.",
       "cards": {
-        "a": { "label": "A - DEEP", "text": "DUSD's delta-neutral architecture means your capital works without directional exposure. Not magic yield - structure. Thread on the mechanisms >" },
-        "b": { "label": "B - HYPE", "text": "DUSD on StandX is amazing! Passive yield while you sleep! Best DeFi platform!" },
-        "c": { "label": "C - DEEP", "text": "DUSD vs USDC in perps: delta-neutral vs direct exposure. Real data, honest analysis. >" }
+        "a": {
+          "label": "A - DEEP",
+          "text": "DUSD's delta-neutral architecture means your capital works without directional exposure. Not magic yield - structure. Thread on the mechanisms >"
+        },
+        "b": {
+          "label": "B - HYPE",
+          "text": "DUSD on StandX is amazing! Passive yield while you sleep! Best DeFi platform!"
+        },
+        "c": {
+          "label": "C - DEEP",
+          "text": "DUSD vs USDC in perps: delta-neutral vs direct exposure. Real data, honest analysis. >"
+        }
       }
     }
   },
@@ -129,24 +158,86 @@
     "home": "Home",
     "growth": "Growth",
     "squads": "Squads",
-    "codex": "Codex",
     "quests": "Quests",
     "ranks": "Ranks",
     "leaderboard": "Leaderboard",
     "profile": "Profile",
     "about": "About",
-    "locked": "Locked"
+    "locked": "Locked",
+    "join": "Join"
   },
   "onboarding": {
-    "badge": "First Run",
+    "badge": "How to play",
     "skip": "Skip",
     "next": "Next",
+    "back": "Back",
+    "done": "Got it",
     "finish": "Enter HQ",
     "startChapter1": "Start Chapter 1",
     "steps": [
-      { "title": "Name your Stander", "body": "Saved locally. Used across your Growth Path run." },
-      { "title": "Ready when you are", "body": "Six chapters take you from New Stander to Seed. Start Chapter 1 now and meet Mira." }
+      {
+        "title": "Welcome, Stander",
+        "body": "Name your character. Your run is saved locally on this device — no account needed."
+      },
+      {
+        "title": "How you earn EP",
+        "body": "Engage Points are a conceptual learning score. You earn them by doing well: the best dialogue choices, and quizzes or mini-games graded by stars (30 / 50 / 80 EP). Weak or skipped actions earn nothing."
+      },
+      {
+        "title": "Your goal: SEED",
+        "body": "Climb the Growth Path. SEED is the real goal: 3,000 EP plus real activity. Remember — this is an educational simulation; real Engage Points are earned in the StandX Discord through events and active participation."
+      },
+      {
+        "title": "Squads",
+        "body": "Finish the Seed Hall (Chapter 6) to choose your Squad: Content, Creative, Outreach, Tech or Offline. Open the Squads tab any time to preview them."
+      },
+      {
+        "title": "Ready",
+        "body": "Six chapters take you from New Stander to Seed. Start Chapter 1 and meet Mira."
+      }
     ]
+  },
+  "squads": {
+    "badge": "Squads",
+    "title": "Choose Your Squad",
+    "intro": "Squads are how contributors organise in the real Discord — each has a focus, a mentor and SPROUT milestones. In the game, finishing Act I unlocks your choice.",
+    "lockedBanner": "You choose your squad in the Seed Hall — the final chapter of Act I. Finish the story to unlock squad selection here.",
+    "haveSquad": "You're in a squad. You can switch any time below.",
+    "readyToChoose": "Seed Hall cleared — pick the squad that fits you.",
+    "unlocksAt": "Finish Act I",
+    "selected": "Your squad",
+    "select": "Choose",
+    "switch": "Switch here",
+    "mentor": "Mentor",
+    "mentorTbd": "Mentor TBD",
+    "list": {
+      "content_research": {
+        "name": "Content / Research",
+        "desc": "Analysis, tutorials and insights. Depth over hype.",
+        "milestone": "2 in-depth original pieces selected by the team"
+      },
+      "creative": {
+        "name": "Creative",
+        "desc": "Visuals, video and identity. Consistency is the differentiator.",
+        "milestone": "4 approved visual materials"
+      },
+      "outreach": {
+        "name": "Outreach",
+        "desc": "KOLs, partnerships and community. Rally the room.",
+        "milestone": "Invite 3 KOLs or communities"
+      },
+      "tech_support": {
+        "name": "Tech Support",
+        "desc": "Technical tutorials and helping members get unstuck.",
+        "milestone": "25 answered questions + 1 tutorial"
+      },
+      "offline": {
+        "name": "Offline",
+        "desc": "Local presence and real-world events.",
+        "milestone": "2 events with 100+ total attendees"
+      }
+    },
+    "milestoneLabel": "Sprout milestone"
   },
   "scene": {
     "tap": "Tap to continue",
@@ -166,7 +257,10 @@
       "noEp": "No EP this time — replay to earn stars.",
       "continue": "Continue"
     },
-    "reflection": { "badge": "Reflection", "complete": "Complete reflection" },
+    "reflection": {
+      "badge": "Reflection",
+      "complete": "Complete reflection"
+    },
     "reward": {
       "badge": "Chapter Complete",
       "title": "Rewards Secured",
@@ -181,57 +275,125 @@
   "quests": {
     "badge": "Quest Board",
     "title": "Active Missions",
-    "intro": "Daily, weekly and community missions. Complete them to earn EP, codex entries and momentum toward Seed.",
+    "intro": "These mirror the real StandX Discord: weekly games, Friday highlights and community events. EP here is practice — real Engage Points are earned in Discord.",
     "claim": "Claim",
     "claimed": "Claimed",
     "markDone": "Mark done",
     "rewardEp": "+{ep} EP",
     "rewardCodex": "+Codex",
-    "tabs": { "daily": "Daily", "weekly": "Weekly", "community": "Community" },
+    "tabs": {
+      "weekly": "Weekly",
+      "community": "Community"
+    },
     "empty": "All caught up. New missions roll over at 00:00 UTC.",
     "optionalLabel": "Optional practice — extras while you play",
     "tabLockedAt": "Unlocks after completing {count} chapters.",
-    "resetIn": "Resets in {hours}h",
     "locked": "Locked",
     "progress": "{done}/{total}",
     "list": {
-      "daily_x_post": { "title": "Post on X", "body": "Share one genuine post about StandX. Your daily signal." },
-      "weekly_rumble": { "title": "Play Rumble in Discord", "body": "Join the Rumble round in the Discord server this week." },
-      "weekly_poker": { "title": "Join poker night", "body": "Sit at the community poker table this week." },
-      "weekly_event": { "title": "Join the weekly event", "body": "Show up to this week's event. Bring presence, help one newcomer." },
-      "weekly_quality": { "title": "Publish one quality post", "body": "Depth + human voice. Hype does not count." },
-      "weekly_streak": { "title": "Hit a 7-day streak", "body": "Real consistency. Resets on any miss." },
-      "community_shoutout": { "title": "Earn a weekly shoutout", "body": "Get nominated by Artifex or Gabo in the BR room." },
-      "community_thread": { "title": "Ship a deep thread", "body": "DUSD, perps or governance. Source data. Show structure." }
+      "weekly_event": {
+        "title": "Join a Discord event",
+        "body": "Events are announced in Discord. Claim the Events role so you never miss one."
+      },
+      "weekly_quality": {
+        "title": "Publish quality content",
+        "body": "Depth + human voice. The best posts get featured in Friday highlights for 15–40 real EP."
+      },
+      "weekly_streak": {
+        "title": "Stay visibly active",
+        "body": "Show up daily. Saturdays sometimes spotlight very active members with +100 real EP."
+      },
+      "community_shoutout": {
+        "title": "Complete a seasonal event",
+        "body": "Casual seasonal and feature-launch events pay 80–100 real EP. Watch the Discord announcements."
+      },
+      "community_thread": {
+        "title": "Ship a deep thread",
+        "body": "DUSD, perps or governance. Source data. Show structure."
+      },
+      "weekly_game": {
+        "title": "Wednesday community game",
+        "body": "Rumble or Poker in Discord — Wednesdays 14:00 UTC. All participants earn +30 real EP; Poker pays the top 10 up to +50, Rumble round winners +20."
+      }
     }
   },
   "ranks": {
     "badge": "Rank Ladder",
     "title": "Growth Path Ranks",
-    "intro": "Every action moves you up the ladder. Ranks unlock missions, scenes and squads. Seed is the first official Discord rank.",
+    "intro": "These are the real Growth Path tiers — the same ladder as the StandX Discord. The game trains you toward SEED, the first official rank.",
     "current": "Current",
     "next": "Next rank",
     "remaining": "{ep} EP to go",
     "unlocked": "Unlocked",
     "locked": "Locked",
     "perks": "Perks",
+    "req": {
+      "sprout": "4,000 EP + 2 real Discord contributions",
+      "flower": "Criteria TBD"
+    },
     "labels": {
       "new_stander": "New Stander",
-      "active": "Active",
-      "consistent": "Consistent",
-      "seed_candidate": "Seed Candidate",
       "seed": "Seed",
       "sprout": "Sprout",
       "flower": "Flower"
     },
     "details": {
       "new_stander": "Day zero. Just landed on StandX. Watch, learn, react.",
-      "active": "You're showing up. Reactions and event taps count.",
-      "consistent": "You hit the loop daily. Streak compounds.",
-      "seed_candidate": "Eligible for moderator review. Quality > quantity now.",
       "seed": "Official Discord role. Pick a Squad and start contributing.",
       "sprout": "Recognised contributor. Squad tasks unlock weekly highlight slots.",
       "flower": "Community pillar. Standards-setter and mentor."
+    },
+    "roadmap": {
+      "badge": "The real path",
+      "title": "From 0 to FLOWER",
+      "intro": "This is how the Growth Path works inside the real StandX Discord. The game trains you for it — EP here is practice; the real score lives in Discord.",
+      "steps": [
+        {
+          "tag": "Step 1",
+          "title": "Join Discord & claim the Events role",
+          "body": "First move after joining: claim the Events role so every new event pings you. Without it, you miss opportunities."
+        },
+        {
+          "tag": "Step 2",
+          "title": "Accumulate Engage Points",
+          "body": "Events, social campaigns, content creation, daily activity and real community participation all add up."
+        },
+        {
+          "tag": "Step 3",
+          "title": "Hit 3,000 EP and apply for SEED",
+          "body": "Not automatic — the team manually reviews your account to verify you're a real contributor, not a bot. Rejected? You can reapply in 2 weeks."
+        },
+        {
+          "tag": "Step 4",
+          "title": "Choose your squad",
+          "body": "Creative, Offline, Tech, Outreach or Content. Pick what you're actually skilled at — not what looks easiest."
+        },
+        {
+          "tag": "Step 5",
+          "title": "Complete squad missions → SPROUT",
+          "body": "Maintain 4,000+ EP, hit your squad's milestones, stay consistently active and earn moderator approval. Every contribution is tracked on a Notion board."
+        },
+        {
+          "tag": "Step 6",
+          "title": "FLOWER — prove leadership",
+          "body": "There is no public checklist. SEED proves activity, SPROUT proves contribution, FLOWER proves leadership. Very few will reach it."
+        }
+      ],
+      "flowerNote": "No FLOWER has been selected yet. The seat is open — that scarcity is exactly what makes it valuable.",
+      "failTitle": "Where most people fail",
+      "fails": [
+        "Spamming messages",
+        "Picking the wrong squad",
+        "Treating it like a checklist",
+        "Quantity over quality"
+      ],
+      "workTitle": "What actually works",
+      "works": [
+        "Quality interactions",
+        "Helping others",
+        "Showcasing your strengths",
+        "Being visible across the whole Discord"
+      ]
     }
   },
   "locale": {
@@ -246,5 +408,26 @@
       "body": "That route doesn't exist on the map.",
       "back": "Back to HQ"
     }
+  },
+  "join": {
+    "badge": "Community",
+    "title": "Join StandX",
+    "intro": "Everything real happens in the community. Start with Discord — claim the Events role and say hi.",
+    "discord": {
+      "title": "Discord",
+      "desc": "The Growth Path lives here: events, weekly games, highlights and the real Engage Points."
+    },
+    "website": {
+      "title": "Website",
+      "desc": "The official StandX platform: perps DEX and DUSD."
+    },
+    "x": {
+      "title": "X (Twitter)",
+      "desc": "News, campaigns and announcements."
+    },
+    "open": "Open"
+  },
+  "footer": {
+    "fanMade": "Community-made · unofficial"
   }
 }

@@ -7,6 +7,7 @@ import { useTranslations } from "next-intl";
 import { nextRankThreshold, RANK_THRESHOLDS } from "@/lib/game/ep";
 import { getChapters } from "@/lib/content/loader";
 import { chapterUnlocked } from "@/lib/game/gates";
+import { openGuide } from "@/lib/game/guidePulse";
 import { useGameStore } from "@/store";
 import { LocaleSwitcher } from "@/components/i18n/LocaleSwitcher";
 import { buttonClassName } from "@/components/ui/Button";
@@ -47,7 +48,7 @@ export function TopBar() {
   }, [bumpStreak, rollDailyIfNeeded]);
 
   return (
-    <header className="sticky top-0 z-40 mb-5 rounded-sx-lg border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] px-4 py-3 backdrop-blur md:px-5">
+    <header className="sticky top-0 z-40 mx-auto mb-5 w-full max-w-7xl rounded-sx-lg border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] px-4 py-3 backdrop-blur md:px-5">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-center gap-3">
           <EPRing ep={player.ep} current={current} next={next?.min ?? player.ep} />
@@ -60,12 +61,21 @@ export function TopBar() {
         <div className="flex items-center gap-2">
           {nextChapter ? (
             <Link
-              className={buttonClassName("primary", "min-h-0 px-4 py-2 text-[10px]")}
+              className={buttonClassName("primary", "min-h-0 whitespace-nowrap px-4 py-2 text-[10px]")}
               href={`/play/scene/${nextChapter.id}`}
             >
               {t("continueJourney", { n: chapterNumber(nextChapter.id) })} →
             </Link>
           ) : null}
+          <button
+            aria-label={t("guide")}
+            className="grid h-9 w-9 shrink-0 place-items-center rounded-sx border border-[var(--stroke-soft)] text-sx-dim transition hover:border-sx-green hover:text-sx-green"
+            onClick={openGuide}
+            title={t("guide")}
+            type="button"
+          >
+            <Icon name="help" size={18} />
+          </button>
           <Link
             aria-label={tNav("home")}
             className="grid h-9 w-9 shrink-0 place-items-center rounded-sx border border-[var(--stroke-soft)] text-sx-dim transition hover:border-sx-green hover:text-sx-green"

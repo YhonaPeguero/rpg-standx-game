@@ -3,60 +3,35 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { rankOrder } from "@/lib/game/ep";
-import { useGameStore } from "@/store";
 import { cn } from "@/lib/utils";
 import { Icon, type IconName } from "@/components/ui/Icon";
 
 type NavItem = {
   href: string;
-  key: "hq" | "quests" | "ranks" | "codex" | "profile";
+  key: "hq" | "quests" | "squads" | "ranks" | "profile" | "join";
   icon: IconName;
-  seedOnly?: boolean;
 };
 
 const navItems: readonly NavItem[] = [
   { href: "/play", key: "hq", icon: "hq" },
   { href: "/play/quests", key: "quests", icon: "quests" },
-  { href: "/play/codex", key: "codex", icon: "codex" },
+  { href: "/play/squads", key: "squads", icon: "squads" },
   { href: "/play/ranks", key: "ranks", icon: "ranks" },
   { href: "/play/profile", key: "profile", icon: "profile" },
+  { href: "/play/join", key: "join", icon: "discord" },
 ] as const;
 
 export function Sidebar() {
   const t = useTranslations("nav");
   const pathname = usePathname();
-  const rank = useGameStore((state) => state.player.rank);
-  const ranksLocked = rankOrder(rank) < rankOrder("active");
 
   return (
     <nav className="hidden rounded-sx-lg border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] p-3 lg:block">
-      <Link
-        className="group flex items-center gap-2.5 rounded-sx px-3 py-2 transition hover:bg-sx-green/5"
-        href="/"
-        title={t("home")}
-      >
-        <span className="grid h-7 w-7 place-items-center rounded-sx border border-sx-green/40 bg-sx-green/10 text-sx-green shadow-[0_0_12px_rgba(0,232,50,0.25)]">
-          <Icon name="seed" size={16} />
-        </span>
-        <span className="font-display text-sm font-bold uppercase tracking-[0.24em] text-sx-green">StandX</span>
-        <Icon className="ml-auto text-sx-dim transition group-hover:text-sx-green" name="home" size={14} />
-      </Link>
-
-      <div className="mt-4 grid gap-1.5">
+      <div className="grid gap-1.5">
         {navItems.map((item) => {
-          const locked = item.seedOnly && ranksLocked;
           const active = pathname === item.href;
 
-          return locked ? (
-            <span
-              className="flex items-center gap-3 rounded-sx border border-transparent px-3 py-2.5 font-mono text-xs uppercase tracking-[0.16em] text-sx-dim opacity-60"
-              key={item.key}
-            >
-              <Icon name="lock" size={16} />
-              {t(item.key)}
-            </span>
-          ) : (
+          return (
             <Link
               className={cn(
                 "group relative flex items-center gap-3 rounded-sx border border-transparent px-3 py-2.5 font-mono text-xs uppercase tracking-[0.16em] text-sx-text transition hover:border-sx-green/40 hover:bg-sx-green/5",
@@ -79,9 +54,10 @@ export function Sidebar() {
 const bottomItems: { href: string; key: NavItem["key"]; icon: IconName }[] = [
   { href: "/play", key: "hq", icon: "hq" },
   { href: "/play/quests", key: "quests", icon: "quests" },
+  { href: "/play/squads", key: "squads", icon: "squads" },
   { href: "/play/ranks", key: "ranks", icon: "ranks" },
-  { href: "/play/codex", key: "codex", icon: "codex" },
   { href: "/play/profile", key: "profile", icon: "profile" },
+  { href: "/play/join", key: "join", icon: "discord" },
 ];
 
 export function BottomNav() {
@@ -89,7 +65,7 @@ export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-5 gap-1 rounded-sx-lg border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] p-2 backdrop-blur lg:hidden">
+    <nav className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-6 gap-1 rounded-sx-lg border border-[var(--stroke-brand)] bg-[var(--bg-overlay)] p-2 backdrop-blur lg:hidden">
       {bottomItems.map((item) => {
         const active = pathname === item.href;
         return (

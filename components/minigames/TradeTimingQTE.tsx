@@ -54,6 +54,14 @@ export function TradeTimingQTE({ onResult }: TradeTimingQTEProps) {
   const [result, setResult] = useState<TradeResult | null>(null);
   const positionRef = useRef(0);
   const directionRef = useRef(1);
+  const resultRef = useRef<HTMLDivElement>(null);
+
+  // Feedback can render below the visible stage; keep it reachable.
+  useEffect(() => {
+    if (result) {
+      resultRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  }, [result]);
 
   useEffect(() => {
     if (result) {
@@ -122,7 +130,7 @@ export function TradeTimingQTE({ onResult }: TradeTimingQTEProps) {
         {t("action")}
       </Button>
       {result ? (
-        <div className="mt-6 rounded-sx border border-[var(--stroke-brand)] bg-sx-green/5 p-4">
+        <div className="mt-6 rounded-sx border border-[var(--stroke-brand)] bg-sx-green/5 p-4" ref={resultRef}>
           <p className="font-display text-xl font-bold uppercase tracking-[0.16em] text-sx-green">{result.title}</p>
           <p className="mt-3 font-semibold leading-7 text-sx-text">{result.lesson}</p>
           {result.ep > 0 ? <p className="mt-3 font-mono text-sx-gold">+{result.ep} EP</p> : null}

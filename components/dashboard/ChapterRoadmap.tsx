@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { ZoneId } from "@/types";
 import { buttonClassName } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
+import { Mascot } from "@/components/mascot/Mascot";
 import { cn } from "@/lib/utils";
 import type { DashboardChapter } from "./ChapterCard";
 
@@ -36,6 +37,8 @@ type ChapterRoadmapProps = {
 };
 
 export function ChapterRoadmap({ items, labels }: ChapterRoadmapProps) {
+  const firstLockedIndex = items.findIndex((item) => !item.unlocked);
+
   return (
     <ol className="space-y-2">
       {items.map((item, index) => {
@@ -101,7 +104,12 @@ export function ChapterRoadmap({ items, labels }: ChapterRoadmapProps) {
                   </Link>
                 ) : (
                   <span className="flex shrink-0 items-center gap-1.5 font-mono text-[10px] uppercase tracking-[0.16em] text-sx-dim">
-                    <Icon name="lock" size={13} />
+                    {/* The mascot peeks at the very next gate; plain locks beyond it. */}
+                    {index === firstLockedIndex ? (
+                      <Mascot className="-my-3 h-12 w-12" pose="peek" still />
+                    ) : (
+                      <Icon name="lock" size={13} />
+                    )}
                     {labels.locked}
                   </span>
                 )}

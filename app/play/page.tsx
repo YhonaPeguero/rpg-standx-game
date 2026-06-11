@@ -4,27 +4,25 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { useMessages, useTranslations } from "next-intl";
 import type { Chapter } from "@/types";
-import { getChapters } from "@/lib/content/loader";
+import { getCharacterById, getChapters } from "@/lib/content/loader";
 import { localizeChapter } from "@/lib/content/localize";
 import { chapterUnlocked } from "@/lib/game/gates";
 import { useGameStore } from "@/store";
 import { ChapterCard, type DashboardChapter } from "@/components/dashboard/ChapterCard";
 import { ChapterRoadmap, type RoadmapItem } from "@/components/dashboard/ChapterRoadmap";
-import { GrowthTree } from "@/components/dashboard/GrowthTree";
 import { MascotPanel } from "@/components/dashboard/MascotPanel";
-import { Onboarding } from "@/components/dashboard/Onboarding";
-import { Sidebar } from "@/components/dashboard/Sidebar";
 import { RankProgress } from "@/components/hud/RankProgress";
 import { formatRank } from "@/components/hud/RankLabel";
 import { buttonClassName } from "@/components/ui/Button";
 
-const mentorByZone: Record<Chapter["zone"], string> = {
-  void: "Mira",
-  discord_plaza: "Dave",
-  event_arena: "Gabo",
-  content_district: "冷酷锦鲤.StandX",
-  moderator_gate: "Artifex",
-  seed_hall: "Mira",
+// Mentor character per zone; name/color resolve from content/characters.json.
+const mentorIdByZone: Record<Chapter["zone"], string> = {
+  void: "mira",
+  discord_plaza: "dave",
+  event_arena: "gaboo",
+  content_district: "jinli",
+  moderator_gate: "arttifex",
+  seed_hall: "mira",
 };
 
 const estimateById: Record<string, string> = {
@@ -37,6 +35,9 @@ const estimateById: Record<string, string> = {
 };
 
 function toDashboardChapter(chapter: Chapter): DashboardChapter & Pick<Chapter, "unlock"> {
+  const mentorId = mentorIdByZone[chapter.zone];
+  const mentor = getCharacterById(mentorId);
+
   return {
     id: chapter.id,
     title: chapter.title,
@@ -44,7 +45,9 @@ function toDashboardChapter(chapter: Chapter): DashboardChapter & Pick<Chapter, 
     zone: chapter.zone,
     href: `/play/scene/${chapter.id}`,
     estimate: estimateById[chapter.id] ?? "7 min",
-    mentor: mentorByZone[chapter.zone],
+    mentor: mentor?.name ?? mentorId,
+    mentorId,
+    mentorColor: mentor?.color ?? "#00e832",
     unlock: chapter.unlock,
   };
 }
@@ -79,15 +82,11 @@ export default function PlayPage() {
   });
 
   return (
-    <main className="mx-auto grid max-w-7xl gap-6 lg:grid-cols-12">
-      <Onboarding />
-      <aside className="lg:col-span-2">
-        <Sidebar />
-      </aside>
+    <main className="grid gap-6 lg:grid-cols-10">
       <section className="space-y-6 lg:col-span-6">
         <div>
           <p className="font-mono text-xs uppercase tracking-[0.35em] text-sx-gold">{t("badge")}</p>
-          <h1 className="mt-3 font-display text-3xl font-black uppercase tracking-[0.16em] text-sx-green md:text-4xl">
+          <h1 className="mt-3 break-words font-display text-2xl sm:text-3xl font-black uppercase tracking-[0.16em] text-sx-green md:text-4xl">
             {t("title")}
           </h1>
         </div>
@@ -146,16 +145,6 @@ export default function PlayPage() {
             }}
           />
         </section>
-
-        <details className="rounded-sx-lg border border-[var(--stroke-brand)] bg-sx-bg/40">
-          <summary className="cursor-pointer list-none px-5 py-4 font-mono text-xs uppercase tracking-[0.28em] text-sx-text transition hover:text-sx-green">
-            <span className="mr-2 text-sx-green">▸</span>
-            {t("growthMap")}
-          </summary>
-          <div className="px-5 pb-5">
-            <GrowthTree completedChapterIds={completedChapters} currentChapterId={nextChapter.id} />
-          </div>
-        </details>
 
         <div className="flex flex-wrap gap-3">
           <Link className={buttonClassName("secondary")} href="/play/quests">

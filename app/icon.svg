@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Simplified Stander mascot head: dark body, big green eye, leaf sprout. -->
+  <path d="M32 20 C33 16 34.5 13 37 10.5" fill="none" stroke="#07090c" stroke-linecap="round" stroke-width="3.4"/>
+  <path d="M37 11 C39 4 46.5 1 52.5 2.5 C51.5 9 44.5 13.5 37 11 Z" fill="#2fae47" stroke="#07090c" stroke-linejoin="round" stroke-width="2.6"/>
+  <circle cx="32" cy="40" fill="#1a2026" r="21" stroke="#07090c" stroke-width="3.6"/>
+  <circle cx="32" cy="37" fill="#f2f4e6" r="11.5"/>
+  <circle cx="33" cy="38" fill="#1f9e42" r="7.3"/>
+  <circle cx="34.5" cy="39.5" fill="#053015" r="3.8"/>
+  <circle cx="29" cy="34" fill="#ffffff" r="2.4"/>
+  <path d="M26 53 Q32 57 38 53" fill="none" stroke="#e8efe2" stroke-linecap="round" stroke-width="2.4"/>
+</svg>

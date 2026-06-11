@@ -65,7 +65,109 @@ select {
   color: var(--text-primary);
 }
 
+@keyframes sx-talk {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.055);
+  }
+}
+
+/* Mascot life: idle bob, leaf sway, blink, celebration sparkles. */
+@keyframes sx-m-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes sx-m-bounce {
+  0%,
+  100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-7px) scale(1.025);
+  }
+}
+
+@keyframes sx-m-sway {
+  0%,
+  100% {
+    transform: rotate(-5deg);
+  }
+  50% {
+    transform: rotate(6deg);
+  }
+}
+
+@keyframes sx-m-blink {
+  0%,
+  90.5%,
+  95.5%,
+  100% {
+    transform: scaleY(0);
+  }
+  92.5%,
+  93.5% {
+    transform: scaleY(1);
+  }
+}
+
+@keyframes sx-m-spark {
+  0%,
+  100% {
+    transform: scale(0.55);
+    opacity: 0.35;
+  }
+  50% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+}
+
+.sx-m-bob {
+  animation: sx-m-bob 3.4s ease-in-out infinite;
+}
+
+.sx-m-bounce {
+  animation: sx-m-bounce 1.5s ease-in-out infinite;
+}
+
+.sx-m-sway {
+  animation: sx-m-sway 3.6s ease-in-out infinite;
+}
+
+.sx-m-blink {
+  animation: sx-m-blink 4.6s linear infinite;
+}
+
+.sx-m-spark {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: sx-m-spark 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sx-m-bob,
+  .sx-m-bounce,
+  .sx-m-sway,
+  .sx-m-blink,
+  .sx-m-spark {
+    animation: none;
+  }
+}
+
 @layer utilities {
+  .sx-talking {
+    animation: sx-talk 1.05s ease-in-out infinite;
+  }
+
   .sx-panel {
     position: relative;
     border: 1px solid var(--stroke-brand);
@@ -85,6 +187,25 @@ select {
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(0, 232, 50, 0.45), transparent);
     pointer-events: none;
+  }
+
+  /* Subtle film grain + vignette to add atmosphere/depth over flat dark bg. */
+  .sx-grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 140px 140px;
+  }
+
+  .sx-vignette {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: radial-gradient(125% 100% at 50% -5%, transparent 55%, rgba(0, 0, 0, 0.5));
   }
 
   .sx-scanlines::after {

@@ -24,7 +24,7 @@ function makePlayer(overrides: Partial<Player> = {}): Player {
 
 function makeState(overrides: Partial<QuestState> = {}): QuestState {
   return {
-    activeDaily: ["daily_x_post"],
+    activeDaily: [],
     progress: {},
     claimed: [],
     lastRollISO: "2026-04-26",
@@ -33,15 +33,16 @@ function makeState(overrides: Partial<QuestState> = {}): QuestState {
 }
 
 describe("applyQuestEvent", () => {
-  it("bumps daily_x_post on scene_complete", () => {
-    const next = applyQuestEvent(
-      makeState(),
+  it("ignores scene_complete (there are no daily quests)", () => {
+    const before = makeState();
+    const after = applyQuestEvent(
+      before,
       { type: "scene_complete", sceneId: "s1-1", chapterId: "act1-c1-awakening" },
       makePlayer(),
       new Set(),
     );
 
-    expect(next.progress.daily_x_post).toBe(1);
+    expect(after).toBe(before);
   });
 
   it("ignores codex_unlock (no quest is wired to it)", () => {
@@ -60,7 +61,7 @@ describe("applyQuestEvent", () => {
     const next = applyQuestEvent(
       makeState(),
       { type: "chapter_complete", chapterId: "act1-c2-discord-plaza" },
-      makePlayer({ rank: "active", ep: 200 }),
+      makePlayer({ rank: "new_stander", ep: 200 }),
       new Set(["act1-c2-discord-plaza"]),
     );
 
@@ -80,7 +81,7 @@ describe("applyQuestEvent", () => {
   });
 
   it("bumps weekly_quality only when mastery hits the 3-star content scene", () => {
-    const player = makePlayer({ ep: 1100, rank: "consistent" });
+    const player = makePlayer({ ep: 1100, rank: "new_stander" });
     const ok = applyQuestEvent(
       makeState(),
       { type: "mastery", sceneId: "s4-2-content-pick", stars: 3 },
@@ -123,33 +124,22 @@ describe("applyQuestEvent", () => {
     expect(state.progress.weekly_streak).toBe(7);
   });
 
-  it("skips rank-locked weekly quests until the rank gate passes", () => {
+  it("skips EP-locked weekly quests until the EP gate passes", () => {
     const blocked = applyQuestEvent(
       makeState(),
       { type: "mastery", sceneId: "s4-2-content-pick", stars: 3 },
-      makePlayer({ rank: "active", ep: 500 }),
+      makePlayer({ rank: "new_stander", ep: 100 }),
       new Set(),
     );
     expect(blocked.progress.weekly_quality).toBeUndefined();
   });
 
   it("does not bump quests that are already claimed", () => {
-    const before = makeState({ claimed: ["daily_x_post"] });
+    const before = makeState({ claimed: ["weekly_quality"] });
     const after = applyQuestEvent(
       before,
-      { type: "scene_complete", sceneId: "s1-1", chapterId: null },
-      makePlayer(),
-      new Set(),
-    );
-    expect(after).toBe(before);
-  });
-
-  it("does not bump daily quests that are not in today's roll", () => {
-    const before = makeState({ activeDaily: [] });
-    const after = applyQuestEvent(
-      before,
-      { type: "scene_complete", sceneId: "s1-1", chapterId: null },
-      makePlayer(),
+      { type: "mastery", sceneId: "s4-2-content-pick", stars: 3 },
+      makePlayer({ ep: 1100 }),
       new Set(),
     );
     expect(after).toBe(before);

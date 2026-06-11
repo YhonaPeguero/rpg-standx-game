@@ -52,7 +52,7 @@ components/
   dashboard/        # ChapterCard, GrowthTree, MascotPanel, Onboarding, Sidebar, StatCard
   hud/              # TopBar, EPRing, RankLabel, RankProgress
   quests/           # QuestBoard, QuestCard
-  mascot/           # MascotCanvas (canvas2d), EvolutionCelebration
+  mascot/           # Mascot (SVG pose system), CharacterAvatar, EvolutionCelebration
   i18n/             # LocaleProvider, LocaleSwitcher
   ui/               # Button, Card, Modal, ShareCard
 
@@ -161,7 +161,7 @@ Add to `content/codex.json` or `content/achievements.json` with `LocalizedText` 
 
 - **Tokens** in `styles/globals.css` (`--green-primary`, `--gold`, `--bg-base`, etc.) and mapped via `tailwind.config.ts` to `sx-*` utilities.
 - **Fonts** loaded by Next: Orbitron (display), Share Tech Mono (mono), Rajdhani (body), Inter (UI).
-- **Atmosphere:** canvas2d `Starfield` on the landing, CSS scanline overlay on every page, parallax glow + grid floor inside `GameStage`, framer-motion scene transitions, animated `MascotCanvas` (procedural drawing reacting to rank), and an `EvolutionCelebration` overlay on rank-up.
+- **Atmosphere:** canvas2d `Starfield` on the landing, CSS scanline overlay on every page, parallax glow + grid floor inside `GameStage`, framer-motion scene transitions, an animated SVG `Mascot` with expressive poses (idle, point, peek, meh, cheer) that reacts to EP gains and rank, and an `EvolutionCelebration` overlay on rank-up.
 - **No Three.js / WebGL renderer** — canvas2d covers the visual ceiling cheaply (< 10kb of code vs. ~150kb for three+r3f). Reintroduce only if a specific scene needs true 3D depth.
 
 ## Testing

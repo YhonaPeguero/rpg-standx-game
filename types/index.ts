@@ -4,14 +4,8 @@ export type { Locale };
 
 export type SquadId = "creative" | "content_research" | "tech_support" | "outreach" | "offline";
 
-export type Rank =
-  | "new_stander"
-  | "active"
-  | "consistent"
-  | "seed_candidate"
-  | "seed"
-  | "sprout"
-  | "flower";
+// Mirrors the real StandX Growth Path: no synthetic in-game ranks.
+export type Rank = "new_stander" | "seed" | "sprout" | "flower";
 
 export type ZoneId =
   | "void"
