@@ -1,0 +1,677 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Orbitron";
+        src: url("fonts/orbitron.woff2") format("woff2");
+        font-weight: 400 900;
+        font-style: normal;
+      }
+      @font-face {
+        font-family: "Share Tech Mono";
+        src: url("fonts/sharetechmono.woff2") format("woff2");
+        font-weight: 400;
+        font-style: normal;
+      }
+      body {
+        margin: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #04080f;
+        font-family: "Orbitron", sans-serif;
+        color: #e8f4ff;
+      }
+      .scene {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+      }
+      #s1 { z-index: 1; background: #04080f; }
+      #s2 { z-index: 2; background: #030611; opacity: 0; }
+      #s3 { z-index: 3; background: #04080f; opacity: 0; }
+      #s4 { z-index: 4; background: #07030d; opacity: 0; }
+      #s5 { z-index: 5; background: #02050a; opacity: 0; }
+
+      .mono { font-family: "Share Tech Mono", monospace; }
+      .glow {
+        position: absolute;
+        border-radius: 50%;
+        pointer-events: none;
+      }
+      .grid-floor {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 240px;
+        background-image:
+          linear-gradient(rgba(0, 232, 50, 0.16) 2px, rgba(0, 232, 50, 0) 2px),
+          linear-gradient(90deg, rgba(0, 232, 50, 0.12) 2px, rgba(0, 232, 50, 0) 2px);
+        background-size: 96px 34px;
+        transform-origin: bottom;
+      }
+      .ghost {
+        position: absolute;
+        font-weight: 900;
+        letter-spacing: 0.04em;
+        color: rgba(0, 232, 50, 0.07);
+        pointer-events: none;
+        white-space: nowrap;
+      }
+      .star { position: absolute; border-radius: 50%; background: #c8d8e8; }
+      .chip {
+        display: inline-block;
+        border: 3px solid #00e832;
+        background: rgba(0, 232, 50, 0.12);
+        color: #00e832;
+        padding: 14px 26px;
+        border-radius: 10px;
+        font-size: 30px;
+        letter-spacing: 0.1em;
+      }
+      .scanlines {
+        position: absolute;
+        inset: 0;
+        z-index: 40;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0) 0px,
+          rgba(0, 0, 0, 0) 3px,
+          rgba(0, 0, 0, 0.12) 3px,
+          rgba(0, 0, 0, 0.12) 6px
+        );
+      }
+
+      /* ---------- Scene 1 ---------- */
+      #s1-terminal {
+        position: absolute;
+        top: 90px;
+        left: 110px;
+        border: 3px solid rgba(0, 232, 50, 0.45);
+        background: rgba(2, 6, 10, 0.88);
+        border-radius: 12px;
+        padding: 30px 38px;
+        font-size: 34px;
+        color: #00e832;
+        letter-spacing: 0.08em;
+        box-shadow: 0 0 50px rgba(0, 232, 50, 0.25);
+      }
+      #s1-typed { display: inline-block; white-space: nowrap; }
+      #s1-cursor { display: inline-block; width: 18px; height: 36px; background: #00e832; vertical-align: -6px; margin-left: 8px; }
+      #s1-mascot-wrap { position: absolute; left: 240px; bottom: 130px; width: 470px; height: 470px; }
+      #s1-title {
+        position: absolute;
+        right: 120px;
+        bottom: 300px;
+        font-size: 112px;
+        font-weight: 900;
+        letter-spacing: 0.05em;
+        color: #00e832;
+        text-shadow: 0 0 44px rgba(0, 232, 50, 0.55);
+      }
+      #s1-sub {
+        position: absolute;
+        right: 124px;
+        bottom: 230px;
+        font-size: 30px;
+        color: #ffe600;
+        letter-spacing: 0.3em;
+      }
+      #s1-meta { position: absolute; left: 116px; bottom: 64px; font-size: 24px; color: #5d7da6; letter-spacing: 0.22em; }
+
+      /* ---------- Scene 2 ---------- */
+      #s2-left { position: absolute; left: 120px; top: 150px; width: 880px; }
+      #s2-eyebrow { font-size: 28px; color: #ffe600; letter-spacing: 0.3em; }
+      #s2-name { font-size: 170px; font-weight: 900; letter-spacing: 0.03em; color: #e8f4ff; line-height: 0.95; margin-top: 18px; text-shadow: 0 0 60px rgba(0, 170, 255, 0.35); }
+      #s2-tag { font-size: 52px; font-weight: 700; color: #00e832; letter-spacing: 0.12em; margin-top: 18px; }
+      #s2-chips { margin-top: 44px; display: flex; gap: 22px; }
+      #s2-chart {
+        position: absolute;
+        right: 120px;
+        top: 170px;
+        width: 620px;
+        height: 460px;
+        border: 3px solid rgba(0, 170, 255, 0.4);
+        border-radius: 14px;
+        background: rgba(3, 10, 22, 0.85);
+        padding: 30px;
+        box-shadow: 0 0 60px rgba(0, 170, 255, 0.18);
+      }
+      #s2-chart-label { font-size: 22px; color: #5d7da6; letter-spacing: 0.24em; }
+      #s2-bars { position: absolute; left: 30px; right: 30px; bottom: 30px; top: 90px; display: flex; align-items: flex-end; gap: 18px; }
+      .bar { flex: 1; border-radius: 6px 6px 0 0; transform-origin: bottom; }
+      #s2-banner {
+        position: absolute;
+        left: 120px;
+        right: 120px;
+        bottom: 110px;
+        border: 3px solid #5865f2;
+        background: rgba(88, 101, 242, 0.14);
+        border-radius: 14px;
+        padding: 30px 40px;
+        font-size: 44px;
+        font-weight: 700;
+        color: #e8f4ff;
+        letter-spacing: 0.08em;
+        box-shadow: 0 0 50px rgba(88, 101, 242, 0.3);
+      }
+      #s2-banner b { color: #ffe600; }
+
+      /* ---------- Scene 3 ---------- */
+      #s3-title {
+        position: absolute;
+        top: 80px;
+        left: 120px;
+        font-size: 104px;
+        font-weight: 900;
+        letter-spacing: 0.06em;
+        color: #00e832;
+        text-shadow: 0 0 40px rgba(0, 232, 50, 0.5);
+      }
+      #s3-earn { position: absolute; top: 240px; left: 124px; display: flex; gap: 20px; }
+      .earn-chip { border: 3px solid #ffe600; background: rgba(255, 230, 0, 0.1); color: #ffe600; padding: 12px 22px; border-radius: 10px; font-size: 26px; letter-spacing: 0.1em; }
+      .platform {
+        position: absolute;
+        height: 26px;
+        border-radius: 12px;
+      }
+      .tier-label { position: absolute; font-weight: 900; letter-spacing: 0.1em; }
+      .tier-sub { position: absolute; font-size: 24px; color: #c8d8e8; letter-spacing: 0.06em; }
+      #s3-mascot-wrap { position: absolute; left: 150px; top: 730px; width: 200px; height: 200px; z-index: 8; }
+      #s3-note {
+        position: absolute;
+        left: 124px;
+        top: 340px;
+        font-size: 30px;
+        color: #ffe600;
+        letter-spacing: 0.16em;
+      }
+      #s3-robot { position: absolute; left: 1430px; bottom: 110px; width: 150px; }
+      #s3-robot .head { width: 110px; height: 86px; background: #5d7da6; border-radius: 14px; margin: 0 auto; position: relative; border: 4px solid #2a4060; }
+      #s3-robot .eye-l, #s3-robot .eye-r { position: absolute; top: 26px; width: 20px; height: 20px; background: #ff3366; border-radius: 50%; }
+      #s3-robot .eye-l { left: 20px; } #s3-robot .eye-r { right: 20px; }
+      #s3-robot .body { width: 130px; height: 90px; background: #46618c; border-radius: 12px; margin: 8px auto 0; border: 4px solid #2a4060; }
+      #s3-stamp {
+        position: absolute;
+        left: 1250px;
+        bottom: 245px;
+        border: 8px solid #ff3366;
+        color: #ff3366;
+        font-size: 76px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        padding: 12px 34px;
+        border-radius: 14px;
+        background: rgba(255, 51, 102, 0.1);
+        z-index: 9;
+      }
+      #s3-stamp-sub { position: absolute; left: 1285px; bottom: 195px; font-size: 30px; color: #ff3366; letter-spacing: 0.2em; z-index: 9; }
+
+      /* ---------- Scene 4 ---------- */
+      #s4-title {
+        position: absolute;
+        top: 90px;
+        left: 120px;
+        font-size: 96px;
+        font-weight: 900;
+        letter-spacing: 0.05em;
+        color: #e8f4ff;
+        text-shadow: 0 0 40px rgba(153, 69, 255, 0.45);
+      }
+      #s4-sub { position: absolute; top: 220px; left: 124px; font-size: 40px; color: #00e832; font-weight: 700; letter-spacing: 0.1em; }
+      #s4-cards { position: absolute; left: 120px; right: 120px; top: 330px; display: flex; gap: 36px; }
+      .ui-card {
+        flex: 1;
+        border: 3px solid rgba(0, 232, 50, 0.4);
+        background: rgba(4, 10, 18, 0.92);
+        border-radius: 16px;
+        padding: 30px;
+        box-shadow: 0 14px 50px rgba(0, 0, 0, 0.5), 0 0 36px rgba(0, 232, 50, 0.12);
+        min-height: 420px;
+      }
+      .ui-card h4 { margin: 0 0 22px; font-size: 26px; color: #ffe600; letter-spacing: 0.22em; font-weight: 700; }
+      .q-row { display: flex; justify-content: space-between; align-items: center; border: 2px solid rgba(255, 255, 255, 0.12); border-radius: 10px; padding: 14px 18px; margin-bottom: 14px; font-size: 22px; color: #c8d8e8; gap: 10px; }
+      .q-ep { color: #00e832; }
+      .r-row { display: flex; align-items: center; gap: 14px; padding: 12px 6px; font-size: 28px; font-weight: 700; letter-spacing: 0.08em; }
+      .r-dot { width: 22px; height: 22px; border-radius: 50%; }
+      #s4-progress { height: 18px; border-radius: 9px; background: rgba(255, 255, 255, 0.08); overflow: hidden; margin-top: 14px; }
+      #s4-progress-fill { height: 100%; width: 64%; background: #00e832; border-radius: 9px; transform-origin: left; }
+      #s4-console-line { font-size: 24px; color: #c8d8e8; margin-top: 22px; line-height: 1.5; }
+      #s4-btn { display: inline-block; margin-top: 26px; background: #00e832; color: #04240b; font-weight: 900; padding: 16px 30px; border-radius: 10px; font-size: 26px; letter-spacing: 0.12em; }
+      #s4-pill {
+        position: absolute;
+        top: 268px;
+        right: 250px;
+        background: rgba(2, 8, 14, 0.95);
+        border: 4px solid #00e832;
+        color: #00e832;
+        font-size: 44px;
+        font-weight: 900;
+        padding: 16px 36px;
+        border-radius: 60px;
+        box-shadow: 0 0 44px rgba(0, 232, 50, 0.5);
+        z-index: 6;
+      }
+      #s4-mascot-wrap { position: absolute; right: -34px; bottom: 60px; width: 250px; height: 250px; z-index: 6; }
+      #s4-meta { position: absolute; left: 124px; bottom: 70px; font-size: 28px; color: #5d7da6; letter-spacing: 0.26em; }
+
+      /* ---------- Scene 5 ---------- */
+      #s5-line1, #s5-line2 {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 250px;
+        text-align: center;
+        font-weight: 900;
+      }
+      #s5-line1 { font-size: 92px; color: #e8f4ff; letter-spacing: 0.05em; }
+      #s5-line2 { white-space: nowrap; font-size: 86px; color: #00e832; letter-spacing: 0.05em; text-shadow: 0 0 56px rgba(0, 232, 50, 0.6); opacity: 0; }
+      #s5-underline { position: absolute; left: 500px; right: 500px; top: 372px; height: 8px; background: #ffe600; border-radius: 4px; transform-origin: left; opacity: 0; }
+      #s5-mascot-wrap { position: absolute; left: 800px; top: 450px; width: 320px; height: 320px; }
+      #s5-wordmark { position: absolute; left: 0; right: 0; top: 810px; text-align: center; font-size: 50px; font-weight: 900; letter-spacing: 0.24em; color: #00e832; }
+      #s5-wordmark .badge { display: inline-block; border: 3px solid rgba(0, 232, 50, 0.6); background: rgba(0, 232, 50, 0.12); border-radius: 8px; padding: 6px 16px; font-size: 26px; vertical-align: 14px; margin-left: 18px; letter-spacing: 0.2em; }
+      #s5-cta { position: absolute; left: 0; right: 0; top: 900px; text-align: center; font-size: 30px; color: #ffe600; letter-spacing: 0.26em; }
+      .confetti { position: absolute; left: 956px; top: 600px; width: 16px; height: 16px; border-radius: 4px; opacity: 0; }
+      #s5-fade { position: absolute; inset: 0; background: #000; opacity: 0; z-index: 30; }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-width="1920" data-height="1080" data-start="0" data-duration="57.5">
+      <!-- AUDIO -->
+      <audio id="aud-music" class="clip" data-start="0" data-duration="57.5" data-track-index="2" data-volume="0.5" src="audio/music.wav"></audio>
+      <audio id="aud-n1" class="clip" data-start="0.6" data-duration="3.84" data-track-index="3" src="audio/n1.wav"></audio>
+      <audio id="aud-n2" class="clip" data-start="7.5" data-duration="9.05" data-track-index="3" src="audio/n2.wav"></audio>
+      <audio id="aud-n3" class="clip" data-start="17.9" data-duration="13.7" data-track-index="3" src="audio/n3.wav"></audio>
+      <audio id="aud-n4" class="clip" data-start="34.9" data-duration="7.96" data-track-index="3" src="audio/n4.wav"></audio>
+      <audio id="aud-n5" class="clip" data-start="46.2" data-duration="3.41" data-track-index="3" src="audio/n5.wav"></audio>
+
+      <!-- SCENE 1: HERO INTRO -->
+      <div id="s1" class="scene">
+        <div class="glow" data-layout-ignore id="s1-glow" style="left: 160px; bottom: -120px; width: 900px; height: 700px; background: radial-gradient(circle, rgba(0,232,50,0.28) 0%, rgba(0,232,50,0) 65%);"></div>
+        <div class="ghost" data-layout-allow-overflow style="left: -60px; top: 330px; font-size: 420px" id="s1-ghost">STANDX</div>
+        <div id="s1-stars"></div>
+        <div class="grid-floor" id="s1-floor"></div>
+        <div id="s1-terminal" class="mono">
+          <span id="s1-typed">[ ACTIVATION LOG ] A NEW STANDER HAS AWAKENED</span><span id="s1-cursor"></span>
+        </div>
+        <div id="s1-mascot-wrap"><div id="s1-mascot-bob"></div></div>
+        <div id="s1-title">MEET STANDER.</div>
+        <div id="s1-sub" class="mono">YOUR GUIDE TO THE STANDX COMMUNITY</div>
+        <div id="s1-meta" class="mono">EP_SYSTEM // ONLINE&nbsp;&nbsp;·&nbsp;&nbsp;HERO MODE: ENGAGED</div>
+      </div>
+
+      <!-- SCENE 2: WHAT IS STANDX -->
+      <div id="s2" class="scene">
+        <div class="glow" data-layout-ignore style="right: -160px; top: -180px; width: 900px; height: 760px; background: radial-gradient(circle, rgba(0,170,255,0.22) 0%, rgba(0,170,255,0) 65%);"></div>
+        <div class="ghost" data-layout-allow-overflow style="right: -40px; bottom: 120px; font-size: 380px; color: rgba(0,170,255,0.07)" id="s2-ghost">DEX</div>
+        <div id="s2-left">
+          <div id="s2-eyebrow" class="mono">[ WHAT IS STANDX ]</div>
+          <div id="s2-name">STANDX</div>
+          <div id="s2-tag">NEXT-GEN PERPS DEX</div>
+          <div id="s2-chips">
+            <span class="chip mono">TRADE</span>
+            <span class="chip mono" style="border-color: #ffe600; color: #ffe600; background: rgba(255,230,0,0.1)">YIELD: DUSD</span>
+            <span class="chip mono" style="border-color: #6fd2ff; color: #6fd2ff; background: rgba(111,210,255,0.1)">COMMUNITY</span>
+          </div>
+        </div>
+        <div id="s2-chart">
+          <div id="s2-chart-label" class="mono">COLLATERAL EARNS WHILE YOU TRADE</div>
+          <div id="s2-bars">
+            <div class="bar" style="height: 34%; background: #0d4f74"></div>
+            <div class="bar" style="height: 52%; background: #00aaff"></div>
+            <div class="bar" style="height: 40%; background: #0d4f74"></div>
+            <div class="bar" style="height: 66%; background: #00aaff"></div>
+            <div class="bar" style="height: 58%; background: #0d4f74"></div>
+            <div class="bar" style="height: 82%; background: #00e832"></div>
+            <div class="bar" style="height: 72%; background: #00aaff"></div>
+            <div class="bar" style="height: 96%; background: #00e832"></div>
+          </div>
+        </div>
+        <div id="s2-banner">BUT THE REAL SECRET LIVES IN DISCORD → <b>THE GROWTH PATH</b></div>
+      </div>
+
+      <!-- SCENE 3: 0 TO FLOWER -->
+      <div id="s3" class="scene">
+        <div class="glow" data-layout-ignore style="left: 480px; top: -200px; width: 1000px; height: 760px; background: radial-gradient(circle, rgba(0,232,50,0.16) 0%, rgba(0,232,50,0) 65%);"></div>
+        <div class="ghost" data-layout-allow-overflow style="left: 40px; bottom: -40px; font-size: 340px" id="s3-ghost">0→FLOWER</div>
+        <div class="grid-floor" id="s3-floor" style="height: 190px"></div>
+        <div id="s3-title">THE GROWTH PATH</div>
+        <div id="s3-earn">
+          <span class="earn-chip mono" id="s3-e1">WEEKLY GAMES</span>
+          <span class="earn-chip mono" id="s3-e2">QUALITY CONTENT</span>
+          <span class="earn-chip mono" id="s3-e3">HELP REAL HUMANS</span>
+        </div>
+
+        <!-- ladder platforms, climbing to the right -->
+        <div class="platform" id="p0" style="left: 120px; top: 950px; width: 320px; background: #5d7da6; box-shadow: 0 0 26px rgba(93,125,166,0.6)"></div>
+        <div class="tier-label mono" style="left: 128px; top: 900px; font-size: 32px; color: #c8d8e8" id="l0">NEW STANDER</div>
+
+        <div class="platform" id="p1" style="left: 560px; top: 790px; width: 360px; background: #00e832; box-shadow: 0 0 30px rgba(0,232,50,0.7)"></div>
+        <div class="tier-label" style="left: 568px; top: 716px; font-size: 44px; color: #00e832" id="l1">SEED</div>
+        <div class="tier-sub mono" style="left: 568px; top: 824px" id="l1s">3,000 ENGAGE POINTS</div>
+
+        <div class="platform" id="p2" style="left: 1030px; top: 610px; width: 360px; background: #6fd2ff; box-shadow: 0 0 30px rgba(111,210,255,0.7)"></div>
+        <div class="tier-label" style="left: 1038px; top: 536px; font-size: 44px; color: #6fd2ff" id="l2">SPROUT</div>
+        <div class="tier-sub mono" style="left: 1038px; top: 644px" id="l2s">4,000 EP + REAL CONTRIBUTIONS</div>
+
+        <div class="platform" id="p3" style="left: 1500px; top: 430px; width: 360px; background: #ff6ba9; box-shadow: 0 0 34px rgba(255,107,169,0.75)"></div>
+        <div class="tier-label" style="left: 1508px; top: 356px; font-size: 44px; color: #ff6ba9" id="l3">FLOWER</div>
+        <div class="tier-sub mono" style="left: 1508px; top: 464px" id="l3s">THE RARE TOP TIER</div>
+
+        <div id="s3-mascot-wrap"><div id="s3-mascot-bob"></div></div>
+        <div id="s3-note" class="mono">ALMOST NOBODY HAS IT… YET.</div>
+
+        <div id="s3-robot">
+          <div class="head"><div class="eye-l"></div><div class="eye-r"></div></div>
+          <div class="body"></div>
+        </div>
+        <div id="s3-stamp">NO BOTS.</div>
+        <div id="s3-stamp-sub" class="mono">REAL ONES ONLY.</div>
+      </div>
+
+      <!-- SCENE 4: THE GAME -->
+      <div id="s4" class="scene">
+        <div class="glow" data-layout-ignore style="left: -200px; top: -200px; width: 900px; height: 760px; background: radial-gradient(circle, rgba(153,69,255,0.2) 0%, rgba(153,69,255,0) 65%);"></div>
+        <div class="ghost" data-layout-allow-overflow style="right: 0px; top: 30px; font-size: 300px; color: rgba(153,69,255,0.08)" id="s4-ghost">PLAY</div>
+        <div id="s4-title">THERE&rsquo;S A GAME FOR THAT.</div>
+        <div id="s4-sub">STANDX RPG — LEARN THE PATH BY PLAYING</div>
+        <div id="s4-cards">
+          <div class="ui-card" id="s4-c1">
+            <h4 class="mono">HQ CONSOLE</h4>
+            <div class="mono" style="font-size: 24px; color: #c8d8e8">YOUR NEXT STEP</div>
+            <div style="font-size: 38px; font-weight: 900; color: #00e832; margin-top: 10px">DISCORD PLAZA</div>
+            <div id="s4-progress"><div id="s4-progress-fill"></div></div>
+            <div id="s4-console-line" class="mono">CHAPTERS 4/6 · 370 EP</div>
+            <div id="s4-btn">CONTINUE →</div>
+          </div>
+          <div class="ui-card" id="s4-c2">
+            <h4 class="mono">QUEST BOARD</h4>
+            <div class="q-row mono"><span>WEDNESDAY GAME 14:00 UTC</span><span class="q-ep">+30</span></div>
+            <div class="q-row mono"><span>FRIDAY HIGHLIGHTS</span><span class="q-ep">+30</span></div>
+            <div class="q-row mono"><span>SATURDAY SPOTLIGHT</span><span class="q-ep">+80</span></div>
+            <div class="q-row mono"><span>SEASONAL EVENT</span><span class="q-ep">+80</span></div>
+          </div>
+          <div class="ui-card" id="s4-c3">
+            <h4 class="mono">RANK LADDER</h4>
+            <div class="r-row" style="color: #c8d8e8"><span class="r-dot" style="background: #5d7da6"></span>NEW STANDER</div>
+            <div class="r-row" style="color: #00e832"><span class="r-dot" style="background: #00e832"></span>SEED</div>
+            <div class="r-row" style="color: #6fd2ff"><span class="r-dot" style="background: #6fd2ff"></span>SPROUT</div>
+            <div class="r-row" style="color: #ff6ba9"><span class="r-dot" style="background: #ff6ba9"></span>FLOWER</div>
+          </div>
+        </div>
+        <div id="s4-pill">+30 EP</div>
+        <div id="s4-mascot-wrap" data-layout-allow-overflow><div id="s4-mascot-bob"></div></div>
+        <div id="s4-meta" class="mono">FREE · IN YOUR BROWSER · MADE BY THE COMMUNITY</div>
+      </div>
+
+      <!-- SCENE 5: CLOSING -->
+      <div id="s5" class="scene">
+        <div class="glow" data-layout-ignore id="s5-spot" style="left: 460px; top: -60px; width: 1000px; height: 900px; background: radial-gradient(circle, rgba(0,232,50,0.2) 0%, rgba(0,232,50,0) 60%);"></div>
+        <div class="grid-floor" id="s5-floor" style="height: 170px"></div>
+        <div id="s5-line1">STANDX IS NOT JUST TRADING.</div>
+        <div id="s5-line2">IT&rsquo;S THE NEXT GROWTH PATH.</div>
+        <div id="s5-underline"></div>
+        <div id="s5-mascot-wrap"><div id="s5-mascot-bob"></div></div>
+        <div id="s5-wordmark">STANDX<span class="badge mono">COMMUNITY</span></div>
+        <div id="s5-cta" class="mono">PLAY STANDX RPG · JOIN THE DISCORD</div>
+        <div id="s5-confetti"></div>
+        <div id="s5-fade"></div>
+      </div>
+
+      <div class="scanlines"></div>
+    </div>
+
+    <script>
+      // ---------- Deterministic PRNG ----------
+      function mulberry32(a) {
+        return function () {
+          a |= 0; a = (a + 0x6d2b79f5) | 0;
+          var t = Math.imul(a ^ (a >>> 15), 1 | a);
+          t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+          return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+        };
+      }
+
+      // ---------- On-model Stander mascot (geometry from the game's Mascot.tsx) ----------
+      function mascotSVG(uid, pose) {
+        var OUT = "#07090c", BODY = "#1a2026", SCLERA = "#f2f4e6", SMILE = "#e8efe2", GOLD = "#ffd900";
+        var spark = "M0 -8 L2 -2 L8 0 L2 2 L0 8 L-2 2 L-8 0 L-2 -2 Z";
+        var gaze = pose === "peek" ? { ix: 94, iy: 110, px: 89, py: 113, hx: 86, hy: 99 }
+                                   : { ix: 102, iy: 108, px: 105, py: 110, hx: 92, hy: 96 };
+        var s = '<svg viewBox="0 0 200 200" width="100%" height="100%"><defs>' +
+          '<radialGradient id="' + uid + 'b" cx="38%" cy="28%" r="80%">' +
+          '<stop offset="0%" stop-color="#2c333b"/><stop offset="55%" stop-color="#1a2026"/><stop offset="100%" stop-color="#10141a"/></radialGradient>' +
+          '<radialGradient id="' + uid + 'i" cx="40%" cy="32%" r="75%">' +
+          '<stop offset="0%" stop-color="#67cf6e"/><stop offset="55%" stop-color="#1f9e42"/><stop offset="100%" stop-color="#0b6325"/></radialGradient>' +
+          '<clipPath id="' + uid + 'm"><path d="M80 142 Q100 136 120 142 Q118 166 100 168 Q82 166 80 142 Z"/></clipPath></defs>';
+        if (pose === "cheer") {
+          s += '<g class="sparkles">' +
+            [[30, 64, 26], [172, 54, 23], [22, 132, 22], [178, 126, 26]].map(function (p) {
+              return '<text x="' + p[0] + '" y="' + p[1] + '" font-family="Share Tech Mono, monospace" font-size="' + p[2] + '" font-weight="800" text-anchor="middle" fill="' + GOLD + '" stroke="#8f6c00" stroke-width="1.4" paint-order="stroke">$</text>';
+            }).join("") +
+            [[44, 30, 1], [158, 24, 0.8], [14, 94, 0.7], [186, 90, 0.8], [136, 12, 0.6]].map(function (p) {
+              return '<g transform="translate(' + p[0] + ' ' + p[1] + ') scale(' + p[2] + ')"><path d="' + spark + '" fill="' + GOLD + '" stroke="#8f6c00" stroke-width="1"/></g>';
+            }).join("") + "</g>";
+        }
+        if (pose !== "peek") {
+          s += '<ellipse cx="84" cy="171" rx="9" ry="8" fill="' + BODY + '" stroke="' + OUT + '" stroke-width="4"/>' +
+               '<ellipse cx="116" cy="171" rx="9" ry="8" fill="' + BODY + '" stroke="' + OUT + '" stroke-width="4"/>';
+        }
+        if (pose === "idle") {
+          s += '<path d="M58 120 L40 129" fill="none" stroke="' + OUT + '" stroke-linecap="round" stroke-width="15.5"/>' +
+               '<path d="M58 120 L40 129" fill="none" stroke="' + BODY + '" stroke-linecap="round" stroke-width="10"/>' +
+               '<path d="M142 120 L160 129" fill="none" stroke="' + OUT + '" stroke-linecap="round" stroke-width="15.5"/>' +
+               '<path d="M142 120 L160 129" fill="none" stroke="' + BODY + '" stroke-linecap="round" stroke-width="10"/>';
+        }
+        if (pose === "cheer") {
+          s += '<path d="M62 122 L52 98" fill="none" stroke="' + OUT + '" stroke-linecap="round" stroke-width="15.5"/>' +
+               '<path d="M62 122 L52 98" fill="none" stroke="' + BODY + '" stroke-linecap="round" stroke-width="10"/>' +
+               '<path d="M138 122 L148 98" fill="none" stroke="' + OUT + '" stroke-linecap="round" stroke-width="15.5"/>' +
+               '<path d="M138 122 L148 98" fill="none" stroke="' + BODY + '" stroke-linecap="round" stroke-width="10"/>';
+        }
+        s += '<path d="M100 66 C103 56 107 47 114 38" fill="none" stroke="' + OUT + '" stroke-linecap="round" stroke-width="6"/>' +
+          '<g class="leaf"><path d="M114 38 C120 18 142 8 158 12 C156 30 138 44 114 38 Z" fill="#1e7e2f" stroke="' + OUT + '" stroke-linejoin="round" stroke-width="5"/>' +
+          '<path d="M114 38 C120 18 142 8 158 12 C146 16 128 26 114 38 Z" fill="#46b14a"/>' +
+          '<path d="M117 36 C128 26 142 18 154 14" fill="none" stroke="#145723" stroke-linecap="round" stroke-width="2.5"/></g>' +
+          '<ellipse cx="100" cy="116" rx="54" ry="52" fill="url(#' + uid + 'b)" stroke="' + OUT + '" stroke-width="7"/>' +
+          '<ellipse cx="100" cy="106" rx="30" ry="31" fill="' + SCLERA + '"/>' +
+          '<circle cx="' + gaze.ix + '" cy="' + gaze.iy + '" r="19" fill="url(#' + uid + 'i)"/>' +
+          '<circle cx="' + gaze.px + '" cy="' + gaze.py + '" r="10" fill="#053015"/>' +
+          '<circle cx="' + gaze.hx + '" cy="' + gaze.hy + '" r="6.5" fill="#ffffff"/>';
+        if (pose === "cheer") {
+          s += '<path d="M80 142 Q100 136 120 142 Q118 166 100 168 Q82 166 80 142 Z" fill="#140b04" stroke="' + OUT + '" stroke-linejoin="round" stroke-width="4"/>' +
+            '<ellipse cx="100" cy="163" rx="13" ry="7" fill="#ffb000" clip-path="url(#' + uid + 'm)"/>' +
+            '<path d="M55 128 l11 -4 M57 135 l11 -4 M59 142 l11 -4" stroke="#d98545" stroke-linecap="round" stroke-width="3.5" fill="none"/>' +
+            '<path d="M145 124 l-11 -4 M143 131 l-11 -4 M141 138 l-11 -4" stroke="#d98545" stroke-linecap="round" stroke-width="3.5" fill="none"/>' +
+            '<circle cx="56" cy="96" r="9" fill="' + BODY + '" stroke="' + OUT + '" stroke-width="4"/>' +
+            '<circle cx="144" cy="96" r="9" fill="' + BODY + '" stroke="' + OUT + '" stroke-width="4"/>';
+        } else {
+          s += '<path d="M85 148 Q100 158 115 148" fill="none" stroke="' + SMILE + '" stroke-linecap="round" stroke-width="5"/>';
+        }
+        if (pose === "peek") {
+          s += '<rect x="41" y="12" width="9" height="182" rx="4.5" fill="#0a0d10" stroke="#2a3037" stroke-width="1.5"/>' +
+               '<circle cx="46" cy="128" r="9.5" fill="' + BODY + '" stroke="' + OUT + '" stroke-width="4"/>';
+        }
+        return s + "</svg>";
+      }
+
+      document.getElementById("s1-mascot-bob").innerHTML = mascotSVG("m1", "cheer");
+      document.getElementById("s3-mascot-bob").innerHTML = mascotSVG("m3", "idle");
+      document.getElementById("s4-mascot-bob").innerHTML = mascotSVG("m4", "peek");
+      document.getElementById("s5-mascot-bob").innerHTML = mascotSVG("m5", "cheer");
+      ["s1-mascot-bob", "s3-mascot-bob", "s4-mascot-bob", "s5-mascot-bob"].forEach(function (id) {
+        var el = document.getElementById(id);
+        el.style.width = "100%";
+        el.style.height = "100%";
+        el.style.filter = "drop-shadow(0 0 22px rgba(0,232,50,0.45))";
+      });
+
+      // Stars for scene 1 (seeded)
+      (function () {
+        var rnd = mulberry32(20260611);
+        var host = document.getElementById("s1-stars");
+        var html = "";
+        for (var i = 0; i < 44; i++) {
+          var x = Math.floor(rnd() * 1920), y = Math.floor(rnd() * 640);
+          var sz = rnd() < 0.2 ? 5 : 3;
+          var op = (0.25 + rnd() * 0.5).toFixed(2);
+          html += '<div class="star" style="left:' + x + "px;top:" + y + "px;width:" + sz + "px;height:" + sz + "px;opacity:" + op + '"></div>';
+        }
+        host.innerHTML = html;
+      })();
+
+      // Confetti for scene 5 (seeded)
+      var confettiSeeds = [];
+      (function () {
+        var rnd = mulberry32(424242);
+        var cols = ["#00e832", "#ffe600", "#6fd2ff", "#ff6ba9", "#e8f4ff"];
+        var host = document.getElementById("s5-confetti");
+        var html = "";
+        for (var i = 0; i < 26; i++) {
+          html += '<div class="confetti" id="cf' + i + '" style="background:' + cols[i % 5] + '"></div>';
+        }
+        host.innerHTML = html;
+        for (var j = 0; j < 26; j++) {
+          var ang = rnd() * Math.PI * 2;
+          var dist = 260 + rnd() * 420;
+          confettiSeeds.push({ x: Math.cos(ang) * dist, y: Math.sin(ang) * dist * 0.7 - 160, r: rnd() * 540 - 270, d: 0.9 + rnd() * 0.6 });
+        }
+      })();
+
+      // ---------- TIMELINE ----------
+      window.__timelines = window.__timelines || {};
+      var tl = gsap.timeline({ paused: true });
+
+      /* ===== SCENE 1 (0 - 7.0) ===== */
+      tl.fromTo("#s1-glow", { opacity: 0 }, { opacity: 1, duration: 1.0, ease: "sine.out" }, 0.1);
+      tl.to("#s1-glow", { scale: 1.12, duration: 1.6, ease: "sine.inOut", yoyo: true, repeat: 3 }, 1.2);
+      tl.fromTo("#s1-floor", { opacity: 0, scaleY: 0.4 }, { opacity: 1, scaleY: 1, duration: 0.8, ease: "power2.out" }, 0.2);
+      tl.fromTo("#s1-ghost", { x: -60, opacity: 0 }, { x: 0, opacity: 1, duration: 1.4, ease: "sine.out" }, 0.3);
+      tl.fromTo("#s1-terminal", { x: -70, opacity: 0 }, { x: 0, opacity: 1, duration: 0.55, ease: "expo.out" }, 0.25);
+      tl.fromTo("#s1-typed", { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 1.6, ease: "steps(38)" }, 0.55);
+      tl.to("#s1-cursor", { opacity: 0, duration: 0.35, ease: "steps(1)", yoyo: true, repeat: 13 }, 0.55);
+      tl.fromTo("#s1-mascot-wrap", { x: -760, rotation: -10 }, { x: 0, rotation: 0, duration: 1.15, ease: "elastic.out(1, 0.62)" }, 1.7);
+      tl.fromTo("#s1-mascot-bob", { y: 0 }, { y: -14, duration: 0.9, ease: "sine.inOut", yoyo: true, repeat: 5 }, 2.4);
+      tl.fromTo("#s1-mascot-bob .sparkles", { scale: 0, transformOrigin: "50% 50%", opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(2.4)" }, 2.7);
+      tl.fromTo("#s1-title", { scale: 2.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.34, ease: "power4.out" }, 3.35);
+      tl.fromTo("#s1-sub", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power3.out" }, 3.7);
+      tl.fromTo("#s1-meta", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "sine.out" }, 4.3);
+
+      /* ===== T1: push slide @7.0 ===== */
+      tl.to("#s1", { x: -1920, duration: 0.5, ease: "power3.inOut" }, 7.0);
+      tl.fromTo("#s2", { x: 1920, opacity: 1 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 7.0);
+      tl.set("#s1", { opacity: 0 }, 7.55);
+
+      /* ===== SCENE 2 (7.0 - 17.5) ===== */
+      tl.fromTo("#s2-eyebrow", { y: -24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 7.7);
+      tl.fromTo("#s2-name", { x: -90, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, ease: "expo.out" }, 7.9);
+      tl.fromTo("#s2-tag", { y: 34, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 8.25);
+      tl.fromTo("#s2-chips .chip", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.8)", stagger: 0.12 }, 8.8);
+      tl.fromTo("#s2-chart", { y: 60, opacity: 0, rotation: 1.5 }, { y: 0, opacity: 1, rotation: 0, duration: 0.7, ease: "power3.out" }, 8.4);
+      tl.fromTo("#s2-bars .bar", { scaleY: 0 }, { scaleY: 1, duration: 0.5, ease: "power2.out", stagger: 0.07 }, 9.0);
+      tl.to("#s2-bars .bar", { opacity: 0.75, duration: 1.1, ease: "sine.inOut", yoyo: true, repeat: 5, stagger: 0.1 }, 10.2);
+      tl.fromTo("#s2-ghost", { opacity: 0 }, { opacity: 1, duration: 1.2, ease: "sine.out" }, 8.9);
+      tl.fromTo("#s2-banner", { y: 80, opacity: 0 }, { y: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, 12.9);
+      tl.to("#s2-banner", { boxShadow: "0 0 80px rgba(88,101,242,0.55)", duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 3 }, 13.6);
+
+      /* ===== T2: zoom through @17.5 ===== */
+      tl.to("#s2", { scale: 2.5, opacity: 0, filter: "blur(8px)", duration: 0.4, ease: "power3.in" }, 17.5);
+      tl.set("#s2", { opacity: 0, visibility: "hidden" }, 17.9);
+      tl.fromTo("#s3", { scale: 0.5, opacity: 0, filter: "blur(8px)" }, { scale: 1, opacity: 1, filter: "blur(0px)", duration: 0.4, ease: "power3.out" }, 17.65);
+
+      /* ===== SCENE 3 (17.5 - 34.5) ===== */
+      tl.fromTo("#s3-title", { scale: 2.0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.38, ease: "power4.out" }, 18.15);
+      tl.fromTo("#s3-ghost", { opacity: 0 }, { opacity: 1, duration: 1.4, ease: "sine.out" }, 18.4);
+      tl.fromTo("#s3-floor", { opacity: 0 }, { opacity: 1, duration: 0.8, ease: "sine.out" }, 18.3);
+      tl.fromTo("#s3-e1", { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(2)" }, 19.9);
+      tl.fromTo("#s3-e2", { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(2)" }, 20.8);
+      tl.fromTo("#s3-e3", { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "back.out(2)" }, 21.7);
+
+      tl.fromTo("#p0", { scaleX: 0, transformOrigin: "left center" }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 18.6);
+      tl.fromTo("#l0", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "sine.out" }, 18.9);
+      tl.fromTo("#p1", { scaleX: 0, transformOrigin: "left center" }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 23.9);
+      tl.fromTo("#l1", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 24.1);
+      tl.fromTo("#l1s", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "sine.out" }, 24.4);
+      tl.fromTo("#p2", { scaleX: 0, transformOrigin: "left center" }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 26.2);
+      tl.fromTo("#l2", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 26.4);
+      tl.fromTo("#l2s", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "sine.out" }, 26.7);
+      tl.fromTo("#p3", { scaleX: 0, transformOrigin: "left center" }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 28.2);
+      tl.fromTo("#l3", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4, ease: "power2.out" }, 28.4);
+      tl.fromTo("#l3s", { opacity: 0 }, { opacity: 1, duration: 0.4, ease: "sine.out" }, 28.7);
+
+      // mascot enters then hops platform to platform
+      tl.fromTo("#s3-mascot-wrap", { x: -360, opacity: 1 }, { x: 0, duration: 0.7, ease: "power3.out" }, 18.7);
+      tl.to("#s3-mascot-wrap", { x: 470, y: -170, duration: 0.55, ease: "back.inOut(1.4)" }, 24.5);
+      tl.to("#s3-mascot-wrap", { x: 940, y: -350, duration: 0.55, ease: "back.inOut(1.4)" }, 26.7);
+      tl.to("#s3-mascot-wrap", { x: 1410, y: -530, duration: 0.55, ease: "back.inOut(1.4)" }, 28.7);
+      tl.fromTo("#s3-mascot-bob", { y: 0 }, { y: -10, duration: 0.7, ease: "sine.inOut", yoyo: true, repeat: 19 }, 19.5);
+      // leaf grows a notch on each landing
+      tl.to("#s3-mascot-bob .leaf", { scale: 1.25, transformOrigin: "10% 85%", duration: 0.4, ease: "back.out(2)" }, 25.1);
+      tl.to("#s3-mascot-bob .leaf", { scale: 1.5, duration: 0.4, ease: "back.out(2)" }, 27.3);
+      tl.to("#s3-mascot-bob .leaf", { scale: 1.8, duration: 0.4, ease: "back.out(2)" }, 29.3);
+
+      tl.fromTo("#s3-note", { opacity: 0, x: 40 }, { opacity: 1, x: 0, duration: 0.5, ease: "power2.out" }, 29.9);
+
+      // robot rejection gag
+      tl.fromTo("#s3-robot", { y: 140, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "back.out(1.6)" }, 31.1);
+      tl.fromTo("#s3-stamp", { scale: 3.2, opacity: 0, rotation: -9 }, { scale: 1, opacity: 1, rotation: -9, duration: 0.28, ease: "power4.out" }, 31.7);
+      tl.to("#s3-robot", { rotation: 8, y: 26, duration: 0.3, ease: "power2.in" }, 31.85);
+      tl.fromTo("#s3-stamp-sub", { opacity: 0 }, { opacity: 1, duration: 0.35, ease: "sine.out" }, 32.2);
+
+      /* ===== T3: circle iris @34.5 ===== */
+      tl.set("#s4", { opacity: 1 }, 34.5);
+      tl.fromTo("#s4", { clipPath: "circle(0% at 50% 50%)" }, { clipPath: "circle(75% at 50% 50%)", duration: 0.5, ease: "power2.out" }, 34.5);
+      tl.set("#s3", { opacity: 0 }, 35.0);
+
+      /* ===== SCENE 4 (34.5 - 45.5) ===== */
+      tl.fromTo("#s4-title", { y: 46, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "expo.out" }, 35.1);
+      tl.fromTo("#s4-sub", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.45, ease: "power3.out" }, 35.45);
+      tl.fromTo("#s4-ghost", { opacity: 0 }, { opacity: 1, duration: 1.2, ease: "sine.out" }, 35.6);
+      tl.fromTo("#s4-c1", { y: 110, opacity: 0, rotation: -2 }, { y: 0, opacity: 1, rotation: 0, duration: 0.55, ease: "power3.out" }, 35.8);
+      tl.fromTo("#s4-c2", { y: 110, opacity: 0, rotation: 1.6 }, { y: 0, opacity: 1, rotation: 0, duration: 0.55, ease: "power3.out" }, 35.95);
+      tl.fromTo("#s4-c3", { y: 110, opacity: 0, rotation: -1.4 }, { y: 0, opacity: 1, rotation: 0, duration: 0.55, ease: "power3.out" }, 36.1);
+      tl.fromTo("#s4-progress-fill", { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: "power2.out" }, 36.7);
+      tl.fromTo("#s4-mascot-wrap", { x: 280 }, { x: 0, duration: 0.6, ease: "back.out(1.7)" }, 37.6);
+      tl.fromTo("#s4-mascot-bob", { y: 0 }, { y: -8, duration: 0.8, ease: "sine.inOut", yoyo: true, repeat: 8 }, 38.2);
+      tl.fromTo("#s4-pill", { scale: 0, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.55, ease: "elastic.out(1, 0.5)" }, 38.9);
+      tl.to("#s4-pill", { y: -16, duration: 0.7, ease: "sine.inOut", yoyo: true, repeat: 7 }, 39.5);
+      tl.fromTo("#s4-meta", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "sine.out" }, 40.7);
+
+      /* ===== T4: blur crossfade @45.5 ===== */
+      tl.to("#s4", { filter: "blur(10px)", scale: 1.03, opacity: 0, duration: 0.5, ease: "power2.inOut" }, 45.5);
+      tl.fromTo("#s5", { filter: "blur(10px)", scale: 0.97, opacity: 0 }, { filter: "blur(0px)", scale: 1, opacity: 1, duration: 0.5, ease: "power2.inOut" }, 45.6);
+
+      /* ===== SCENE 5 (45.5 - 57.5) — final scene: exits allowed ===== */
+      tl.fromTo("#s5-spot", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.9, ease: "sine.out" }, 45.9);
+      tl.fromTo("#s5-floor", { opacity: 0 }, { opacity: 0.8, duration: 0.8, ease: "sine.out" }, 46.0);
+      tl.fromTo("#s5-line1", { y: 40, opacity: 0, filter: "blur(6px)" }, { y: 0, opacity: 1, filter: "blur(0px)", duration: 0.55, ease: "power3.out" }, 46.5);
+      tl.to("#s5-line1", { opacity: 0, filter: "blur(8px)", y: -30, duration: 0.4, ease: "power2.in" }, 49.3);
+      tl.set("#s5-line1", { visibility: "hidden" }, 49.75);
+      tl.fromTo("#s5-line2", { scale: 2.4, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.36, ease: "power4.out" }, 49.85);
+      tl.fromTo("#s5-underline", { scaleX: 0, opacity: 1 }, { scaleX: 1, opacity: 1, duration: 0.5, ease: "power3.out" }, 50.25);
+      tl.fromTo("#s5-mascot-wrap", { y: 220, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "back.out(1.6)" }, 50.7);
+      tl.fromTo("#s5-mascot-bob", { y: 0 }, { y: -12, duration: 0.85, ease: "sine.inOut", yoyo: true, repeat: 6 }, 51.4);
+      tl.fromTo("#s5-wordmark", { opacity: 0, y: 26 }, { opacity: 1, y: 0, duration: 0.5, ease: "power2.out" }, 51.9);
+      tl.fromTo("#s5-cta", { opacity: 0 }, { opacity: 1, duration: 0.5, ease: "sine.out" }, 52.4);
+      // confetti burst
+      (function () {
+        for (var i = 0; i < 26; i++) {
+          var sd = confettiSeeds[i];
+          tl.fromTo("#cf" + i, { x: 0, y: 0, rotation: 0, opacity: 1, scale: 1 },
+            { x: sd.x, y: sd.y + 240, rotation: sd.r, opacity: 0, scale: 0.6, duration: sd.d, ease: "power1.out" }, 50.55);
+        }
+      })();
+      tl.to("#s5-fade", { opacity: 1, duration: 1.1, ease: "power1.inOut" }, 56.3);
+
+      window.__timelines["main"] = tl;
+    </script>
+  </body>
+</html>

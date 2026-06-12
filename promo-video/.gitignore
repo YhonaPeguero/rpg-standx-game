@@ -1,0 +1,7 @@
+# Local tooling and regenerable artifacts
+node_modules/
+.hyperframes/
+
+# Keep only the final MP4; drafts and frame dumps are regenerable
+renders/*
+!renders/standx-rpg-promo.mp4
